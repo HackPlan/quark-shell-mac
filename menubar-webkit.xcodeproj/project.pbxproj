@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A91F9E318E2530B00AA8B7E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91F9E218E2530B00AA8B7E /* Cocoa.framework */; };
+		1A91F9ED18E2530B00AA8B7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A91F9EB18E2530B00AA8B7E /* InfoPlist.strings */; };
+		1A91F9EF18E2530B00AA8B7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A91F9EE18E2530B00AA8B7E /* main.m */; };
+		1A91F9F318E2530B00AA8B7E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1A91F9F118E2530B00AA8B7E /* Credits.rtf */; };
+		1A91F9F618E2530B00AA8B7E /* LDYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A91F9F518E2530B00AA8B7E /* LDYAppDelegate.m */; };
+		1A91F9F918E2530B00AA8B7E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A91F9F718E2530B00AA8B7E /* MainMenu.xib */; };
+		1A91F9FB18E2530B00AA8B7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A91F9FA18E2530B00AA8B7E /* Images.xcassets */; };
+		1A91FA0218E2530B00AA8B7E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91FA0118E2530B00AA8B7E /* XCTest.framework */; };
+		1A91FA0318E2530B00AA8B7E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91F9E218E2530B00AA8B7E /* Cocoa.framework */; };
+		1A91FA0B18E2530C00AA8B7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A91FA0918E2530C00AA8B7E /* InfoPlist.strings */; };
+		1A91FA0D18E2530C00AA8B7E /* menubar_webkitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A91FA0C18E2530C00AA8B7E /* menubar_webkitTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1A91FA0418E2530C00AA8B7E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A91F9D718E2530B00AA8B7E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A91F9DE18E2530B00AA8B7E;
+			remoteInfo = "menubar-webkit";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1A91F9DF18E2530B00AA8B7E /* menubar-webkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "menubar-webkit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A91F9E218E2530B00AA8B7E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		1A91F9E518E2530B00AA8B7E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		1A91F9E618E2530B00AA8B7E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1A91F9E718E2530B00AA8B7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1A91F9EA18E2530B00AA8B7E /* menubar-webkit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "menubar-webkit-Info.plist"; sourceTree = "<group>"; };
+		1A91F9EC18E2530B00AA8B7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1A91F9EE18E2530B00AA8B7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1A91F9F018E2530B00AA8B7E /* menubar-webkit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "menubar-webkit-Prefix.pch"; sourceTree = "<group>"; };
+		1A91F9F218E2530B00AA8B7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		1A91F9F418E2530B00AA8B7E /* LDYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDYAppDelegate.h; sourceTree = "<group>"; };
+		1A91F9F518E2530B00AA8B7E /* LDYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDYAppDelegate.m; sourceTree = "<group>"; };
+		1A91F9F818E2530B00AA8B7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		1A91F9FA18E2530B00AA8B7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1A91FA0018E2530B00AA8B7E /* menubar-webkitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "menubar-webkitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A91FA0118E2530B00AA8B7E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1A91FA0818E2530C00AA8B7E /* menubar-webkitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "menubar-webkitTests-Info.plist"; sourceTree = "<group>"; };
+		1A91FA0A18E2530C00AA8B7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1A91FA0C18E2530C00AA8B7E /* menubar_webkitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = menubar_webkitTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A91F9DC18E2530B00AA8B7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A91F9E318E2530B00AA8B7E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A91F9FD18E2530B00AA8B7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A91FA0318E2530B00AA8B7E /* Cocoa.framework in Frameworks */,
+				1A91FA0218E2530B00AA8B7E /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A91F9D618E2530B00AA8B7E = {
+			isa = PBXGroup;
+			children = (
+				1A91F9E818E2530B00AA8B7E /* menubar-webkit */,
+				1A91FA0618E2530C00AA8B7E /* menubar-webkitTests */,
+				1A91F9E118E2530B00AA8B7E /* Frameworks */,
+				1A91F9E018E2530B00AA8B7E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1A91F9E018E2530B00AA8B7E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A91F9DF18E2530B00AA8B7E /* menubar-webkit.app */,
+				1A91FA0018E2530B00AA8B7E /* menubar-webkitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A91F9E118E2530B00AA8B7E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A91F9E218E2530B00AA8B7E /* Cocoa.framework */,
+				1A91FA0118E2530B00AA8B7E /* XCTest.framework */,
+				1A91F9E418E2530B00AA8B7E /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1A91F9E418E2530B00AA8B7E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A91F9E518E2530B00AA8B7E /* AppKit.framework */,
+				1A91F9E618E2530B00AA8B7E /* CoreData.framework */,
+				1A91F9E718E2530B00AA8B7E /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		1A91F9E818E2530B00AA8B7E /* menubar-webkit */ = {
+			isa = PBXGroup;
+			children = (
+				1A91F9F418E2530B00AA8B7E /* LDYAppDelegate.h */,
+				1A91F9F518E2530B00AA8B7E /* LDYAppDelegate.m */,
+				1A91F9F718E2530B00AA8B7E /* MainMenu.xib */,
+				1A91F9FA18E2530B00AA8B7E /* Images.xcassets */,
+				1A91F9E918E2530B00AA8B7E /* Supporting Files */,
+			);
+			path = "menubar-webkit";
+			sourceTree = "<group>";
+		};
+		1A91F9E918E2530B00AA8B7E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1A91F9EA18E2530B00AA8B7E /* menubar-webkit-Info.plist */,
+				1A91F9EB18E2530B00AA8B7E /* InfoPlist.strings */,
+				1A91F9EE18E2530B00AA8B7E /* main.m */,
+				1A91F9F018E2530B00AA8B7E /* menubar-webkit-Prefix.pch */,
+				1A91F9F118E2530B00AA8B7E /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1A91FA0618E2530C00AA8B7E /* menubar-webkitTests */ = {
+			isa = PBXGroup;
+			children = (
+				1A91FA0C18E2530C00AA8B7E /* menubar_webkitTests.m */,
+				1A91FA0718E2530C00AA8B7E /* Supporting Files */,
+			);
+			path = "menubar-webkitTests";
+			sourceTree = "<group>";
+		};
+		1A91FA0718E2530C00AA8B7E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1A91FA0818E2530C00AA8B7E /* menubar-webkitTests-Info.plist */,
+				1A91FA0918E2530C00AA8B7E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A91F9DE18E2530B00AA8B7E /* menubar-webkit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A91FA1018E2530C00AA8B7E /* Build configuration list for PBXNativeTarget "menubar-webkit" */;
+			buildPhases = (
+				1A91F9DB18E2530B00AA8B7E /* Sources */,
+				1A91F9DC18E2530B00AA8B7E /* Frameworks */,
+				1A91F9DD18E2530B00AA8B7E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "menubar-webkit";
+			productName = "menubar-webkit";
+			productReference = 1A91F9DF18E2530B00AA8B7E /* menubar-webkit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1A91F9FF18E2530B00AA8B7E /* menubar-webkitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A91FA1318E2530C00AA8B7E /* Build configuration list for PBXNativeTarget "menubar-webkitTests" */;
+			buildPhases = (
+				1A91F9FC18E2530B00AA8B7E /* Sources */,
+				1A91F9FD18E2530B00AA8B7E /* Frameworks */,
+				1A91F9FE18E2530B00AA8B7E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A91FA0518E2530C00AA8B7E /* PBXTargetDependency */,
+			);
+			name = "menubar-webkitTests";
+			productName = "menubar-webkitTests";
+			productReference = 1A91FA0018E2530B00AA8B7E /* menubar-webkitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A91F9D718E2530B00AA8B7E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LDY;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Xhacker;
+				TargetAttributes = {
+					1A91F9FF18E2530B00AA8B7E = {
+						TestTargetID = 1A91F9DE18E2530B00AA8B7E;
+					};
+				};
+			};
+			buildConfigurationList = 1A91F9DA18E2530B00AA8B7E /* Build configuration list for PBXProject "menubar-webkit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A91F9D618E2530B00AA8B7E;
+			productRefGroup = 1A91F9E018E2530B00AA8B7E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A91F9DE18E2530B00AA8B7E /* menubar-webkit */,
+				1A91F9FF18E2530B00AA8B7E /* menubar-webkitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A91F9DD18E2530B00AA8B7E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A91F9ED18E2530B00AA8B7E /* InfoPlist.strings in Resources */,
+				1A91F9FB18E2530B00AA8B7E /* Images.xcassets in Resources */,
+				1A91F9F318E2530B00AA8B7E /* Credits.rtf in Resources */,
+				1A91F9F918E2530B00AA8B7E /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A91F9FE18E2530B00AA8B7E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A91FA0B18E2530C00AA8B7E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A91F9DB18E2530B00AA8B7E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A91F9F618E2530B00AA8B7E /* LDYAppDelegate.m in Sources */,
+				1A91F9EF18E2530B00AA8B7E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A91F9FC18E2530B00AA8B7E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A91FA0D18E2530C00AA8B7E /* menubar_webkitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A91FA0518E2530C00AA8B7E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A91F9DE18E2530B00AA8B7E /* menubar-webkit */;
+			targetProxy = 1A91FA0418E2530C00AA8B7E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1A91F9EB18E2530B00AA8B7E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A91F9EC18E2530B00AA8B7E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1A91F9F118E2530B00AA8B7E /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A91F9F218E2530B00AA8B7E /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		1A91F9F718E2530B00AA8B7E /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A91F9F818E2530B00AA8B7E /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		1A91FA0918E2530C00AA8B7E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A91FA0A18E2530C00AA8B7E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1A91FA0E18E2530C00AA8B7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1A91FA0F18E2530C00AA8B7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1A91FA1118E2530C00AA8B7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "menubar-webkit/menubar-webkit-Prefix.pch";
+				INFOPLIST_FILE = "menubar-webkit/menubar-webkit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1A91FA1218E2530C00AA8B7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "menubar-webkit/menubar-webkit-Prefix.pch";
+				INFOPLIST_FILE = "menubar-webkit/menubar-webkit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1A91FA1418E2530C00AA8B7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/menubar-webkit.app/Contents/MacOS/menubar-webkit";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "menubar-webkit/menubar-webkit-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "menubar-webkitTests/menubar-webkitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		1A91FA1518E2530C00AA8B7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/menubar-webkit.app/Contents/MacOS/menubar-webkit";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "menubar-webkit/menubar-webkit-Prefix.pch";
+				INFOPLIST_FILE = "menubar-webkitTests/menubar-webkitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A91F9DA18E2530B00AA8B7E /* Build configuration list for PBXProject "menubar-webkit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A91FA0E18E2530C00AA8B7E /* Debug */,
+				1A91FA0F18E2530C00AA8B7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A91FA1018E2530C00AA8B7E /* Build configuration list for PBXNativeTarget "menubar-webkit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A91FA1118E2530C00AA8B7E /* Debug */,
+				1A91FA1218E2530C00AA8B7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1A91FA1318E2530C00AA8B7E /* Build configuration list for PBXNativeTarget "menubar-webkitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A91FA1418E2530C00AA8B7E /* Debug */,
+				1A91FA1518E2530C00AA8B7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A91F9D718E2530B00AA8B7E /* Project object */;
+}
