@@ -8,11 +8,22 @@
 
 #import "LDYAppDelegate.h"
 
+@interface LDYAppDelegate ()
+
+@property NSStatusItem *statusItem;
+
+@end
+
 @implementation LDYAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    NSStatusBar *bar = [NSStatusBar systemStatusBar];
+
+    self.statusItem = [bar statusItemWithLength:NSVariableStatusItemLength];
+
+    self.statusItem.title = @"Xhacker";
+    self.statusItem.highlightMode = YES;
 }
 
 @end
