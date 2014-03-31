@@ -17,14 +17,49 @@ static NSString * const kWebScriptNamespace = @"mw";
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];
 }
 
+#pragma mark WebScripting Protocol
+
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)selector
 {
-	return NO;
+    if (selector == @selector(quit) ||
+        selector == @selector(notify:)) {
+        return NO;
+    }
+
+    return YES;
 }
+
++ (NSString*)webScriptNameForSelector:(SEL)selector
+{
+	id result = nil;
+
+	if (selector == @selector(notify:)) {
+		result = @"notify";
+	}
+
+	return result;
+}
+
++ (BOOL)isKeyExcludedFromWebScript:(const char *)name
+{
+	return YES;
+}
+
+#pragma mark - Methods for JavaScript
 
 - (void)quit
 {
     [NSApp terminate:nil];
+}
+
+- (void)notify:(WebScriptObject *)message
+{
+    NSUserNotification *notification = [[NSUserNotification alloc] init];
+    notification.title = [message valueForKey:@"title"];
+    notification.informativeText = [message valueForKey:@"content"];
+    notification.deliveryDate = [NSDate date];
+    notification.soundName = NSUserNotificationDefaultSoundName;
+    [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notification];
 }
 
 #pragma mark - Delegate methods

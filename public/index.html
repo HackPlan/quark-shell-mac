@@ -20,12 +20,11 @@
   </style>
 </head>
 <body>
-  <script type="text/javascript">
-    mw.notify({title: 'Menubar WebKit', content: 'Hello World'})
-  </script>
-
   <h1>Menubar WebKit</h1>
 
-  <p class="button"><button onclick="mw.quit()">Quit</button></p>
+  <p class="button">
+    <button onclick="mw.notify({title: 'Menubar WebKit', content: 'Hello World'})">Notify</button>
+    <button onclick="mw.quit()">Quit</button>
+  </p>
 </body>
 </html>
