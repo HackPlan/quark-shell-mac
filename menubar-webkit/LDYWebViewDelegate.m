@@ -22,6 +22,7 @@ static NSString * const kWebScriptNamespace = @"mw";
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)selector
 {
     if (selector == @selector(quit) ||
+        selector == @selector(openURL:) ||
         selector == @selector(notify:)) {
         return NO;
     }
@@ -36,6 +37,9 @@ static NSString * const kWebScriptNamespace = @"mw";
 	if (selector == @selector(notify:)) {
 		result = @"notify";
 	}
+    else if (selector == @selector(openURL:)) {
+        result = @"openURL";
+    }
 
 	return result;
 }
@@ -50,6 +54,11 @@ static NSString * const kWebScriptNamespace = @"mw";
 - (void)quit
 {
     [NSApp terminate:nil];
+}
+
+- (void)openURL:(NSString *)url
+{
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
 }
 
 - (void)notify:(WebScriptObject *)message
