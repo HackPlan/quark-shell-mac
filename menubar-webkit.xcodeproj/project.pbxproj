@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A7DD3DD18E9683F00F7D73A /* public in Resources */ = {isa = PBXBuildFile; fileRef = 1A7DD3DC18E9683F00F7D73A /* public */; };
 		1A91F9E318E2530B00AA8B7E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91F9E218E2530B00AA8B7E /* Cocoa.framework */; };
 		1A91F9ED18E2530B00AA8B7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A91F9EB18E2530B00AA8B7E /* InfoPlist.strings */; };
 		1A91F9EF18E2530B00AA8B7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A91F9EE18E2530B00AA8B7E /* main.m */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A7DD3DC18E9683F00F7D73A /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
 		1A91F9DF18E2530B00AA8B7E /* menubar-webkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "menubar-webkit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A91F9E218E2530B00AA8B7E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1A91F9E518E2530B00AA8B7E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -79,6 +81,7 @@
 		1A91F9D618E2530B00AA8B7E = {
 			isa = PBXGroup;
 			children = (
+				1A7DD3DC18E9683F00F7D73A /* public */,
 				1A91F9E818E2530B00AA8B7E /* menubar-webkit */,
 				1A91FA0618E2530C00AA8B7E /* menubar-webkitTests */,
 				1A91F9E118E2530B00AA8B7E /* Frameworks */,
@@ -235,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A7DD3DD18E9683F00F7D73A /* public in Resources */,
 				1A91F9ED18E2530B00AA8B7E /* InfoPlist.strings in Resources */,
 				1A91F9FB18E2530B00AA8B7E /* Images.xcassets in Resources */,
 				1A91F9F318E2530B00AA8B7E /* Credits.rtf in Resources */,
@@ -471,6 +475,7 @@
 				1A91FA1218E2530C00AA8B7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A91FA1318E2530C00AA8B7E /* Build configuration list for PBXNativeTarget "menubar-webkitTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +484,7 @@
 				1A91FA1518E2530C00AA8B7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

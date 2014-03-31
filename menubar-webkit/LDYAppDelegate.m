@@ -9,6 +9,8 @@
 #import "LDYAppDelegate.h"
 #import <WebKit/WebKit.h>
 
+static NSString * const kIndexPath = @"public/index.html";
+
 @interface LDYAppDelegate ()
 
 @property NSStatusItem *statusItem;
@@ -29,7 +31,8 @@
 
     self.window.level = NSStatusWindowLevel;
 
-    self.webView.mainFrameURL = @"http://xhacker.im";
+    NSString *url = [[NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]] absoluteString];
+    self.webView.mainFrameURL = url;
 }
 
 - (void)statusItemClicked
