@@ -7,7 +7,7 @@
 //
 
 #import "LDYAppDelegate.h"
-#import <WebKit/WebKit.h>
+#import "LDYWebViewDelegate.h"
 
 static NSString * const kIndexPath = @"public/index.html";
 
@@ -15,6 +15,7 @@ static NSString * const kIndexPath = @"public/index.html";
 
 @property NSStatusItem *statusItem;
 @property (weak) IBOutlet WebView *webView;
+@property LDYWebViewDelegate *webViewDelegate;
 
 @end
 
@@ -33,6 +34,10 @@ static NSString * const kIndexPath = @"public/index.html";
 
     NSString *url = [[NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]] absoluteString];
     self.webView.mainFrameURL = url;
+
+    self.webViewDelegate = [[LDYWebViewDelegate alloc] init];
+    self.webView.frameLoadDelegate = self.webViewDelegate;
+    self.webView.UIDelegate = self.webViewDelegate;
 }
 
 - (void)statusItemClicked

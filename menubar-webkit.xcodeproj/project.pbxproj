@@ -20,6 +20,7 @@
 		1A91FA0B18E2530C00AA8B7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A91FA0918E2530C00AA8B7E /* InfoPlist.strings */; };
 		1A91FA0D18E2530C00AA8B7E /* menubar_webkitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A91FA0C18E2530C00AA8B7E /* menubar_webkitTests.m */; };
 		1A91FA5A18E25F3C00AA8B7E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91FA5918E25F3C00AA8B7E /* WebKit.framework */; };
+		1AF6371E18E9FF430099B508 /* LDYWebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6371D18E9FF430099B508 /* LDYWebViewDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		1A91FA0A18E2530C00AA8B7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1A91FA0C18E2530C00AA8B7E /* menubar_webkitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = menubar_webkitTests.m; sourceTree = "<group>"; };
 		1A91FA5918E25F3C00AA8B7E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		1AF6371C18E9FF430099B508 /* LDYWebViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYWebViewDelegate.h; sourceTree = "<group>"; };
+		1AF6371D18E9FF430099B508 /* LDYWebViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYWebViewDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,8 @@
 			children = (
 				1A91F9F418E2530B00AA8B7E /* LDYAppDelegate.h */,
 				1A91F9F518E2530B00AA8B7E /* LDYAppDelegate.m */,
+				1AF6371C18E9FF430099B508 /* LDYWebViewDelegate.h */,
+				1AF6371D18E9FF430099B508 /* LDYWebViewDelegate.m */,
 				1A91F9F718E2530B00AA8B7E /* MainMenu.xib */,
 				1A91F9FA18E2530B00AA8B7E /* Images.xcassets */,
 				1A91F9E918E2530B00AA8B7E /* Supporting Files */,
@@ -263,6 +268,7 @@
 			files = (
 				1A91F9F618E2530B00AA8B7E /* LDYAppDelegate.m in Sources */,
 				1A91F9EF18E2530B00AA8B7E /* main.m in Sources */,
+				1AF6371E18E9FF430099B508 /* LDYWebViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
