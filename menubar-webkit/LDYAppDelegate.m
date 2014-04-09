@@ -14,6 +14,7 @@ static NSString * const kIndexPath = @"public/index.html";
 @interface LDYAppDelegate ()
 
 @property NSStatusItem *statusItem;
+@property NSButton *buttonItem;
 @property (weak) IBOutlet WebView *webView;
 @property LDYWebViewDelegate *webViewDelegate;
 
@@ -25,10 +26,15 @@ static NSString * const kIndexPath = @"public/index.html";
 {
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
 
-    self.statusItem = [bar statusItemWithLength:NSVariableStatusItemLength];
-    self.statusItem.title = @"Xhacker";
+    self.statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
     self.statusItem.highlightMode = YES;
     [self.statusItem setAction:@selector(statusItemClicked)];
+
+    // TODO: need custom view
+    self.buttonItem = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 20, 20)];
+    self.buttonItem.target = self;
+    self.buttonItem.action = @selector(statusItemClicked);
+    self.statusItem.view = self.buttonItem;
 
     self.window.level = NSStatusWindowLevel;
 
@@ -43,6 +49,12 @@ static NSString * const kIndexPath = @"public/index.html";
 - (void)statusItemClicked
 {
     self.window.isVisible = !self.window.isVisible;
+
+    NSRect itemFrame = self.statusItem.view.window.frame;
+    NSRect windowFrame = self.window.frame;
+    windowFrame.origin.x = NSMidX(itemFrame) - NSWidth(windowFrame) / 2.0;
+    windowFrame.origin.y = NSMinY(itemFrame) - NSHeight(windowFrame) - 12.0; // for arrow
+    [self.window setFrame:windowFrame display:NO];
 }
 
 @end
