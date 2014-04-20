@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A7DD3DD18E9683F00F7D73A /* public in Resources */ = {isa = PBXBuildFile; fileRef = 1A7DD3DC18E9683F00F7D73A /* public */; };
+		1A82DE5B1903B095006AB37F /* LDYWindowBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82DE5A1903B095006AB37F /* LDYWindowBorderView.m */; };
 		1A91F9E318E2530B00AA8B7E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91F9E218E2530B00AA8B7E /* Cocoa.framework */; };
 		1A91F9ED18E2530B00AA8B7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A91F9EB18E2530B00AA8B7E /* InfoPlist.strings */; };
 		1A91F9EF18E2530B00AA8B7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A91F9EE18E2530B00AA8B7E /* main.m */; };
@@ -35,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		1A7DD3DC18E9683F00F7D73A /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
+		1A82DE591903B095006AB37F /* LDYWindowBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYWindowBorderView.h; sourceTree = "<group>"; };
+		1A82DE5A1903B095006AB37F /* LDYWindowBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYWindowBorderView.m; sourceTree = "<group>"; };
 		1A91F9DF18E2530B00AA8B7E /* menubar-webkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "menubar-webkit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A91F9E218E2530B00AA8B7E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1A91F9E518E2530B00AA8B7E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -129,6 +132,8 @@
 				1A91F9F518E2530B00AA8B7E /* LDYAppDelegate.m */,
 				1AF6371C18E9FF430099B508 /* LDYWebViewDelegate.h */,
 				1AF6371D18E9FF430099B508 /* LDYWebViewDelegate.m */,
+				1A82DE591903B095006AB37F /* LDYWindowBorderView.h */,
+				1A82DE5A1903B095006AB37F /* LDYWindowBorderView.m */,
 				1A91F9F718E2530B00AA8B7E /* MainMenu.xib */,
 				1A91F9FA18E2530B00AA8B7E /* Images.xcassets */,
 				1A91F9E918E2530B00AA8B7E /* Supporting Files */,
@@ -268,6 +273,7 @@
 			files = (
 				1A91F9F618E2530B00AA8B7E /* LDYAppDelegate.m in Sources */,
 				1A91F9EF18E2530B00AA8B7E /* main.m in Sources */,
+				1A82DE5B1903B095006AB37F /* LDYWindowBorderView.m in Sources */,
 				1AF6371E18E9FF430099B508 /* LDYWebViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
