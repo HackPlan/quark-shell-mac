@@ -37,6 +37,10 @@ static NSString * const kIndexPath = @"public/index.html";
     self.statusItem.view = self.buttonItem;
 
     self.window.level = NSStatusWindowLevel;
+    [self.window setOpaque:NO];
+    [self.window setBackgroundColor:[NSColor clearColor]];
+
+    [self.webView setDrawsBackground:NO];
 
     NSString *url = [[NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]] absoluteString];
     self.webView.mainFrameURL = url;
@@ -53,7 +57,7 @@ static NSString * const kIndexPath = @"public/index.html";
     NSRect itemFrame = self.statusItem.view.window.frame;
     NSRect windowFrame = self.window.frame;
     windowFrame.origin.x = NSMidX(itemFrame) - NSWidth(windowFrame) / 2.0;
-    windowFrame.origin.y = NSMinY(itemFrame) - NSHeight(windowFrame) - 12.0; // for arrow
+    windowFrame.origin.y = NSMinY(itemFrame) - NSHeight(windowFrame);
     [self.window setFrame:windowFrame display:NO];
 }
 
