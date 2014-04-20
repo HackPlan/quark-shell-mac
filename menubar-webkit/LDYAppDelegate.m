@@ -40,6 +40,9 @@ static NSString * const kIndexPath = @"public/index.html";
     [self.window setOpaque:NO];
     [self.window setBackgroundColor:[NSColor clearColor]];
 
+    self.webView.wantsLayer = YES;
+    self.webView.layer.cornerRadius = 5;
+    self.webView.layer.masksToBounds = YES;
     [self.webView setDrawsBackground:NO];
 
     NSString *url = [[NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]] absoluteString];
