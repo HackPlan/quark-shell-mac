@@ -23,9 +23,11 @@
   <h1>Menubar WebKit</h1>
 
   <p class="button">
-    <button onclick="mw.notify({title: 'Menubar WebKit', content: 'Hello World'})">Notify</button>
-    <button onclick="mw.openURL('http://www.google.com')">Open URL</button>
-    <button onclick="mw.quit()">Quit</button>
+    <button id="notify">Notify</button>
+    <button id="open">Open URL</button>
+    <button id="quit">Quit</button>
   </p>
+  <script type="text/javascript" src="jquery-2.1.0.min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
