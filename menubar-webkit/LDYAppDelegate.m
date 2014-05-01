@@ -8,13 +8,14 @@
 
 #import "LDYAppDelegate.h"
 #import "LDYWebViewDelegate.h"
+#import "LDYStatusItemView.h"
 
 static NSString * const kIndexPath = @"public/index.html";
 
 @interface LDYAppDelegate ()
 
 @property NSStatusItem *statusItem;
-@property NSButton *buttonItem;
+@property LDYStatusItemView *statusItemView;
 @property (weak) IBOutlet WebView *webView;
 @property LDYWebViewDelegate *webViewDelegate;
 
@@ -30,11 +31,10 @@ static NSString * const kIndexPath = @"public/index.html";
     self.statusItem.highlightMode = YES;
     [self.statusItem setAction:@selector(statusItemClicked)];
 
-    // TODO: need custom view
-    self.buttonItem = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 20, 20)];
-    self.buttonItem.target = self;
-    self.buttonItem.action = @selector(statusItemClicked);
-    self.statusItem.view = self.buttonItem;
+    self.statusItemView = [[LDYStatusItemView alloc] initWithFrame:NSMakeRect(0, 0, 20, 20)];
+    self.statusItemView.target = self;
+    self.statusItemView.action = @selector(statusItemClicked);
+    self.statusItem.view = self.statusItemView;
 
     self.window.level = NSStatusWindowLevel;
     [self.window setOpaque:NO];

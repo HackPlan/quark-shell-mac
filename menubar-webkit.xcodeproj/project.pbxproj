@@ -21,6 +21,7 @@
 		1A91FA0B18E2530C00AA8B7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A91FA0918E2530C00AA8B7E /* InfoPlist.strings */; };
 		1A91FA0D18E2530C00AA8B7E /* menubar_webkitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A91FA0C18E2530C00AA8B7E /* menubar_webkitTests.m */; };
 		1A91FA5A18E25F3C00AA8B7E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91FA5918E25F3C00AA8B7E /* WebKit.framework */; };
+		1ABD40311912E3AB002A53FB /* LDYStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD40301912E3AB002A53FB /* LDYStatusItemView.m */; };
 		1AF6371E18E9FF430099B508 /* LDYWebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6371D18E9FF430099B508 /* LDYWebViewDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,8 @@
 		1A91FA0A18E2530C00AA8B7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1A91FA0C18E2530C00AA8B7E /* menubar_webkitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = menubar_webkitTests.m; sourceTree = "<group>"; };
 		1A91FA5918E25F3C00AA8B7E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		1ABD402F1912E3AB002A53FB /* LDYStatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYStatusItemView.h; sourceTree = "<group>"; };
+		1ABD40301912E3AB002A53FB /* LDYStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYStatusItemView.m; sourceTree = "<group>"; };
 		1AF6371C18E9FF430099B508 /* LDYWebViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYWebViewDelegate.h; sourceTree = "<group>"; };
 		1AF6371D18E9FF430099B508 /* LDYWebViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYWebViewDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +137,8 @@
 				1AF6371D18E9FF430099B508 /* LDYWebViewDelegate.m */,
 				1A82DE591903B095006AB37F /* LDYWindowBorderView.h */,
 				1A82DE5A1903B095006AB37F /* LDYWindowBorderView.m */,
+				1ABD402F1912E3AB002A53FB /* LDYStatusItemView.h */,
+				1ABD40301912E3AB002A53FB /* LDYStatusItemView.m */,
 				1A91F9F718E2530B00AA8B7E /* MainMenu.xib */,
 				1A91F9FA18E2530B00AA8B7E /* Images.xcassets */,
 				1A91F9E918E2530B00AA8B7E /* Supporting Files */,
@@ -275,6 +280,7 @@
 				1A91F9EF18E2530B00AA8B7E /* main.m in Sources */,
 				1A82DE5B1903B095006AB37F /* LDYWindowBorderView.m in Sources */,
 				1AF6371E18E9FF430099B508 /* LDYWebViewDelegate.m in Sources */,
+				1ABD40311912E3AB002A53FB /* LDYStatusItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

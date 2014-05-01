@@ -22,8 +22,6 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     [super drawRect:dirtyRect];
-
-    NSLog(@"drawRect:");
     
     CGFloat roundedRectangleCornerRadius = 5;
     CGFloat arrowHeight = 10;
