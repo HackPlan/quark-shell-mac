@@ -14,10 +14,10 @@ static NSString * const kIndexPath = @"public/index.html";
 
 @interface LDYAppDelegate ()
 
-@property NSStatusItem *statusItem;
-@property LDYStatusItemView *statusItemView;
-@property (weak) IBOutlet WebView *webView;
-@property LDYWebViewDelegate *webViewDelegate;
+@property (nonatomic) NSStatusItem *statusItem;
+@property (nonatomic) LDYStatusItemView *statusItemView;
+@property (nonatomic, weak) IBOutlet WebView *webView;
+@property (nonatomic) LDYWebViewDelegate *webViewDelegate;
 
 @end
 
@@ -28,13 +28,11 @@ static NSString * const kIndexPath = @"public/index.html";
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
 
     self.statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
-    self.statusItem.highlightMode = YES;
-    [self.statusItem setAction:@selector(statusItemClicked)];
-
     self.statusItemView = [[LDYStatusItemView alloc] initWithFrame:NSMakeRect(0, 0, 20, 20)];
     self.statusItemView.target = self;
     self.statusItemView.action = @selector(statusItemClicked);
     self.statusItem.view = self.statusItemView;
+    self.statusItemView.statusItem = self.statusItem;
 
     self.window.level = NSStatusWindowLevel;
     [self.window setOpaque:NO];
@@ -56,6 +54,7 @@ static NSString * const kIndexPath = @"public/index.html";
 - (void)statusItemClicked
 {
     self.window.isVisible = !self.window.isVisible;
+    self.statusItemView.highlighted = self.window.isVisible;
 
     NSRect itemFrame = self.statusItem.view.window.frame;
     NSRect windowFrame = self.window.frame;

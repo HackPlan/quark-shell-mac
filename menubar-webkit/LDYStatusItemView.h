@@ -10,4 +10,7 @@
 
 @interface LDYStatusItemView : NSButton
 
+@property (nonatomic, weak) NSStatusItem *statusItem;
+@property (nonatomic) BOOL highlighted;
+
 @end

@@ -19,13 +19,28 @@
     return self;
 }
 
+- (void)setHighlighted:(BOOL)highlighted
+{
+    _highlighted = highlighted;
+
+    [self setNeedsDisplay];
+}
+
 - (void)drawRect:(NSRect)dirtyRect
 {
+
     CGFloat offset = (NSWidth(self.bounds) - 20) / 2;
     NSRect iconFrame = NSMakeRect(offset, 0, 20, 20);
 
-    NSImage *iconImage = [NSImage imageNamed:@"StatusIcon"];
-    [iconImage drawInRect:iconFrame];
+    if (self.highlighted) {
+        [self.statusItem drawStatusBarBackgroundInRect:self.bounds withHighlight:YES];
+        NSImage *iconImage = [NSImage imageNamed:@"StatusIconWhite"];
+        [iconImage drawInRect:iconFrame];
+    }
+    else {
+        NSImage *iconImage = [NSImage imageNamed:@"StatusIcon"];
+        [iconImage drawInRect:iconFrame];
+    }
 }
 
 @end
