@@ -12,6 +12,12 @@ static NSString * const kWebScriptNamespace = @"mw";
 
 @implementation LDYWebViewDelegate
 
++ (void)initialize
+{
+	[[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"WebKitDeveloperExtras"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 - (void)webView:(WebView*)webView didClearWindowObject:(WebScriptObject *)windowScriptObject forFrame:(WebFrame *)frame
 {
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];
