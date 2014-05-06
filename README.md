@@ -24,6 +24,20 @@ mw.notify({
 })
 ```
 
+## Integrating Web App
+
+Too see the sample app:
+
+```bash
+mv sample public
+```
+
+To add your own app:
+
+```bash
+git clone your.repository.address public
+```
+
 ## Progress
 
 | API               | Implemented? |
