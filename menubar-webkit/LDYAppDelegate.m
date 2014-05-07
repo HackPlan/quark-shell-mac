@@ -47,6 +47,7 @@ static NSString * const kIndexPath = @"public/index.html";
     self.webView.mainFrameURL = url;
 
     self.webViewDelegate = [[LDYWebViewDelegate alloc] init];
+    self.webViewDelegate.statusItemView = self.statusItemView;
     self.webView.frameLoadDelegate = self.webViewDelegate;
     self.webView.UIDelegate = self.webViewDelegate;
 }

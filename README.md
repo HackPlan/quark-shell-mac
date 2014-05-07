@@ -12,7 +12,8 @@ mw.quit()
 mw.openURL("http://pomotodo.com")
 
 // Set menubar icon
-mw.setMenubarIcon("images/icon.png")
+mw.setMenubarIcon("data:image/png;base64,iVBORw...SuQmCC")
+mw.setMenubarHighlightedIcon("data:image/png;base64,iVBORw...SuQmCC")
 
 // Auto start with system
 mw.setAutoStart(true)

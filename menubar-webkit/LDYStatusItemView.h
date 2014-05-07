@@ -12,5 +12,7 @@
 
 @property (nonatomic, weak) NSStatusItem *statusItem;
 @property (nonatomic) BOOL highlighted;
+@property (nonatomic) NSImage *icon;
+@property (nonatomic) NSImage *highlightedIcon;
 
 @end

@@ -14,7 +14,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code here.
+        _icon = [NSImage imageNamed:@"StatusIcon"];
+        _highlightedIcon = [NSImage imageNamed:@"StatusIconWhite"];
     }
     return self;
 }
@@ -22,6 +23,20 @@
 - (void)setHighlighted:(BOOL)highlighted
 {
     _highlighted = highlighted;
+
+    [self setNeedsDisplay];
+}
+
+- (void)setIcon:(NSImage *)icon
+{
+    _icon = icon;
+
+    [self setNeedsDisplay];
+}
+
+- (void)setHighlightedIcon:(NSImage *)highlightedIcon
+{
+    _highlightedIcon = highlightedIcon;
 
     [self setNeedsDisplay];
 }
@@ -34,11 +49,11 @@
 
     if (self.highlighted) {
         [self.statusItem drawStatusBarBackgroundInRect:self.bounds withHighlight:YES];
-        NSImage *iconImage = [NSImage imageNamed:@"StatusIconWhite"];
+        NSImage *iconImage = self.highlightedIcon;
         [iconImage drawInRect:iconFrame];
     }
     else {
-        NSImage *iconImage = [NSImage imageNamed:@"StatusIcon"];
+        NSImage *iconImage = self.icon;
         [iconImage drawInRect:iconFrame];
     }
 }

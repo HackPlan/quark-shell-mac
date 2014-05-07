@@ -29,6 +29,8 @@ static NSString * const kWebScriptNamespace = @"mw";
 {
     if (selector == @selector(quit) ||
         selector == @selector(openURL:) ||
+        selector == @selector(changeIcon:) ||
+        selector == @selector(changeHighlightedIcon:) ||
         selector == @selector(notify:)) {
         return NO;
     }
@@ -43,6 +45,12 @@ static NSString * const kWebScriptNamespace = @"mw";
 	if (selector == @selector(notify:)) {
 		result = @"notify";
 	}
+    else if (selector == @selector(changeIcon:)) {
+        result = @"setMenubarIcon";
+    }
+    else if (selector == @selector(changeHighlightedIcon:)) {
+        result = @"setMenubarHighlightedIcon";
+    }
     else if (selector == @selector(openURL:)) {
         result = @"openURL";
     }
@@ -65,6 +73,20 @@ static NSString * const kWebScriptNamespace = @"mw";
 - (void)openURL:(NSString *)url
 {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
+}
+
+- (void)changeIcon:(NSString *)base64
+{
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:base64]];
+    NSImage *icon = [[NSImage alloc] initWithData:data];
+    self.statusItemView.icon = icon;
+}
+
+- (void)changeHighlightedIcon:(NSString *)base64
+{
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:base64]];
+    NSImage *icon = [[NSImage alloc] initWithData:data];
+    self.statusItemView.highlightedIcon = icon;
 }
 
 - (void)notify:(WebScriptObject *)message
