@@ -41,10 +41,11 @@ git clone your.repository.address public
 
 ## Progress
 
-| API               | Implemented? |
-| ----------------- | ------------ |
-| mw.quit           | Yes          |
-| mw.openURL        | Yes          |
-| mw.setMenubarIcon | No           |
-| mw.setAutoStart   | No           |
-| mw.notify         | Yes          |
+| API                          | Implemented? |
+| ---------------------------- | ------------ |
+| mw.quit                      | Yes          |
+| mw.openURL                   | Yes          |
+| mw.setMenubarIcon            | Yes          |
+| mw.setMenubarHighlightedIcon | Yes          |
+| mw.setAutoStart              | No           |
+| mw.notify                    | Yes          |
