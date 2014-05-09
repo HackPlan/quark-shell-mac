@@ -4,6 +4,8 @@
 
 ## API
 
+APIs may change rapidly before 1.0.
+
 ```JavaScript
 // Quit application
 mw.quit()

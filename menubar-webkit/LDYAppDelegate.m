@@ -12,6 +12,14 @@
 
 static NSString * const kIndexPath = @"public/index.html";
 
+@interface WebPreferences (WebPreferencesPrivate)
+
+- (void)_setLocalStorageDatabasePath:(NSString *)path;
+- (void)setLocalStorageEnabled:(BOOL)localStorageEnabled;
+
+@end
+
+
 @interface LDYAppDelegate ()
 
 @property (nonatomic) NSStatusItem *statusItem;
@@ -25,6 +33,14 @@ static NSString * const kIndexPath = @"public/index.html";
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    // TODO: bundle name from manifest?
+    WebPreferences *webPrefs = [WebPreferences standardPreferences];
+    NSString *bundleName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
+    NSString *applicationSupportFile = [@"~/Library/Application Support/" stringByExpandingTildeInPath];
+    NSString *savePath = [NSString pathWithComponents:@[applicationSupportFile, bundleName, @"LocalStorage"]];
+    [webPrefs _setLocalStorageDatabasePath:savePath];
+    [webPrefs setLocalStorageEnabled:YES];
+
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
 
     self.statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
