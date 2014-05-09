@@ -41,6 +41,11 @@ To add your own app:
 git clone your.repository.address public
 ```
 
+## Credits
+
+* [MacGap](https://github.com/maccman/macgap) by [@maccman](https://github.com/maccman)
+* [Bang](https://github.com/jesseXu/Bang) by [@jesseXu](https://github.com/jesseXu)
+
 ## Progress
 
 | API                          | Implemented? |
