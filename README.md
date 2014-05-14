@@ -29,7 +29,7 @@ mw.notify({
 
 ## Integrating Web App
 
-Too see the sample app:
+To see the sample app:
 
 ```bash
 mv sample public
@@ -42,6 +42,8 @@ git clone your.repository.address public
 ```
 
 ## Credits
+
+Some of the code are taken from:
 
 * [MacGap](https://github.com/maccman/macgap) by [@maccman](https://github.com/maccman)
 * [Bang](https://github.com/jesseXu/Bang) by [@jesseXu](https://github.com/jesseXu)
