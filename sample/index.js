@@ -1,4 +1,6 @@
 $(function() {
+    $("input").focus()
+
     $("#notify").click(function(event) {
         mw.notify({title: 'Menubar WebKit', content: 'Hello World'})
     })

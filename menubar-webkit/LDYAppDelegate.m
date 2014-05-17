@@ -20,7 +20,7 @@ static NSString * const kIndexPath = @"public/index.html";
 @end
 
 
-@interface LDYAppDelegate ()
+@interface LDYAppDelegate () <NSWindowDelegate>
 
 @property (nonatomic) NSStatusItem *statusItem;
 @property (nonatomic) LDYStatusItemView *statusItemView;
@@ -50,7 +50,8 @@ static NSString * const kIndexPath = @"public/index.html";
     self.statusItem.view = self.statusItemView;
     self.statusItemView.statusItem = self.statusItem;
 
-    self.window.level = NSStatusWindowLevel;
+    self.window.level = NSPopUpMenuWindowLevel;
+    self.window.delegate = self;
     [self.window setOpaque:NO];
     [self.window setBackgroundColor:[NSColor clearColor]];
 
@@ -68,9 +69,20 @@ static NSString * const kIndexPath = @"public/index.html";
     self.webView.UIDelegate = self.webViewDelegate;
 }
 
+- (void)windowDidResignKey:(NSNotification *)notification
+{
+    self.window.isVisible = NO;
+    [self refreshStyle];
+}
+
 - (void)statusItemClicked
 {
     self.window.isVisible = !self.window.isVisible;
+    [self refreshStyle];
+}
+
+- (void)refreshStyle
+{
     self.statusItemView.highlighted = self.window.isVisible;
 
     NSRect itemFrame = self.statusItem.view.window.frame;
@@ -78,6 +90,11 @@ static NSString * const kIndexPath = @"public/index.html";
     windowFrame.origin.x = NSMidX(itemFrame) - NSWidth(windowFrame) / 2.0;
     windowFrame.origin.y = NSMinY(itemFrame) - NSHeight(windowFrame);
     [self.window setFrame:windowFrame display:NO];
+
+    if (self.window.isVisible) {
+        [self.window makeKeyAndOrderFront:nil];
+        [NSApp activateIgnoringOtherApps:YES];
+    }
 }
 
 @end
