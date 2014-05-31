@@ -7,6 +7,7 @@
 //
 
 #import "LDYWebViewDelegate.h"
+#import <MASShortcut+Monitoring.h>
 
 static NSString * const kWebScriptNamespace = @"mw";
 
@@ -18,7 +19,7 @@ static NSString * const kWebScriptNamespace = @"mw";
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (void)webView:(WebView*)webView didClearWindowObject:(WebScriptObject *)windowScriptObject forFrame:(WebFrame *)frame
+- (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowScriptObject forFrame:(WebFrame *)frame
 {
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];
 }
@@ -31,7 +32,8 @@ static NSString * const kWebScriptNamespace = @"mw";
         selector == @selector(openURL:) ||
         selector == @selector(changeIcon:) ||
         selector == @selector(changeHighlightedIcon:) ||
-        selector == @selector(notify:)) {
+        selector == @selector(notify:) ||
+        selector == @selector(addKeyboardShortcut:)) {
         return NO;
     }
 
@@ -53,6 +55,9 @@ static NSString * const kWebScriptNamespace = @"mw";
     }
     else if (selector == @selector(openURL:)) {
         result = @"openURL";
+    }
+    else if (selector == @selector(addKeyboardShortcut:)) {
+        result = @"addKeyboardShortcut";
     }
 
 	return result;
@@ -99,9 +104,20 @@ static NSString * const kWebScriptNamespace = @"mw";
     [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notification];
 }
 
+- (void)addKeyboardShortcut:(WebScriptObject *)shortcutObj
+{
+    NSUInteger keycode = [[shortcutObj valueForKey:@"keycode"] integerValue];
+    NSUInteger flags = [[shortcutObj valueForKey:@"modifierFlags"] integerValue];
+    NSString *callbackName = [shortcutObj valueForKey:@"callbackName"];
+    MASShortcut *shortcut = [MASShortcut shortcutWithKeyCode:keycode modifierFlags:flags];
+    [MASShortcut addGlobalHotkeyMonitorWithShortcut:shortcut handler:^{
+        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@()", callbackName]];
+    }];
+}
+
 #pragma mark - Delegate methods
 
-- (void)webView:(WebView*)webView addMessageToConsole:(NSDictionary*)message
+- (void)webView:(WebView *)webView addMessageToConsole:(NSDictionary *)message
 {
 	if (![message isKindOfClass:[NSDictionary class]]) {
 		return;

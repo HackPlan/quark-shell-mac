@@ -1,3 +1,7 @@
+function suchCallback() {
+    console.log("wow")
+}
+
 $(function() {
     $("input").focus()
 
@@ -11,6 +15,12 @@ $(function() {
 
     $("#quit").click(function(event) {
         mw.quit()
+    })
+
+    mw.addKeyboardShortcut({
+        keycode: 0x7A, // F1 key
+        modifierFlags: 0, // no modifier key
+        callbackName: "suchCallback"
     })
 
     $("#set-icon").click(function(event) {

@@ -12,5 +12,6 @@
 @interface LDYWebViewDelegate : NSObject
 
 @property (nonatomic, weak) LDYStatusItemView *statusItemView;
+@property (nonatomic, weak) WebView *webView;
 
 @end

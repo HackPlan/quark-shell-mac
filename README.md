@@ -18,12 +18,22 @@ mw.setMenubarIcon("data:image/png;base64,iVBORw...SuQmCC")
 mw.setMenubarHighlightedIcon("data:image/png;base64,iVBORw...SuQmCC")
 
 // Auto start with system
-mw.setAutoStart(true)
+mw.setAutoStart(true) // not implemented yet
 
 // Send system notification
 mw.notify({
   title: "Pomotodo",
   content: "Break is over!"
+})
+
+// Set global keyboard shortcut
+function suchCallback() {
+  console.log("wow")
+}
+mw.addKeyboardShortcut({
+  keycode: 0x7A, // F1 key
+  modifierFlags: 0, // no modifier key
+  callbackName: "suchCallback"
 })
 ```
 
@@ -48,13 +58,6 @@ Some of the code are taken from:
 * [MacGap](https://github.com/maccman/macgap) by [@maccman](https://github.com/maccman)
 * [Bang](https://github.com/jesseXu/Bang) by [@jesseXu](https://github.com/jesseXu)
 
-## Progress
+Used third-party libraries:
 
-| API                          | Implemented? |
-| ---------------------------- | ------------ |
-| mw.quit                      | Yes          |
-| mw.openURL                   | Yes          |
-| mw.setMenubarIcon            | Yes          |
-| mw.setMenubarHighlightedIcon | Yes          |
-| mw.setAutoStart              | No           |
-| mw.notify                    | Yes          |
+* [MASShortcut](https://github.com/shpakovski/MASShortcut) by [@shpakovski](https://github.com/shpakovski)
