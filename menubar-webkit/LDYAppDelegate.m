@@ -9,6 +9,7 @@
 #import "LDYAppDelegate.h"
 #import "LDYWebViewDelegate.h"
 #import "LDYStatusItemView.h"
+#import <MASShortcut+Monitoring.h>
 
 static NSString * const kIndexPath = @"public/index.html";
 
@@ -67,6 +68,11 @@ static NSString * const kIndexPath = @"public/index.html";
     self.webViewDelegate.statusItemView = self.statusItemView;
     self.webView.frameLoadDelegate = self.webViewDelegate;
     self.webView.UIDelegate = self.webViewDelegate;
+
+    MASShortcut *shortcut = [MASShortcut shortcutWithKeyCode:kVK_F1 modifierFlags:0];
+    [MASShortcut addGlobalHotkeyMonitorWithShortcut:shortcut handler:^{
+        NSLog(@"wow such shortcut");
+    }];
 }
 
 - (void)windowDidResignKey:(NSNotification *)notification
