@@ -24,6 +24,8 @@
 		1A91FA5A18E25F3C00AA8B7E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91FA5918E25F3C00AA8B7E /* WebKit.framework */; };
 		1ABD40311912E3AB002A53FB /* LDYStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD40301912E3AB002A53FB /* LDYStatusItemView.m */; };
 		1AF6371E18E9FF430099B508 /* LDYWebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6371D18E9FF430099B508 /* LDYWebViewDelegate.m */; };
+		1AFBA8BA19483E4900BEDA0A /* LDYPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFBA8B819483E4900BEDA0A /* LDYPreferencesViewController.m */; };
+		1AFBA8BB19483E4900BEDA0A /* LDYPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFBA8B919483E4900BEDA0A /* LDYPreferencesViewController.xib */; };
 		2E50CD93BE1C4FDAA087BA31 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDF5A5127B1458BB9768C43 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,9 @@
 		1ABD40301912E3AB002A53FB /* LDYStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYStatusItemView.m; sourceTree = "<group>"; };
 		1AF6371C18E9FF430099B508 /* LDYWebViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYWebViewDelegate.h; sourceTree = "<group>"; };
 		1AF6371D18E9FF430099B508 /* LDYWebViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYWebViewDelegate.m; sourceTree = "<group>"; };
+		1AFBA8B719483E4900BEDA0A /* LDYPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYPreferencesViewController.h; sourceTree = "<group>"; };
+		1AFBA8B819483E4900BEDA0A /* LDYPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYPreferencesViewController.m; sourceTree = "<group>"; };
+		1AFBA8B919483E4900BEDA0A /* LDYPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LDYPreferencesViewController.xib; sourceTree = "<group>"; };
 		6708A5D2E5B94976A34859BA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		BEDF5A5127B1458BB9768C43 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -150,6 +155,9 @@
 				1A82DE5A1903B095006AB37F /* LDYWindowBorderView.m */,
 				1ABD402F1912E3AB002A53FB /* LDYStatusItemView.h */,
 				1ABD40301912E3AB002A53FB /* LDYStatusItemView.m */,
+				1AFBA8B719483E4900BEDA0A /* LDYPreferencesViewController.h */,
+				1AFBA8B819483E4900BEDA0A /* LDYPreferencesViewController.m */,
+				1AFBA8B919483E4900BEDA0A /* LDYPreferencesViewController.xib */,
 				1A91F9F718E2530B00AA8B7E /* MainMenu.xib */,
 				1A91F9FA18E2530B00AA8B7E /* Images.xcassets */,
 				1A91F9E918E2530B00AA8B7E /* Supporting Files */,
@@ -270,6 +278,7 @@
 				1A91F9ED18E2530B00AA8B7E /* InfoPlist.strings in Resources */,
 				1A91F9FB18E2530B00AA8B7E /* Images.xcassets in Resources */,
 				1A91F9F318E2530B00AA8B7E /* Credits.rtf in Resources */,
+				1AFBA8BB19483E4900BEDA0A /* LDYPreferencesViewController.xib in Resources */,
 				1A91F9F918E2530B00AA8B7E /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AFBA8BA19483E4900BEDA0A /* LDYPreferencesViewController.m in Sources */,
 				1A91F9F618E2530B00AA8B7E /* LDYAppDelegate.m in Sources */,
 				1A91F9EF18E2530B00AA8B7E /* main.m in Sources */,
 				1A82DE5B1903B095006AB37F /* LDYWindowBorderView.m in Sources */,

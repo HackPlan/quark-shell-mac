@@ -7,9 +7,17 @@
 //
 
 #import "LDYWebViewDelegate.h"
+#import "LDYPreferencesViewController.h"
 #import <MASShortcut+Monitoring.h>
+#import <MASPreferencesWindowController.h>
 
 static NSString * const kWebScriptNamespace = @"mw";
+
+@interface LDYWebViewDelegate ()
+
+@property (nonatomic) NSWindowController *preferencesWindowController;
+
+@end
 
 @implementation LDYWebViewDelegate
 
@@ -33,7 +41,8 @@ static NSString * const kWebScriptNamespace = @"mw";
         selector == @selector(changeIcon:) ||
         selector == @selector(changeHighlightedIcon:) ||
         selector == @selector(notify:) ||
-        selector == @selector(addKeyboardShortcut:)) {
+        selector == @selector(addKeyboardShortcut:) ||
+        selector == @selector(openPreferences)) {
         return NO;
     }
 
@@ -113,6 +122,16 @@ static NSString * const kWebScriptNamespace = @"mw";
     [MASShortcut addGlobalHotkeyMonitorWithShortcut:shortcut handler:^{
         [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@()", callbackName]];
     }];
+}
+
+- (void)openPreferences
+{
+    NSViewController *viewController = [[LDYPreferencesViewController alloc] init];
+
+    NSString *title = @"Preferences";
+    self.preferencesWindowController = [[MASPreferencesWindowController alloc] initWithViewControllers:@[viewController] title:title];
+
+    [self.preferencesWindowController showWindow:nil];
 }
 
 #pragma mark - Delegate methods

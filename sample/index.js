@@ -44,4 +44,8 @@ $(function() {
     highlightedIconCtx.fillStyle = "white"
     highlightedIconCtx.fillRect(5, 7, 30, 30)
     highlightedIconCtx.clearRect(10, 12, 20, 20)
+
+    $("#preferences").click(function(event) {
+        mw.openPreferences()
+    })
 })
