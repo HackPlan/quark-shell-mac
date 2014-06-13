@@ -16,14 +16,9 @@ $(function() {
         {"name": "Account",  "icon": "NSUserAccounts"},
         {"name": "Shortcut", "icon": "NSAdvanced"}
     ])
+})
 
-    $("#set-icon").click(function(event) {
-        var iconCanvas = document.getElementById('icon')
-        var highlightedIconCanvas = document.getElementById('highlighted-icon')
-        mw.setMenubarIcon(iconCanvas.toDataURL())
-        mw.setMenubarHighlightedIcon(highlightedIconCanvas.toDataURL())
-    })
-
+function setIcon() {
     var iconCanvas = document.getElementById('icon')
     iconCanvas.width = 40
     iconCanvas.height = 40
@@ -38,4 +33,7 @@ $(function() {
     highlightedIconCtx.fillStyle = "white"
     highlightedIconCtx.fillRect(5, 7, 30, 30)
     highlightedIconCtx.clearRect(10, 12, 20, 20)
-})
+
+    mw.setMenubarIcon(iconCanvas.toDataURL())
+    mw.setMenubarHighlightedIcon(highlightedIconCanvas.toDataURL())
+}
