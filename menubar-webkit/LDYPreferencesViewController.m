@@ -10,28 +10,25 @@
 
 @interface LDYPreferencesViewController ()
 
+@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic) NSImage *toolbarItemImage;
+@property (nonatomic, copy) NSString *toolbarItemLabel;
+
 @end
 
 @implementation LDYPreferencesViewController
 
-- (id)init
+- (instancetype)initWithIdentifier:(NSString *)identifier
+                      toolbarImage:(NSImage *)image
+                      toolbarLabel:(NSString *)label
 {
-    return [super initWithNibName:@"LDYPreferencesViewController" bundle:nil];
-}
-
-- (NSString *)identifier
-{
-    return @"GeneralPreferences";
-}
-
-- (NSImage *)toolbarItemImage
-{
-    return [NSImage imageNamed:NSImageNamePreferencesGeneral];
-}
-
-- (NSString *)toolbarItemLabel
-{
-    return @"General";
+    self = [super initWithNibName:@"LDYPreferencesViewController" bundle:nil];
+    if (self) {
+        _identifier = identifier;
+        _toolbarItemImage = image;
+        _toolbarItemLabel = label;
+    }
+    return self;
 }
 
 @end

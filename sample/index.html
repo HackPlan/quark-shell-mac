@@ -41,11 +41,11 @@
   <p class="input"><input type="text"></p>
 
   <p class="button">
-    <button id="notify">Notify</button>
-    <button id="open">Open URL</button>
-    <button id="quit">Quit</button>
+    <button onclick="mw.notify({title: 'Menubar WebKit', content: 'Hello World'})">Notify</button>
+    <button onclick="mw.openURL('http://www.google.com')">Open URL</button>
+    <button onclick="mw.quit()">Quit</button>
     <button id="set-icon">Set Icon</button>
-    <button id="preferences">Preferences</button>
+    <button onclick="mw.openPreferences()">Preferences</button>
   </p>
   <canvas id="icon"></canvas>
   <canvas id="highlighted-icon"></canvas>

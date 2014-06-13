@@ -11,4 +11,8 @@
 
 @interface LDYPreferencesViewController : NSViewController <MASPreferencesViewController>
 
+- (instancetype)initWithIdentifier:(NSString *)identifier
+                      toolbarImage:(NSImage *)image
+                      toolbarLabel:(NSString *)label;
+
 @end

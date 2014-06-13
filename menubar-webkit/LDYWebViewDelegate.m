@@ -42,6 +42,7 @@ static NSString * const kWebScriptNamespace = @"mw";
         selector == @selector(changeHighlightedIcon:) ||
         selector == @selector(notify:) ||
         selector == @selector(addKeyboardShortcut:) ||
+        selector == @selector(setupPreferenes:) ||
         selector == @selector(openPreferences)) {
         return NO;
     }
@@ -67,6 +68,9 @@ static NSString * const kWebScriptNamespace = @"mw";
     }
     else if (selector == @selector(addKeyboardShortcut:)) {
         result = @"addKeyboardShortcut";
+    }
+    else if (selector == @selector(setupPreferenes:)) {
+        result = @"setupPreferences";
     }
 
 	return result;
@@ -124,13 +128,27 @@ static NSString * const kWebScriptNamespace = @"mw";
     }];
 }
 
-- (void)openPreferences
+- (void)setupPreferenes:(WebScriptObject *)scriptObj
 {
-    NSViewController *viewController = [[LDYPreferencesViewController alloc] init];
+    NSMutableArray *viewControllers = [NSMutableArray array];
+	id item = nil;
+	unsigned i = 0;
+	WebUndefined *undefined = [WebUndefined undefined];
+	while ((item = [scriptObj webScriptValueAtIndex:i++]) != undefined) {
+        WebScriptObject *itemObj = item;
+        NSViewController *vc = [[LDYPreferencesViewController alloc]
+                                initWithIdentifier:[itemObj valueForKey:@"name"]
+                                toolbarImage:[NSImage imageNamed:[itemObj valueForKey:@"icon"]]
+                                toolbarLabel:[itemObj valueForKey:@"name"]];
+        [viewControllers addObject:vc];
+	}
 
     NSString *title = @"Preferences";
-    self.preferencesWindowController = [[MASPreferencesWindowController alloc] initWithViewControllers:@[viewController] title:title];
+    self.preferencesWindowController = [[MASPreferencesWindowController alloc] initWithViewControllers:viewControllers title:title];
+}
 
+- (void)openPreferences
+{
     [self.preferencesWindowController showWindow:nil];
 }
 

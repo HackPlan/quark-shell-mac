@@ -5,23 +5,17 @@ function suchCallback() {
 $(function() {
     $("input").focus()
 
-    $("#notify").click(function(event) {
-        mw.notify({title: 'Menubar WebKit', content: 'Hello World'})
-    })
-
-    $("#open").click(function(event) {
-        mw.openURL('http://www.google.com')
-    })
-
-    $("#quit").click(function(event) {
-        mw.quit()
-    })
-
     mw.addKeyboardShortcut({
         keycode: 0x7A, // F1 key
         modifierFlags: 0, // no modifier key
         callbackName: "suchCallback"
     })
+
+    mw.setupPreferences([
+        {"name": "General",  "icon": "NSPreferencesGeneral"},
+        {"name": "Account",  "icon": "NSUserAccounts"},
+        {"name": "Shortcut", "icon": "NSAdvanced"}
+    ])
 
     $("#set-icon").click(function(event) {
         var iconCanvas = document.getElementById('icon')
@@ -44,8 +38,4 @@ $(function() {
     highlightedIconCtx.fillStyle = "white"
     highlightedIconCtx.fillRect(5, 7, 30, 30)
     highlightedIconCtx.clearRect(10, 12, 20, 20)
-
-    $("#preferences").click(function(event) {
-        mw.openPreferences()
-    })
 })
