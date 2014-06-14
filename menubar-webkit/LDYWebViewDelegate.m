@@ -8,6 +8,7 @@
 
 #import "LDYWebViewDelegate.h"
 #import "LDYPreferencesViewController.h"
+#import "LDYWebScriptObjectConverter.h"
 #import <MASShortcut+Monitoring.h>
 #import <MASPreferencesWindowController.h>
 
@@ -130,16 +131,14 @@ static NSString * const kWebScriptNamespace = @"mw";
 
 - (void)setupPreferenes:(WebScriptObject *)scriptObj
 {
+    LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
+    NSArray *preferencesArray = [converter arrayFromWebScriptObject:scriptObj];
     NSMutableArray *viewControllers = [NSMutableArray array];
-	id item = nil;
-	unsigned i = 0;
-	WebUndefined *undefined = [WebUndefined undefined];
-	while ((item = [scriptObj webScriptValueAtIndex:i++]) != undefined) {
-        WebScriptObject *itemObj = item;
+	for (NSDictionary *preferences in preferencesArray) {
         NSViewController *vc = [[LDYPreferencesViewController alloc]
-                                initWithIdentifier:[itemObj valueForKey:@"name"]
-                                toolbarImage:[NSImage imageNamed:[itemObj valueForKey:@"icon"]]
-                                toolbarLabel:[itemObj valueForKey:@"name"]];
+                                initWithIdentifier:preferences[@"name"]
+                                toolbarImage:[NSImage imageNamed:preferences[@"icon"]]
+                                toolbarLabel:preferences[@"name"]];
         [viewControllers addObject:vc];
 	}
 

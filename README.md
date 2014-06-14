@@ -57,7 +57,9 @@ Some of the code are taken from:
 
 * [MacGap](https://github.com/maccman/macgap) by [@maccman](https://github.com/maccman)
 * [Bang](https://github.com/jesseXu/Bang) by [@jesseXu](https://github.com/jesseXu)
+* [Cordova OS X](https://github.com/apache/cordova-osx) by [Apache](http://www.apache.org)
 
 Used third-party libraries:
 
 * [MASShortcut](https://github.com/shpakovski/MASShortcut) by [@shpakovski](https://github.com/shpakovski)
+* [MASPreferences](https://github.com/shpakovski/MASPreferences) by [@shpakovski](https://github.com/shpakovski)

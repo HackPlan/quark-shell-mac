@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A42764A19196B6F00815DC6 /* LDYWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A42764919196B6F00815DC6 /* LDYWindow.m */; };
+		1A42D2CA194C2C620091F581 /* LDYWebScriptObjectConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A42D2C9194C2C620091F581 /* LDYWebScriptObjectConverter.m */; };
 		1A7DD3DD18E9683F00F7D73A /* public in Resources */ = {isa = PBXBuildFile; fileRef = 1A7DD3DC18E9683F00F7D73A /* public */; };
 		1A82DE5B1903B095006AB37F /* LDYWindowBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82DE5A1903B095006AB37F /* LDYWindowBorderView.m */; };
 		1A91F9E318E2530B00AA8B7E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91F9E218E2530B00AA8B7E /* Cocoa.framework */; };
@@ -42,6 +43,8 @@
 /* Begin PBXFileReference section */
 		1A42764819196B6F00815DC6 /* LDYWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYWindow.h; sourceTree = "<group>"; };
 		1A42764919196B6F00815DC6 /* LDYWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYWindow.m; sourceTree = "<group>"; };
+		1A42D2C8194C2C620091F581 /* LDYWebScriptObjectConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYWebScriptObjectConverter.h; sourceTree = "<group>"; };
+		1A42D2C9194C2C620091F581 /* LDYWebScriptObjectConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYWebScriptObjectConverter.m; sourceTree = "<group>"; };
 		1A7DD3DC18E9683F00F7D73A /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
 		1A82DE591903B095006AB37F /* LDYWindowBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYWindowBorderView.h; sourceTree = "<group>"; };
 		1A82DE5A1903B095006AB37F /* LDYWindowBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYWindowBorderView.m; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 				1ABD40301912E3AB002A53FB /* LDYStatusItemView.m */,
 				1AF6371C18E9FF430099B508 /* LDYWebViewDelegate.h */,
 				1AF6371D18E9FF430099B508 /* LDYWebViewDelegate.m */,
+				1A42D2C8194C2C620091F581 /* LDYWebScriptObjectConverter.h */,
+				1A42D2C9194C2C620091F581 /* LDYWebScriptObjectConverter.m */,
 				1AFBA8B719483E4900BEDA0A /* LDYPreferencesViewController.h */,
 				1AFBA8B819483E4900BEDA0A /* LDYPreferencesViewController.m */,
 				1AFBA8B919483E4900BEDA0A /* LDYPreferencesViewController.xib */,
@@ -333,6 +338,7 @@
 			files = (
 				1AFBA8BA19483E4900BEDA0A /* LDYPreferencesViewController.m in Sources */,
 				1A91F9F618E2530B00AA8B7E /* LDYAppDelegate.m in Sources */,
+				1A42D2CA194C2C620091F581 /* LDYWebScriptObjectConverter.m in Sources */,
 				1A91F9EF18E2530B00AA8B7E /* main.m in Sources */,
 				1A82DE5B1903B095006AB37F /* LDYWindowBorderView.m in Sources */,
 				1AF6371E18E9FF430099B508 /* LDYWebViewDelegate.m in Sources */,
