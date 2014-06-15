@@ -8,7 +8,11 @@
 
 #import "LDYPreferencesViewController.h"
 
+static NSString * const kPreferencesDirectory = @"public/preferences/";
+
 @interface LDYPreferencesViewController ()
+
+@property (weak) IBOutlet WebView *webView;
 
 @property (nonatomic, copy) NSString *identifier;
 @property (nonatomic) NSImage *toolbarItemImage;
@@ -29,6 +33,29 @@
         _toolbarItemLabel = label;
     }
     return self;
+}
+
+- (void)loadView
+{
+    [super loadView];
+
+    NSString *url = [[NSURL URLWithString:kPreferencesDirectory relativeToURL:[[NSBundle mainBundle] resourceURL]] absoluteString];
+    url = [url stringByAppendingString:[NSString stringWithFormat:@"%@.html", self.identifier]];
+    self.webView.mainFrameURL = url;
+
+    self.webView.policyDelegate = self;
+}
+
+- (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener
+{
+    NSString *scheme = request.URL.scheme;
+    if ([scheme isEqualToString:@"file"]) {
+        [listener use];
+    }
+    else {
+        [listener ignore];
+        [[NSWorkspace sharedWorkspace] openURL:request.URL];
+    }
 }
 
 @end

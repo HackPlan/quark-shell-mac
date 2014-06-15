@@ -10,10 +10,8 @@ $(function() {
     })
 
     mw.setupPreferences([
-        {"name": "General", "icon": "NSPreferencesGeneral", "fields": [
-            {"type": "checkbox", "content": "Checkbox", "preference_key": "preference_1"}
-        ]},
-        {"name": "Account", "icon": "NSUserAccounts"},
+        {"name": "General",  "icon": "NSPreferencesGeneral"},
+        {"name": "Account",  "icon": "NSUserAccounts"},
         {"name": "Shortcut", "icon": "NSAdvanced"}
     ])
 })

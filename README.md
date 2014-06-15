@@ -30,7 +30,7 @@ mw.notify({
 mw.addKeyboardShortcut({
   keycode: 0x7A, // F1 key
   modifierFlags: 0, // no modifier key
-  callback: function callback() {
+  callback: function suchCallback() {
     console.log("wow")
   }
 })
