@@ -34,9 +34,21 @@ mw.addKeyboardShortcut({
     console.log("wow")
   }
 })
+
+// Setup preferences
+mw.setupPreferences([
+    {"name": "General",  "icon": "NSPreferencesGeneral"},
+    {"name": "Account",  "icon": "NSUserAccounts"},
+    {"name": "Shortcut", "icon": "NSAdvanced"}
+])
+
+// Open preferences
+mw.openPreferences()
 ```
 
 ## Integrating Web App
+
+``public/index.html`` is the portal of your menubar app. ``public/preferences/[name].html`` are the preference pages (for example, ``public/preferences/General.html``).
 
 To see the sample app:
 
