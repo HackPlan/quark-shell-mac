@@ -1,14 +1,12 @@
-function suchCallback() {
-    console.log("wow")
-}
-
 $(function() {
     $("input").focus()
 
     mw.addKeyboardShortcut({
         keycode: 0x7A, // F1 key
         modifierFlags: 0, // no modifier key
-        callbackName: "suchCallback"
+        callback: function callback() {
+            console.log("wow")
+        }
     })
 
     mw.setupPreferences([

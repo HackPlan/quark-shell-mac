@@ -28,7 +28,7 @@
 
 - (void)registerJavaScriptHelpers
 {
-    NSString *cordovaBridgeUtil = @"LDYBridgeUtil = {};";
+    NSString *bridgeUtil = @"LDYBridgeUtil = {};";
     NSString *isArray = @"LDYBridgeUtil.isArray = function(obj) { return obj.constructor == Array; };";
     NSString *isObject = @"LDYBridgeUtil.isObject = function(obj) { return obj.constructor == Object; };";
     NSString *dictionaryKeys = @"LDYBridgeUtil.dictionaryKeys = function(obj) { \
@@ -41,12 +41,14 @@
                                      } \
                                      return a; \
                                  }";
+    NSString *callFunction = @"LDYBridgeUtil.callFunction = function(func) { func(); };";
 
     WebScriptObject *win = self.webView.windowScriptObject;
-    [win evaluateWebScript:cordovaBridgeUtil];
+    [win evaluateWebScript:bridgeUtil];
     [win evaluateWebScript:isArray];
     [win evaluateWebScript:isObject];
     [win evaluateWebScript:dictionaryKeys];
+    [win evaluateWebScript:callFunction];
 }
 
 - (BOOL)isArray:(WebScriptObject *)obj
@@ -114,6 +116,13 @@
     }
 
     return a;
+}
+
+- (void)callFunction:(WebScriptObject *)webScriptObject
+{
+    WebScriptObject *win = self.webView.windowScriptObject;
+    WebScriptObject *bridgeUtil = [win evaluateWebScript:@"LDYBridgeUtil"];
+    [bridgeUtil callWebScriptMethod:@"callFunction" withArguments:@[webScriptObject]];
 }
 
 @end

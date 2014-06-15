@@ -35,4 +35,11 @@
  */
 - (NSArray *)arrayFromWebScriptObject:(WebScriptObject *)webScriptObject;
 
+/**
+ *  Call function in WebScriptObject
+ *
+ *  @param webScriptObject Function object
+ */
+- (void)callFunction:(WebScriptObject *)webScriptObject;
+
 @end

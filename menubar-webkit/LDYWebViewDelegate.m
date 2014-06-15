@@ -122,10 +122,11 @@ static NSString * const kWebScriptNamespace = @"mw";
 {
     NSUInteger keycode = [[shortcutObj valueForKey:@"keycode"] integerValue];
     NSUInteger flags = [[shortcutObj valueForKey:@"modifierFlags"] integerValue];
-    NSString *callbackName = [shortcutObj valueForKey:@"callbackName"];
+    WebScriptObject *callback = [shortcutObj valueForKey:@"callback"];
     MASShortcut *shortcut = [MASShortcut shortcutWithKeyCode:keycode modifierFlags:flags];
     [MASShortcut addGlobalHotkeyMonitorWithShortcut:shortcut handler:^{
-        [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@()", callbackName]];
+        LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
+        [converter callFunction:callback];
     }];
 }
 

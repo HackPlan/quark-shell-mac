@@ -27,13 +27,12 @@ mw.notify({
 })
 
 // Set global keyboard shortcut
-function suchCallback() {
-  console.log("wow")
-}
 mw.addKeyboardShortcut({
   keycode: 0x7A, // F1 key
   modifierFlags: 0, // no modifier key
-  callbackName: "suchCallback"
+  callback: function callback() {
+    console.log("wow")
+  }
 })
 ```
 
