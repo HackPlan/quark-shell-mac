@@ -8,11 +8,17 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
+    -webkit-user-select: none;
   }
   body {
     font-family: "Lucida Grande", sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+  p:first-child {
+    margin-top: 24px;
   }
   p {
     font-size: 13px;
@@ -28,6 +34,7 @@
   }
   p.footnote {
     margin-top: 40px;
+    margin-left: 20px;
     font-size: 11px;
   }
   a {
