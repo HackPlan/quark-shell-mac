@@ -2,6 +2,8 @@
 
 **menubar-webkit** helps you create Mac menubar app using HTML and JavaScript without writing any Objective-C code. menubar-webkit exposes an JavaScript object called ``mw`` to provide system functions.
 
+<img alt="Screenshot" width="907" src="Assets/screenshot.png">
+
 ## API
 
 APIs may change rapidly before 1.0.
@@ -63,6 +65,8 @@ git clone your.repository.address public
 ```
 
 ## Credits
+
+**Menubar WebKit** was created by **[Dongyuan Liu (@xhacker)](https://github.com/xhacker)** in the development of [Pomotodo for Mac](http://pomotodo.com).
 
 Some of the code are taken from:
 

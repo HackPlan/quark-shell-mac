@@ -28,6 +28,14 @@
     text-align: center;
     margin-top: 40px;
   }
+  .button p {
+    margin: 0;
+  }
+  button {
+    width: 80px;
+    height: 20px;
+    margin: 3px 4px;
+  }
   canvas {
     display: none;
   }
@@ -38,15 +46,18 @@
 
   <audio src="audio.aac"></audio>
 
-  <p class="input"><input type="text"></p>
-
-  <p class="button">
-    <button onclick="mw.notify({title: 'Menubar WebKit', content: 'Hello World'})">Notify</button>
-    <button onclick="mw.openURL('http://www.google.com')">Open URL</button>
-    <button onclick="mw.quit()">Quit</button>
-    <button onclick="setIcon()">Set Icon</button>
-    <button onclick="mw.openPreferences()">Preferences</button>
-  </p>
+  <div class="button">
+    <p>
+      <button onclick="mw.notify({title: 'Menubar WebKit', content: 'Hello World'})">Notify</button>
+      <button onclick="mw.openURL('http://www.google.com')">Open URL</button>
+      <button onclick="setIcon()">Set Icon</button>
+    </p>
+    <p>
+      <button onclick="$('audio')[0].play()">Audio</button>
+      <button onclick="mw.openPreferences()">Preferences</button>
+      <button onclick="mw.quit()">Quit</button>
+    </p>
+  </div>
   <canvas id="icon"></canvas>
   <canvas id="highlighted-icon"></canvas>
   <script type="text/javascript" src="jquery-2.1.0.min.js"></script>
