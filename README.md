@@ -41,9 +41,9 @@ mw.addKeyboardShortcut({
 // "label" is the toolbar item label in preferences window
 // "identifier" is the preference html file name and must be unique
 mw.setupPreferences([
-  {"label": "General",  "identifier": "General",  "icon": "NSPreferencesGeneral"},
-  {"label": "Account",  "identifier": "Account",  "icon": "NSUserAccounts"},
-  {"label": "Shortcut", "identifier": "Shortcut", "icon": "NSAdvanced"}
+  {"label": "General",  "identifier": "general",  "icon": "NSPreferencesGeneral"},
+  {"label": "Account",  "identifier": "account",  "icon": "NSUserAccounts"},
+  {"label": "Shortcut", "identifier": "shortcut", "icon": "NSAdvanced"}
 ])
 
 // Open preferences
@@ -52,7 +52,7 @@ mw.openPreferences()
 
 ## Integrating Web App
 
-``public/index.html`` is the portal of your menubar app. ``public/preferences/[identifier].html`` are the preference pages (for example, ``public/preferences/General.html``).
+``public/index.html`` is the portal of your menubar app. ``public/preferences/[identifier].html`` are the preference pages (for example, ``public/preferences/general.html``).
 
 To see the sample app:
 
