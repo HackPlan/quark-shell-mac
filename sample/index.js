@@ -10,9 +10,9 @@ $(function() {
     })
 
     mw.setupPreferences([
-        {"name": "General",  "icon": "NSPreferencesGeneral"},
-        {"name": "Account",  "icon": "NSUserAccounts"},
-        {"name": "Shortcut", "icon": "NSAdvanced"}
+        {"label": "General",  "identifier": "General",  "icon": "NSPreferencesGeneral"},
+        {"label": "Account",  "identifier": "Account",  "icon": "NSUserAccounts"},
+        {"label": "Shortcut", "identifier": "Shortcut", "icon": "NSAdvanced"}
     ])
 })
 

@@ -137,9 +137,9 @@ static NSString * const kWebScriptNamespace = @"mw";
     NSMutableArray *viewControllers = [NSMutableArray array];
 	for (NSDictionary *preferences in preferencesArray) {
         NSViewController *vc = [[LDYPreferencesViewController alloc]
-                                initWithIdentifier:preferences[@"name"]
+                                initWithIdentifier:preferences[@"identifier"]
                                 toolbarImage:[NSImage imageNamed:preferences[@"icon"]]
-                                toolbarLabel:preferences[@"name"]];
+                                toolbarLabel:preferences[@"label"]];
         [viewControllers addObject:vc];
 	}
 
