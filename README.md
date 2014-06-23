@@ -66,9 +66,13 @@ To add your own app:
 git clone your.repository.address public
 ```
 
+## FAQ
+* Can I use **local storage**? Yes.
+* Can I use **WebSQL**? Yes.
+
 ## Credits
 
-**Menubar WebKit** was created by **[Dongyuan Liu (@xhacker)](https://github.com/xhacker)** in the development of [Pomotodo for Mac](http://pomotodo.com).
+**Menubar WebKit** was created by **[LIU Dongyuan (@xhacker)](https://github.com/xhacker)** in the development of [Pomotodo for Mac](http://pomotodo.com).
 
 Some of the code are taken from:
 

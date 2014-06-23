@@ -14,6 +14,8 @@ $(function() {
         {"label": "Account",  "identifier": "Account",  "icon": "NSUserAccounts"},
         {"label": "Shortcut", "identifier": "Shortcut", "icon": "NSAdvanced"}
     ])
+
+    var db = openDatabase('test', '1.0', 'Menubar WebKit supports WebSQL database', 5 * 1024 * 1024)
 })
 
 function setIcon() {
