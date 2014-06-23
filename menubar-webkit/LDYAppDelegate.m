@@ -35,7 +35,7 @@ static NSString * const kIndexPath = @"public/index.html";
 {
     // TODO: bundle name from manifest?
     WebPreferences *webPrefs = [WebPreferences standardPreferences];
-    NSString *bundleName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
+    NSString *bundleName = [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
     NSString *applicationSupportFile = [@"~/Library/Application Support/" stringByExpandingTildeInPath];
     NSString *savePath = [NSString pathWithComponents:@[applicationSupportFile, bundleName, @"LocalStorage"]];
     [webPrefs _setLocalStorageDatabasePath:savePath];

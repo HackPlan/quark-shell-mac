@@ -161,9 +161,35 @@ static NSString * const kWebScriptNamespace = @"mw";
 	}
 
 	NSLog(@"JavaScript console: %@:%@: %@",
-		  [[message objectForKey:@"sourceURL"] lastPathComponent],
-		  [message objectForKey:@"lineNumber"],
-		  [message objectForKey:@"message"]);
+		  [message[@"sourceURL"] lastPathComponent],
+		  message[@"lineNumber"],
+		  message[@"message"]);
+}
+
+- (void)webView:(WebView *)sender runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame
+{
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"OK"];
+    alert.messageText = message;
+    alert.alertStyle = NSWarningAlertStyle;
+
+    [alert runModal];
+}
+
+- (BOOL)webView:(WebView *)sender runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame
+{
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"Yes"];
+    [alert addButtonWithTitle:@"No"];
+    alert.messageText = message;
+    alert.alertStyle = NSWarningAlertStyle;
+
+    if ([alert runModal] == NSAlertFirstButtonReturn) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
 }
 
 // Enable WebSQL: http://stackoverflow.com/questions/353808/implementing-a-webview-database-quota-delegate
