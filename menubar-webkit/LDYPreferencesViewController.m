@@ -14,9 +14,9 @@ static NSString * const kPreferencesDirectory = @"public/preferences/";
 
 @property (weak) IBOutlet WebView *webView;
 
-@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic) NSString *identifier;
 @property (nonatomic) NSImage *toolbarItemImage;
-@property (nonatomic, copy) NSString *toolbarItemLabel;
+@property (nonatomic) NSString *toolbarItemLabel;
 
 @end
 

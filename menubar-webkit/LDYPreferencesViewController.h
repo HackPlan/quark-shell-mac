@@ -7,9 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <MASPreferencesWindowController.h>
+#import <RHPreferences.h>
 
-@interface LDYPreferencesViewController : NSViewController <MASPreferencesViewController>
+@interface LDYPreferencesViewController : NSViewController <RHPreferencesViewControllerProtocol>
 
 - (instancetype)initWithIdentifier:(NSString *)identifier
                       toolbarImage:(NSImage *)image

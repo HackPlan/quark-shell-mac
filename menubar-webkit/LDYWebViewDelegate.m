@@ -10,7 +10,7 @@
 #import "LDYPreferencesViewController.h"
 #import "LDYWebScriptObjectConverter.h"
 #import <MASShortcut+Monitoring.h>
-#import <MASPreferencesWindowController.h>
+#import <RHPreferences.h>
 
 static NSString * const kWebScriptNamespace = @"mw";
 
@@ -144,7 +144,7 @@ static NSString * const kWebScriptNamespace = @"mw";
 	}
 
     NSString *title = @"Preferences";
-    self.preferencesWindowController = [[MASPreferencesWindowController alloc] initWithViewControllers:viewControllers title:title];
+    self.preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:viewControllers andTitle:title];
 }
 
 - (void)openPreferences
