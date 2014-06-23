@@ -83,4 +83,4 @@ Some of the code are taken from:
 Used third-party libraries:
 
 * [MASShortcut](https://github.com/shpakovski/MASShortcut) by [@shpakovski](https://github.com/shpakovski)
-* [MASPreferences](https://github.com/shpakovski/MASPreferences) by [@shpakovski](https://github.com/shpakovski)
+* [RHPreferences](https://github.com/heardrwt/RHPreferences) by [@heardrwt](https://github.com/heardrwt)
