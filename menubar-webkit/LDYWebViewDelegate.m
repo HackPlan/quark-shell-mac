@@ -41,6 +41,7 @@ static NSString * const kWebScriptNamespace = @"mw";
         selector == @selector(openURL:) ||
         selector == @selector(changeIcon:) ||
         selector == @selector(changeHighlightedIcon:) ||
+        selector == @selector(resetMenubarIcon) ||
         selector == @selector(notify:) ||
         selector == @selector(addKeyboardShortcut:) ||
         selector == @selector(setupPreferenes:) ||
@@ -106,6 +107,12 @@ static NSString * const kWebScriptNamespace = @"mw";
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:base64]];
     NSImage *icon = [[NSImage alloc] initWithData:data];
     self.statusItemView.highlightedIcon = icon;
+}
+
+- (void)resetMenubarIcon
+{
+    self.statusItemView.icon = [NSImage imageNamed:@"StatusIcon"];
+    self.statusItemView.highlightedIcon = [NSImage imageNamed:@"StatusIconWhite"];
 }
 
 - (void)notify:(WebScriptObject *)message

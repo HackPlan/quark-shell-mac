@@ -8,7 +8,7 @@
 
 APIs may change rapidly before 1.0.
 
-```JavaScript
+```js
 // Quit application
 mw.quit()
 
@@ -18,6 +18,7 @@ mw.openURL("http://pomotodo.com")
 // Set menubar icon
 mw.setMenubarIcon("data:image/png;base64,iVBORw...SuQmCC")
 mw.setMenubarHighlightedIcon("data:image/png;base64,iVBORw...SuQmCC")
+mw.resetMenubarIcon()
 
 // Auto start with system
 mw.setAutoStart(true) // not implemented yet

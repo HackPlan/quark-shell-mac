@@ -50,16 +50,17 @@
     <p>
       <button onclick="mw.notify({title: 'Menubar WebKit', content: 'Hello World'})">Notify</button>
       <button onclick="mw.openURL('http://www.google.com')">Open URL</button>
-      <button onclick="setIcon()">Set Icon</button>
+      <button onclick="mw.openPreferences()">Preferences</button>
     </p>
     <p>
       <button onclick="$('audio')[0].play()">Audio</button>
-      <button onclick="mw.openPreferences()">Preferences</button>
-      <button onclick="mw.quit()">Quit</button>
+      <button onclick="setIcon()">Set Icon</button>
+      <button onclick="mw.resetMenubarIcon()">Reset Icon</button>
     </p>
     <p>
       <button onclick="alert('menubar-webkit')">Alert</button>
       <button onclick="confirm('menubar-webkit?')">Confirm</button>
+      <button onclick="mw.quit()">Quit</button>
     </p>
   </div>
   <canvas id="icon"></canvas>
