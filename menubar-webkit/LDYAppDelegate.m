@@ -10,8 +10,6 @@
 #import "LDYWebViewDelegate.h"
 #import "LDYStatusItemView.h"
 
-static NSString * const kIndexPath = @"public/index.html";
-
 @interface WebPreferences (WebPreferencesPrivate)
 
 - (void)_setLocalStorageDatabasePath:(NSString *)path;

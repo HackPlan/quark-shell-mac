@@ -167,11 +167,11 @@ static NSString * const kWebScriptNamespace = @"mw";
 
 - (void)newWindow:(WebScriptObject *)scriptObj
 {
-    NSString *URLString = [scriptObj valueForKey:@"url"];
+    NSString *urlString = [scriptObj valueForKey:@"url"];
     NSInteger width = [[scriptObj valueForKey:@"width"] integerValue];
     NSInteger height = [[scriptObj valueForKey:@"height"] integerValue];
 
-    self.webViewWindowController = [[LDYWebViewWindowController alloc] initWithURLString:URLString width:width height:height];
+    self.webViewWindowController = [[LDYWebViewWindowController alloc] initWithURLString:urlString width:width height:height];
     [self.webViewWindowController showWindow:nil];
 }
 

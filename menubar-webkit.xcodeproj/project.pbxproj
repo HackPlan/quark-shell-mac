@@ -153,6 +153,7 @@
 		1A91F9E818E2530B00AA8B7E /* menubar-webkit */ = {
 			isa = PBXGroup;
 			children = (
+				1AA896751965089700E4FDAC /* Utils */,
 				1A91F9F418E2530B00AA8B7E /* LDYAppDelegate.h */,
 				1A91F9F518E2530B00AA8B7E /* LDYAppDelegate.m */,
 				1A91F9F718E2530B00AA8B7E /* MainMenu.xib */,
@@ -164,8 +165,6 @@
 				1ABD40301912E3AB002A53FB /* LDYStatusItemView.m */,
 				1AF6371C18E9FF430099B508 /* LDYWebViewDelegate.h */,
 				1AF6371D18E9FF430099B508 /* LDYWebViewDelegate.m */,
-				1A42D2C8194C2C620091F581 /* LDYWebScriptObjectConverter.h */,
-				1A42D2C9194C2C620091F581 /* LDYWebScriptObjectConverter.m */,
 				1AFBA8B719483E4900BEDA0A /* LDYPreferencesViewController.h */,
 				1AFBA8B819483E4900BEDA0A /* LDYPreferencesViewController.m */,
 				1AFBA8B919483E4900BEDA0A /* LDYPreferencesViewController.xib */,
@@ -206,6 +205,15 @@
 				1A91FA0918E2530C00AA8B7E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1AA896751965089700E4FDAC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1A42D2C8194C2C620091F581 /* LDYWebScriptObjectConverter.h */,
+				1A42D2C9194C2C620091F581 /* LDYWebScriptObjectConverter.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

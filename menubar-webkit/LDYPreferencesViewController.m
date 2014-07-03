@@ -8,8 +8,6 @@
 
 #import "LDYPreferencesViewController.h"
 
-static NSString * const kPreferencesDirectory = @"public/preferences/";
-
 @interface LDYPreferencesViewController ()
 
 @property (weak) IBOutlet WebView *webView;
