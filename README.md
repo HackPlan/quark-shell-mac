@@ -49,6 +49,14 @@ mw.setupPreferences([
 
 // Open preferences
 mw.openPreferences()
+
+// Open new window
+// "url" is relative to "public" folder
+mw.newWindow({
+  url: "about.html",
+  width: 600,
+  height: 400
+}
 ```
 
 ## Integrating Web App

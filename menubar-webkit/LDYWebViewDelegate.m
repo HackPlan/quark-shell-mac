@@ -9,6 +9,7 @@
 #import "LDYWebViewDelegate.h"
 #import "LDYPreferencesViewController.h"
 #import "LDYWebScriptObjectConverter.h"
+#import "LDYWebViewWindowController.h"
 #import <MASShortcut+Monitoring.h>
 #import <RHPreferences.h>
 
@@ -17,6 +18,7 @@ static NSString * const kWebScriptNamespace = @"mw";
 @interface LDYWebViewDelegate ()
 
 @property (nonatomic) NSWindowController *preferencesWindowController;
+@property (nonatomic) LDYWebViewWindowController *webViewWindowController;
 
 @end
 
@@ -45,7 +47,8 @@ static NSString * const kWebScriptNamespace = @"mw";
         selector == @selector(notify:) ||
         selector == @selector(addKeyboardShortcut:) ||
         selector == @selector(setupPreferenes:) ||
-        selector == @selector(openPreferences)) {
+        selector == @selector(openPreferences) ||
+        selector == @selector(newWindow:)) {
         return NO;
     }
 
@@ -73,6 +76,9 @@ static NSString * const kWebScriptNamespace = @"mw";
     }
     else if (selector == @selector(setupPreferenes:)) {
         result = @"setupPreferences";
+    }
+    else if (selector == @selector(newWindow:)) {
+        result = @"newWindow";
     }
 
 	return result;
@@ -157,6 +163,16 @@ static NSString * const kWebScriptNamespace = @"mw";
 - (void)openPreferences
 {
     [self.preferencesWindowController showWindow:nil];
+}
+
+- (void)newWindow:(WebScriptObject *)scriptObj
+{
+    NSString *URLString = [scriptObj valueForKey:@"url"];
+    NSInteger width = [[scriptObj valueForKey:@"width"] integerValue];
+    NSInteger height = [[scriptObj valueForKey:@"height"] integerValue];
+
+    self.webViewWindowController = [[LDYWebViewWindowController alloc] initWithURLString:URLString width:width height:height];
+    [self.webViewWindowController showWindow:nil];
 }
 
 #pragma mark - Delegate methods
