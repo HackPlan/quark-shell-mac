@@ -15,7 +15,7 @@
 
 static NSString * const kWebScriptNamespace = @"mw";
 
-@interface LDYWebViewDelegate ()
+@interface LDYWebViewDelegate () <NSUserNotificationCenterDelegate>
 
 @property (nonatomic) NSWindowController *preferencesWindowController;
 @property (nonatomic) LDYWebViewWindowController *webViewWindowController;
@@ -128,7 +128,15 @@ static NSString * const kWebScriptNamespace = @"mw";
     notification.informativeText = [message valueForKey:@"content"];
     notification.deliveryDate = [NSDate date];
     notification.soundName = NSUserNotificationDefaultSoundName;
-    [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notification];
+
+    NSUserNotificationCenter *notificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
+    notificationCenter.delegate = self;
+    [notificationCenter scheduleNotification:notification];
+}
+
+- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification
+{
+    return YES;
 }
 
 - (void)addKeyboardShortcut:(WebScriptObject *)shortcutObj
