@@ -26,8 +26,6 @@
         NSString *fullURLString = [kRootPath stringByAppendingString:urlString];
         NSString *url = [[NSURL URLWithString:fullURLString relativeToURL:[[NSBundle mainBundle] resourceURL]] absoluteString];
         self.webView.mainFrameURL = url;
-        self.webView.policyDelegate = self;
-        self.webView.frameLoadDelegate = self;
     }
     return self;
 }
@@ -35,18 +33,6 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-}
-
-- (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener
-{
-    NSString *scheme = request.URL.scheme;
-    if ([scheme isEqualToString:@"file"]) {
-        [listener use];
-    }
-    else {
-        [listener ignore];
-        [[NSWorkspace sharedWorkspace] openURL:request.URL];
-    }
 }
 
 @end

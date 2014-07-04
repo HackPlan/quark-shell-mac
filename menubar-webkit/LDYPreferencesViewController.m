@@ -10,11 +10,10 @@
 
 @interface LDYPreferencesViewController ()
 
-@property (weak) IBOutlet WebView *webView;
-
 @property (nonatomic) NSString *identifier;
 @property (nonatomic) NSImage *toolbarItemImage;
 @property (nonatomic) NSString *toolbarItemLabel;
+@property (nonatomic, weak) id delegate;
 
 @end
 
@@ -23,12 +22,14 @@
 - (instancetype)initWithIdentifier:(NSString *)identifier
                       toolbarImage:(NSImage *)image
                       toolbarLabel:(NSString *)label
+                          delegate:(id)delegate
 {
     self = [super initWithNibName:@"LDYPreferencesViewController" bundle:nil];
     if (self) {
         _identifier = identifier;
         _toolbarItemImage = image;
         _toolbarItemLabel = label;
+        _delegate = delegate;
     }
     return self;
 }
@@ -41,19 +42,9 @@
     url = [url stringByAppendingString:[NSString stringWithFormat:@"%@.html", self.identifier]];
     self.webView.mainFrameURL = url;
 
-    self.webView.policyDelegate = self;
-}
-
-- (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener
-{
-    NSString *scheme = request.URL.scheme;
-    if ([scheme isEqualToString:@"file"]) {
-        [listener use];
-    }
-    else {
-        [listener ignore];
-        [[NSWorkspace sharedWorkspace] openURL:request.URL];
-    }
+    self.webView.frameLoadDelegate = self.delegate;
+    self.webView.UIDelegate = self.delegate;
+    self.webView.policyDelegate = self.delegate;
 }
 
 @end

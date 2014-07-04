@@ -10,9 +10,9 @@ $(function() {
     })
 
     mw.setupPreferences([
-        {"label": "General",  "identifier": "General",  "icon": "NSPreferencesGeneral"},
-        {"label": "Account",  "identifier": "Account",  "icon": "NSUserAccounts"},
-        {"label": "Shortcut", "identifier": "Shortcut", "icon": "NSAdvanced"}
+        {"label": "General",  "identifier": "general",  "icon": "NSPreferencesGeneral"},
+        {"label": "Account",  "identifier": "account",  "icon": "NSUserAccounts"},
+        {"label": "Shortcut", "identifier": "shortcut", "icon": "NSAdvanced"}
     ])
 
     var db = openDatabase('test', '1.0', 'Menubar WebKit supports WebSQL database', 5 * 1024 * 1024)

@@ -11,8 +11,11 @@
 
 @interface LDYPreferencesViewController : NSViewController <RHPreferencesViewControllerProtocol>
 
+@property (weak) IBOutlet WebView *webView;
+
 - (instancetype)initWithIdentifier:(NSString *)identifier
                       toolbarImage:(NSImage *)image
-                      toolbarLabel:(NSString *)label;
+                      toolbarLabel:(NSString *)label
+                          delegate:(id)delegate;
 
 @end

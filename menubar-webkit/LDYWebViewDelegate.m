@@ -158,10 +158,11 @@ static NSString * const kWebScriptNamespace = @"mw";
     NSArray *preferencesArray = [converter arrayFromWebScriptObject:scriptObj];
     NSMutableArray *viewControllers = [NSMutableArray array];
 	for (NSDictionary *preferences in preferencesArray) {
-        NSViewController *vc = [[LDYPreferencesViewController alloc]
-                                initWithIdentifier:preferences[@"identifier"]
-                                toolbarImage:[NSImage imageNamed:preferences[@"icon"]]
-                                toolbarLabel:preferences[@"label"]];
+        LDYPreferencesViewController *vc = [[LDYPreferencesViewController alloc]
+                                            initWithIdentifier:preferences[@"identifier"]
+                                            toolbarImage:[NSImage imageNamed:preferences[@"icon"]]
+                                            toolbarLabel:preferences[@"label"]
+                                            delegate:self];
         [viewControllers addObject:vc];
 	}
 
@@ -183,6 +184,7 @@ static NSString * const kWebScriptNamespace = @"mw";
     self.webViewWindowController = [[LDYWebViewWindowController alloc] initWithURLString:urlString width:width height:height];
     self.webViewWindowController.webView.frameLoadDelegate = self;
     self.webViewWindowController.webView.UIDelegate = self;
+    self.webViewWindowController.webView.policyDelegate = self;
     [self.webViewWindowController showWindow:nil];
 }
 
@@ -251,6 +253,20 @@ static NSString * const kWebScriptNamespace = @"mw";
 {
     if (sender == self.webViewWindowController.webView) {
         self.webViewWindowController.window.title = title;
+    }
+}
+
+#pragma mark WebPolicyDelegate
+
+- (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener
+{
+    NSString *scheme = request.URL.scheme;
+    if ([scheme isEqualToString:@"file"]) {
+        [listener use];
+    }
+    else {
+        [listener ignore];
+        [[NSWorkspace sharedWorkspace] openURL:request.URL];
     }
 }
 
