@@ -52,7 +52,8 @@ mw.openPreferences()
 
 // Open new window
 // "url" is relative to "public" folder
-// Notice: You can only open one window at the same time, or the later window will replace the former window.
+// Notice: You can only open one window at the same time,
+// or the later window will replace the former window.
 mw.newWindow({
   url: "about.html",
   width: 600,

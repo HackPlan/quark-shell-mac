@@ -56,7 +56,7 @@ static NSString * const kWebScriptNamespace = @"mw";
     return YES;
 }
 
-+ (NSString*)webScriptNameForSelector:(SEL)selector
++ (NSString *)webScriptNameForSelector:(SEL)selector
 {
 	id result = nil;
 
@@ -181,6 +181,8 @@ static NSString * const kWebScriptNamespace = @"mw";
     NSInteger height = [[scriptObj valueForKey:@"height"] integerValue];
 
     self.webViewWindowController = [[LDYWebViewWindowController alloc] initWithURLString:urlString width:width height:height];
+    self.webViewWindowController.webView.frameLoadDelegate = self;
+    self.webViewWindowController.webView.UIDelegate = self;
     [self.webViewWindowController showWindow:nil];
 }
 
@@ -242,6 +244,13 @@ static NSString * const kWebScriptNamespace = @"mw";
     #pragma clang diagnostic pop
     else {
         NSLog(@"Could not increase quota for %lld", defaultQuota);
+    }
+}
+
+- (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame
+{
+    if (sender == self.webViewWindowController.webView) {
+        self.webViewWindowController.window.title = title;
     }
 }
 

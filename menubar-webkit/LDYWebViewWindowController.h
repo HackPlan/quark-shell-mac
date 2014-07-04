@@ -10,6 +10,8 @@
 
 @interface LDYWebViewWindowController : NSWindowController
 
+@property (weak) IBOutlet WebView *webView;
+
 - (id)initWithURLString:(NSString *)URLString
                   width:(NSInteger)width
                  height:(NSInteger)height;

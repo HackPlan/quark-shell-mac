@@ -10,8 +10,6 @@
 
 @interface LDYWebViewWindowController ()
 
-@property (weak) IBOutlet WebView *webView;
-
 @end
 
 @implementation LDYWebViewWindowController
@@ -48,13 +46,6 @@
     else {
         [listener ignore];
         [[NSWorkspace sharedWorkspace] openURL:request.URL];
-    }
-}
-
-- (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame
-{
-    if (frame == self.webView.mainFrame) {
-        self.window.title = title;
     }
 }
 
