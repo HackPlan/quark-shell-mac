@@ -48,6 +48,7 @@ static NSString * const kWebScriptNamespace = @"mw";
         selector == @selector(addKeyboardShortcut:) ||
         selector == @selector(setupPreferenes:) ||
         selector == @selector(openPreferences) ||
+        selector == @selector(closeWindow) ||
         selector == @selector(newWindow:)) {
         return NO;
     }
@@ -79,6 +80,9 @@ static NSString * const kWebScriptNamespace = @"mw";
     }
     else if (selector == @selector(newWindow:)) {
         result = @"newWindow";
+    }
+    else if (selector == @selector(closeWindow)) {
+        result = @"closeWindow";
     }
 
 	return result;
@@ -181,6 +185,12 @@ static NSString * const kWebScriptNamespace = @"mw";
 
     self.webViewWindowController = [[LDYWebViewWindowController alloc] initWithURLString:urlString width:width height:height];
     [self.webViewWindowController showWindow:nil];
+}
+
+
+- (void)closeWindow
+{
+    [self.webViewWindowController close];
 }
 
 #pragma mark - Delegate methods
