@@ -58,6 +58,9 @@ mw.newWindow({
   width: 600,
   height: 400
 }
+
+// Close new window
+mw.closeWindow()
 ```
 
 ## Integrating Web App

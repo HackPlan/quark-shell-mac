@@ -81,9 +81,6 @@ static NSString * const kWebScriptNamespace = @"mw";
     else if (selector == @selector(newWindow:)) {
         result = @"newWindow";
     }
-    else if (selector == @selector(closeWindow)) {
-        result = @"closeWindow";
-    }
 
 	return result;
 }
