@@ -146,6 +146,7 @@ static NSString * const kWebScriptNamespace = @"mw";
     NSUInteger flags = [[shortcutObj valueForKey:@"modifierFlags"] integerValue];
     WebScriptObject *callback = [shortcutObj valueForKey:@"callback"];
     MASShortcut *shortcut = [MASShortcut shortcutWithKeyCode:keycode modifierFlags:flags];
+    [MASShortcut removeGlobalHotkeyMonitor:shortcut.description];
     [MASShortcut addGlobalHotkeyMonitorWithShortcut:shortcut handler:^{
         LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
         [converter callFunction:callback];
@@ -187,7 +188,6 @@ static NSString * const kWebScriptNamespace = @"mw";
     self.webViewWindowController.webView.policyDelegate = self;
     [self.webViewWindowController showWindow:nil];
 }
-
 
 - (void)closeWindow
 {
