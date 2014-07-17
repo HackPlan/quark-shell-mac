@@ -68,15 +68,10 @@ mw.closeWindow()
 
 ``public/index.html`` is the portal of your menubar app. ``public/preferences/[identifier].html`` are the preference pages (for example, ``public/preferences/general.html``).
 
-To see the sample app:
-
-```bash
-mv sample public
-```
-
 To add your own app:
 
 ```bash
+rm public
 git clone your.repository.address public
 ```
 

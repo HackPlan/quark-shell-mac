@@ -4,22 +4,27 @@
   <title>Menubar WebKit</title>
   <style>
   html {
-    background-color: rgb(237, 237, 237);
     height: 100%;
     width: 100%;
     overflow: hidden;
+    background-color: white;
   }
   body {
     height: 100%;
     width: 100%;
+    margin: 0;
     overflow: auto;
+    font-family: "Helvetica Neue";
   }
   h1 {
+    background-color: rgb(237, 237, 237);
     text-align: center;
-    font-family: "Helvetica Neue";
-    color: #999;
-    margin-top: 70px;
-    font-size: 28px;
+    font-weight: normal;
+    color: #444;
+    margin: 0;
+    padding: 12px 0 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid #ccc;
   }
   .input {
     text-align: center;
@@ -29,12 +34,22 @@
     margin-top: 30px;
   }
   .button p {
-    margin: 0;
+    margin: 11px 0;
   }
   button {
     width: 90px;
-    height: 20px;
-    margin: 3px 4px;
+    margin: 3px;
+    padding: 5px 0;
+    font-family: "Helvetica Neue";
+    background-color: #eee;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+  }
+  button:hover {
+    background-color: #f2f2f2;
+  }
+  button:active {
+    background-color: #e8e8e8;
   }
   canvas {
     display: none;
