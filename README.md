@@ -38,6 +38,9 @@ mw.addKeyboardShortcut({
   }
 })
 
+// Clear global keyboard shortcut
+mw.clearKeyboardShortcut()
+
 // Setup preferences
 // "label" is the toolbar item label in preferences window
 // "identifier" is the preference html file name and must be unique

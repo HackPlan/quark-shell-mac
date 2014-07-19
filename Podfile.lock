@@ -3,11 +3,15 @@ PODS:
   - RHPreferences (HEAD based on 1.0.0)
 
 DEPENDENCIES:
-  - MASShortcut (~> 1.2.3)
+  - MASShortcut (from `https://raw.githubusercontent.com/xhacker/MASShortcut/menubar-webkit/MASShortcut.podspec`)
   - RHPreferences (HEAD)
 
+EXTERNAL SOURCES:
+  MASShortcut:
+    :podspec: https://raw.githubusercontent.com/xhacker/MASShortcut/menubar-webkit/MASShortcut.podspec
+
 SPEC CHECKSUMS:
-  MASShortcut: e5e47bf0367e77f2c4089b4edc4c8143f3106eed
+  MASShortcut: a1e29fd34567fcd249d00648548924c8e7639474
   RHPreferences: d0215102b7b8cd9f501655e5e7db2551ef4dc0e5
 
 COCOAPODS: 0.33.1

@@ -46,6 +46,7 @@ static NSString * const kWebScriptNamespace = @"mw";
         selector == @selector(resetMenubarIcon) ||
         selector == @selector(notify:) ||
         selector == @selector(addKeyboardShortcut:) ||
+        selector == @selector(clearKeyboardShortcut) ||
         selector == @selector(setupPreferenes:) ||
         selector == @selector(openPreferences) ||
         selector == @selector(closeWindow) ||
@@ -151,6 +152,11 @@ static NSString * const kWebScriptNamespace = @"mw";
         LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
         [converter callFunction:callback];
     }];
+}
+
+- (void)clearKeyboardShortcut
+{
+    [MASShortcut clearGlobalHotkeyMonitor];
 }
 
 - (void)setupPreferenes:(WebScriptObject *)scriptObj
