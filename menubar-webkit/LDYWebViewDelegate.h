@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "LDYStatusItemView.h"
+#import "LDYAppDelegate.h"
 
 @interface LDYWebViewDelegate : NSObject
 
+@property (nonatomic, weak) LDYAppDelegate *appDelegate;
 @property (nonatomic, weak) LDYStatusItemView *statusItemView;
 @property (nonatomic, weak) WebView *webView;
 

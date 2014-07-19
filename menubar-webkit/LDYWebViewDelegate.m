@@ -50,7 +50,9 @@ static NSString * const kWebScriptNamespace = @"mw";
         selector == @selector(setupPreferenes:) ||
         selector == @selector(openPreferences) ||
         selector == @selector(closeWindow) ||
-        selector == @selector(newWindow:)) {
+        selector == @selector(newWindow:) ||
+        selector == @selector(pin) ||
+        selector == @selector(unpin)) {
         return NO;
     }
 
@@ -198,6 +200,16 @@ static NSString * const kWebScriptNamespace = @"mw";
 - (void)closeWindow
 {
     [self.webViewWindowController close];
+}
+
+- (void)pin
+{
+    self.appDelegate.pinned = YES;
+}
+
+- (void)unpin
+{
+    self.appDelegate.pinned = NO;
 }
 
 #pragma mark - Delegate methods

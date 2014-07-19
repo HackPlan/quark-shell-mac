@@ -11,5 +11,6 @@
 @interface LDYAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (nonatomic) BOOL pinned;
 
 @end

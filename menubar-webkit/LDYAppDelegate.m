@@ -62,6 +62,7 @@
     self.webView.mainFrameURL = url;
 
     self.webViewDelegate = [[LDYWebViewDelegate alloc] init];
+    self.webViewDelegate.appDelegate = self;
     self.webViewDelegate.statusItemView = self.statusItemView;
     self.webViewDelegate.webView = self.webView;
     self.webView.frameLoadDelegate = self.webViewDelegate;
@@ -70,8 +71,10 @@
 
 - (void)windowDidResignKey:(NSNotification *)notification
 {
-    self.window.isVisible = NO;
-    [self refreshStyle];
+    if (!self.pinned) {
+        self.window.isVisible = NO;
+        [self refreshStyle];
+    }
 }
 
 - (void)statusItemClicked

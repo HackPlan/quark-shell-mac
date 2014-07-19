@@ -15,6 +15,17 @@ $(function() {
         {"label": "Shortcut", "identifier": "shortcut", "icon": "NSAdvanced"}
     ])
 
+    $("#toggle-pin").click(function() {
+        if ($(this).html() == "Pin") {
+            mw.pin()
+            $(this).html("Unpin")
+        }
+        else {
+            mw.unpin()
+            $(this).html("Pin")
+        }
+    })
+
     var db = openDatabase('test', '1.0', 'Menubar WebKit supports WebSQL database', 5 * 1024 * 1024)
 })
 

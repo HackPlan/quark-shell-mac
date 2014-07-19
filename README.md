@@ -65,6 +65,10 @@ mw.newWindow({
 
 // Close new window
 mw.closeWindow()
+
+// Pin/unpin pop-up window (won’t close when click outside the window)
+mw.pin()
+mw.unpin()
 ```
 
 ## Integrating Web App

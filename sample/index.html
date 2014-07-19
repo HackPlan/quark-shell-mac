@@ -31,7 +31,7 @@
   }
   .button {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 16px;
   }
   .button p {
     margin: 11px 0;
@@ -71,13 +71,16 @@
       <button onclick="mw.newWindow({url: 'about.html', width: 600, height: 400})">New Window</button>
     </p>
     <p>
-      <button onclick="$('audio')[0].play()">Audio</button>
       <button onclick="setIcon()">Set Icon</button>
       <button onclick="mw.resetMenubarIcon()">Reset Icon</button>
+      <button id="toggle-pin">Pin</button>
     </p>
     <p>
+      <button onclick="$('audio')[0].play()">Audio</button>
       <button onclick="alert('menubar-webkit')">Alert</button>
       <button onclick="confirm('menubar-webkit?')">Confirm</button>
+    </p>
+    <p>
       <button onclick="mw.quit()">Quit</button>
     </p>
   </div>
