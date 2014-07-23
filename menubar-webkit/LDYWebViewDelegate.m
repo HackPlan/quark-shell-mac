@@ -132,6 +132,7 @@ static NSString * const kWebScriptNamespace = @"mw";
     notification.informativeText = [message valueForKey:@"content"];
     notification.deliveryDate = [NSDate date];
     notification.soundName = NSUserNotificationDefaultSoundName;
+    notification.userInfo = @{@"popupOnClick": [message valueForKey:@"popupOnClick"]};
 
     NSUserNotificationCenter *notificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
     notificationCenter.delegate = self;
@@ -141,6 +142,13 @@ static NSString * const kWebScriptNamespace = @"mw";
 - (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification
 {
     return YES;
+}
+
+- (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification
+{
+    if (notification.userInfo[@"popupOnClick"]) {
+        [self.appDelegate showWindow];
+    }
 }
 
 - (void)addKeyboardShortcut:(WebScriptObject *)shortcutObj

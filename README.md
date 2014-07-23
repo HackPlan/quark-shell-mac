@@ -26,7 +26,8 @@ mw.setAutoStart(true) // not implemented yet
 // Send system notification
 mw.notify({
   title: "Pomotodo",
-  content: "Break is over!"
+  content: "Break is over!",
+  popupOnClick: true // popup when clicking notification
 })
 
 // Set global keyboard shortcut

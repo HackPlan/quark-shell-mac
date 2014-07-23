@@ -77,6 +77,12 @@
     }
 }
 
+- (void)showWindow
+{
+    self.window.isVisible = YES;
+    [self refreshStyle];
+}
+
 - (void)statusItemClicked
 {
     self.window.isVisible = !self.window.isVisible;
