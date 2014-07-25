@@ -33,6 +33,6 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>https://github.com/HackPlan/menubar-webkit/raw/master/SampleAppcast.xml</string>
+	<string>https://raw.githubusercontent.com/HackPlan/menubar-webkit/updater/updater/SampleAppcast.xml</string>
 </dict>
 </plist>
