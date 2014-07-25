@@ -1,17 +1,21 @@
 PODS:
   - MASShortcut (1.2.3)
   - RHPreferences (HEAD based on 1.0.0)
+  - Sparkle-pornel (1.6.1)
 
 DEPENDENCIES:
-  - MASShortcut (from `https://raw.githubusercontent.com/xhacker/MASShortcut/menubar-webkit/MASShortcut.podspec`)
+  - MASShortcut (from `git@github.com:xhacker/MASShortcut.git`, branch `menubar-webkit`)
   - RHPreferences (HEAD)
+  - Sparkle-pornel
 
 EXTERNAL SOURCES:
   MASShortcut:
-    :podspec: https://raw.githubusercontent.com/xhacker/MASShortcut/menubar-webkit/MASShortcut.podspec
+    :branch: menubar-webkit
+    :git: git@github.com:xhacker/MASShortcut.git
 
 SPEC CHECKSUMS:
   MASShortcut: a1e29fd34567fcd249d00648548924c8e7639474
   RHPreferences: d0215102b7b8cd9f501655e5e7db2551ef4dc0e5
+  Sparkle-pornel: dfb419ba2135a0b7e9c686c566eeb4abb5af2df1
 
 COCOAPODS: 0.33.1

@@ -1,4 +1,5 @@
 platform :osx, '10.9'
 
-pod 'MASShortcut',  :podspec => 'https://raw.githubusercontent.com/xhacker/MASShortcut/menubar-webkit/MASShortcut.podspec'
+pod 'MASShortcut',  :git => 'git@github.com:xhacker/MASShortcut.git', :branch => 'menubar-webkit'
 pod 'RHPreferences', :head
+pod 'Sparkle-pornel'

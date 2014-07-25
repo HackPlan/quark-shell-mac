@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Menubar WebKit</title>
+        <link>https://github.com/HackPlan/menubar-webkit/raw/master/SampleAppcast.xml</link>
+        <description>Most recent changes with links to updates.</description>
+        <language>en</language>
+        <item>
+            <title>Version 6.23</title>
+            <sparkle:releaseNotesLink>https://github.com/HackPlan/menubar-webkit/raw/master/ReleaseNotes.html</sparkle:releaseNotesLink>
+            <pubDate>Fri, 01 Jul 2011 00:00:00 +0800</pubDate>
+            <enclosure url="https://dl.dropboxusercontent.com/u/703669/menubar-webkit%20%282%29.zip" sparkle:version="2" length="1072667" type="application/octet-stream" />
+            <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
+        </item>
+    </channel>
+</rss>

@@ -9,6 +9,7 @@
 #import "LDYAppDelegate.h"
 #import "LDYWebViewDelegate.h"
 #import "LDYStatusItemView.h"
+#import <Sparkle/Sparkle.h>
 
 @interface WebPreferences (WebPreferencesPrivate)
 
@@ -67,6 +68,8 @@
     self.webViewDelegate.webView = self.webView;
     self.webView.frameLoadDelegate = self.webViewDelegate;
     self.webView.UIDelegate = self.webViewDelegate;
+
+    [[SUUpdater sharedUpdater] checkForUpdates:nil];
 }
 
 - (void)windowDidResignKey:(NSNotification *)notification
