@@ -48,7 +48,7 @@
     self.statusItem.view = self.statusItemView;
     self.statusItemView.statusItem = self.statusItem;
 
-    self.window.level = NSNormalWindowLevel;
+    self.window.level = NSFloatingWindowLevel;
     self.window.delegate = self;
     [self.window setOpaque:NO];
     [self.window setBackgroundColor:[NSColor clearColor]];
