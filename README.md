@@ -101,3 +101,11 @@ Used third-party libraries:
 
 * [MASShortcut](https://github.com/shpakovski/MASShortcut) by [@shpakovski](https://github.com/shpakovski)
 * [RHPreferences](https://github.com/heardrwt/RHPreferences) by [@heardrwt](https://github.com/heardrwt)
+
+## Contribution
+
+Pull requests are welcome! If you want to do something big, please open an issue first.
+
+## License
+
+MIT
