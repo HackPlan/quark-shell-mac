@@ -64,11 +64,12 @@
   <div class="button">
     <p>
       <button onclick="mw.notify({title: 'Menubar WebKit', content: 'Hello World', popupOnClick: true})">Notify</button>
-      <button onclick="mw.openURL('https://github.com/xhacker')">Open URL</button>
+      <button onclick="mw.newWindow({url: 'about.html', width: 600, height: 400})">New Window</button>
     </p>
     <p>
       <button onclick="mw.openPreferences()">Preferences</button>
-      <button onclick="mw.newWindow({url: 'about.html', width: 600, height: 400})">New Window</button>
+      <button onclick="mw.openURL('https://github.com/xhacker')">Open URL</button>
+      <button onclick="mw.checkUpdate('https://rawgit.com/HackPlan/menubar-webkit/updater/updater/SampleAppcast.xml')">Check Update</button>
     </p>
     <p>
       <button onclick="setIcon()">Set Icon</button>

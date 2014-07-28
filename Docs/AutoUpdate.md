@@ -2,7 +2,7 @@
 
 ## AppCast.xml
 
-To enable auto update, you need to prepare an **AppCast.xml**([sample](https://github.com/HackPlan/menubar-webkit/blob/updater/updater/SampleAppcast.xml)) like this:
+To enable auto update, you need to prepare an **AppCast.xml** ([sample](https://github.com/HackPlan/menubar-webkit/blob/updater/updater/SampleAppcast.xml)) like this:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -29,7 +29,7 @@ For safety reasons, you have to code sign your app properly to enable auto updat
 
 ## Check for Update
 
-We provide two APIs for checking update, both require an URL to AppCast.xml:
+We provide two JavaScript APIs for checking update, both require an URL to AppCast.xml:
 
 ```js
 mw.checkUpdate("https://rawgit.com/HackPlan/menubar-webkit/updater/updater/SampleAppcast.xml")
@@ -38,4 +38,4 @@ mw.checkUpdateInBackground("https://rawgit.com/HackPlan/menubar-webkit/updater/u
 
 ## Under the Hood
 
-Menubar WebKit uses [Sparkle](https://github.com/sparkle-project/Sparkle) as update engine, refer to the documentation for Sparkle for more detail.
+Menubar WebKit uses [Sparkle](https://github.com/sparkle-project/Sparkle) as update engine, refer to the documentation for Sparkle for more details.

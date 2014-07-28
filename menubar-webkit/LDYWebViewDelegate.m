@@ -12,6 +12,7 @@
 #import "LDYWebViewWindowController.h"
 #import <MASShortcut+Monitoring.h>
 #import <RHPreferences.h>
+#import <Sparkle/Sparkle.h>
 
 static NSString * const kWebScriptNamespace = @"mw";
 
@@ -52,7 +53,9 @@ static NSString * const kWebScriptNamespace = @"mw";
         selector == @selector(closeWindow) ||
         selector == @selector(newWindow:) ||
         selector == @selector(pin) ||
-        selector == @selector(unpin)) {
+        selector == @selector(unpin) ||
+        selector == @selector(checkUpdate:) ||
+        selector == @selector(checkUpdateInBackground:)) {
         return NO;
     }
 
@@ -83,6 +86,12 @@ static NSString * const kWebScriptNamespace = @"mw";
     }
     else if (selector == @selector(newWindow:)) {
         result = @"newWindow";
+    }
+    else if (selector == @selector(checkUpdate:)) {
+        result = @"checkUpdate";
+    }
+    else if (selector == @selector(checkUpdateInBackground:)) {
+        result = @"checkUpdateInBackground";
     }
 
 	return result;
@@ -218,6 +227,20 @@ static NSString * const kWebScriptNamespace = @"mw";
 - (void)unpin
 {
     self.appDelegate.pinned = NO;
+}
+
+- (void)checkUpdate:(NSString *)url
+{
+    SUUpdater *updater = [[SUUpdater alloc] init];
+    updater.feedURL = [NSURL URLWithString:url];
+    [updater checkForUpdates:nil];
+}
+
+- (void)checkUpdateInBackground:(NSString *)url
+{
+    SUUpdater *updater = [[SUUpdater alloc] init];
+    updater.feedURL = [NSURL URLWithString:url];
+    [updater checkForUpdatesInBackground];
 }
 
 #pragma mark - Delegate methods

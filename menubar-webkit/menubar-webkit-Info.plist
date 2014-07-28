@@ -32,7 +32,5 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>SUFeedURL</key>
-	<string>https://rawgit.com/HackPlan/menubar-webkit/updater/updater/SampleAppcast.xml</string>
 </dict>
 </plist>
