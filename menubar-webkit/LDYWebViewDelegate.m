@@ -16,7 +16,10 @@
 
 static NSString * const kWebScriptNamespace = @"mw";
 
-@interface LDYWebViewDelegate () <NSUserNotificationCenterDelegate>
+@interface LDYWebViewDelegate () <NSUserNotificationCenterDelegate> {
+    NSString *appVersion;
+    NSString *appBundleVersion;
+}
 
 @property (nonatomic) NSWindowController *preferencesWindowController;
 @property (nonatomic) LDYWebViewWindowController *webViewWindowController;
@@ -27,13 +30,17 @@ static NSString * const kWebScriptNamespace = @"mw";
 
 + (void)initialize
 {
-	[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"WebKitDeveloperExtras"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"WebKitDeveloperExtras"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowScriptObject forFrame:(WebFrame *)frame
 {
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];
+
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    appBundleVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
 }
 
 #pragma mark WebScripting Protocol
@@ -99,6 +106,10 @@ static NSString * const kWebScriptNamespace = @"mw";
 
 + (BOOL)isKeyExcludedFromWebScript:(const char *)name
 {
+    if (strncmp(name, "appVersion", 10) == 0 ||
+        strncmp(name, "appBundleVersion", 16) == 0) {
+        return NO;
+    }
 	return YES;
 }
 

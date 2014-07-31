@@ -9,6 +9,10 @@
 APIs may change rapidly before 1.0.
 
 ```js
+// App info (in Xcode)
+mw.appVersion
+mw.appBundleVersion
+
 // Quit application
 mw.quit()
 

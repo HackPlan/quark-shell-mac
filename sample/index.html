@@ -20,14 +20,16 @@
     background-color: rgb(237, 237, 237);
     text-align: center;
     font-weight: normal;
-    color: #444;
+    color: #333;
     margin: 0;
     padding: 12px 0 10px 0;
     font-size: 16px;
     border-bottom: 1px solid #ccc;
   }
-  .input {
-    text-align: center;
+  #app-version,
+  #app-bundle-version {
+    color: #777;
+    font-size: 13px;
   }
   .button {
     text-align: center;
@@ -57,7 +59,11 @@
   </style>
 </head>
 <body>
-  <h1>Menubar WebKit</h1>
+  <h1>
+    Menubar WebKit
+    <span id="app-version"></span>
+    <span id="app-bundle-version"></span>
+  </h1>
 
   <audio src="audio.aac"></audio>
 
