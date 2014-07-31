@@ -72,6 +72,16 @@ mw.pin()
 mw.unpin()
 ```
 
+### Auto Update
+
+```js
+// Check for update
+mw.checkUpdate("https://rawgit.com/HackPlan/menubar-webkit/updater/updater/SampleAppcast.xml")
+mw.checkUpdateInBackground("https://rawgit.com/HackPlan/menubar-webkit/updater/updater/SampleAppcast.xml")
+```
+
+More detail: [AutoUpdate.md](Docs/AutoUpdate.md)
+
 ## Integrating Web App
 
 ``public/index.html`` is the portal of your menubar app. ``public/preferences/[identifier].html`` are the preference pages (for example, ``public/preferences/general.html``).
@@ -101,6 +111,7 @@ Used third-party libraries:
 
 * [MASShortcut](https://github.com/shpakovski/MASShortcut) by [@shpakovski](https://github.com/shpakovski)
 * [RHPreferences](https://github.com/heardrwt/RHPreferences) by [@heardrwt](https://github.com/heardrwt)
+* [Sparkle](https://github.com/sparkle-project/Sparkle) by [contributors](https://github.com/sparkle-project/Sparkle/graphs/contributors)
 
 ## Contribution
 
