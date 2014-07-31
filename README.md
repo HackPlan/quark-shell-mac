@@ -76,8 +76,8 @@ mw.unpin()
 
 ```js
 // Check for update
-mw.checkUpdate("https://rawgit.com/HackPlan/menubar-webkit/updater/updater/SampleAppcast.xml")
-mw.checkUpdateInBackground("https://rawgit.com/HackPlan/menubar-webkit/updater/updater/SampleAppcast.xml")
+mw.checkUpdate("https://rawgit.com/HackPlan/menubar-webkit/master/updater/SampleAppcast.xml")
+mw.checkUpdateInBackground("https://rawgit.com/HackPlan/menubar-webkit/master/updater/SampleAppcast.xml")
 ```
 
 More detail: [AutoUpdate.md](Docs/AutoUpdate.md)

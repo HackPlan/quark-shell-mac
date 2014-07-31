@@ -27,7 +27,7 @@ static NSString * const kWebScriptNamespace = @"mw";
 
 + (void)initialize
 {
-	[[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"WebKitDeveloperExtras"];
+	[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"WebKitDeveloperExtras"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
