@@ -13,6 +13,9 @@ APIs may change rapidly before 1.0.
 mw.appVersion
 mw.appBundleVersion
 
+// Close the popup window
+mw.closePopup()
+
 // Quit application
 mw.quit()
 
@@ -100,6 +103,7 @@ git clone your.repository.address public
 ## FAQ
 * Can I use **local storage**? Yes.
 * Can I use **WebSQL**? Yes.
+* Is Menubar WebKit compatible with Mac App Store? Absolutely yes.
 
 ## Credits
 

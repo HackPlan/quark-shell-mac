@@ -47,7 +47,8 @@ static NSString * const kWebScriptNamespace = @"mw";
 
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)selector
 {
-    if (selector == @selector(quit) ||
+    if (selector == @selector(closePopup) ||
+        selector == @selector(quit) ||
         selector == @selector(openURL:) ||
         selector == @selector(changeIcon:) ||
         selector == @selector(changeHighlightedIcon:) ||
@@ -114,6 +115,11 @@ static NSString * const kWebScriptNamespace = @"mw";
 }
 
 #pragma mark - Methods for JavaScript
+
+- (void)closePopup
+{
+    [self.appDelegate hideWindow];
+}
 
 - (void)quit
 {

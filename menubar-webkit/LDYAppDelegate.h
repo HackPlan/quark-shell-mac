@@ -14,5 +14,6 @@
 @property (nonatomic) BOOL pinned;
 
 - (void)showWindow;
+- (void)hideWindow;
 
 @end

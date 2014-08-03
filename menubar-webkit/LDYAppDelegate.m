@@ -83,6 +83,12 @@
     [self refreshStyle];
 }
 
+- (void)hideWindow
+{
+    self.window.isVisible = NO;
+    [self refreshStyle];
+}
+
 - (void)statusItemClicked
 {
     self.window.isVisible = !self.window.isVisible;
