@@ -93,12 +93,16 @@ More detail: [AutoUpdate.md](Docs/AutoUpdate.md)
 
 ``public/index.html`` is the portal of your menubar app. ``public/preferences/[identifier].html`` are the preference pages (for example, ``public/preferences/general.html``).
 
-To add your own app:
+To build your app:
 
-```bash
-rm public
-git clone your.repository.address public
-```
+0. Delete the current ``public`` folder.
+0. Put your files into the ``public`` folder.
+0. [Install CocoaPods](http://guides.cocoapods.org/using/getting-started.html).
+0. Run ``pod install``.
+0. Open ``menubar-webkit.xcworkspace`` in Xcode.
+0. Build and have fun!
+
+Remember that Menubar WebKit is still a WIP. When the project is stable enough, I will definitely simplify the build process.
 
 ## FAQ
 * Can I use **local storage**? Yes.
