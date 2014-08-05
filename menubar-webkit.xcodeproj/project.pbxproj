@@ -497,7 +497,6 @@
 			baseConfigurationReference = 6708A5D2E5B94976A34859BA /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "menubar-webkit/menubar-webkit-Prefix.pch";
@@ -513,7 +512,6 @@
 			baseConfigurationReference = 6708A5D2E5B94976A34859BA /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "menubar-webkit/menubar-webkit-Prefix.pch";
