@@ -4,14 +4,14 @@ PODS:
   - Sparkle (1.7.1)
 
 DEPENDENCIES:
-  - MASShortcut (from `git@github.com:xhacker/MASShortcut.git`, branch `menubar-webkit`)
+  - MASShortcut (from `https://github.com/xhacker/MASShortcut.git`, branch `menubar-webkit`)
   - RHPreferences (HEAD)
   - Sparkle (~> 1.7.1)
 
 EXTERNAL SOURCES:
   MASShortcut:
     :branch: menubar-webkit
-    :git: git@github.com:xhacker/MASShortcut.git
+    :git: https://github.com/xhacker/MASShortcut.git
 
 SPEC CHECKSUMS:
   MASShortcut: a1e29fd34567fcd249d00648548924c8e7639474
