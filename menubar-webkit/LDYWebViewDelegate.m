@@ -47,7 +47,8 @@ static NSString * const kWebScriptNamespace = @"mw";
 
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)selector
 {
-    if (selector == @selector(closePopup) ||
+    if (selector == @selector(openPopup) ||
+        selector == @selector(closePopup) ||
         selector == @selector(quit) ||
         selector == @selector(openURL:) ||
         selector == @selector(changeIcon:) ||
@@ -58,8 +59,8 @@ static NSString * const kWebScriptNamespace = @"mw";
         selector == @selector(clearKeyboardShortcut) ||
         selector == @selector(setupPreferenes:) ||
         selector == @selector(openPreferences) ||
-        selector == @selector(closeWindow) ||
         selector == @selector(newWindow:) ||
+        selector == @selector(closeWindow) ||
         selector == @selector(pin) ||
         selector == @selector(unpin) ||
         selector == @selector(checkUpdate:) ||
@@ -115,6 +116,11 @@ static NSString * const kWebScriptNamespace = @"mw";
 }
 
 #pragma mark - Methods for JavaScript
+
+- (void)openPopup
+{
+    [self.appDelegate showWindow];
+}
 
 - (void)closePopup
 {

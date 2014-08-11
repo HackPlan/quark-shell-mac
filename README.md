@@ -13,7 +13,8 @@ APIs may change rapidly before 1.0.
 mw.appVersion
 mw.appBundleVersion
 
-// Close the popup window
+// Open/close the popup window
+mw.openPopup()
 mw.closePopup()
 
 // Quit application
