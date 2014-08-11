@@ -71,18 +71,18 @@ mw.unpin()
 ### Preferences
 
 ```js
-// Setup preferences
 mw.setupPreferences([
   {"label": "General",  "identifier": "general",  "icon": "NSPreferencesGeneral", "height": 192},
   {"label": "Account",  "identifier": "account",  "icon": "NSUserAccounts",       "height": 102},
   {"label": "Shortcut", "identifier": "shortcut", "icon": "NSAdvanced",           "height": 120}
 ])
 
-// Open preferences
+// Must be called after mw.setupPreferences()
 mw.openPreferences()
 ```
 
 Menubar WebKit also provides some native components for preferences.
+
 More detail: [Preferences.md](Docs/Preferences.md)
 
 ### Auto Update

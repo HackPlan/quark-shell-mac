@@ -3,7 +3,6 @@
 You can build native-like preferences window using following API:
 
 ```js
-// Setup preferences
 // "label" is the toolbar item label in preferences window
 // "identifier" is the preference html file name and must be unique
 // "height" is the height of the preference tab
@@ -13,7 +12,7 @@ mw.setupPreferences([
   {"label": "Shortcut", "identifier": "shortcut", "icon": "NSAdvanced",           "height": 120}
 ])
 
-// Open preferences
+// Must be called after mw.setupPreferences()
 mw.openPreferences()
 ```
 
@@ -33,6 +32,7 @@ mw.setupPreferences([
     identifier: "shortcut",
     icon: "NSAdvanced",
     height: 80,
+
     nativeComponents: [{
       type: "ShortcutRecorder",
       options: {
@@ -40,9 +40,18 @@ mw.setupPreferences([
         y: 28,
         callback: function(keycode, modifierFlags) {
           console.log("New shortcut:", keycode, modifierFlags)
+          mw.clearKeyboardShortcut()
+          mw.addKeyboardShortcut({
+            keycode: keycode,
+            modifierFlags: modifierFlags,
+            callback: function suchCallback() {
+              console.log("wow")
+            }
+          })
         }
       }
     }]
+
   }
 ])
 ```

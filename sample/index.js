@@ -22,6 +22,14 @@ $(function() {
                     y: 28,
                     callback: function(keycode, modifierFlags) {
                         console.log("New shortcut:", keycode, modifierFlags)
+                        mw.clearKeyboardShortcut()
+                        mw.addKeyboardShortcut({
+                            keycode: keycode,
+                            modifierFlags: modifierFlags,
+                            callback: function suchCallback() {
+                                console.log("wow")
+                            }
+                        })
                     }
                 }
             }]
