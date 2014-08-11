@@ -38,15 +38,15 @@ mw.setupPreferences([
       options: {
         x: 140,
         y: 28,
-        callback: function(keycode, modifierFlags) {
+        keycode: 0x7A, // F1 key
+        modifierFlags: 0, // no modifier key
+        onChange: function (keycode, modifierFlags) {
           console.log("New shortcut:", keycode, modifierFlags)
           mw.clearKeyboardShortcut()
           mw.addKeyboardShortcut({
             keycode: keycode,
             modifierFlags: modifierFlags,
-            callback: function suchCallback() {
-              console.log("wow")
-            }
+            callback: function () { console.log("wow") }
           })
         }
       }
@@ -56,4 +56,8 @@ mw.setupPreferences([
 ])
 ```
 
-`x` and `y` in `options` are the coordinates of the recorder view, `callback` will be invoked with the recorded shortcut (if the shortcut is cleared, `keycode` and `modifierFlags` will be `0`). You can then setup the shortcut using [`mw.addKeyboardShortcut()`](https://github.com/HackPlan/menubar-webkit#api), or clear shortcuts using [`mw.clearKeyboardShortcut()`](https://github.com/HackPlan/menubar-webkit#api).
+`x` and `y` in `options` are the coordinates of the recorder view.  
+`keycode` and `modifierFlags` are the initial values for the recorder view. Omit these two arguments for a empty recorder view.  
+`onChange` will be invoked if user records a new shortcut (`onChange` will also be invoked if the shortcut is cleared, `keycode` and `modifierFlags` will be `0`).
+
+You can then setup the shortcut using [`mw.addKeyboardShortcut()`](https://github.com/HackPlan/menubar-webkit#api), or clear shortcuts using [`mw.clearKeyboardShortcut()`](https://github.com/HackPlan/menubar-webkit#api).

@@ -59,14 +59,22 @@
 - (void)addNativeComponent:(NSDictionary *)component
 {
     if ([component[@"type"] isEqualToString:@"ShortcutRecorder"]) {
-        CGFloat width = 180;
-        CGFloat height = 19;
+        static const CGFloat width = 180;
+        static const CGFloat height = 19;
         CGFloat x = [component[@"options"][@"x"] doubleValue];
         CGFloat yFlipped = self.view.frame.size.height - [component[@"options"][@"y"] doubleValue] - height;
+
         MASShortcutView *shortcutView = [[MASShortcutView alloc] initWithFrame:NSMakeRect(x, yFlipped, width, height)];
+        if (component[@"options"][@"keycode"]) {
+            NSUInteger keycode = [component[@"options"][@"keycode"] unsignedIntegerValue];
+            NSUInteger flags = [component[@"options"][@"modifierFlags"] unsignedIntegerValue];
+            MASShortcut *shortcut = [MASShortcut shortcutWithKeyCode:keycode modifierFlags:flags];
+            shortcutView.shortcutValue = shortcut;
+        }
+        
         shortcutView.shortcutValueChange = ^(MASShortcutView *sender) {
             LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
-            [converter callFunction:component[@"options"][@"callback"]
+            [converter callFunction:component[@"options"][@"onChange"]
                            withArgs:@[@([sender.shortcutValue keyCode]),
                                       @([sender.shortcutValue modifierFlags])]];
         };

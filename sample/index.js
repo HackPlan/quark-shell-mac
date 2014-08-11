@@ -20,13 +20,15 @@ $(function() {
                 options: {
                     x: 140,
                     y: 28,
-                    callback: function(keycode, modifierFlags) {
+                    keycode: 0x7A, // F1 key
+                    modifierFlags: 0, // no modifier key
+                    onChange: function (keycode, modifierFlags) {
                         console.log("New shortcut:", keycode, modifierFlags)
                         mw.clearKeyboardShortcut()
                         mw.addKeyboardShortcut({
                             keycode: keycode,
                             modifierFlags: modifierFlags,
-                            callback: function suchCallback() {
+                            callback: function () {
                                 console.log("wow")
                             }
                         })
