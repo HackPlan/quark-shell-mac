@@ -42,4 +42,13 @@
  */
 - (void)callFunction:(WebScriptObject *)webScriptObject;
 
+/**
+ *  Call function in WebScriptObject with arguments
+ *
+ *  @param webScriptObject Function object
+ *  @param args arguments
+ */
+- (void)callFunction:(WebScriptObject *)webScriptObject
+            withArgs:(NSArray *)args;
+
 @end

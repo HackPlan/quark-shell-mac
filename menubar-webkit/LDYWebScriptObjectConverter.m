@@ -42,6 +42,7 @@
                                      return a; \
                                  }";
     NSString *callFunction = @"LDYBridgeUtil.callFunction = function(func) { func(); };";
+    NSString *callFunctionWithArgs = @"LDYBridgeUtil.callFunctionWithArgs = function(func, args) { func.apply(null, args); };";
 
     WebScriptObject *win = self.webView.windowScriptObject;
     [win evaluateWebScript:bridgeUtil];
@@ -49,6 +50,7 @@
     [win evaluateWebScript:isObject];
     [win evaluateWebScript:dictionaryKeys];
     [win evaluateWebScript:callFunction];
+    [win evaluateWebScript:callFunctionWithArgs];
 }
 
 - (BOOL)isArray:(WebScriptObject *)obj
@@ -87,6 +89,9 @@
             else if ([self isDictionary:item]) {
                 dict[key] = [self dictionaryFromWebScriptObject:item];
             }
+            else {
+                dict[key] = item;
+            }
         }
         else {
             dict[key] = item;
@@ -109,6 +114,9 @@
             else if ([self isDictionary:item]) {
                 [a addObject:[self dictionaryFromWebScriptObject:item]];
             }
+            else {
+                [a addObject:item];
+            }
         }
         else {
             [a addObject:item];
@@ -123,6 +131,14 @@
     WebScriptObject *win = self.webView.windowScriptObject;
     WebScriptObject *bridgeUtil = [win evaluateWebScript:@"LDYBridgeUtil"];
     [bridgeUtil callWebScriptMethod:@"callFunction" withArguments:@[webScriptObject]];
+}
+
+- (void)callFunction:(WebScriptObject *)webScriptObject
+            withArgs:(NSArray *)args
+{
+    WebScriptObject *win = self.webView.windowScriptObject;
+    WebScriptObject *bridgeUtil = [win evaluateWebScript:@"LDYBridgeUtil"];
+    [bridgeUtil callWebScriptMethod:@"callFunctionWithArgs" withArguments:@[webScriptObject, args]];
 }
 
 @end

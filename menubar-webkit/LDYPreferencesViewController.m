@@ -7,6 +7,9 @@
 //
 
 #import "LDYPreferencesViewController.h"
+#import "LDYWebScriptObjectConverter.h"
+#import <MASShortcutView.h>
+#import <MASShortcut.h>
 
 @interface LDYPreferencesViewController ()
 
@@ -51,6 +54,25 @@
     self.webView.frameLoadDelegate = self.delegate;
     self.webView.UIDelegate = self.delegate;
     self.webView.policyDelegate = self.delegate;
+}
+
+- (void)addNativeComponent:(NSDictionary *)component
+{
+    if ([component[@"type"] isEqualToString:@"ShortcutRecorder"]) {
+        CGFloat width = 180;
+        CGFloat height = 19;
+        CGFloat x = [component[@"options"][@"x"] doubleValue];
+        CGFloat yFlipped = self.view.frame.size.height - [component[@"options"][@"y"] doubleValue] - height;
+        MASShortcutView *shortcutView = [[MASShortcutView alloc] initWithFrame:NSMakeRect(x, yFlipped, width, height)];
+        shortcutView.shortcutValueChange = ^(MASShortcutView *sender) {
+            LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
+            [converter callFunction:component[@"options"][@"callback"]
+                           withArgs:@[@([sender.shortcutValue keyCode]),
+                                      @([sender.shortcutValue modifierFlags])]];
+        };
+
+        [self.view addSubview:shortcutView];
+    }
 }
 
 @end

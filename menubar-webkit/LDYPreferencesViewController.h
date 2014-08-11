@@ -19,4 +19,6 @@
                             height:(NSInteger)height
                           delegate:(id)delegate;
 
+- (void)addNativeComponent:(NSDictionary *)component;
+
 @end

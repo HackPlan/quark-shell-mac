@@ -50,19 +50,6 @@ mw.addKeyboardShortcut({
 // Clear global keyboard shortcut
 mw.clearKeyboardShortcut()
 
-// Setup preferences
-// "label" is the toolbar item label in preferences window
-// "identifier" is the preference html file name and must be unique
-// "height" is the height of the preference tab
-mw.setupPreferences([
-  {"label": "General",  "identifier": "general",  "icon": "NSPreferencesGeneral", "height": 192},
-  {"label": "Account",  "identifier": "account",  "icon": "NSUserAccounts",       "height": 102},
-  {"label": "Shortcut", "identifier": "shortcut", "icon": "NSAdvanced",           "height": 120}
-])
-
-// Open preferences
-mw.openPreferences()
-
 // Open new window
 // "url" is relative to "public" folder
 // Notice: You can only open one window at the same time,
@@ -80,6 +67,23 @@ mw.closeWindow()
 mw.pin()
 mw.unpin()
 ```
+
+### Preferences
+
+```js
+// Setup preferences
+mw.setupPreferences([
+  {"label": "General",  "identifier": "general",  "icon": "NSPreferencesGeneral", "height": 192},
+  {"label": "Account",  "identifier": "account",  "icon": "NSUserAccounts",       "height": 102},
+  {"label": "Shortcut", "identifier": "shortcut", "icon": "NSAdvanced",           "height": 120}
+])
+
+// Open preferences
+mw.openPreferences()
+```
+
+Menubar WebKit also provides some native components for preferences.
+More detail: [Preferences.md](Docs/Preferences.md)
 
 ### Auto Update
 

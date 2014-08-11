@@ -215,6 +215,11 @@ static const NSInteger kPreferencesDefaultHeight = 192;
                                             toolbarLabel:preferences[@"label"]
                                             height:height
                                             delegate:self];
+
+        for (NSDictionary *component in preferences[@"nativeComponents"]) {
+            [vc addNativeComponent:component];
+        }
+
         [viewControllers addObject:vc];
 	}
 
