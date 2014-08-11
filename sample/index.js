@@ -11,9 +11,9 @@ $(function() {
     })
 
     mw.setupPreferences([
-        {"label": "General",  "identifier": "general",  "icon": "NSPreferencesGeneral"},
-        {"label": "Account",  "identifier": "account",  "icon": "NSUserAccounts"},
-        {"label": "Shortcut", "identifier": "shortcut", "icon": "NSAdvanced"}
+        {"label": "General",  "identifier": "general",  "icon": "NSPreferencesGeneral", "height": 192},
+        {"label": "Account",  "identifier": "account",  "icon": "NSUserAccounts",       "height": 100},
+        {"label": "Shortcut", "identifier": "shortcut", "icon": "NSAdvanced",           "height": 120}
     ])
 
     $("#toggle-pin").click(function() {

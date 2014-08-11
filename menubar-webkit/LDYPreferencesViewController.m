@@ -13,6 +13,7 @@
 @property (nonatomic) NSString *identifier;
 @property (nonatomic) NSImage *toolbarItemImage;
 @property (nonatomic) NSString *toolbarItemLabel;
+@property (nonatomic) NSInteger height;
 @property (nonatomic, weak) id delegate;
 
 @end
@@ -22,6 +23,7 @@
 - (instancetype)initWithIdentifier:(NSString *)identifier
                       toolbarImage:(NSImage *)image
                       toolbarLabel:(NSString *)label
+                            height:(NSInteger)height
                           delegate:(id)delegate
 {
     self = [super initWithNibName:@"LDYPreferencesViewController" bundle:nil];
@@ -29,6 +31,7 @@
         _identifier = identifier;
         _toolbarItemImage = image;
         _toolbarItemLabel = label;
+        _height = height;
         _delegate = delegate;
     }
     return self;
@@ -37,6 +40,9 @@
 - (void)loadView
 {
     [super loadView];
+
+    self.view.frame = NSMakeRect(self.view.frame.origin.x, self.view.frame.origin.y,
+                                 self.view.frame.size.width, self.height);
 
     NSString *url = [[NSURL URLWithString:kPreferencesDirectory relativeToURL:[[NSBundle mainBundle] resourceURL]] absoluteString];
     url = [url stringByAppendingString:[NSString stringWithFormat:@"%@.html", self.identifier]];

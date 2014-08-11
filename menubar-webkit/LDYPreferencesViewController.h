@@ -16,6 +16,7 @@
 - (instancetype)initWithIdentifier:(NSString *)identifier
                       toolbarImage:(NSImage *)image
                       toolbarLabel:(NSString *)label
+                            height:(NSInteger)height
                           delegate:(id)delegate;
 
 @end

@@ -53,10 +53,11 @@ mw.clearKeyboardShortcut()
 // Setup preferences
 // "label" is the toolbar item label in preferences window
 // "identifier" is the preference html file name and must be unique
+// "height" is the height of the preference tab
 mw.setupPreferences([
-  {"label": "General",  "identifier": "general",  "icon": "NSPreferencesGeneral"},
-  {"label": "Account",  "identifier": "account",  "icon": "NSUserAccounts"},
-  {"label": "Shortcut", "identifier": "shortcut", "icon": "NSAdvanced"}
+  {"label": "General",  "identifier": "general",  "icon": "NSPreferencesGeneral", "height": 192},
+  {"label": "Account",  "identifier": "account",  "icon": "NSUserAccounts",       "height": 100},
+  {"label": "Shortcut", "identifier": "shortcut", "icon": "NSAdvanced",           "height": 120}
 ])
 
 // Open preferences

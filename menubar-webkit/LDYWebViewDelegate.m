@@ -15,6 +15,7 @@
 #import <Sparkle/Sparkle.h>
 
 static NSString * const kWebScriptNamespace = @"mw";
+static const NSInteger kPreferencesDefaultHeight = 192;
 
 @interface LDYWebViewDelegate () <NSUserNotificationCenterDelegate> {
     NSString *appVersion;
@@ -207,10 +208,12 @@ static NSString * const kWebScriptNamespace = @"mw";
     NSArray *preferencesArray = [converter arrayFromWebScriptObject:scriptObj];
     NSMutableArray *viewControllers = [NSMutableArray array];
 	for (NSDictionary *preferences in preferencesArray) {
+        NSInteger height = preferences[@"height"] ? [preferences[@"height"] integerValue]: kPreferencesDefaultHeight;
         LDYPreferencesViewController *vc = [[LDYPreferencesViewController alloc]
                                             initWithIdentifier:preferences[@"identifier"]
                                             toolbarImage:[NSImage imageNamed:preferences[@"icon"]]
                                             toolbarLabel:preferences[@"label"]
+                                            height:height
                                             delegate:self];
         [viewControllers addObject:vc];
 	}
