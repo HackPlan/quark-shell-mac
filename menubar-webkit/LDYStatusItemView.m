@@ -47,15 +47,9 @@
     CGFloat offset = (NSWidth(self.bounds) - 20) / 2;
     NSRect iconFrame = NSMakeRect(offset, 0, 20, 20);
 
-    if (self.highlighted) {
-        [self.statusItem drawStatusBarBackgroundInRect:self.bounds withHighlight:YES];
-        NSImage *iconImage = self.highlightedIcon;
-        [iconImage drawInRect:iconFrame];
-    }
-    else {
-        NSImage *iconImage = self.icon;
-        [iconImage drawInRect:iconFrame];
-    }
+    [self.statusItem drawStatusBarBackgroundInRect:self.bounds withHighlight:self.highlighted];
+    NSImage *iconImage = self.highlighted ? self.highlightedIcon : self.icon;
+    [iconImage drawInRect:iconFrame];
 }
 
 @end
