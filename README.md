@@ -44,6 +44,7 @@ mw.addKeyboardShortcut({
   modifierFlags: 0, // no modifier key
   callback: function suchCallback() {
     console.log("wow")
+    mw.openPopup()
   }
 })
 
@@ -79,6 +80,7 @@ mw.setupPreferences([
 
 // Must be called after mw.setupPreferences()
 mw.openPreferences()
+mw.closePreferences()
 ```
 
 Menubar WebKit also provides some native components for preferences.

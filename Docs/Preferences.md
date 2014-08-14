@@ -14,6 +14,7 @@ mw.setupPreferences([
 
 // Must be called after mw.setupPreferences()
 mw.openPreferences()
+mw.closePreferences()
 ```
 
 ## Native Components
@@ -46,7 +47,7 @@ mw.setupPreferences([
           mw.addKeyboardShortcut({
             keycode: keycode,
             modifierFlags: modifierFlags,
-            callback: function () { console.log("wow") }
+            callback: function () { mw.openPopup() }
           })
         }
       }

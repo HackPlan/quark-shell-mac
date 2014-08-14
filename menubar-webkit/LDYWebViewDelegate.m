@@ -60,6 +60,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(clearKeyboardShortcut) ||
         selector == @selector(setupPreferenes:) ||
         selector == @selector(openPreferences) ||
+        selector == @selector(closePreferences) ||
         selector == @selector(newWindow:) ||
         selector == @selector(closeWindow) ||
         selector == @selector(pin) ||
@@ -230,6 +231,11 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 - (void)openPreferences
 {
     [self.preferencesWindowController showWindow:nil];
+}
+
+- (void)closePreferences
+{
+    [self.preferencesWindowController close];
 }
 
 - (void)newWindow:(WebScriptObject *)scriptObj

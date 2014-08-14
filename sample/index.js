@@ -5,8 +5,9 @@ $(function() {
     mw.addKeyboardShortcut({
         keycode: 0x7A, // F1 key
         modifierFlags: 0, // no modifier key
-        callback: function callback() {
+        callback: function () {
             console.log("wow")
+            mw.openPopup()
         }
     })
 
@@ -30,6 +31,7 @@ $(function() {
                             modifierFlags: modifierFlags,
                             callback: function () {
                                 console.log("wow")
+                                mw.openPopup()
                             }
                         })
                     }
