@@ -31,7 +31,7 @@
 {
     self = [super initWithNibName:@"LDYPreferencesViewController" bundle:nil];
     if (self) {
-        _identifier = identifier;
+        self.identifier = identifier;
         _toolbarItemImage = image;
         _toolbarItemLabel = label;
         _height = height;

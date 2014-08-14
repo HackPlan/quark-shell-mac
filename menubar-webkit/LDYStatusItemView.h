@@ -11,7 +11,7 @@
 @interface LDYStatusItemView : NSButton
 
 @property (nonatomic, weak) NSStatusItem *statusItem;
-@property (nonatomic) BOOL highlighted;
+@property (nonatomic) BOOL itemHighlighted; // differentiate from NSControl’s highlighted
 @property (nonatomic) NSImage *icon;
 @property (nonatomic) NSImage *highlightedIcon;
 

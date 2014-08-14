@@ -97,7 +97,7 @@
 
 - (void)refreshStyle
 {
-    self.statusItemView.highlighted = self.window.isVisible;
+    self.statusItemView.itemHighlighted = self.window.isVisible;
 
     NSRect itemFrame = self.statusItem.view.window.frame;
     NSRect windowFrame = self.window.frame;

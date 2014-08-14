@@ -20,9 +20,9 @@
     return self;
 }
 
-- (void)setHighlighted:(BOOL)highlighted
+- (void)setItemHighlighted:(BOOL)itemHighlighted
 {
-    _highlighted = highlighted;
+    _itemHighlighted = itemHighlighted;
 
     [self setNeedsDisplay];
 }
@@ -47,8 +47,8 @@
     CGFloat offset = (NSWidth(self.bounds) - 20) / 2;
     NSRect iconFrame = NSMakeRect(offset, 0, 20, 20);
 
-    [self.statusItem drawStatusBarBackgroundInRect:self.bounds withHighlight:self.highlighted];
-    NSImage *iconImage = self.highlighted ? self.highlightedIcon : self.icon;
+    [self.statusItem drawStatusBarBackgroundInRect:self.bounds withHighlight:self.itemHighlighted];
+    NSImage *iconImage = self.itemHighlighted ? self.highlightedIcon : self.icon;
     [iconImage drawInRect:iconFrame];
 }
 
