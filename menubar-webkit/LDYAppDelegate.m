@@ -31,11 +31,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // TODO: bundle name from manifest?
+    // TODO: bundle identifier should be generated from manifest.json
     WebPreferences *webPrefs = [WebPreferences standardPreferences];
-    NSString *bundleName = [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
+    NSString *bundleIdentifier = [[NSBundle mainBundle] infoDictionary][@"CFBundleIdentifier"];
     NSString *applicationSupportFile = [@"~/Library/Application Support/" stringByExpandingTildeInPath];
-    NSString *savePath = [NSString pathWithComponents:@[applicationSupportFile, bundleName, @"LocalStorage"]];
+    NSString *savePath = [NSString pathWithComponents:@[applicationSupportFile, bundleIdentifier, @"LocalStorage"]];
     [webPrefs _setLocalStorageDatabasePath:savePath];
     [webPrefs setLocalStorageEnabled:YES];
 
