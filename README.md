@@ -38,19 +38,6 @@ mw.notify({
   popupOnClick: true // popup when clicking notification
 })
 
-// Set global keyboard shortcut
-mw.addKeyboardShortcut({
-  keycode: 0x7A, // F1 key
-  modifierFlags: 0, // no modifier key
-  callback: function suchCallback() {
-    console.log("wow")
-    mw.openPopup()
-  }
-})
-
-// Clear global keyboard shortcut
-mw.clearKeyboardShortcut()
-
 // Open new window
 // "url" is relative to "public" folder
 // Notice: You can only open one window at the same time,
@@ -68,6 +55,27 @@ mw.closeWindow()
 mw.pin()
 mw.unpin()
 ```
+
+### Global Shortcuts
+
+```js
+// Set global keyboard shortcut
+mw.addKeyboardShortcut({
+  keycode: 0x7A, // F1 key
+  modifierFlags: 0, // no modifier key
+  callback: function suchCallback() {
+    console.log("wow")
+    mw.openPopup()
+  }
+})
+
+// Clear global keyboard shortcut
+mw.clearKeyboardShortcut()
+```
+
+Please follow [NSEvent Class Reference](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSEvent_Class/Reference/Reference.html#//apple_ref/doc/constant_group/Modifier_Flags) for documentation about modifier flags.
+
+Also, Menubar Webkit allows you to record shortcuts via [native components in Preferences window](Docs/Preferences.md#native-components).
 
 ### Preferences
 
