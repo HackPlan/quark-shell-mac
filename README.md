@@ -54,6 +54,12 @@ mw.closeWindow()
 // Pin/unpin pop-up window (won’t close when click outside the window)
 mw.pin()
 mw.unpin()
+
+// Exchange messages between webviews
+mw.emit("MessageName", "payload")
+mw.on("MessageName", function(message) {
+	console.log(message)
+})
 ```
 
 ### Global Shortcuts

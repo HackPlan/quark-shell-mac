@@ -24,6 +24,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 @property (nonatomic) NSWindowController *preferencesWindowController;
 @property (nonatomic) LDYWebViewWindowController *webViewWindowController;
+@property (nonatomic) NSMutableDictionary *messageSubscribers;
 
 @end
 
@@ -33,6 +34,15 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"WebKitDeveloperExtras"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _messageSubscribers = [NSMutableDictionary dictionary];
+    }
+    return self;
 }
 
 - (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowScriptObject forFrame:(WebFrame *)frame
@@ -66,7 +76,9 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(pin) ||
         selector == @selector(unpin) ||
         selector == @selector(checkUpdate:) ||
-        selector == @selector(checkUpdateInBackground:)) {
+        selector == @selector(checkUpdateInBackground:) ||
+        selector == @selector(emitMessage:withPayload:) ||
+        selector == @selector(subscribeMessage:withCallback:)) {
         return NO;
     }
 
@@ -103,6 +115,12 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     }
     else if (selector == @selector(checkUpdateInBackground:)) {
         result = @"checkUpdateInBackground";
+    }
+    else if (selector == @selector(emitMessage:withPayload:)) {
+        result = @"emit";
+    }
+    else if (selector == @selector(subscribeMessage:withCallback:)) {
+        result = @"on";
     }
 
 	return result;
@@ -278,6 +296,24 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     SUUpdater *updater = [[SUUpdater alloc] init];
     updater.feedURL = [NSURL URLWithString:url];
     [updater checkForUpdatesInBackground];
+}
+
+- (void)emitMessage:(NSString *)name withPayload:(WebScriptObject *)payload
+{
+    for (WebScriptObject *callback in self.messageSubscribers[name]) {
+        LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
+        [converter callFunction:callback withArgs:@[payload]];
+    }
+}
+
+- (void)subscribeMessage:(NSString *)name withCallback:(WebScriptObject *)callback
+{
+    if (self.messageSubscribers[name]) {
+        [self.messageSubscribers[name] addObject:callback];
+    }
+    else {
+        self.messageSubscribers[name] = @[callback];
+    }
 }
 
 #pragma mark - Delegate methods
