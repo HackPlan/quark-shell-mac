@@ -51,6 +51,18 @@ $(function() {
         }
     })
 
+    $("#show-menu").click(function(event) {
+        mw.showMenu({
+            items: [
+                {label: "Test", click: function() { console.log("I am completely operational") } },
+                {type: "separator"},
+                {label: "Exit", click: function() { console.log("LIFE FUNCTION TERMINATED") } }
+            ],
+            x: event.clientX,
+            y: event.clientY
+        })
+    })
+
     var db = openDatabase('test', '1.0', 'Menubar WebKit supports WebSQL database', 5 * 1024 * 1024)
 
     mw.on("TestMessage", function(message) {

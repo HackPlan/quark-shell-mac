@@ -60,6 +60,17 @@ mw.emit("MessageName", "payload")
 mw.on("MessageName", function(message) {
 	console.log(message)
 })
+
+// Show a context menu
+mw.showMenu({
+  items: [
+    {label: "Test", click: function() { console.log("I am completely operational") } },
+    {type: "separator"},
+    {label: "Exit", click: function() { console.log("LIFE FUNCTION TERMINATED") } }
+  ],
+  x: 100,
+  y: 200
+])
 ```
 
 ### Global Shortcuts

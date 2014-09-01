@@ -78,7 +78,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(checkUpdate:) ||
         selector == @selector(checkUpdateInBackground:) ||
         selector == @selector(emitMessage:withPayload:) ||
-        selector == @selector(subscribeMessage:withCallback:)) {
+        selector == @selector(subscribeMessage:withCallback:) ||
+        selector == @selector(showMenu:)) {
         return NO;
     }
 
@@ -121,6 +122,9 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     }
     else if (selector == @selector(subscribeMessage:withCallback:)) {
         result = @"on";
+    }
+    else if (selector == @selector(showMenu:)) {
+        result = @"showMenu";
     }
 
 	return result;
@@ -314,6 +318,38 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     else {
         self.messageSubscribers[name] = @[callback];
     }
+}
+
+- (void)showMenu:(WebScriptObject *)scriptObj
+{
+    LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
+    NSDictionary *options = [converter dictionaryFromWebScriptObject:scriptObj];
+    NSMenu *menu = [[NSMenu alloc] init];
+    menu.autoenablesItems = NO;
+	for (NSDictionary *item in options[@"items"]) {
+        if ([item[@"type"] isEqualToString:@"separator"]) {
+            [menu addItem:[NSMenuItem separatorItem]];
+        }
+        else {
+            NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:item[@"label"] action:@selector(menuItemClicked:) keyEquivalent:@""];
+            menuItem.target = self;
+            menuItem.representedObject = ^{
+                [converter callFunction:item[@"click"]];
+            };
+            [menuItem setEnabled:YES];
+            [menu addItem:menuItem];
+        }
+	}
+
+    CGFloat x = [options[@"x"] doubleValue];
+    CGFloat yFlipped = self.webView.frame.size.height - [options[@"y"] doubleValue];
+    [menu popUpMenuPositioningItem:[menu itemAtIndex:0] atLocation:NSMakePoint(x, yFlipped) inView:self.webView];
+}
+
+- (void)menuItemClicked:(NSMenuItem *)sender
+{
+    void(^clickHandler)(void) = sender.representedObject;
+    clickHandler();
 }
 
 #pragma mark - Delegate methods
