@@ -343,7 +343,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
     CGFloat x = [options[@"x"] doubleValue];
     CGFloat yFlipped = self.webView.frame.size.height - [options[@"y"] doubleValue];
-    [menu popUpMenuPositioningItem:[menu itemAtIndex:0] atLocation:NSMakePoint(x, yFlipped) inView:self.webView];
+    [menu popUpMenuPositioningItem:nil atLocation:NSMakePoint(x, yFlipped) inView:self.webView];
 }
 
 - (void)menuItemClicked:(NSMenuItem *)sender
