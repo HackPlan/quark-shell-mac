@@ -211,6 +211,13 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 {
     NSUInteger keycode = [[shortcutObj valueForKey:@"keycode"] integerValue];
     NSUInteger flags = [[shortcutObj valueForKey:@"modifierFlags"] integerValue];
+
+    if (keycode == 0 && flags == 0) {
+        // the shortcut recorder returns 0 0 for no shortcut
+        // however, 0 0 is a single 'a', in this case, shouldn't be fired
+        return;
+    }
+
     WebScriptObject *callback = [shortcutObj valueForKey:@"callback"];
     MASShortcut *shortcut = [MASShortcut shortcutWithKeyCode:keycode modifierFlags:flags];
     [MASShortcut removeGlobalHotkeyMonitor:shortcut.description];
