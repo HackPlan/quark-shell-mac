@@ -15,8 +15,8 @@
 @implementation LDYWebViewWindowController
 
 - (id)initWithURLString:(NSString *)urlString
-                  width:(NSInteger)width
-                 height:(NSInteger)height
+                  width:(CGFloat)width
+                 height:(CGFloat)height
 {
     self = [super initWithWindowNibName:@"LDYWebViewWindowController"];
     if (self) {

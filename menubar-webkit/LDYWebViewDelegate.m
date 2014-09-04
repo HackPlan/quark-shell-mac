@@ -269,11 +269,30 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)newWindow:(WebScriptObject *)scriptObj
 {
-    NSString *urlString = [scriptObj valueForKey:@"url"];
-    NSInteger width = [[scriptObj valueForKey:@"width"] integerValue];
-    NSInteger height = [[scriptObj valueForKey:@"height"] integerValue];
+    LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
+    NSDictionary *options = [converter dictionaryFromWebScriptObject:scriptObj];
+    NSString *urlString = options[@"url"];
+    CGFloat width = [options[@"width"] doubleValue];
+    CGFloat height = [options[@"height"] doubleValue];
 
     self.webViewWindowController = [[LDYWebViewWindowController alloc] initWithURLString:urlString width:width height:height];
+
+    if (options[@"x"] && options[@"y"]) {
+        CGFloat screenWidth = [[NSScreen mainScreen] frame].size.width;
+        CGFloat screenHeight = [[NSScreen mainScreen] frame].size.height;
+
+        CGFloat x = [options[@"x"] doubleValue];
+        if ([options[@"x"] isEqual:@"center"]) {
+            x = (screenWidth - width) / 2;
+        }
+        CGFloat yFlipped = screenHeight - [options[@"y"] doubleValue] - height;
+        if ([options[@"y"] isEqual:@"center"]) {
+            yFlipped = (screenHeight - height) / 2;
+        }
+
+        [self.webViewWindowController.window setFrameOrigin:NSMakePoint(x, yFlipped)];
+    }
+
     self.webViewWindowController.webView.frameLoadDelegate = self;
     self.webViewWindowController.webView.UIDelegate = self;
     self.webViewWindowController.webView.policyDelegate = self;

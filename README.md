@@ -45,7 +45,8 @@ mw.notify({
 mw.newWindow({
   url: "about.html",
   width: 600,
-  height: 400
+  height: 400,
+  x: 100, y: 100 // optional, x and y should both be provided, "center" is also a valid value
 }
 
 // Close new window
