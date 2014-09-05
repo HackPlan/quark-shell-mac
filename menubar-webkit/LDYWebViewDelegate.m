@@ -79,7 +79,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(checkUpdateInBackground:) ||
         selector == @selector(emitMessage:withPayload:) ||
         selector == @selector(subscribeMessage:withCallback:) ||
-        selector == @selector(showMenu:)) {
+        selector == @selector(showMenu:withPayload:)) {
         return NO;
     }
 
@@ -123,7 +123,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     else if (selector == @selector(subscribeMessage:withCallback:)) {
         result = @"on";
     }
-    else if (selector == @selector(showMenu:)) {
+    else if (selector == @selector(showMenu:withPayload:)) {
         result = @"showMenu";
     }
 
@@ -346,7 +346,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     }
 }
 
-- (void)showMenu:(WebScriptObject *)scriptObj
+- (void)showMenu:(WebScriptObject *)scriptObj withPayload:(WebScriptObject *)payload
 {
     LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
     NSDictionary *options = [converter dictionaryFromWebScriptObject:scriptObj];
@@ -360,7 +360,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
             NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:item[@"label"] action:@selector(menuItemClicked:) keyEquivalent:@""];
             menuItem.target = self;
             menuItem.representedObject = ^{
-                [converter callFunction:item[@"click"]];
+                [converter callFunction:item[@"click"] withArgs:@[payload]];
             };
             [menuItem setEnabled:YES];
             [menu addItem:menuItem];
