@@ -52,11 +52,11 @@ $(function() {
     })
 
     $("#show-menu").click(function(event) {
-        var buttontext = $(this);
+        var buttontext = $(this).text();
         mw.showMenu({
             items: [
                 {label: "Test", click: function() { 
-                        console.log(buttontext);
+                        console.log("Clicked: "+ buttontext);
                         console.log("I am completely operational") 
                     } 
                 },
