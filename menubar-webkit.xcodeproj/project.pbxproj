@@ -330,7 +330,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo \"rm -rf ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources/public\"\nrm -rf ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources/public\n\necho \"cp -RL ${SRCROOT}/public ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources/public\"\ncp -RL ${SRCROOT}/public ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources/public";
+			shellScript = "echo \"rm -rf ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources/public\"\nrm -rf ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources/public\n\necho \"cp -RL ${SRCROOT}/public ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources/public\"\ncp -RL \"${SRCROOT}/public\" ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources/public";
 		};
 		28BFB662D6264E858326F16E /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
