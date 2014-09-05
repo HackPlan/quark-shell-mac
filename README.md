@@ -39,7 +39,7 @@ mw.notify({
 })
 
 // Open new window
-// "url" is relative to "public" folder
+// "url" is relative to "app" folder
 // Notice: You can only open one window at the same time,
 // or the later window will replace the former window.
 mw.newWindow({
@@ -125,12 +125,12 @@ More detail: [AutoUpdate.md](Docs/AutoUpdate.md)
 
 ## Integrating Web App
 
-``public/index.html`` is the portal of your menubar app. ``public/preferences/[identifier].html`` are the preference pages (for example, ``public/preferences/general.html``).
+``app/index.html`` is the portal of your menubar app. ``app/preferences/[identifier].html`` are the preference pages (for example, ``app/preferences/general.html``).
 
 To build your app:
 
-0. Delete the current ``public`` folder
-0. Put your files into the ``public`` folder
+0. Delete the current ``app`` folder
+0. Put your files into the ``app`` folder
 0. [Install CocoaPods](http://guides.cocoapods.org/using/getting-started.html)
 0. ``cd`` into the project folder and run ``pod install``
 0. Open ``menubar-webkit.xcworkspace`` in Xcode

@@ -9,6 +9,6 @@
     #import <WebKit/WebKit.h>
 #endif
 
-static NSString * const kRootPath = @"public/";
-static NSString * const kIndexPath = @"public/index.html";
-static NSString * const kPreferencesDirectory = @"public/preferences/";
+static NSString * const kRootPath = @"app/";
+static NSString * const kIndexPath = @"app/index.html";
+static NSString * const kPreferencesDirectory = @"app/preferences/";

@@ -16,8 +16,4 @@ profile
 *.moved-aside
 DerivedData
 .idea/
-
 Pods/
-public/
-public1/
-pomotodo-mac

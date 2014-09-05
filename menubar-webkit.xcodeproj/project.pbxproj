@@ -46,7 +46,7 @@
 		1A42764919196B6F00815DC6 /* LDYWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYWindow.m; sourceTree = "<group>"; };
 		1A42D2C8194C2C620091F581 /* LDYWebScriptObjectConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYWebScriptObjectConverter.h; sourceTree = "<group>"; };
 		1A42D2C9194C2C620091F581 /* LDYWebScriptObjectConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYWebScriptObjectConverter.m; sourceTree = "<group>"; };
-		1A7DD3DC18E9683F00F7D73A /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
+		1A75781C19B9A261002A9886 /* app */ = {isa = PBXFileReference; lastKnownFileType = folder; path = app; sourceTree = "<group>"; };
 		1A82DE591903B095006AB37F /* LDYWindowBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYWindowBorderView.h; sourceTree = "<group>"; };
 		1A82DE5A1903B095006AB37F /* LDYWindowBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYWindowBorderView.m; sourceTree = "<group>"; };
 		1A91F9DF18E2530B00AA8B7E /* menubar-webkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "menubar-webkit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,7 +109,7 @@
 		1A91F9D618E2530B00AA8B7E = {
 			isa = PBXGroup;
 			children = (
-				1A7DD3DC18E9683F00F7D73A /* public */,
+				1A75781C19B9A261002A9886 /* app */,
 				1A91F9E818E2530B00AA8B7E /* menubar-webkit */,
 				1A91FA0618E2530C00AA8B7E /* menubar-webkitTests */,
 				1A91F9E118E2530B00AA8B7E /* Frameworks */,
@@ -330,7 +330,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo \"rm -rf ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources/public\"\nrm -rf ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources/public\n\necho \"cp -RL ${SRCROOT}/public ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources/public\"\ncp -RL ${SRCROOT}/public ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources/public";
+			shellScript = "echo \"rm -rf ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources/app\"\nrm -rf ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources/app\n\necho \"cp -RL ${SRCROOT}/app ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources/app\"\ncp -RL ${SRCROOT}/app ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources/app";
 		};
 		28BFB662D6264E858326F16E /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
