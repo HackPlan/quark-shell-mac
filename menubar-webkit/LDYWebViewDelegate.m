@@ -20,6 +20,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 @interface LDYWebViewDelegate () <NSUserNotificationCenterDelegate> {
     NSString *appVersion;
     NSString *appBundleVersion;
+    NSString *platform;
 }
 
 @property (nonatomic) NSWindowController *preferencesWindowController;
@@ -41,6 +42,12 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     self = [super init];
     if (self) {
         _messageSubscribers = [NSMutableDictionary dictionary];
+
+        NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+        appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+        appBundleVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
+
+        platform = @"mac";
     }
     return self;
 }
@@ -48,10 +55,6 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 - (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowScriptObject forFrame:(WebFrame *)frame
 {
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];
-
-    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-    appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-    appBundleVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
 }
 
 #pragma mark WebScripting Protocol
@@ -133,7 +136,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 + (BOOL)isKeyExcludedFromWebScript:(const char *)name
 {
     if (strncmp(name, "appVersion", 10) == 0 ||
-        strncmp(name, "appBundleVersion", 16) == 0) {
+        strncmp(name, "appBundleVersion", 16) == 0 ||
+        strncmp(name, "platform", 8) == 0 ) {
         return NO;
     }
 	return YES;

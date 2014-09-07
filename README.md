@@ -9,7 +9,9 @@
 APIs may change rapidly before 1.0.
 
 ```js
-// App info (in Xcode)
+mw.platform // returns "mac" or "windows"
+
+// App info (configurable in Xcode)
 mw.appVersion
 mw.appBundleVersion
 
