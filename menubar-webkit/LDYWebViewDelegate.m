@@ -185,14 +185,26 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     self.statusItemView.highlightedIcon = [NSImage imageNamed:@"StatusIconWhite"];
 }
 
-- (void)notify:(WebScriptObject *)message
+- (void)notify:(WebScriptObject *)obj
 {
+    LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
+    NSDictionary *message = [converter dictionaryFromWebScriptObject:obj];
+
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.title = [message valueForKey:@"title"];
-    notification.informativeText = [message valueForKey:@"content"];
+    notification.title = message[@"title"];
+    notification.informativeText = message[@"content"];
     notification.deliveryDate = [NSDate date];
     notification.soundName = NSUserNotificationDefaultSoundName;
-    notification.userInfo = @{@"popupOnClick": [message valueForKey:@"popupOnClick"]};
+    notification.userInfo = @{@"popupOnClick": message[@"popupOnClick"]};
+
+    if (message[@"time"]) {
+        static NSDateFormatter *formatter;
+        if (!formatter) {
+            formatter = [[NSDateFormatter alloc] init];
+            formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+        }
+        notification.deliveryDate = [formatter dateFromString:message[@"time"]];
+    }
 
     NSUserNotificationCenter *notificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
     notificationCenter.delegate = self;
