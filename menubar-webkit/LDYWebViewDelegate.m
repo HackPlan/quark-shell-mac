@@ -228,6 +228,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     if (notification.userInfo[@"popupOnClick"]) {
         [self.appDelegate showWindow];
     }
+    [[NSUserNotificationCenter defaultUserNotificationCenter] removeDeliveredNotification:notification];
 }
 
 - (void)addKeyboardShortcut:(WebScriptObject *)shortcutObj
