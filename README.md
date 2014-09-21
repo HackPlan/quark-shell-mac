@@ -37,9 +37,12 @@ mw.setAutoStart(true) // not implemented yet
 mw.notify({
   title: "Pomotodo",
   content: "Break is over!",
-  time: "2038-01-19 03:14:07", // (optional) delivery date
+  time: "2038-01-19 03:14:07", // (optional) delivery date for scheduled notification
   popupOnClick: true // popup when clicking notification
 })
+
+// Remove all scheduled notifications
+mw.removeAllScheduledNotifications()
 
 // Open new window
 // "url" is relative to "app" folder
@@ -50,7 +53,7 @@ mw.newWindow({
   width: 600,
   height: 400,
   x: 100, y: 100 // optional, x and y should both be provided, "center" is also a valid value
-}
+})
 
 // Close new window
 mw.closeWindow()

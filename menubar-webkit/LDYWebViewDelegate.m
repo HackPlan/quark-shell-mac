@@ -69,6 +69,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(changeHighlightedIcon:) ||
         selector == @selector(resetMenubarIcon) ||
         selector == @selector(notify:) ||
+        selector == @selector(removeAllScheduledNotifications) ||
         selector == @selector(addKeyboardShortcut:) ||
         selector == @selector(clearKeyboardShortcut) ||
         selector == @selector(setupPreferenes:) ||
@@ -209,6 +210,12 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     NSUserNotificationCenter *notificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
     notificationCenter.delegate = self;
     [notificationCenter scheduleNotification:notification];
+}
+
+- (void)removeAllScheduledNotifications
+{
+    NSUserNotificationCenter *notificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
+    notificationCenter.scheduledNotifications = nil;
 }
 
 - (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification
