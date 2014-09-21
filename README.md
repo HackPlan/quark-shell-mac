@@ -37,7 +37,7 @@ mw.setAutoStart(true) // not implemented yet
 mw.notify({
   title: "Pomotodo",
   content: "Break is over!",
-  time: "2038-01-19 03:14:07", // (optional) delivery date for scheduled notification
+  time: "2038-01-19T03:14:07Z", // (optional) delivery date for scheduled notification, in ISO 8601
   popupOnClick: true // popup when clicking notification
 })
 

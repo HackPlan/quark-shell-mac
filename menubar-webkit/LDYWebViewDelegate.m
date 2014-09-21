@@ -13,6 +13,7 @@
 #import <MASShortcut+Monitoring.h>
 #import <RHPreferences.h>
 #import <Sparkle/Sparkle.h>
+#import <ISO8601DateFormatter.h>
 
 static NSString * const kWebScriptNamespace = @"mw";
 static const NSInteger kPreferencesDefaultHeight = 192;
@@ -199,10 +200,9 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     notification.userInfo = @{@"popupOnClick": message[@"popupOnClick"]};
 
     if (message[@"time"]) {
-        static NSDateFormatter *formatter;
+        static ISO8601DateFormatter *formatter;
         if (!formatter) {
-            formatter = [[NSDateFormatter alloc] init];
-            formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+            formatter = [[ISO8601DateFormatter alloc] init];
         }
         notification.deliveryDate = [formatter dateFromString:message[@"time"]];
     }
