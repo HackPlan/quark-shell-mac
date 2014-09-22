@@ -44,6 +44,9 @@ mw.notify({
 // Remove all scheduled notifications
 mw.removeAllScheduledNotifications()
 
+// Remove all delivered notifications from notification center
+mw.removeAllDeliveredNotifications()
+
 // Open new window
 // "url" is relative to "app" folder
 // Notice: You can only open one window at the same time,
