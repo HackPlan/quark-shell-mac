@@ -55,7 +55,13 @@ mw.newWindow({
   url: "about.html",
   width: 600,
   height: 400,
-  x: 100, y: 100 // optional, x and y should both be provided, "center" is also a valid value
+
+  // optional options
+  x: 100, y: 100, // x and y should both be provided, "center" is also a valid value
+  border: true, // whether the window has a border, default is true
+  shadow: true, // whether the window has a shadow, default is true
+  alwaysOnTop: false, // whether the window should always on top, default is false
+  alpha: 1.0 // the alpha value of the window, between 0 and 1, default is 1.0
 })
 
 // Close new window

@@ -324,6 +324,22 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         [self.webViewWindowController.window setFrameOrigin:NSMakePoint(x, yFlipped)];
     }
 
+    if (options[@"border"] && [options[@"border"] boolValue] == NO) {
+        self.webViewWindowController.window.styleMask = NSBorderlessWindowMask;
+    }
+
+    if (options[@"shadow"] && [options[@"shadow"] boolValue] == NO) {
+        self.webViewWindowController.window.hasShadow = NO;
+    }
+
+    if ([options[@"alwaysOnTop"] boolValue]) {
+        self.webViewWindowController.window.level = NSScreenSaverWindowLevel;
+    }
+
+    if (options[@"alpha"]) {
+        self.webViewWindowController.window.alphaValue = [options[@"alpha"] doubleValue];
+    }
+
     self.webViewWindowController.webView.frameLoadDelegate = self;
     self.webViewWindowController.webView.UIDelegate = self;
     self.webViewWindowController.webView.policyDelegate = self;
