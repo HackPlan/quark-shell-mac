@@ -1,6 +1,8 @@
 $(function() {
-    $("#app-version").html(mw.appVersion);
-    $("#app-bundle-version").html("(" + mw.appBundleVersion + ")");
+    mw.debug = true
+
+    $("#app-version").html(mw.appVersion)
+    $("#app-bundle-version").html("(" + mw.appBundleVersion + ")")
 
     mw.addKeyboardShortcut({
         keycode: 0x7A, // F1 key

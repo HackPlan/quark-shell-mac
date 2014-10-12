@@ -22,6 +22,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     NSString *appVersion;
     NSString *appBundleVersion;
     NSString *platform;
+    BOOL debug;
 }
 
 @property (nonatomic) NSWindowController *preferencesWindowController;
@@ -94,11 +95,11 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 + (NSString *)webScriptNameForSelector:(SEL)selector
 {
-	id result = nil;
+    id result = nil;
 
-	if (selector == @selector(notify:)) {
-		result = @"notify";
-	}
+    if (selector == @selector(notify:)) {
+        result = @"notify";
+    }
     else if (selector == @selector(changeIcon:)) {
         result = @"setMenubarIcon";
     }
@@ -133,14 +134,15 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         result = @"showMenu";
     }
 
-	return result;
+    return result;
 }
 
 + (BOOL)isKeyExcludedFromWebScript:(const char *)name
 {
     if (strncmp(name, "appVersion", 10) == 0 ||
         strncmp(name, "appBundleVersion", 16) == 0 ||
-        strncmp(name, "platform", 8) == 0 ) {
+        strncmp(name, "platform", 8) == 0 ||
+        strncmp(name, "debug", 5) == 0) {
         return NO;
     }
 	return YES;
@@ -499,6 +501,16 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         [listener ignore];
         [[NSWorkspace sharedWorkspace] openURL:request.URL];
     }
+}
+
+#pragma mark - WebUIDelegate
+
+- (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element defaultMenuItems:(NSArray *)defaultMenuItems
+{
+    if (debug) {
+        return defaultMenuItems;
+    }
+    return nil;
 }
 
 @end
