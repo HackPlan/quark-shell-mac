@@ -15,7 +15,7 @@ mw.platform // returns "mac" or "windows"
 mw.appVersion
 mw.appBundleVersion
 
-// Enable/disable WebKit inspector
+// Enable/disable Web Inspector
 mw.debug = true
 
 // Open/close the popup window
