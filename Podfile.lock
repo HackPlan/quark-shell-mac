@@ -1,12 +1,14 @@
 PODS:
+  - ISO8601DateFormatter (0.7)
   - MASShortcut (1.2.3)
   - RHPreferences (HEAD based on 1.0.0)
-  - Sparkle (1.7.1)
+  - Sparkle (1.8.0)
 
 DEPENDENCIES:
+  - ISO8601DateFormatter (~> 0.7)
   - MASShortcut (from `https://github.com/xhacker/MASShortcut.git`, branch `menubar-webkit`)
   - RHPreferences (HEAD)
-  - Sparkle (~> 1.7.1)
+  - Sparkle (~> 1.8.0)
 
 EXTERNAL SOURCES:
   MASShortcut:
@@ -14,8 +16,9 @@ EXTERNAL SOURCES:
     :git: https://github.com/xhacker/MASShortcut.git
 
 SPEC CHECKSUMS:
+  ISO8601DateFormatter: 59731cd880cf87e71b4fa95f0d6b713dcbc4cbce
   MASShortcut: a1e29fd34567fcd249d00648548924c8e7639474
   RHPreferences: d0215102b7b8cd9f501655e5e7db2551ef4dc0e5
-  Sparkle: fde5ffeb7bf01db28925499ce2a75977763af58a
+  Sparkle: 5eb20bb37ca21e471dab8417dee880198d905327
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.34.2

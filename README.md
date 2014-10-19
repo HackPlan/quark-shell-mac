@@ -9,9 +9,14 @@
 APIs may change rapidly before 1.0.
 
 ```js
-// App info (in Xcode)
+mw.platform // returns "mac" or "windows"
+
+// App info (configurable in Xcode)
 mw.appVersion
 mw.appBundleVersion
+
+// Enable/disable Web Inspector
+mw.debug = true
 
 // Open/close the popup window
 mw.openPopup()
@@ -35,19 +40,32 @@ mw.setAutoStart(true) // not implemented yet
 mw.notify({
   title: "Pomotodo",
   content: "Break is over!",
+  time: "2038-01-19T03:14:07Z", // (optional) delivery date for scheduled notification, in ISO 8601
   popupOnClick: true // popup when clicking notification
 })
 
+// Remove all scheduled notifications
+mw.removeAllScheduledNotifications()
+
+// Remove all delivered notifications from notification center
+mw.removeAllDeliveredNotifications()
+
 // Open new window
-// "url" is relative to "public" folder
+// "url" is relative to "app" folder
 // Notice: You can only open one window at the same time,
 // or the later window will replace the former window.
 mw.newWindow({
   url: "about.html",
   width: 600,
   height: 400,
-  x: 100, y: 100 // optional, x and y should both be provided, "center" is also a valid value
-}
+
+  // optional options
+  x: 100, y: 100, // x and y should both be provided, "center" is also a valid value
+  border: true, // whether the window has a border, default is true
+  shadow: true, // whether the window has a shadow, default is true
+  alwaysOnTop: false, // whether the window should always on top, default is false
+  alpha: 1.0 // the alpha value of the window, between 0 and 1, default is 1.0
+})
 
 // Close new window
 mw.closeWindow()
@@ -125,12 +143,12 @@ More detail: [AutoUpdate.md](Docs/AutoUpdate.md)
 
 ## Integrating Web App
 
-``public/index.html`` is the portal of your menubar app. ``public/preferences/[identifier].html`` are the preference pages (for example, ``public/preferences/general.html``).
+``app/index.html`` is the portal of your menubar app. ``app/preferences/[identifier].html`` are the preference pages (for example, ``app/preferences/general.html``).
 
 To build your app:
 
-0. Delete the current ``public`` folder
-0. Put your files into the ``public`` folder
+0. Delete the current ``app`` folder
+0. Put your files into the ``app`` folder
 0. [Install CocoaPods](http://guides.cocoapods.org/using/getting-started.html)
 0. ``cd`` into the project folder and run ``pod install``
 0. Open ``menubar-webkit.xcworkspace`` in Xcode

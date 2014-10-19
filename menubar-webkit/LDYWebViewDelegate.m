@@ -13,6 +13,7 @@
 #import <MASShortcut+Monitoring.h>
 #import <RHPreferences.h>
 #import <Sparkle/Sparkle.h>
+#import <ISO8601DateFormatter.h>
 
 static NSString * const kWebScriptNamespace = @"mw";
 static const NSInteger kPreferencesDefaultHeight = 192;
@@ -20,6 +21,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 @interface LDYWebViewDelegate () <NSUserNotificationCenterDelegate> {
     NSString *appVersion;
     NSString *appBundleVersion;
+    NSString *platform;
+    BOOL debug;
 }
 
 @property (nonatomic) NSWindowController *preferencesWindowController;
@@ -41,6 +44,12 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     self = [super init];
     if (self) {
         _messageSubscribers = [NSMutableDictionary dictionary];
+
+        NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+        appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+        appBundleVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
+
+        platform = @"mac";
     }
     return self;
 }
@@ -48,10 +57,6 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 - (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowScriptObject forFrame:(WebFrame *)frame
 {
     [windowScriptObject setValue:self forKey:kWebScriptNamespace];
-
-    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-    appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-    appBundleVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
 }
 
 #pragma mark WebScripting Protocol
@@ -66,6 +71,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(changeHighlightedIcon:) ||
         selector == @selector(resetMenubarIcon) ||
         selector == @selector(notify:) ||
+        selector == @selector(removeAllScheduledNotifications) ||
+        selector == @selector(removeAllDeliveredNotifications) ||
         selector == @selector(addKeyboardShortcut:) ||
         selector == @selector(clearKeyboardShortcut) ||
         selector == @selector(setupPreferenes:) ||
@@ -88,11 +95,11 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 + (NSString *)webScriptNameForSelector:(SEL)selector
 {
-	id result = nil;
+    id result = nil;
 
-	if (selector == @selector(notify:)) {
-		result = @"notify";
-	}
+    if (selector == @selector(notify:)) {
+        result = @"notify";
+    }
     else if (selector == @selector(changeIcon:)) {
         result = @"setMenubarIcon";
     }
@@ -127,13 +134,15 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         result = @"showMenu";
     }
 
-	return result;
+    return result;
 }
 
 + (BOOL)isKeyExcludedFromWebScript:(const char *)name
 {
     if (strncmp(name, "appVersion", 10) == 0 ||
-        strncmp(name, "appBundleVersion", 16) == 0) {
+        strncmp(name, "appBundleVersion", 16) == 0 ||
+        strncmp(name, "platform", 8) == 0 ||
+        strncmp(name, "debug", 5) == 0) {
         return NO;
     }
 	return YES;
@@ -181,18 +190,41 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     self.statusItemView.highlightedIcon = [NSImage imageNamed:@"StatusIconWhite"];
 }
 
-- (void)notify:(WebScriptObject *)message
+- (void)notify:(WebScriptObject *)obj
 {
+    LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
+    NSDictionary *message = [converter dictionaryFromWebScriptObject:obj];
+
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.title = [message valueForKey:@"title"];
-    notification.informativeText = [message valueForKey:@"content"];
+    notification.title = message[@"title"];
+    notification.informativeText = message[@"content"];
     notification.deliveryDate = [NSDate date];
     notification.soundName = NSUserNotificationDefaultSoundName;
-    notification.userInfo = @{@"popupOnClick": [message valueForKey:@"popupOnClick"]};
+    notification.userInfo = @{@"popupOnClick": message[@"popupOnClick"]};
+
+    if (message[@"time"]) {
+        static ISO8601DateFormatter *formatter;
+        if (!formatter) {
+            formatter = [[ISO8601DateFormatter alloc] init];
+        }
+        notification.deliveryDate = [formatter dateFromString:message[@"time"]];
+    }
 
     NSUserNotificationCenter *notificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
     notificationCenter.delegate = self;
     [notificationCenter scheduleNotification:notification];
+}
+
+- (void)removeAllScheduledNotifications
+{
+    NSUserNotificationCenter *notificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
+    notificationCenter.scheduledNotifications = nil;
+}
+
+- (void)removeAllDeliveredNotifications
+{
+    NSUserNotificationCenter *notificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
+    [notificationCenter removeAllDeliveredNotifications];
 }
 
 - (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification
@@ -205,6 +237,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     if (notification.userInfo[@"popupOnClick"]) {
         [self.appDelegate showWindow];
     }
+    [[NSUserNotificationCenter defaultUserNotificationCenter] removeDeliveredNotification:notification];
 }
 
 - (void)addKeyboardShortcut:(WebScriptObject *)shortcutObj
@@ -291,6 +324,22 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         }
 
         [self.webViewWindowController.window setFrameOrigin:NSMakePoint(x, yFlipped)];
+    }
+
+    if (options[@"border"] && [options[@"border"] boolValue] == NO) {
+        self.webViewWindowController.window.styleMask = NSBorderlessWindowMask;
+    }
+
+    if (options[@"shadow"] && [options[@"shadow"] boolValue] == NO) {
+        self.webViewWindowController.window.hasShadow = NO;
+    }
+
+    if ([options[@"alwaysOnTop"] boolValue]) {
+        self.webViewWindowController.window.level = NSScreenSaverWindowLevel;
+    }
+
+    if (options[@"alpha"]) {
+        self.webViewWindowController.window.alphaValue = [options[@"alpha"] doubleValue];
     }
 
     self.webViewWindowController.webView.frameLoadDelegate = self;
@@ -452,6 +501,16 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         [listener ignore];
         [[NSWorkspace sharedWorkspace] openURL:request.URL];
     }
+}
+
+#pragma mark - WebUIDelegate
+
+- (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element defaultMenuItems:(NSArray *)defaultMenuItems
+{
+    if (debug) {
+        return defaultMenuItems;
+    }
+    return nil;
 }
 
 @end
