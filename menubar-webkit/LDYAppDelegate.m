@@ -42,11 +42,22 @@
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
 
     self.statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
-    self.statusItemView = [[LDYStatusItemView alloc] initWithFrame:NSMakeRect(0, 0, 20, 20)];
-    self.statusItemView.target = self;
-    self.statusItemView.action = @selector(statusItemClicked);
-    self.statusItem.view = self.statusItemView;
-    self.statusItemView.statusItem = self.statusItem;
+    if (IS_PERIOR_TO_10_9) {
+        self.statusItemView = [[LDYStatusItemView alloc] initWithFrame:NSMakeRect(0, 0, 20, 20)];
+        self.statusItemView.target = self;
+        self.statusItemView.action = @selector(statusItemClicked);
+        self.statusItem.view = self.statusItemView;
+        self.statusItemView.statusItem = self.statusItem;
+    }
+    else {
+        NSImage *statusIcon = [NSImage imageNamed:@"StatusIcon"];
+        [statusIcon setTemplate:YES];
+        self.statusItem.button.image = statusIcon;
+
+        self.statusItem.button.target = self;
+        self.statusItem.button.action = @selector(statusItemClicked);
+    }
+
 
     self.window.level = NSFloatingWindowLevel;
     self.window.delegate = self;
@@ -97,9 +108,16 @@
 
 - (void)refreshStyle
 {
-    self.statusItemView.itemHighlighted = self.window.isVisible;
+    NSRect itemFrame;
 
-    NSRect itemFrame = self.statusItem.view.window.frame;
+    if (IS_PERIOR_TO_10_9) {
+        self.statusItemView.itemHighlighted = self.window.isVisible;
+        itemFrame = self.statusItem.view.window.frame;
+    }
+    else {
+        itemFrame = self.statusItem.button.window.frame;
+    }
+
     NSRect windowFrame = self.window.frame;
     windowFrame.origin.x = NSMidX(itemFrame) - NSWidth(windowFrame) / 2.0;
     windowFrame.origin.y = NSMinY(itemFrame) - NSHeight(windowFrame);

@@ -12,3 +12,5 @@
 static NSString * const kRootPath = @"app/";
 static NSString * const kIndexPath = @"app/index.html";
 static NSString * const kPreferencesDirectory = @"app/preferences/";
+
+#define IS_PERIOR_TO_10_9 (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_9)
