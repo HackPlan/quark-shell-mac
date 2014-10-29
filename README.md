@@ -1,6 +1,6 @@
-# Menubar WebKit
+# Quark Shell for Mac
 
-**menubar-webkit** helps you create Mac menubar app using HTML and JavaScript without writing any Objective-C code. menubar-webkit exposes a JavaScript object called ``mw`` to provide system functions.
+**Quark Shell** helps you create cross-platform (currently Mac and Windows) menubar/tray app using HTML and JavaScript without writing any native code. Quark Shell exposes a JavaScript object called ``mw`` to provide system functions. **Quark Shell for Mac** is based on WebKit.
 
 <img alt="Screenshot" width="907" src="Assets/screenshot.png">
 
@@ -111,7 +111,7 @@ mw.clearKeyboardShortcut()
 
 Please follow [NSEvent Class Reference](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSEvent_Class/Reference/Reference.html#//apple_ref/doc/constant_group/Modifier_Flags) for documentation about modifier flags.
 
-Also, Menubar Webkit allows you to record shortcuts via [native components in Preferences window](Docs/Preferences.md#native-components).
+Also, Quark Shell for Mac allows you to record shortcuts via [native components in Preferences window](Docs/Preferences.md#native-components).
 
 ### Preferences
 
@@ -127,7 +127,7 @@ mw.openPreferences()
 mw.closePreferences()
 ```
 
-Menubar WebKit also provides some native components for preferences.
+Quark Shell for Mac also provides some native components for preferences.
 
 More detail: [Preferences.md](Docs/Preferences.md)
 
@@ -154,16 +154,21 @@ To build your app:
 0. Open ``menubar-webkit.xcworkspace`` in Xcode
 0. Build and have fun!
 
-Remember that Menubar WebKit is still a WIP. When the project is stable enough, I will definitely simplify the build process.
+Remember that Quark Shell is still a WIP. When the project is stable enough, I will definitely simplify the build process.
 
 ## FAQ
 * Can I use **local storage**? Yes.
 * Can I use **WebSQL**? Yes.
-* Is Menubar WebKit compatible with Mac App Store? Absolutely yes.
+* Is Quark Shell compatible with Mac App Store? Absolutely yes.
+* Do you guys have a plan for Linux version? Yes, we love Linux.
+
+## Story
+
+Quark Shell was originally Menubar WebKit, it was created for [Pomotodo for Mac](https://pomotodo.com/apps). Later on, we decided to create a Windows version based on Atom Shell. The project is highly inspired by [Atom Shell](https://github.com/atom/atom-shell), [node-webkit](https://github.com/rogerwang/node-webkit), and [MacGap](https://github.com/maccman/macgap). As a cross-platform project, Menubar WebKit is no longer appropriate, so we started to use Quark Shell.
 
 ## Credits
 
-**Menubar WebKit** was created by **[LIU Dongyuan (@xhacker)](https://github.com/xhacker)** in the development of [Pomotodo for Mac](http://pomotodo.com).
+**Quark Shell for Mac** was created by **[LIU Dongyuan (@xhacker)](https://github.com/xhacker)** in the development of [Pomotodo for Mac](https://pomotodo.com).
 
 Some of the code are taken from:
 
