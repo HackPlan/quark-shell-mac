@@ -23,6 +23,9 @@
 
 @implementation LDYPreferencesViewController
 
+// a hack for OS X 10.9, don't really know why
+@synthesize identifier = _identifier;
+
 - (instancetype)initWithIdentifier:(NSString *)identifier
                       toolbarImage:(NSImage *)image
                       toolbarLabel:(NSString *)label
@@ -31,7 +34,7 @@
 {
     self = [super initWithNibName:@"LDYPreferencesViewController" bundle:nil];
     if (self) {
-        self.identifier = identifier;
+        _identifier = identifier;
         _toolbarItemImage = image;
         _toolbarItemLabel = label;
         _height = height;
