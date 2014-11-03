@@ -77,16 +77,16 @@ function setIcon() {
     iconCanvas.width = 40
     iconCanvas.height = 40
     var iconCtx = iconCanvas.getContext('2d')
-    iconCtx.fillRect(5, 7, 30, 30)
-    iconCtx.clearRect(10, 12, 20, 20)
+    iconCtx.fillRect(6, 8, 28, 28)
+    iconCtx.clearRect(12, 14, 16, 16)
 
     var highlightedIconCanvas = document.getElementById('highlighted-icon')
     highlightedIconCanvas.width = 40
     highlightedIconCanvas.height = 40
     var highlightedIconCtx = highlightedIconCanvas.getContext('2d')
     highlightedIconCtx.fillStyle = "white"
-    highlightedIconCtx.fillRect(5, 7, 30, 30)
-    highlightedIconCtx.clearRect(10, 12, 20, 20)
+    highlightedIconCtx.fillRect(6, 8, 28, 28)
+    highlightedIconCtx.clearRect(12, 14, 16, 16)
 
     mw.setMenubarIcon(iconCanvas.toDataURL())
     mw.setMenubarHighlightedIcon(highlightedIconCanvas.toDataURL())

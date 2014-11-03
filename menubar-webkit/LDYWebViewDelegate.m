@@ -174,7 +174,15 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 {
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:base64]];
     NSImage *icon = [[NSImage alloc] initWithData:data];
-    self.statusItemView.icon = icon;
+    icon.size = NSMakeSize(20, 20);
+
+    if (IS_PERIOR_TO_10_9) {
+        self.statusItemView.icon = icon;
+    }
+    else {
+        [icon setTemplate:YES];
+        self.statusItem.button.image = icon;
+    }
 }
 
 - (void)changeHighlightedIcon:(NSString *)base64

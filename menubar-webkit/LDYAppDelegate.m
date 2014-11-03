@@ -74,6 +74,7 @@
 
     self.webViewDelegate = [[LDYWebViewDelegate alloc] init];
     self.webViewDelegate.appDelegate = self;
+    self.webViewDelegate.statusItem = self.statusItem;
     self.webViewDelegate.statusItemView = self.statusItemView;
     self.webViewDelegate.webView = self.webView;
     self.webView.frameLoadDelegate = self.webViewDelegate;

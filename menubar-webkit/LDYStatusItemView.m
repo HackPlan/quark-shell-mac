@@ -43,7 +43,6 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-
     CGFloat offset = (NSWidth(self.bounds) - 20) / 2;
     NSRect iconFrame = NSMakeRect(offset, 0, 20, 20);
 
