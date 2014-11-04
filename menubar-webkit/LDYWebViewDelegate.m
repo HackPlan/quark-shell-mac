@@ -194,8 +194,15 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)resetMenubarIcon
 {
-    self.statusItemView.icon = [NSImage imageNamed:@"StatusIcon"];
-    self.statusItemView.highlightedIcon = [NSImage imageNamed:@"StatusIconWhite"];
+    if (IS_PERIOR_TO_10_9) {
+        self.statusItemView.icon = [NSImage imageNamed:@"StatusIcon"];
+        self.statusItemView.highlightedIcon = [NSImage imageNamed:@"StatusIconWhite"];
+    }
+    else {
+        NSImage *icon = [NSImage imageNamed:@"StatusIcon"];
+        [icon setTemplate:YES];
+        self.statusItem.button.image = icon;
+    }
 }
 
 - (void)notify:(WebScriptObject *)obj
