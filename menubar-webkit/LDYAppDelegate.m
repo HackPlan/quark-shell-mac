@@ -9,6 +9,7 @@
 #import "LDYAppDelegate.h"
 #import "LDYWebViewDelegate.h"
 #import "LDYStatusItemView.h"
+#import "NSWindow+Fade.h"
 
 @interface WebPreferences (WebPreferencesPrivate)
 
@@ -58,7 +59,6 @@
         self.statusItem.button.action = @selector(statusItemClicked);
     }
 
-
     self.window.level = NSFloatingWindowLevel;
     self.window.delegate = self;
     [self.window setOpaque:NO];
@@ -84,27 +84,33 @@
 - (void)windowDidResignKey:(NSNotification *)notification
 {
     if (!self.pinned) {
-        self.window.isVisible = NO;
-        [self refreshStyle];
+        [self hideWindow];
     }
 }
 
 - (void)showWindow
 {
-    self.window.isVisible = YES;
     [self refreshStyle];
+
+    [self.window makeKeyAndOrderFront:self];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 - (void)hideWindow
 {
-    self.window.isVisible = NO;
     [self refreshStyle];
+
+    [self.window fadeOut];
 }
 
 - (void)statusItemClicked
 {
-    self.window.isVisible = !self.window.isVisible;
-    [self refreshStyle];
+    if (self.window.visible) {
+        [self hideWindow];
+    }
+    else {
+        [self showWindow];
+    }
 }
 
 - (void)refreshStyle
@@ -112,7 +118,7 @@
     NSRect itemFrame;
 
     if (IS_PERIOR_TO_10_9) {
-        self.statusItemView.itemHighlighted = self.window.isVisible;
+        self.statusItemView.itemHighlighted = self.window.visible;
         itemFrame = self.statusItem.view.window.frame;
     }
     else {
@@ -123,11 +129,6 @@
     windowFrame.origin.x = NSMidX(itemFrame) - NSWidth(windowFrame) / 2.0;
     windowFrame.origin.y = NSMinY(itemFrame) - NSHeight(windowFrame);
     [self.window setFrame:windowFrame display:NO];
-
-    if (self.window.isVisible) {
-        [self.window makeKeyAndOrderFront:nil];
-        [NSApp activateIgnoringOtherApps:YES];
-    }
 }
 
 @end
