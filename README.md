@@ -1,6 +1,6 @@
 # Menubar WebKit
 
-**menubar-webkit** helps you create Mac menubar app using HTML and JavaScript without writing any Objective-C code. menubar-webkit exposes an JavaScript object called ``mw`` to provide system functions.
+**menubar-webkit** helps you create Mac menubar app using HTML and JavaScript without writing any Objective-C code. menubar-webkit exposes a JavaScript object called ``mw`` to provide system functions.
 
 <img alt="Screenshot" width="907" src="Assets/screenshot.png">
 
