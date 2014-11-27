@@ -1,6 +1,6 @@
 # Quark Shell for Mac
 
-**Quark Shell** helps you create cross-platform (currently Mac and Windows) menubar/tray app using HTML and JavaScript without writing any native code. Quark Shell exposes a JavaScript object called ``mw`` to provide system functions. **Quark Shell for Mac** is based on WebKit.
+**Quark Shell** helps you create cross-platform (currently Mac and Windows) menubar/tray app using HTML and JavaScript without writing any native code. Quark Shell exposes a JavaScript object called ``quark`` to provide system functions. **Quark Shell for Mac** is based on WebKit.
 
 <img alt="Screenshot" width="907" src="Assets/screenshot.png">
 
@@ -9,35 +9,35 @@
 APIs may change rapidly before 1.0.
 
 ```js
-mw.platform // returns "mac" or "windows"
+quark.platform // returns "mac" or "windows"
 
 // App info (configurable in Xcode)
-mw.appVersion
-mw.appBundleVersion
+quark.appVersion
+quark.appBundleVersion
 
 // Enable/disable Web Inspector
-mw.debug = true
+quark.debug = true
 
 // Open/close the popup window
-mw.openPopup()
-mw.closePopup()
+quark.openPopup()
+quark.closePopup()
 
 // Quit application
-mw.quit()
+quark.quit()
 
 // Open URL in default browser
-mw.openURL("http://pomotodo.com")
+quark.openURL("http://pomotodo.com")
 
 // Set menubar icon
-mw.setMenubarIcon("data:image/png;base64,iVBORw...SuQmCC")
-mw.setMenubarHighlightedIcon("data:image/png;base64,iVBORw...SuQmCC")
-mw.resetMenubarIcon()
+quark.setMenubarIcon("data:image/png;base64,iVBORw...SuQmCC")
+quark.setMenubarHighlightedIcon("data:image/png;base64,iVBORw...SuQmCC")
+quark.resetMenubarIcon()
 
 // Auto start with system
-mw.setAutoStart(true) // not implemented yet
+quark.setAutoStart(true) // not implemented yet
 
 // Send system notification
-mw.notify({
+quark.notify({
   title: "Pomotodo",
   content: "Break is over!",
   time: "2038-01-19T03:14:07Z", // (optional) delivery date for scheduled notification, in ISO 8601
@@ -45,16 +45,16 @@ mw.notify({
 })
 
 // Remove all scheduled notifications
-mw.removeAllScheduledNotifications()
+quark.removeAllScheduledNotifications()
 
 // Remove all delivered notifications from notification center
-mw.removeAllDeliveredNotifications()
+quark.removeAllDeliveredNotifications()
 
 // Open new window
 // "url" is relative to "app" folder
 // Notice: You can only open one window at the same time,
 // or the later window will replace the former window.
-mw.newWindow({
+quark.newWindow({
   url: "about.html",
   width: 600,
   height: 400,
@@ -68,20 +68,20 @@ mw.newWindow({
 })
 
 // Close new window
-mw.closeWindow()
+quark.closeWindow()
 
 // Pin/unpin pop-up window (won’t close when click outside the window)
-mw.pin()
-mw.unpin()
+quark.pin()
+quark.unpin()
 
 // Exchange messages between webviews
-mw.emit("MessageName", "payload")
-mw.on("MessageName", function(message) {
+quark.emit("MessageName", "payload")
+quark.on("MessageName", function(message) {
 	console.log(message)
 })
 
 // Show a context menu
-mw.showMenu({
+quark.showMenu({
   items: [
     {label: "Test", click: function() { console.log("I am completely operational") } },
     {type: "separator"},
@@ -96,17 +96,17 @@ mw.showMenu({
 
 ```js
 // Set global keyboard shortcut
-mw.addKeyboardShortcut({
+quark.addKeyboardShortcut({
   keycode: 0x7A, // F1 key
   modifierFlags: 0, // no modifier key
   callback: function suchCallback() {
     console.log("wow")
-    mw.openPopup()
+    quark.openPopup()
   }
 })
 
 // Clear global keyboard shortcut
-mw.clearKeyboardShortcut()
+quark.clearKeyboardShortcut()
 ```
 
 Please follow [NSEvent Class Reference](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSEvent_Class/Reference/Reference.html#//apple_ref/doc/constant_group/Modifier_Flags) for documentation about modifier flags.
@@ -116,15 +116,15 @@ Also, Quark Shell for Mac allows you to record shortcuts via [native components 
 ### Preferences
 
 ```js
-mw.setupPreferences([
+quark.setupPreferences([
   {"label": "General",  "identifier": "general",  "icon": "NSPreferencesGeneral", "height": 192},
   {"label": "Account",  "identifier": "account",  "icon": "NSUserAccounts",       "height": 102},
   {"label": "Shortcut", "identifier": "shortcut", "icon": "NSAdvanced",           "height": 120}
 ])
 
-// Must be called after mw.setupPreferences()
-mw.openPreferences()
-mw.closePreferences()
+// Must be called after quark.setupPreferences()
+quark.openPreferences()
+quark.closePreferences()
 ```
 
 Quark Shell for Mac also provides some native components for preferences.
@@ -135,8 +135,8 @@ More detail: [Preferences.md](Docs/Preferences.md)
 
 ```js
 // Check for update
-mw.checkUpdate("https://rawgit.com/HackPlan/menubar-webkit/master/updater/SampleAppcast.xml")
-mw.checkUpdateInBackground("https://rawgit.com/HackPlan/menubar-webkit/master/updater/SampleAppcast.xml")
+quark.checkUpdate("https://rawgit.com/HackPlan/menubar-webkit/master/updater/SampleAppcast.xml")
+quark.checkUpdateInBackground("https://rawgit.com/HackPlan/menubar-webkit/master/updater/SampleAppcast.xml")
 ```
 
 More detail: [AutoUpdate.md](Docs/AutoUpdate.md)

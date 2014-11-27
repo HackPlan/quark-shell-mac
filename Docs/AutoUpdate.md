@@ -32,10 +32,10 @@ For safety reasons, you have to code sign your app properly to enable auto updat
 We provide two JavaScript APIs for checking update, both require an URL to AppCast.xml:
 
 ```js
-mw.checkUpdate("https://rawgit.com/HackPlan/menubar-webkit/master/updater/SampleAppcast.xml")
-mw.checkUpdateInBackground("https://rawgit.com/HackPlan/menubar-webkit/master/updater/SampleAppcast.xml")
+quark.checkUpdate("https://rawgit.com/HackPlan/menubar-webkit/master/updater/SampleAppcast.xml")
+quark.checkUpdateInBackground("https://rawgit.com/HackPlan/menubar-webkit/master/updater/SampleAppcast.xml")
 ```
 
 ## Under the Hood
 
-Menubar WebKit uses [Sparkle](https://github.com/sparkle-project/Sparkle) as update engine, refer to the documentation for Sparkle for more details.
+Quark Shell for Mac uses [Sparkle](https://github.com/sparkle-project/Sparkle) as update engine, refer to the documentation for Sparkle for more details.

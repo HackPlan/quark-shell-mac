@@ -15,7 +15,7 @@
 #import <Sparkle/Sparkle.h>
 #import <ISO8601DateFormatter.h>
 
-static NSString * const kWebScriptNamespace = @"mw";
+static NSString * const kWebScriptNamespace = @"quark";
 static const NSInteger kPreferencesDefaultHeight = 192;
 
 @interface LDYWebViewDelegate () <NSUserNotificationCenterDelegate> {
