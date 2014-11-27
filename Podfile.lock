@@ -15,10 +15,15 @@ EXTERNAL SOURCES:
     :branch: menubar-webkit
     :git: https://github.com/xhacker/MASShortcut.git
 
+CHECKOUT OPTIONS:
+  MASShortcut:
+    :commit: e54886366d753c75d8bbe07d1a7dd42af69f70fd
+    :git: https://github.com/xhacker/MASShortcut.git
+
 SPEC CHECKSUMS:
   ISO8601DateFormatter: 59731cd880cf87e71b4fa95f0d6b713dcbc4cbce
   MASShortcut: a1e29fd34567fcd249d00648548924c8e7639474
   RHPreferences: d0215102b7b8cd9f501655e5e7db2551ef4dc0e5
   Sparkle: 5eb20bb37ca21e471dab8417dee880198d905327
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.35.0

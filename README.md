@@ -151,7 +151,7 @@ To build your app:
 0. Put your files into the ``app`` folder
 0. [Install CocoaPods](http://guides.cocoapods.org/using/getting-started.html)
 0. ``cd`` into the project folder and run ``pod install``
-0. Open ``menubar-webkit.xcworkspace`` in Xcode
+0. Open ``quark-shell.xcworkspace`` in Xcode
 0. Build and have fun!
 
 Remember that Quark Shell is still a WIP. When the project is stable enough, I will definitely simplify the build process.
