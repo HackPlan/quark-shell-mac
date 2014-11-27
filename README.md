@@ -135,8 +135,8 @@ More detail: [Preferences.md](Docs/Preferences.md)
 
 ```js
 // Check for update
-quark.checkUpdate("https://rawgit.com/HackPlan/menubar-webkit/master/updater/SampleAppcast.xml")
-quark.checkUpdateInBackground("https://rawgit.com/HackPlan/menubar-webkit/master/updater/SampleAppcast.xml")
+quark.checkUpdate("https://rawgit.com/HackPlan/quark-shell-mac/master/updater/SampleAppcast.xml")
+quark.checkUpdateInBackground("https://rawgit.com/HackPlan/quark-shell-mac/master/updater/SampleAppcast.xml")
 ```
 
 More detail: [AutoUpdate.md](Docs/AutoUpdate.md)

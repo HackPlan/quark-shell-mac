@@ -61,4 +61,4 @@ quark.setupPreferences([
 `keycode` and `modifierFlags` are the initial values for the recorder view. Omit these two arguments for a empty recorder view.  
 `onChange` will be invoked if user records a new shortcut (`onChange` will also be invoked if the shortcut is cleared, `keycode` and `modifierFlags` will be `0`).
 
-You can then setup the shortcut using [`quark.addKeyboardShortcut()`](https://github.com/HackPlan/menubar-webkit#api), or clear shortcuts using [`quark.clearKeyboardShortcut()`](https://github.com/HackPlan/menubar-webkit#api).
+You can then setup the shortcut using [`quark.addKeyboardShortcut()`](https://github.com/HackPlan/quark-shell-mac#api), or clear shortcuts using [`quark.clearKeyboardShortcut()`](https://github.com/HackPlan/quark-shell-mac#api).
