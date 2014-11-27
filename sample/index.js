@@ -1,19 +1,19 @@
 $(function() {
-    mw.debug = true
+    quark.debug = true
 
-    $("#app-version").html(mw.appVersion)
-    $("#app-bundle-version").html("(" + mw.appBundleVersion + ")")
+    $("#app-version").html(quark.appVersion)
+    $("#app-bundle-version").html("(" + quark.appBundleVersion + ")")
 
-    mw.addKeyboardShortcut({
+    quark.addKeyboardShortcut({
         keycode: 0x7A, // F1 key
         modifierFlags: 0, // no modifier key
         callback: function () {
             console.log("wow")
-            mw.openPopup()
+            quark.openPopup()
         }
     })
 
-    mw.setupPreferences([
+    quark.setupPreferences([
         {"label": "General", "identifier": "general", "icon": "NSPreferencesGeneral", "height": 192},
         {"label": "Account", "identifier": "account", "icon": "NSUserAccounts", "height": 102},
         {
@@ -27,13 +27,13 @@ $(function() {
                     modifierFlags: 0, // no modifier key
                     onChange: function (keycode, modifierFlags) {
                         console.log("New shortcut:", keycode, modifierFlags)
-                        mw.clearKeyboardShortcut()
-                        mw.addKeyboardShortcut({
+                        quark.clearKeyboardShortcut()
+                        quark.addKeyboardShortcut({
                             keycode: keycode,
                             modifierFlags: modifierFlags,
                             callback: function () {
                                 console.log("wow")
-                                mw.openPopup()
+                                quark.openPopup()
                             }
                         })
                     }
@@ -44,17 +44,17 @@ $(function() {
 
     $("#toggle-pin").click(function() {
         if ($(this).html() == "Pin") {
-            mw.pin()
+            quark.pin()
             $(this).html("Unpin")
         }
         else {
-            mw.unpin()
+            quark.unpin()
             $(this).html("Pin")
         }
     })
 
     $("#show-menu").click(function(event) {
-        mw.showMenu({
+        quark.showMenu({
             items: [
                 {label: "Test", click: function() { console.log("I am completely operational") } },
                 {type: "separator"},
@@ -65,9 +65,9 @@ $(function() {
         })
     })
 
-    var db = openDatabase('test', '1.0', 'Menubar WebKit supports WebSQL database', 5 * 1024 * 1024)
+    var db = openDatabase('test', '1.0', 'Quark Shell supports WebSQL database', 5 * 1024 * 1024)
 
-    mw.on("TestMessage", function(message) {
+    quark.on("TestMessage", function(message) {
         console.log(message)
     })
 })
@@ -88,6 +88,6 @@ function setIcon() {
     highlightedIconCtx.fillRect(6, 8, 28, 28)
     highlightedIconCtx.clearRect(12, 14, 16, 16)
 
-    mw.setMenubarIcon(iconCanvas.toDataURL())
-    mw.setMenubarHighlightedIcon(highlightedIconCanvas.toDataURL())
+    quark.setMenubarIcon(iconCanvas.toDataURL())
+    quark.setMenubarHighlightedIcon(highlightedIconCanvas.toDataURL())
 }

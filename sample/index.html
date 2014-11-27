@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Menubar WebKit</title>
+  <title>Quark Shell</title>
   <style>
   html {
     height: 100%;
@@ -60,7 +60,7 @@
 </head>
 <body>
   <h1>
-    Menubar WebKit
+    Quark Shell
     <span id="app-version"></span>
     <span id="app-bundle-version"></span>
   </h1>
@@ -69,14 +69,14 @@
 
   <div class="button">
     <p>
-      <button onclick="mw.notify({title: 'Menubar WebKit', content: 'Hello World', popupOnClick: true})">Notify</button>
-      <button onclick="mw.closePopup()">Close Popup</button>
-      <button onclick="mw.newWindow({url: 'about.html', width: 600, height: 400, x: 'center', y: 'center'})">New Window</button>
+      <button onclick="quark.notify({title: 'Quark Shell', content: 'Hello World', popupOnClick: true})">Notify</button>
+      <button onclick="quark.closePopup()">Close Popup</button>
+      <button onclick="quark.newWindow({url: 'about.html', width: 600, height: 400, x: 'center', y: 'center'})">New Window</button>
     </p>
     <p>
-      <button onclick="mw.openPreferences()">Preferences</button>
-      <button onclick="mw.openURL('https://github.com/xhacker')">Open URL</button>
-      <button onclick="mw.checkUpdate('https://rawgit.com/HackPlan/menubar-webkit/master/updater/SampleAppcast.xml')">Check Update</button>
+      <button onclick="quark.openPreferences()">Preferences</button>
+      <button onclick="quark.openURL('https://github.com/xhacker')">Open URL</button>
+      <button onclick="quark.checkUpdate('https://rawgit.com/HackPlan/quark-shell-mac/master/updater/SampleAppcast.xml')">Check Update</button>
     </p>
     <p>
       <button onclick="setIcon()">Set Icon</button>
@@ -85,11 +85,11 @@
     </p>
     <p>
       <button onclick="$('audio')[0].play()">Audio</button>
-      <button onclick="alert('menubar-webkit')">Alert</button>
-      <button onclick="confirm('menubar-webkit?')">Confirm</button>
+      <button onclick="alert('Quark Shell rocks!')">Alert</button>
+      <button onclick="confirm('Quark Shell?')">Confirm</button>
     </p>
     <p>
-      <button onclick="mw.quit()">Quit</button>
+      <button onclick="quark.quit()">Quit</button>
     </p>
   </div>
   <canvas id="icon"></canvas>

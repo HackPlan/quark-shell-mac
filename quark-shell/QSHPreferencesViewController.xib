@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="6250"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="QSHPreferencesViewController">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="webView" destination="BpM-TI-USF" id="yAF-Cf-ubp"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="192"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <webView translatesAutoresizingMaskIntoConstraints="NO" id="BpM-TI-USF">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="192"/>
+                    <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
+                        <nil key="identifier"/>
+                    </webPreferences>
+                </webView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="BpM-TI-USF" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Ocx-TY-dvx"/>
+                <constraint firstItem="BpM-TI-USF" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="QT3-NN-Ccy"/>
+                <constraint firstAttribute="bottom" secondItem="BpM-TI-USF" secondAttribute="bottom" id="hhM-jC-hEy"/>
+                <constraint firstAttribute="trailing" secondItem="BpM-TI-USF" secondAttribute="trailing" id="p6c-GH-nRN"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>

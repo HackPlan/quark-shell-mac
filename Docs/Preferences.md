@@ -6,27 +6,27 @@ You can build native-like preferences window using following API:
 // "label" is the toolbar item label in preferences window
 // "identifier" is the preference html file name and must be unique
 // "height" is the height of the preference tab
-mw.setupPreferences([
+quark.setupPreferences([
   {"label": "General",  "identifier": "general",  "icon": "NSPreferencesGeneral", "height": 192},
   {"label": "Account",  "identifier": "account",  "icon": "NSUserAccounts",       "height": 102},
   {"label": "Shortcut", "identifier": "shortcut", "icon": "NSAdvanced",           "height": 120}
 ])
 
-// Must be called after mw.setupPreferences()
-mw.openPreferences()
-mw.closePreferences()
+// Must be called after quark.setupPreferences()
+quark.openPreferences()
+quark.closePreferences()
 ```
 
 ## Native Components
 
-Sometimes HTML is not enough for preferences view, Menubar WebKit provides some native components.
+Sometimes HTML is not enough for preferences view, Quark Shell for Mac provides some native components.
 
 ### Shortcut Recorder
 
 Sample usage:
 
 ```js
-mw.setupPreferences([
+quark.setupPreferences([
   //...
   {
     label: "Shortcut",
@@ -43,11 +43,11 @@ mw.setupPreferences([
         modifierFlags: 0, // no modifier key
         onChange: function (keycode, modifierFlags) {
           console.log("New shortcut:", keycode, modifierFlags)
-          mw.clearKeyboardShortcut()
-          mw.addKeyboardShortcut({
+          quark.clearKeyboardShortcut()
+          quark.addKeyboardShortcut({
             keycode: keycode,
             modifierFlags: modifierFlags,
-            callback: function () { mw.openPopup() }
+            callback: function () { quark.openPopup() }
           })
         }
       }
@@ -61,4 +61,4 @@ mw.setupPreferences([
 `keycode` and `modifierFlags` are the initial values for the recorder view. Omit these two arguments for a empty recorder view.  
 `onChange` will be invoked if user records a new shortcut (`onChange` will also be invoked if the shortcut is cleared, `keycode` and `modifierFlags` will be `0`).
 
-You can then setup the shortcut using [`mw.addKeyboardShortcut()`](https://github.com/HackPlan/menubar-webkit#api), or clear shortcuts using [`mw.clearKeyboardShortcut()`](https://github.com/HackPlan/menubar-webkit#api).
+You can then setup the shortcut using [`quark.addKeyboardShortcut()`](https://github.com/HackPlan/quark-shell-mac#api), or clear shortcuts using [`quark.clearKeyboardShortcut()`](https://github.com/HackPlan/quark-shell-mac#api).
