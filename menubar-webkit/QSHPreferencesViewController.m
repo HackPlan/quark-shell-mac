@@ -1,17 +1,17 @@
 //
-//  LDYPreferencesViewController.m
+//  QSHPreferencesViewController.m
 //  menubar-webkit
 //
 //  Created by Xhacker Liu on 6/11/14.
 //  Copyright (c) 2014 Xhacker. All rights reserved.
 //
 
-#import "LDYPreferencesViewController.h"
-#import "LDYWebScriptObjectConverter.h"
+#import "QSHPreferencesViewController.h"
+#import "QSHWebScriptObjectConverter.h"
 #import <MASShortcutView.h>
 #import <MASShortcut.h>
 
-@interface LDYPreferencesViewController ()
+@interface QSHPreferencesViewController ()
 
 @property (nonatomic) NSString *identifier;
 @property (nonatomic) NSImage *toolbarItemImage;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation LDYPreferencesViewController
+@implementation QSHPreferencesViewController
 
 // a hack for OS X 10.9, don't really know why
 @synthesize identifier = _identifier;
@@ -32,7 +32,7 @@
                             height:(NSInteger)height
                           delegate:(id)delegate
 {
-    self = [super initWithNibName:@"LDYPreferencesViewController" bundle:nil];
+    self = [super initWithNibName:@"QSHPreferencesViewController" bundle:nil];
     if (self) {
         _identifier = identifier;
         _toolbarItemImage = image;
@@ -76,7 +76,7 @@
         }
         
         shortcutView.shortcutValueChange = ^(MASShortcutView *sender) {
-            LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
+            QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
             [converter callFunction:component[@"options"][@"onChange"]
                            withArgs:@[@([sender.shortcutValue keyCode]),
                                       @([sender.shortcutValue modifierFlags])]];

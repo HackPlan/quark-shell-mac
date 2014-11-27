@@ -1,14 +1,14 @@
 //
-//  LDYWindowBorderView.m
+//  QSHWindowBorderView.m
 //  menubar-webkit
 //
 //  Created by Xhacker Liu on 4/20/14.
 //  Copyright (c) 2014 Xhacker. All rights reserved.
 //
 
-#import "LDYWindowBorderView.h"
+#import "QSHWindowBorderView.h"
 
-@implementation LDYWindowBorderView
+@implementation QSHWindowBorderView
 
 - (id)initWithFrame:(NSRect)frame
 {

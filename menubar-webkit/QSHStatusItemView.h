@@ -1,5 +1,5 @@
 //
-//  LDYStatusItemView.h
+//  QSHStatusItemView.h
 //  menubar-webkit
 //
 //  Created by Xhacker Liu on 5/1/14.
@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface LDYStatusItemView : NSButton
+@interface QSHStatusItemView : NSButton
 
 @property (nonatomic, weak) NSStatusItem *statusItem;
 @property (nonatomic) BOOL itemHighlighted; // differentiate from NSControl’s highlighted

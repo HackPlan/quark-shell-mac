@@ -1,5 +1,5 @@
 //
-//  LDYWebViewDelegate.h
+//  QSHWebViewDelegate.h
 //  menubar-webkit
 //
 //  Created by Xhacker Liu on 3/31/14.
@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LDYStatusItemView.h"
-#import "LDYAppDelegate.h"
+#import "QSHStatusItemView.h"
+#import "QSHAppDelegate.h"
 
-@interface LDYWebViewDelegate : NSObject
+@interface QSHWebViewDelegate : NSObject
 
-@property (nonatomic, weak) LDYAppDelegate *appDelegate;
+@property (nonatomic, weak) QSHAppDelegate *appDelegate;
 @property (nonatomic, weak) NSStatusItem *statusItem;
-@property (nonatomic, weak) LDYStatusItemView *statusItemView;
+@property (nonatomic, weak) QSHStatusItemView *statusItemView;
 @property (nonatomic, weak) WebView *webView;
 
 @end

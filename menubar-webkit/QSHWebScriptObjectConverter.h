@@ -1,5 +1,5 @@
 //
-//  LDYWebScriptObjectConverter.h
+//  QSHWebScriptObjectConverter.h
 //  menubar-webkit
 //
 //  Created by Xhacker Liu on 6/14/14.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LDYWebScriptObjectConverter : NSObject
+@interface QSHWebScriptObjectConverter : NSObject
 
 - (instancetype)initWithWebView:(WebView *)webView;
 

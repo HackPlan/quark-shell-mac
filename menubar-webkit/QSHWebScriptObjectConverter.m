@@ -1,20 +1,20 @@
 //
-//  LDYWebScriptObjectConverter.m
+//  QSHWebScriptObjectConverter.m
 //  menubar-webkit
 //
 //  Created by Xhacker Liu on 6/14/14.
 //  Copyright (c) 2014 Xhacker. All rights reserved.
 //
 
-#import "LDYWebScriptObjectConverter.h"
+#import "QSHWebScriptObjectConverter.h"
 
-@interface LDYWebScriptObjectConverter ()
+@interface QSHWebScriptObjectConverter ()
 
 @property (nonatomic, weak) WebView *webView;
 
 @end
 
-@implementation LDYWebScriptObjectConverter
+@implementation QSHWebScriptObjectConverter
 
 - (instancetype)initWithWebView:(WebView *)webView
 {
@@ -28,10 +28,10 @@
 
 - (void)registerJavaScriptHelpers
 {
-    NSString *bridgeUtil = @"LDYBridgeUtil = {};";
-    NSString *isArray = @"LDYBridgeUtil.isArray = function(obj) { return obj.constructor == Array; };";
-    NSString *isObject = @"LDYBridgeUtil.isObject = function(obj) { return obj.constructor == Object; };";
-    NSString *dictionaryKeys = @"LDYBridgeUtil.dictionaryKeys = function(obj) { \
+    NSString *bridgeUtil = @"QSHBridgeUtil = {};";
+    NSString *isArray = @"QSHBridgeUtil.isArray = function(obj) { return obj.constructor == Array; };";
+    NSString *isObject = @"QSHBridgeUtil.isObject = function(obj) { return obj.constructor == Object; };";
+    NSString *dictionaryKeys = @"QSHBridgeUtil.dictionaryKeys = function(obj) { \
                                      var a = []; \
                                      for (var key in obj) { \
                                          if (!obj.hasOwnProperty(key)) { \
@@ -41,8 +41,8 @@
                                      } \
                                      return a; \
                                  }";
-    NSString *callFunction = @"LDYBridgeUtil.callFunction = function(func) { func(); };";
-    NSString *callFunctionWithArgs = @"LDYBridgeUtil.callFunctionWithArgs = function(func, args) { func.apply(null, args); };";
+    NSString *callFunction = @"QSHBridgeUtil.callFunction = function(func) { func(); };";
+    NSString *callFunctionWithArgs = @"QSHBridgeUtil.callFunctionWithArgs = function(func, args) { func.apply(null, args); };";
 
     WebScriptObject *win = self.webView.windowScriptObject;
     [win evaluateWebScript:bridgeUtil];
@@ -56,7 +56,7 @@
 - (BOOL)isArray:(WebScriptObject *)obj
 {
     WebScriptObject *win = self.webView.windowScriptObject;
-    WebScriptObject *bridgeUtil = [win evaluateWebScript:@"LDYBridgeUtil"];
+    WebScriptObject *bridgeUtil = [win evaluateWebScript:@"QSHBridgeUtil"];
     NSNumber *result = [bridgeUtil callWebScriptMethod:@"isArray" withArguments:@[obj]];
 
     return result.boolValue;
@@ -65,7 +65,7 @@
 - (BOOL)isDictionary:(WebScriptObject *)obj
 {
     WebScriptObject *win = self.webView.windowScriptObject;
-    WebScriptObject *bridgeUtil = [win evaluateWebScript:@"LDYBridgeUtil"];
+    WebScriptObject *bridgeUtil = [win evaluateWebScript:@"QSHBridgeUtil"];
     NSNumber *result = [bridgeUtil callWebScriptMethod:@"isObject" withArguments:@[obj]];
 
     return result.boolValue;
@@ -74,7 +74,7 @@
 - (NSDictionary *)dictionaryFromWebScriptObject:(WebScriptObject *)webScriptObject
 {
     WebScriptObject *win = self.webView.windowScriptObject;
-    WebScriptObject *bridgeUtil = [win evaluateWebScript:@"LDYBridgeUtil"];
+    WebScriptObject *bridgeUtil = [win evaluateWebScript:@"QSHBridgeUtil"];
 
     WebScriptObject *keysObject = [bridgeUtil callWebScriptMethod:@"dictionaryKeys" withArguments:@[webScriptObject]];
     NSArray *keys = [self arrayFromWebScriptObject:keysObject];
@@ -129,7 +129,7 @@
 - (void)callFunction:(WebScriptObject *)webScriptObject
 {
     WebScriptObject *win = self.webView.windowScriptObject;
-    WebScriptObject *bridgeUtil = [win evaluateWebScript:@"LDYBridgeUtil"];
+    WebScriptObject *bridgeUtil = [win evaluateWebScript:@"QSHBridgeUtil"];
     [bridgeUtil callWebScriptMethod:@"callFunction" withArguments:@[webScriptObject]];
 }
 
@@ -137,7 +137,7 @@
             withArgs:(NSArray *)args
 {
     WebScriptObject *win = self.webView.windowScriptObject;
-    WebScriptObject *bridgeUtil = [win evaluateWebScript:@"LDYBridgeUtil"];
+    WebScriptObject *bridgeUtil = [win evaluateWebScript:@"QSHBridgeUtil"];
     [bridgeUtil callWebScriptMethod:@"callFunctionWithArgs" withArguments:@[webScriptObject, args]];
 }
 

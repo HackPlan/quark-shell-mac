@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
         <plugIn identifier="com.apple.WebKitIBPlugin" version="6250"/>
     </dependencies>
@@ -13,18 +12,18 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="LDYAppDelegate">
+        <customObject id="Voe-Tx-rLC" customClass="QSHAppDelegate">
             <connections>
                 <outlet property="webView" destination="kp8-f9-tLw" id="5cx-jf-k0f"/>
                 <outlet property="window" destination="9CT-7c-xhj" id="KBM-Ih-ApP"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="9CT-7c-xhj" customClass="LDYWindow">
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="9CT-7c-xhj" customClass="QSHWindow">
             <windowCollectionBehavior key="collectionBehavior" canJoinAllSpaces="YES"/>
             <rect key="contentRect" x="0.0" y="0.0" width="320" height="280"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
-            <view key="contentView" id="K10-CQ-J3N" customClass="LDYWindowBorderView">
+            <view key="contentView" id="K10-CQ-J3N" customClass="QSHWindowBorderView">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>

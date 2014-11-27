@@ -1,15 +1,15 @@
 //
-//  LDYWebViewDelegate.m
+//  QSHWebViewDelegate.m
 //  menubar-webkit
 //
 //  Created by Xhacker Liu on 3/31/14.
 //  Copyright (c) 2014 Xhacker. All rights reserved.
 //
 
-#import "LDYWebViewDelegate.h"
-#import "LDYPreferencesViewController.h"
-#import "LDYWebScriptObjectConverter.h"
-#import "LDYWebViewWindowController.h"
+#import "QSHWebViewDelegate.h"
+#import "QSHPreferencesViewController.h"
+#import "QSHWebScriptObjectConverter.h"
+#import "QSHWebViewWindowController.h"
 #import <MASShortcut+Monitoring.h>
 #import <RHPreferences.h>
 #import <Sparkle/Sparkle.h>
@@ -18,7 +18,7 @@
 static NSString * const kWebScriptNamespace = @"quark";
 static const NSInteger kPreferencesDefaultHeight = 192;
 
-@interface LDYWebViewDelegate () <NSUserNotificationCenterDelegate> {
+@interface QSHWebViewDelegate () <NSUserNotificationCenterDelegate> {
     NSString *appVersion;
     NSString *appBundleVersion;
     NSString *platform;
@@ -26,12 +26,12 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 }
 
 @property (nonatomic) NSWindowController *preferencesWindowController;
-@property (nonatomic) LDYWebViewWindowController *webViewWindowController;
+@property (nonatomic) QSHWebViewWindowController *webViewWindowController;
 @property (nonatomic) NSMutableDictionary *messageSubscribers;
 
 @end
 
-@implementation LDYWebViewDelegate
+@implementation QSHWebViewDelegate
 
 + (void)initialize
 {
@@ -207,7 +207,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)notify:(WebScriptObject *)obj
 {
-    LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
+    QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
     NSDictionary *message = [converter dictionaryFromWebScriptObject:obj];
 
     NSUserNotification *notification = [[NSUserNotification alloc] init];
@@ -270,7 +270,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     MASShortcut *shortcut = [MASShortcut shortcutWithKeyCode:keycode modifierFlags:flags];
     [MASShortcut removeGlobalHotkeyMonitor:shortcut.description];
     [MASShortcut addGlobalHotkeyMonitorWithShortcut:shortcut handler:^{
-        LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
+        QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
         [converter callFunction:callback];
     }];
 }
@@ -282,12 +282,12 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)setupPreferenes:(WebScriptObject *)scriptObj
 {
-    LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
+    QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
     NSArray *preferencesArray = [converter arrayFromWebScriptObject:scriptObj];
     NSMutableArray *viewControllers = [NSMutableArray array];
 	for (NSDictionary *preferences in preferencesArray) {
         NSInteger height = preferences[@"height"] ? [preferences[@"height"] integerValue]: kPreferencesDefaultHeight;
-        LDYPreferencesViewController *vc = [[LDYPreferencesViewController alloc]
+        QSHPreferencesViewController *vc = [[QSHPreferencesViewController alloc]
                                             initWithIdentifier:preferences[@"identifier"]
                                             toolbarImage:[NSImage imageNamed:preferences[@"icon"]]
                                             toolbarLabel:preferences[@"label"]
@@ -317,13 +317,13 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)newWindow:(WebScriptObject *)scriptObj
 {
-    LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
+    QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
     NSDictionary *options = [converter dictionaryFromWebScriptObject:scriptObj];
     NSString *urlString = options[@"url"];
     CGFloat width = [options[@"width"] doubleValue];
     CGFloat height = [options[@"height"] doubleValue];
 
-    self.webViewWindowController = [[LDYWebViewWindowController alloc] initWithURLString:urlString width:width height:height];
+    self.webViewWindowController = [[QSHWebViewWindowController alloc] initWithURLString:urlString width:width height:height];
 
     if (options[@"x"] && options[@"y"]) {
         CGFloat screenWidth = [[NSScreen mainScreen] frame].size.width;
@@ -395,7 +395,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 - (void)emitMessage:(NSString *)name withPayload:(WebScriptObject *)payload
 {
     for (WebScriptObject *callback in self.messageSubscribers[name]) {
-        LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
+        QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
         [converter callFunction:callback withArgs:@[payload]];
     }
 }
@@ -412,7 +412,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)showMenu:(WebScriptObject *)scriptObj
 {
-    LDYWebScriptObjectConverter *converter = [[LDYWebScriptObjectConverter alloc] initWithWebView:self.webView];
+    QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
     NSDictionary *options = [converter dictionaryFromWebScriptObject:scriptObj];
     NSMenu *menu = [[NSMenu alloc] init];
     menu.autoenablesItems = NO;

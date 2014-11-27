@@ -1,5 +1,5 @@
 //
-//  LDYNewWindowController.h
+//  QSHNewWindowController.h
 //  menubar-webkit
 //
 //  Created by Xhacker Liu on 7/2/14.
@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface LDYWebViewWindowController : NSWindowController
+@interface QSHWebViewWindowController : NSWindowController
 
 @property (weak) IBOutlet WebView *webView;
 

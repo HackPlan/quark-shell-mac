@@ -1,5 +1,5 @@
 //
-//  LDYPreferencesViewController.h
+//  QSHPreferencesViewController.h
 //  menubar-webkit
 //
 //  Created by Xhacker Liu on 6/11/14.
@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <RHPreferences.h>
 
-@interface LDYPreferencesViewController : NSViewController <RHPreferencesViewControllerProtocol>
+@interface QSHPreferencesViewController : NSViewController <RHPreferencesViewControllerProtocol>
 
 @property (weak) IBOutlet WebView *webView;
 

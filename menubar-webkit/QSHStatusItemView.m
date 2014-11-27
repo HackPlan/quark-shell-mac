@@ -1,14 +1,14 @@
 //
-//  LDYStatusItemView.m
+//  QSHStatusItemView.m
 //  menubar-webkit
 //
 //  Created by Xhacker Liu on 5/1/14.
 //  Copyright (c) 2014 Xhacker. All rights reserved.
 //
 
-#import "LDYStatusItemView.h"
+#import "QSHStatusItemView.h"
 
-@implementation LDYStatusItemView
+@implementation QSHStatusItemView
 
 - (id)initWithFrame:(NSRect)frame
 {

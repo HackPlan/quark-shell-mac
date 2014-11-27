@@ -1,24 +1,24 @@
 //
-//  LDYNewWindowController.m
+//  QSHNewWindowController.m
 //  menubar-webkit
 //
 //  Created by Xhacker Liu on 7/2/14.
 //  Copyright (c) 2014 Xhacker. All rights reserved.
 //
 
-#import "LDYWebViewWindowController.h"
+#import "QSHWebViewWindowController.h"
 
-@interface LDYWebViewWindowController ()
+@interface QSHWebViewWindowController ()
 
 @end
 
-@implementation LDYWebViewWindowController
+@implementation QSHWebViewWindowController
 
 - (id)initWithURLString:(NSString *)urlString
                   width:(CGFloat)width
                  height:(CGFloat)height
 {
-    self = [super initWithWindowNibName:@"LDYWebViewWindowController"];
+    self = [super initWithWindowNibName:@"QSHWebViewWindowController"];
     if (self) {
         [self.window setFrame:NSMakeRect(self.window.frame.origin.x, self.window.frame.origin.y, width, height) display:YES];
         self.window.animationBehavior = NSWindowAnimationBehaviorDocumentWindow;

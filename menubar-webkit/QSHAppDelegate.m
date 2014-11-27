@@ -1,14 +1,14 @@
 //
-//  LDYAppDelegate.m
+//  QSHAppDelegate.m
 //  menubar-webkit
 //
 //  Created by Xhacker Liu on 3/25/14.
 //  Copyright (c) 2014 Xhacker. All rights reserved.
 //
 
-#import "LDYAppDelegate.h"
-#import "LDYWebViewDelegate.h"
-#import "LDYStatusItemView.h"
+#import "QSHAppDelegate.h"
+#import "QSHWebViewDelegate.h"
+#import "QSHStatusItemView.h"
 #import "NSWindow+Fade.h"
 
 @interface WebPreferences (WebPreferencesPrivate)
@@ -19,16 +19,16 @@
 @end
 
 
-@interface LDYAppDelegate () <NSWindowDelegate>
+@interface QSHAppDelegate () <NSWindowDelegate>
 
 @property (nonatomic) NSStatusItem *statusItem;
-@property (nonatomic) LDYStatusItemView *statusItemView;
+@property (nonatomic) QSHStatusItemView *statusItemView;
 @property (nonatomic, weak) IBOutlet WebView *webView;
-@property (nonatomic) LDYWebViewDelegate *webViewDelegate;
+@property (nonatomic) QSHWebViewDelegate *webViewDelegate;
 
 @end
 
-@implementation LDYAppDelegate
+@implementation QSHAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -44,7 +44,7 @@
 
     self.statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
     if (IS_PERIOR_TO_10_9) {
-        self.statusItemView = [[LDYStatusItemView alloc] initWithFrame:NSMakeRect(0, 0, 20, 20)];
+        self.statusItemView = [[QSHStatusItemView alloc] initWithFrame:NSMakeRect(0, 0, 20, 20)];
         self.statusItemView.target = self;
         self.statusItemView.action = @selector(statusItemClicked);
         self.statusItem.view = self.statusItemView;
@@ -72,7 +72,7 @@
     NSString *url = [[NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]] absoluteString];
     self.webView.mainFrameURL = url;
 
-    self.webViewDelegate = [[LDYWebViewDelegate alloc] init];
+    self.webViewDelegate = [[QSHWebViewDelegate alloc] init];
     self.webViewDelegate.appDelegate = self;
     self.webViewDelegate.statusItem = self.statusItem;
     self.webViewDelegate.statusItemView = self.statusItemView;

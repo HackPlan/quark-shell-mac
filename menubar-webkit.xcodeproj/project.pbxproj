@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A42764A19196B6F00815DC6 /* LDYWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A42764919196B6F00815DC6 /* LDYWindow.m */; };
-		1A42D2CA194C2C620091F581 /* LDYWebScriptObjectConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A42D2C9194C2C620091F581 /* LDYWebScriptObjectConverter.m */; };
-		1A82DE5B1903B095006AB37F /* LDYWindowBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82DE5A1903B095006AB37F /* LDYWindowBorderView.m */; };
+		1A42764A19196B6F00815DC6 /* QSHWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A42764919196B6F00815DC6 /* QSHWindow.m */; };
+		1A42D2CA194C2C620091F581 /* QSHWebScriptObjectConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A42D2C9194C2C620091F581 /* QSHWebScriptObjectConverter.m */; };
+		1A82DE5B1903B095006AB37F /* QSHWindowBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82DE5A1903B095006AB37F /* QSHWindowBorderView.m */; };
 		1A91F9E318E2530B00AA8B7E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91F9E218E2530B00AA8B7E /* Cocoa.framework */; };
 		1A91F9ED18E2530B00AA8B7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A91F9EB18E2530B00AA8B7E /* InfoPlist.strings */; };
 		1A91F9EF18E2530B00AA8B7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A91F9EE18E2530B00AA8B7E /* main.m */; };
 		1A91F9F318E2530B00AA8B7E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1A91F9F118E2530B00AA8B7E /* Credits.rtf */; };
-		1A91F9F618E2530B00AA8B7E /* LDYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A91F9F518E2530B00AA8B7E /* LDYAppDelegate.m */; };
+		1A91F9F618E2530B00AA8B7E /* QSHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A91F9F518E2530B00AA8B7E /* QSHAppDelegate.m */; };
 		1A91F9F918E2530B00AA8B7E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A91F9F718E2530B00AA8B7E /* MainMenu.xib */; };
 		1A91F9FB18E2530B00AA8B7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A91F9FA18E2530B00AA8B7E /* Images.xcassets */; };
 		1A91FA0218E2530B00AA8B7E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91FA0118E2530B00AA8B7E /* XCTest.framework */; };
@@ -23,12 +23,12 @@
 		1A91FA0D18E2530C00AA8B7E /* menubar_webkitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A91FA0C18E2530C00AA8B7E /* menubar_webkitTests.m */; };
 		1A91FA5A18E25F3C00AA8B7E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91FA5918E25F3C00AA8B7E /* WebKit.framework */; };
 		1A9A456E1A1C93C600C98589 /* NSWindow+Fade.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A456D1A1C93C600C98589 /* NSWindow+Fade.m */; };
-		1AA896731964FB1800E4FDAC /* LDYWebViewWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA896711964FB1800E4FDAC /* LDYWebViewWindowController.m */; };
-		1AA896741964FB1800E4FDAC /* LDYWebViewWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AA896721964FB1800E4FDAC /* LDYWebViewWindowController.xib */; };
-		1ABD40311912E3AB002A53FB /* LDYStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD40301912E3AB002A53FB /* LDYStatusItemView.m */; };
-		1AF6371E18E9FF430099B508 /* LDYWebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6371D18E9FF430099B508 /* LDYWebViewDelegate.m */; };
-		1AFBA8BA19483E4900BEDA0A /* LDYPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFBA8B819483E4900BEDA0A /* LDYPreferencesViewController.m */; };
-		1AFBA8BB19483E4900BEDA0A /* LDYPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFBA8B919483E4900BEDA0A /* LDYPreferencesViewController.xib */; };
+		1AA896731964FB1800E4FDAC /* QSHWebViewWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA896711964FB1800E4FDAC /* QSHWebViewWindowController.m */; };
+		1AA896741964FB1800E4FDAC /* QSHWebViewWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AA896721964FB1800E4FDAC /* QSHWebViewWindowController.xib */; };
+		1ABD40311912E3AB002A53FB /* QSHStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD40301912E3AB002A53FB /* QSHStatusItemView.m */; };
+		1AF6371E18E9FF430099B508 /* QSHWebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6371D18E9FF430099B508 /* QSHWebViewDelegate.m */; };
+		1AFBA8BA19483E4900BEDA0A /* QSHPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFBA8B819483E4900BEDA0A /* QSHPreferencesViewController.m */; };
+		1AFBA8BB19483E4900BEDA0A /* QSHPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFBA8B919483E4900BEDA0A /* QSHPreferencesViewController.xib */; };
 		2E50CD93BE1C4FDAA087BA31 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDF5A5127B1458BB9768C43 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -43,13 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1A42764819196B6F00815DC6 /* LDYWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYWindow.h; sourceTree = "<group>"; };
-		1A42764919196B6F00815DC6 /* LDYWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYWindow.m; sourceTree = "<group>"; };
-		1A42D2C8194C2C620091F581 /* LDYWebScriptObjectConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYWebScriptObjectConverter.h; sourceTree = "<group>"; };
-		1A42D2C9194C2C620091F581 /* LDYWebScriptObjectConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYWebScriptObjectConverter.m; sourceTree = "<group>"; };
+		1A42764819196B6F00815DC6 /* QSHWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWindow.h; sourceTree = "<group>"; };
+		1A42764919196B6F00815DC6 /* QSHWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSHWindow.m; sourceTree = "<group>"; };
+		1A42D2C8194C2C620091F581 /* QSHWebScriptObjectConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWebScriptObjectConverter.h; sourceTree = "<group>"; };
+		1A42D2C9194C2C620091F581 /* QSHWebScriptObjectConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = QSHWebScriptObjectConverter.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1A75781C19B9A261002A9886 /* app */ = {isa = PBXFileReference; lastKnownFileType = folder; path = app; sourceTree = "<group>"; };
-		1A82DE591903B095006AB37F /* LDYWindowBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYWindowBorderView.h; sourceTree = "<group>"; };
-		1A82DE5A1903B095006AB37F /* LDYWindowBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYWindowBorderView.m; sourceTree = "<group>"; };
+		1A82DE591903B095006AB37F /* QSHWindowBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWindowBorderView.h; sourceTree = "<group>"; };
+		1A82DE5A1903B095006AB37F /* QSHWindowBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSHWindowBorderView.m; sourceTree = "<group>"; };
 		1A91F9DF18E2530B00AA8B7E /* menubar-webkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "menubar-webkit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A91F9E218E2530B00AA8B7E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1A91F9E518E2530B00AA8B7E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -60,8 +60,8 @@
 		1A91F9EE18E2530B00AA8B7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1A91F9F018E2530B00AA8B7E /* menubar-webkit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "menubar-webkit-Prefix.pch"; sourceTree = "<group>"; };
 		1A91F9F218E2530B00AA8B7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		1A91F9F418E2530B00AA8B7E /* LDYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDYAppDelegate.h; sourceTree = "<group>"; };
-		1A91F9F518E2530B00AA8B7E /* LDYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDYAppDelegate.m; sourceTree = "<group>"; };
+		1A91F9F418E2530B00AA8B7E /* QSHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSHAppDelegate.h; sourceTree = "<group>"; };
+		1A91F9F518E2530B00AA8B7E /* QSHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSHAppDelegate.m; sourceTree = "<group>"; };
 		1A91F9F818E2530B00AA8B7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1A91F9FA18E2530B00AA8B7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1A91FA0018E2530B00AA8B7E /* menubar-webkitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "menubar-webkitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,16 +72,16 @@
 		1A91FA5918E25F3C00AA8B7E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1A9A456C1A1C93C600C98589 /* NSWindow+Fade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+Fade.h"; sourceTree = "<group>"; };
 		1A9A456D1A1C93C600C98589 /* NSWindow+Fade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+Fade.m"; sourceTree = "<group>"; };
-		1AA896701964FB1800E4FDAC /* LDYWebViewWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYWebViewWindowController.h; sourceTree = "<group>"; };
-		1AA896711964FB1800E4FDAC /* LDYWebViewWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYWebViewWindowController.m; sourceTree = "<group>"; };
-		1AA896721964FB1800E4FDAC /* LDYWebViewWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LDYWebViewWindowController.xib; sourceTree = "<group>"; };
-		1ABD402F1912E3AB002A53FB /* LDYStatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYStatusItemView.h; sourceTree = "<group>"; };
-		1ABD40301912E3AB002A53FB /* LDYStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYStatusItemView.m; sourceTree = "<group>"; };
-		1AF6371C18E9FF430099B508 /* LDYWebViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYWebViewDelegate.h; sourceTree = "<group>"; };
-		1AF6371D18E9FF430099B508 /* LDYWebViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYWebViewDelegate.m; sourceTree = "<group>"; };
-		1AFBA8B719483E4900BEDA0A /* LDYPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDYPreferencesViewController.h; sourceTree = "<group>"; };
-		1AFBA8B819483E4900BEDA0A /* LDYPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDYPreferencesViewController.m; sourceTree = "<group>"; };
-		1AFBA8B919483E4900BEDA0A /* LDYPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LDYPreferencesViewController.xib; sourceTree = "<group>"; };
+		1AA896701964FB1800E4FDAC /* QSHWebViewWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWebViewWindowController.h; sourceTree = "<group>"; };
+		1AA896711964FB1800E4FDAC /* QSHWebViewWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSHWebViewWindowController.m; sourceTree = "<group>"; };
+		1AA896721964FB1800E4FDAC /* QSHWebViewWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSHWebViewWindowController.xib; sourceTree = "<group>"; };
+		1ABD402F1912E3AB002A53FB /* QSHStatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHStatusItemView.h; sourceTree = "<group>"; };
+		1ABD40301912E3AB002A53FB /* QSHStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSHStatusItemView.m; sourceTree = "<group>"; };
+		1AF6371C18E9FF430099B508 /* QSHWebViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWebViewDelegate.h; sourceTree = "<group>"; };
+		1AF6371D18E9FF430099B508 /* QSHWebViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSHWebViewDelegate.m; sourceTree = "<group>"; };
+		1AFBA8B719483E4900BEDA0A /* QSHPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHPreferencesViewController.h; sourceTree = "<group>"; };
+		1AFBA8B819483E4900BEDA0A /* QSHPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSHPreferencesViewController.m; sourceTree = "<group>"; };
+		1AFBA8B919483E4900BEDA0A /* QSHPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSHPreferencesViewController.xib; sourceTree = "<group>"; };
 		6AFB3BBE0E79B03C1B72DCF5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BEDF5A5127B1458BB9768C43 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F95033968F72053A096CA5D2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,23 +157,23 @@
 			isa = PBXGroup;
 			children = (
 				1AA896751965089700E4FDAC /* Utils */,
-				1A91F9F418E2530B00AA8B7E /* LDYAppDelegate.h */,
-				1A91F9F518E2530B00AA8B7E /* LDYAppDelegate.m */,
+				1A91F9F418E2530B00AA8B7E /* QSHAppDelegate.h */,
+				1A91F9F518E2530B00AA8B7E /* QSHAppDelegate.m */,
 				1A91F9F718E2530B00AA8B7E /* MainMenu.xib */,
-				1A42764819196B6F00815DC6 /* LDYWindow.h */,
-				1A42764919196B6F00815DC6 /* LDYWindow.m */,
-				1A82DE591903B095006AB37F /* LDYWindowBorderView.h */,
-				1A82DE5A1903B095006AB37F /* LDYWindowBorderView.m */,
-				1ABD402F1912E3AB002A53FB /* LDYStatusItemView.h */,
-				1ABD40301912E3AB002A53FB /* LDYStatusItemView.m */,
-				1AF6371C18E9FF430099B508 /* LDYWebViewDelegate.h */,
-				1AF6371D18E9FF430099B508 /* LDYWebViewDelegate.m */,
-				1AFBA8B719483E4900BEDA0A /* LDYPreferencesViewController.h */,
-				1AFBA8B819483E4900BEDA0A /* LDYPreferencesViewController.m */,
-				1AFBA8B919483E4900BEDA0A /* LDYPreferencesViewController.xib */,
-				1AA896701964FB1800E4FDAC /* LDYWebViewWindowController.h */,
-				1AA896711964FB1800E4FDAC /* LDYWebViewWindowController.m */,
-				1AA896721964FB1800E4FDAC /* LDYWebViewWindowController.xib */,
+				1A42764819196B6F00815DC6 /* QSHWindow.h */,
+				1A42764919196B6F00815DC6 /* QSHWindow.m */,
+				1A82DE591903B095006AB37F /* QSHWindowBorderView.h */,
+				1A82DE5A1903B095006AB37F /* QSHWindowBorderView.m */,
+				1ABD402F1912E3AB002A53FB /* QSHStatusItemView.h */,
+				1ABD40301912E3AB002A53FB /* QSHStatusItemView.m */,
+				1AF6371C18E9FF430099B508 /* QSHWebViewDelegate.h */,
+				1AF6371D18E9FF430099B508 /* QSHWebViewDelegate.m */,
+				1AFBA8B719483E4900BEDA0A /* QSHPreferencesViewController.h */,
+				1AFBA8B819483E4900BEDA0A /* QSHPreferencesViewController.m */,
+				1AFBA8B919483E4900BEDA0A /* QSHPreferencesViewController.xib */,
+				1AA896701964FB1800E4FDAC /* QSHWebViewWindowController.h */,
+				1AA896711964FB1800E4FDAC /* QSHWebViewWindowController.m */,
+				1AA896721964FB1800E4FDAC /* QSHWebViewWindowController.xib */,
 				1A9A456C1A1C93C600C98589 /* NSWindow+Fade.h */,
 				1A9A456D1A1C93C600C98589 /* NSWindow+Fade.m */,
 				1A91F9FA18E2530B00AA8B7E /* Images.xcassets */,
@@ -215,8 +215,8 @@
 		1AA896751965089700E4FDAC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				1A42D2C8194C2C620091F581 /* LDYWebScriptObjectConverter.h */,
-				1A42D2C9194C2C620091F581 /* LDYWebScriptObjectConverter.m */,
+				1A42D2C8194C2C620091F581 /* QSHWebScriptObjectConverter.h */,
+				1A42D2C9194C2C620091F581 /* QSHWebScriptObjectConverter.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -277,9 +277,9 @@
 		1A91F9D718E2530B00AA8B7E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = LDY;
+				CLASSPREFIX = QSH;
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = Xhacker;
+				ORGANIZATIONNAME = Pomotodo;
 				TargetAttributes = {
 					1A91F9DE18E2530B00AA8B7E = {
 						DevelopmentTeam = 7676B49VAW;
@@ -316,8 +316,8 @@
 				1A91F9ED18E2530B00AA8B7E /* InfoPlist.strings in Resources */,
 				1A91F9FB18E2530B00AA8B7E /* Images.xcassets in Resources */,
 				1A91F9F318E2530B00AA8B7E /* Credits.rtf in Resources */,
-				1AA896741964FB1800E4FDAC /* LDYWebViewWindowController.xib in Resources */,
-				1AFBA8BB19483E4900BEDA0A /* LDYPreferencesViewController.xib in Resources */,
+				1AA896741964FB1800E4FDAC /* QSHWebViewWindowController.xib in Resources */,
+				1AFBA8BB19483E4900BEDA0A /* QSHPreferencesViewController.xib in Resources */,
 				1A91F9F918E2530B00AA8B7E /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,15 +385,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A9A456E1A1C93C600C98589 /* NSWindow+Fade.m in Sources */,
-				1AFBA8BA19483E4900BEDA0A /* LDYPreferencesViewController.m in Sources */,
-				1A91F9F618E2530B00AA8B7E /* LDYAppDelegate.m in Sources */,
-				1AA896731964FB1800E4FDAC /* LDYWebViewWindowController.m in Sources */,
-				1A42D2CA194C2C620091F581 /* LDYWebScriptObjectConverter.m in Sources */,
+				1AFBA8BA19483E4900BEDA0A /* QSHPreferencesViewController.m in Sources */,
+				1A91F9F618E2530B00AA8B7E /* QSHAppDelegate.m in Sources */,
+				1AA896731964FB1800E4FDAC /* QSHWebViewWindowController.m in Sources */,
+				1A42D2CA194C2C620091F581 /* QSHWebScriptObjectConverter.m in Sources */,
 				1A91F9EF18E2530B00AA8B7E /* main.m in Sources */,
-				1A82DE5B1903B095006AB37F /* LDYWindowBorderView.m in Sources */,
-				1AF6371E18E9FF430099B508 /* LDYWebViewDelegate.m in Sources */,
-				1ABD40311912E3AB002A53FB /* LDYStatusItemView.m in Sources */,
-				1A42764A19196B6F00815DC6 /* LDYWindow.m in Sources */,
+				1A82DE5B1903B095006AB37F /* QSHWindowBorderView.m in Sources */,
+				1AF6371E18E9FF430099B508 /* QSHWebViewDelegate.m in Sources */,
+				1ABD40311912E3AB002A53FB /* QSHStatusItemView.m in Sources */,
+				1A42764A19196B6F00815DC6 /* QSHWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
