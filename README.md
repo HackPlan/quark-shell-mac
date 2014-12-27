@@ -159,6 +159,7 @@ Remember that Quark Shell is still a WIP. When the project is stable enough, I w
 ## FAQ
 * Can I use **local storage**? Yes.
 * Can I use **WebSQL**? Yes.
+* Can I use **IndexedDB**? No, but you can use a shim like [this](http://nparashuram.com/IndexedDBShim/).
 * Is Quark Shell compatible with Mac App Store? Absolutely yes.
 * Do you guys have a plan for Linux version? Yes, we love Linux.
 
