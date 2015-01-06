@@ -417,7 +417,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         [self.messageSubscribers[name] addObject:callback];
     }
     else {
-        self.messageSubscribers[name] = @[callback];
+        self.messageSubscribers[name] = [NSMutableArray arrayWithObject:callback];
     }
 }
 
