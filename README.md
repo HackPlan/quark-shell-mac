@@ -48,8 +48,8 @@ quark.setMenubarIcon("data:image/png;base64,iVBORw...SuQmCC")
 quark.setMenubarHighlightedIcon("data:image/png;base64,iVBORw...SuQmCC")
 quark.resetMenubarIcon()
 
-// Auto start with system
-quark.setAutoStart(true) // not implemented yet
+// Auto launch at login
+quark.setLaunchAtLogin(true)
 
 // Send system notification
 quark.notify({
@@ -182,6 +182,7 @@ Used third-party libraries:
 * [MASShortcut](https://github.com/shpakovski/MASShortcut) by [@shpakovski](https://github.com/shpakovski)
 * [RHPreferences](https://github.com/heardrwt/RHPreferences) by [@heardrwt](https://github.com/heardrwt)
 * [Sparkle](https://github.com/sparkle-project/Sparkle) by [contributors](https://github.com/sparkle-project/Sparkle/graphs/contributors)
+* [LaunchAtLoginController](https://github.com/jashephe/LaunchAtLoginController) by [@Mozketo](https://github.com/Mozketo), modified by [@tgunr](https://github.com/tgunr) and [@jashephe](https://github.com/jashephe).
 
 ## Contribution
 

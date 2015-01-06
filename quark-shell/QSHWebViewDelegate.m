@@ -14,6 +14,7 @@
 #import <RHPreferences.h>
 #import <Sparkle/Sparkle.h>
 #import <ISO8601DateFormatter.h>
+#import <LaunchAtLoginController.h>
 
 static NSString * const kWebScriptNamespace = @"quark";
 static const NSInteger kPreferencesDefaultHeight = 192;
@@ -70,6 +71,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(changeIcon:) ||
         selector == @selector(changeHighlightedIcon:) ||
         selector == @selector(resetMenubarIcon) ||
+        selector == @selector(setLaunchAtLogin:) ||
         selector == @selector(notify:) ||
         selector == @selector(removeAllScheduledNotifications) ||
         selector == @selector(removeAllDeliveredNotifications) ||
@@ -132,6 +134,9 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     }
     else if (selector == @selector(showMenu:)) {
         result = @"showMenu";
+    }
+    else if (selector == @selector(setLaunchAtLogin:)) {
+        result = @"setLaunchAtLogin";
     }
 
     return result;
@@ -203,6 +208,12 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         [icon setTemplate:YES];
         self.statusItem.button.image = icon;
     }
+}
+
+- (void)setLaunchAtLogin:(BOOL)launchAtLogin
+{
+    LaunchAtLoginController *launchController = [[LaunchAtLoginController alloc] init];
+    launchController.launchAtLogin = launchAtLogin;
 }
 
 - (void)notify:(WebScriptObject *)obj
