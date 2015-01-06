@@ -4,6 +4,21 @@
 
 <img alt="Screenshot" width="907" src="Assets/screenshot.png">
 
+## Integrating Web App
+
+``app/index.html`` is the portal of your menubar app. ``app/preferences/[identifier].html`` are the preference pages (for example, ``app/preferences/general.html``).
+
+To build your app:
+
+0. Delete the current ``app`` folder
+0. Put your files into the ``app`` folder
+0. [Install CocoaPods](http://guides.cocoapods.org/using/getting-started.html)
+0. ``cd`` into the project folder and run ``pod install``
+0. Open ``quark-shell.xcworkspace`` in Xcode
+0. Build and have fun!
+
+Remember that Quark Shell is still a WIP. When the project is stable enough, I will definitely simplify the build process.
+
 ## API
 
 APIs may change rapidly before 1.0.
@@ -141,25 +156,10 @@ quark.checkUpdateInBackground("https://rawgit.com/HackPlan/quark-shell-mac/maste
 
 More detail: [AutoUpdate.md](Docs/AutoUpdate.md)
 
-## Integrating Web App
-
-``app/index.html`` is the portal of your menubar app. ``app/preferences/[identifier].html`` are the preference pages (for example, ``app/preferences/general.html``).
-
-To build your app:
-
-0. Delete the current ``app`` folder
-0. Put your files into the ``app`` folder
-0. [Install CocoaPods](http://guides.cocoapods.org/using/getting-started.html)
-0. ``cd`` into the project folder and run ``pod install``
-0. Open ``quark-shell.xcworkspace`` in Xcode
-0. Build and have fun!
-
-Remember that Quark Shell is still a WIP. When the project is stable enough, I will definitely simplify the build process.
-
 ## FAQ
 * Can I use **local storage**? Yes.
 * Can I use **WebSQL**? Yes.
-* Can I use **IndexedDB**? No, but you can use a shim like [this](http://nparashuram.com/IndexedDBShim/).
+* Can I use **IndexedDB**? No, because we are using NSWebView. A future Yosemite-only version using WKWebView will support IndexedDB.
 * Is Quark Shell compatible with Mac App Store? Absolutely yes.
 * Do you guys have a plan for Linux version? Yes, we love Linux.
 
