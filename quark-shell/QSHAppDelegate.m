@@ -7,39 +7,35 @@
 //
 
 #import "QSHAppDelegate.h"
-#import "QSHWebViewDelegate.h"
 #import "QSHStatusItemView.h"
 #import "NSWindow+Fade.h"
 
-@interface WebPreferences (WebPreferencesPrivate)
+@interface WKPreferences (WKPrivate)
 
-- (void)_setLocalStorageDatabasePath:(NSString *)path;
-- (void)setLocalStorageEnabled:(BOOL)localStorageEnabled;
+@property (nonatomic, setter=_setDeveloperExtrasEnabled:) BOOL _developerExtrasEnabled;
 
 @end
-
 
 @interface QSHAppDelegate () <NSWindowDelegate>
 
 @property (nonatomic) NSStatusItem *statusItem;
 @property (nonatomic) QSHStatusItemView *statusItemView;
-@property (nonatomic, weak) IBOutlet WebView *webView;
-@property (nonatomic) QSHWebViewDelegate *webViewDelegate;
+@property (nonatomic) WKWebView *webView;
 
 @end
 
 @implementation QSHAppDelegate
 
+#pragma mark - Initialize
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // TODO: bundle identifier should be generated from manifest.json
-    WebPreferences *webPrefs = [WebPreferences standardPreferences];
-    NSString *bundleIdentifier = [[NSBundle mainBundle] infoDictionary][@"CFBundleIdentifier"];
-    NSString *applicationSupportFile = [@"~/Library/Application Support/" stringByExpandingTildeInPath];
-    NSString *savePath = [NSString pathWithComponents:@[applicationSupportFile, bundleIdentifier, @"LocalStorage"]];
-    [webPrefs _setLocalStorageDatabasePath:savePath];
-    [webPrefs setLocalStorageEnabled:YES];
+    [self setupStatusItemAndWindow];
+    [self setupWebView];
+}
 
+- (void)setupStatusItemAndWindow
+{
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
 
     self.statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
@@ -65,23 +61,19 @@
     self.window.delegate = self;
     [self.window setOpaque:NO];
     [self.window setBackgroundColor:[NSColor clearColor]];
-
-    self.webView.wantsLayer = YES;
-    self.webView.layer.cornerRadius = 5;
-    self.webView.layer.masksToBounds = YES;
-    [self.webView setDrawsBackground:NO];
-
-    NSString *url = [[NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]] absoluteString];
-    self.webView.mainFrameURL = url;
-
-    self.webViewDelegate = [[QSHWebViewDelegate alloc] init];
-    self.webViewDelegate.appDelegate = self;
-    self.webViewDelegate.statusItem = self.statusItem;
-    self.webViewDelegate.statusItemView = self.statusItemView;
-    self.webViewDelegate.webView = self.webView;
-    self.webView.frameLoadDelegate = self.webViewDelegate;
-    self.webView.UIDelegate = self.webViewDelegate;
 }
+
+- (void)setupWebView
+{
+    self.webView = [[WKWebView alloc] initWithFrame:NSMakeRect(0, 5, 320, 260)];
+    self.webView.configuration.preferences._developerExtrasEnabled = YES;
+    [self.window.contentView addSubview:self.webView];
+
+    NSURL *URL = [NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:URL]];
+}
+
+#pragma mark -
 
 - (void)windowDidResignKey:(NSNotification *)notification
 {

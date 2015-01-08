@@ -42,6 +42,17 @@
 
     [[NSColor controlColor] setFill];
     [roundedRectanglePath fill];
+
+    // fill bottom rect with white
+    NSRect bottomRect = NSMakeRect(0, 0, NSWidth(self.bounds), 10);
+    NSRect bottomInnerRect = NSInsetRect(bottomRect, roundedRectangleCornerRadius, roundedRectangleCornerRadius);
+    NSBezierPath *bottomPath = [NSBezierPath bezierPath];
+    [bottomPath appendBezierPathWithArcWithCenter:NSMakePoint(NSMinX(bottomInnerRect), NSMinY(bottomInnerRect)) radius: roundedRectangleCornerRadius startAngle:180 endAngle:270];
+    [bottomPath appendBezierPathWithArcWithCenter:NSMakePoint(NSMaxX(bottomInnerRect), NSMinY(bottomInnerRect)) radius: roundedRectangleCornerRadius startAngle:270 endAngle:360];
+    [bottomPath closePath];
+
+    [[NSColor whiteColor] setFill];
+    [bottomPath fill];
 }
 
 @end
