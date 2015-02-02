@@ -70,6 +70,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(openURL:) ||
         selector == @selector(changeIcon:) ||
         selector == @selector(changeHighlightedIcon:) ||
+        selector == @selector(changeLabel:) ||
         selector == @selector(resetMenubarIcon) ||
         selector == @selector(setLaunchAtLogin:) ||
         selector == @selector(notify:) ||
@@ -107,6 +108,9 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     }
     else if (selector == @selector(changeHighlightedIcon:)) {
         result = @"setMenubarHighlightedIcon";
+    }
+    else if (selector == @selector(changeLabel:)) {
+        result = @"setLabel";
     }
     else if (selector == @selector(openURL:)) {
         result = @"openURL";
@@ -208,6 +212,14 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         [icon setTemplate:YES];
         self.statusItem.button.image = icon;
     }
+}
+
+- (void)changeLabel:(NSString *)label
+{
+    self.statusItem.title = label;
+    NSDictionary *barTextAttributes = @{NSFontAttributeName: [NSFont fontWithName:@".HelveticaNeueDeskInterface-Regular" size:14.0]};
+    // 20 is image width, 10 is extra margin
+    self.statusItem.length = 20 + [label sizeWithAttributes:barTextAttributes].width + 10;
 }
 
 - (void)setLaunchAtLogin:(BOOL)launchAtLogin
