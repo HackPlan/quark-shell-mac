@@ -90,6 +90,7 @@
 
 - (void)showWindow
 {
+    self.shouldBeVisible = true;
     [self refreshStyle];
 
     [self.window makeKeyAndOrderFront:self];
@@ -98,6 +99,7 @@
 
 - (void)hideWindow
 {
+    self.shouldBeVisible = false;
     [self refreshStyle];
 
     [self.window fadeOut];
@@ -118,7 +120,7 @@
     NSRect itemFrame;
 
     if (IS_PERIOR_TO_10_9) {
-        self.statusItemView.itemHighlighted = self.window.visible;
+        self.statusItemView.itemHighlighted = self.shouldBeVisible;
         itemFrame = self.statusItem.view.window.frame;
     }
     else {

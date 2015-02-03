@@ -12,6 +12,7 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic) BOOL pinned;
+@property (nonatomic) BOOL shouldBeVisible;
 
 - (void)showWindow;
 - (void)hideWindow;
