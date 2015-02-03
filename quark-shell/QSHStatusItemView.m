@@ -41,12 +41,31 @@
     [self setNeedsDisplay];
 }
 
+- (void)setLabel:(NSString *)label
+{
+    _label = label;
+    
+    [self setNeedsDisplay];
+}
+
 - (void)drawRect:(NSRect)dirtyRect
 {
-    CGFloat offset = (NSWidth(self.bounds) - 20) / 2;
-    NSRect iconFrame = NSMakeRect(offset, 0, 20, 20);
-
     [self.statusItem drawStatusBarBackgroundInRect:self.bounds withHighlight:self.itemHighlighted];
+    
+    CGFloat xOffset = (NSWidth(self.bounds) - 20) / 2;
+    CGFloat yOffset = (NSHeight(self.bounds) - 20) / 2;
+    NSRect iconFrame = NSMakeRect(xOffset, yOffset, 20, 20);
+    
+    if (self.label) {
+        iconFrame = NSMakeRect(3, yOffset, 20, 20);
+        NSColor *color = self.itemHighlighted ? [NSColor whiteColor] : [NSColor blackColor];
+        NSDictionary *barTextAttributes = @{
+                                            NSFontAttributeName: [NSFont systemFontOfSize:14.0],
+                                            NSForegroundColorAttributeName: color
+                                            };
+        [self.label drawInRect:NSMakeRect(25, 2, NSWidth(self.bounds) - 30, 20) withAttributes:barTextAttributes];
+    }
+
     NSImage *iconImage = self.itemHighlighted ? self.highlightedIcon : self.icon;
     [iconImage drawInRect:iconFrame];
 }
