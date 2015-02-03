@@ -48,6 +48,9 @@ quark.setMenubarIcon("data:image/png;base64,iVBORw...SuQmCC")
 quark.setMenubarHighlightedIcon("data:image/png;base64,iVBORw...SuQmCC")
 quark.resetMenubarIcon()
 
+// Set menubar label
+quark.setLabel("03:14 AM")
+
 // Auto launch at login
 quark.setLaunchAtLogin(true)
 
