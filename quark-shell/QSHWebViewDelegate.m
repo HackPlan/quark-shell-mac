@@ -216,13 +216,15 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)changeLabel:(NSString *)label
 {
+    NSDictionary *barTextAttributes;
     if (IS_PERIOR_TO_10_9) {
         self.statusItemView.label = label;
+        barTextAttributes = @{NSFontAttributeName: MENUBAR_FONT};
     }
     else {
         self.statusItem.title = label;
+        barTextAttributes = @{NSFontAttributeName: self.statusItem.button.font};
     }
-    NSDictionary *barTextAttributes = @{NSFontAttributeName: [NSFont systemFontOfSize:14.0]};
     // 20 is image width, 10 is extra margin
     self.statusItem.length = 20 + [label sizeWithAttributes:barTextAttributes].width + 10;
 }

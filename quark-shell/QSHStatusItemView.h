@@ -10,6 +10,8 @@
 
 @interface QSHStatusItemView : NSButton
 
+#define MENUBAR_FONT [NSFont menuBarFontOfSize:14.0]
+
 @property (nonatomic, weak) NSStatusItem *statusItem;
 @property (nonatomic) BOOL itemHighlighted; // differentiate from NSControl’s highlighted
 @property (nonatomic) NSImage *icon;

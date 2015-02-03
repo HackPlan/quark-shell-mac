@@ -60,7 +60,7 @@
         iconFrame = NSMakeRect(3, yOffset, 20, 20);
         NSColor *color = self.itemHighlighted ? [NSColor whiteColor] : [NSColor blackColor];
         NSDictionary *barTextAttributes = @{
-                                            NSFontAttributeName: [NSFont systemFontOfSize:14.0],
+                                            NSFontAttributeName: MENUBAR_FONT,
                                             NSForegroundColorAttributeName: color
                                             };
         [self.label drawInRect:NSMakeRect(25, 2, NSWidth(self.bounds) - 30, 20) withAttributes:barTextAttributes];
