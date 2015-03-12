@@ -48,6 +48,10 @@ quark.setMenubarIcon("data:image/png;base64,iVBORw...SuQmCC")
 quark.setMenubarHighlightedIcon("data:image/png;base64,iVBORw...SuQmCC")
 quark.resetMenubarIcon()
 
+// Set menubar icon click action
+quark.setClickAction(function () { console.log("Don’t click me!"); })
+quark.setSecondaryClickAction(function () { console.log("What did I say?"); })
+
 // Set menubar label
 quark.setLabel("03:14 AM")
 

@@ -70,6 +70,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(openURL:) ||
         selector == @selector(changeIcon:) ||
         selector == @selector(changeHighlightedIcon:) ||
+        selector == @selector(changeClickAction:) ||
+        selector == @selector(changeSecondaryClickAction:) ||
         selector == @selector(changeLabel:) ||
         selector == @selector(resetMenubarIcon) ||
         selector == @selector(setLaunchAtLogin:) ||
@@ -108,6 +110,12 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     }
     else if (selector == @selector(changeHighlightedIcon:)) {
         result = @"setMenubarHighlightedIcon";
+    }
+    else if (selector == @selector(changeClickAction:)) {
+        result = @"setClickAction";
+    }
+    else if (selector == @selector(changeSecondaryClickAction:)) {
+        result = @"setSecondaryClickAction";
     }
     else if (selector == @selector(changeLabel:)) {
         result = @"setLabel";
@@ -199,6 +207,22 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:base64]];
     NSImage *icon = [[NSImage alloc] initWithData:data];
     self.statusItemView.highlightedIcon = icon;
+}
+
+- (void)changeClickAction:(WebScriptObject *)callback
+{
+    self.appDelegate.clickCallback = ^{
+        QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
+        [converter callFunction:callback];
+    };
+}
+
+- (void)changeSecondaryClickAction:(WebScriptObject *)callback
+{
+    self.appDelegate.secondaryClickCallback = ^{
+        QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
+        [converter callFunction:callback];
+    };
 }
 
 - (void)resetMenubarIcon

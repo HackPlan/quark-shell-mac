@@ -13,6 +13,13 @@ $(function() {
         }
     })
 
+    quark.setClickAction(function () {
+        console.log("Don’t click me!")
+    })
+    quark.setSecondaryClickAction(function () {
+        console.log("What did I say?")
+    })
+
     quark.setupPreferences([
         {"label": "General", "identifier": "general", "icon": "NSPreferencesGeneral", "height": 192},
         {"label": "Account", "identifier": "account", "icon": "NSUserAccounts", "height": 102},

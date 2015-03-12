@@ -47,6 +47,7 @@
         self.statusItemView = [[QSHStatusItemView alloc] initWithFrame:NSMakeRect(0, 0, 20, 20)];
         self.statusItemView.target = self;
         self.statusItemView.action = @selector(statusItemClicked);
+        [self.statusItemView sendActionOn:(NSLeftMouseDownMask | NSRightMouseDownMask)];
         self.statusItem.view = self.statusItemView;
         self.statusItemView.statusItem = self.statusItem;
     }
@@ -57,6 +58,7 @@
 
         self.statusItem.button.target = self;
         self.statusItem.button.action = @selector(statusItemClicked);
+        [self.statusItem.button sendActionOn:(NSLeftMouseDownMask | NSRightMouseDownMask)];
     }
 
     self.window.level = NSFloatingWindowLevel;
@@ -107,6 +109,20 @@
 
 - (void)statusItemClicked
 {
+    const NSUInteger buttonMask = [NSEvent pressedMouseButtons];
+    BOOL primaryDown = ((buttonMask & (1 << 0)) != 0);
+    BOOL secondaryDown = ((buttonMask & (1 << 1)) != 0);
+    if (primaryDown) {
+        if (self.clickCallback) {
+            self.clickCallback();
+        }
+    }
+    if (secondaryDown) {
+        if (self.secondaryClickCallback) {
+            self.secondaryClickCallback();
+        }
+    }
+    
     if (self.window.visible) {
         [self hideWindow];
     }

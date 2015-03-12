@@ -13,6 +13,8 @@
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic) BOOL pinned;
 @property (nonatomic) BOOL shouldBeVisible;
+@property (nonatomic, copy) void (^clickCallback)();
+@property (nonatomic, copy) void (^secondaryClickCallback)();
 
 - (void)showWindow;
 - (void)hideWindow;
