@@ -536,6 +536,21 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     }
 }
 
+// Enable <input type="file">
+- (void)webView:(WebView *)sender runOpenPanelForFileButtonWithResultListener:(id < WebOpenPanelResultListener >)resultListener
+{
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    openPanel.canChooseFiles = YES;
+    openPanel.canChooseDirectories = NO;
+    
+    [openPanel beginWithCompletionHandler:^(NSInteger result) {
+        if (result == NSFileHandlingPanelOKButton) {
+            NSURL *fileURL = openPanel.URL;
+            [resultListener chooseFilename:fileURL.absoluteString];
+        }
+    }];
+}
+
 // Enable WebSQL: http://stackoverflow.com/questions/353808/implementing-a-webview-database-quota-delegate
 - (void)webView:(WebView *)sender frame:(WebFrame *)frame exceededDatabaseQuotaForSecurityOrigin:(id)origin database:(NSString *)databaseIdentifier
 {
