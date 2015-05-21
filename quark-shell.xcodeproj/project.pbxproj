@@ -43,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A05BC371B0D8A0B00E5BCED /* quark-shell.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "quark-shell.entitlements"; sourceTree = "<group>"; };
 		1A42764819196B6F00815DC6 /* QSHWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWindow.h; sourceTree = "<group>"; };
 		1A42764919196B6F00815DC6 /* QSHWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSHWindow.m; sourceTree = "<group>"; };
 		1A42D2C8194C2C620091F581 /* QSHWebScriptObjectConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWebScriptObjectConverter.h; sourceTree = "<group>"; };
@@ -156,6 +157,7 @@
 		1A91F9E818E2530B00AA8B7E /* quark-shell */ = {
 			isa = PBXGroup;
 			children = (
+				1A05BC371B0D8A0B00E5BCED /* quark-shell.entitlements */,
 				1AA896751965089700E4FDAC /* Utils */,
 				1A91F9F418E2530B00AA8B7E /* QSHAppDelegate.h */,
 				1A91F9F518E2530B00AA8B7E /* QSHAppDelegate.m */,
@@ -283,6 +285,11 @@
 				TargetAttributes = {
 					1A91F9DE18E2530B00AA8B7E = {
 						DevelopmentTeam = 7676B49VAW;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					1A91F9FF18E2530B00AA8B7E = {
 						TestTargetID = 1A91F9DE18E2530B00AA8B7E;
@@ -526,6 +533,8 @@
 			baseConfigurationReference = F95033968F72053A096CA5D2 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "quark-shell/quark-shell.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "quark-shell/quark-shell-Prefix.pch";
@@ -541,6 +550,8 @@
 			baseConfigurationReference = 6AFB3BBE0E79B03C1B72DCF5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "quark-shell/quark-shell.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "quark-shell/quark-shell-Prefix.pch";
