@@ -56,6 +56,7 @@ quark.setSecondaryClickAction(function () { console.log("What did I say?"); })
 quark.setLabel("03:14 AM")
 
 // Auto launch at login
+// You also need to change bundle identifier "com.hackplan.quark-shell-helper" to a proper one in quark-shell-helper.xcodeproj and QSHWebViewDelegate.m
 quark.setLaunchAtLogin(true)
 
 // Send system notification
@@ -189,7 +190,7 @@ Used third-party libraries:
 * [MASShortcut](https://github.com/shpakovski/MASShortcut) by [@shpakovski](https://github.com/shpakovski)
 * [RHPreferences](https://github.com/heardrwt/RHPreferences) by [@heardrwt](https://github.com/heardrwt)
 * [Sparkle](https://github.com/sparkle-project/Sparkle) by [contributors](https://github.com/sparkle-project/Sparkle/graphs/contributors)
-* [LaunchAtLoginController](https://github.com/jashephe/LaunchAtLoginController) by [@Mozketo](https://github.com/Mozketo), modified by [@tgunr](https://github.com/tgunr) and [@jashephe](https://github.com/jashephe).
+* [StartAtLoginController](https://github.com/alexzielenski/StartAtLoginController) by [@alexzielenski](https://github.com/alexzielenski)
 
 ## Contribution
 
