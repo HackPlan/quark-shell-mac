@@ -6,4 +6,4 @@ pod 'MASShortcut', :git => 'https://github.com/xhacker/MASShortcut.git', :branch
 pod 'RHPreferences', :head
 pod 'Sparkle', '~> 1.8.0'
 pod 'ISO8601DateFormatter', '~> 0.7'
-pod 'LaunchAtLoginController', :podspec => 'https://raw.githubusercontent.com/jashephe/LaunchAtLoginController/master/LaunchAtLoginController.podspec'
+pod 'StartAtLoginController', '~> 0.0.1'

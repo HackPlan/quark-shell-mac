@@ -14,7 +14,7 @@
 #import <RHPreferences.h>
 #import <Sparkle/Sparkle.h>
 #import <ISO8601DateFormatter.h>
-#import <LaunchAtLoginController.h>
+#import <StartAtLoginController.h>
 
 static NSString * const kWebScriptNamespace = @"quark";
 static const NSInteger kPreferencesDefaultHeight = 192;
@@ -255,8 +255,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)setLaunchAtLogin:(BOOL)launchAtLogin
 {
-    LaunchAtLoginController *launchController = [[LaunchAtLoginController alloc] init];
-    launchController.launchAtLogin = launchAtLogin;
+    StartAtLoginController *loginController = [[StartAtLoginController alloc] initWithIdentifier:@"com.hackplan.quark-shell-helper"];
+    loginController.startAtLogin = launchAtLogin;
 }
 
 - (void)notify:(WebScriptObject *)obj

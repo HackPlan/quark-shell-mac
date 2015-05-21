@@ -1,0 +1,283 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A05BC481B0D916F00E5BCED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A05BC471B0D916F00E5BCED /* AppDelegate.m */; };
+		1A05BC4A1B0D916F00E5BCED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A05BC491B0D916F00E5BCED /* main.m */; };
+		1A05BC4F1B0D916F00E5BCED /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A05BC4D1B0D916F00E5BCED /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1A05BC411B0D916F00E5BCED /* quark-shell-helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "quark-shell-helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A05BC451B0D916F00E5BCED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A05BC461B0D916F00E5BCED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1A05BC471B0D916F00E5BCED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1A05BC491B0D916F00E5BCED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1A05BC4E1B0D916F00E5BCED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A05BC3E1B0D916F00E5BCED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A05BC381B0D916F00E5BCED = {
+			isa = PBXGroup;
+			children = (
+				1A05BC431B0D916F00E5BCED /* quark-shell-helper */,
+				1A05BC421B0D916F00E5BCED /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1A05BC421B0D916F00E5BCED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A05BC411B0D916F00E5BCED /* quark-shell-helper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A05BC431B0D916F00E5BCED /* quark-shell-helper */ = {
+			isa = PBXGroup;
+			children = (
+				1A05BC461B0D916F00E5BCED /* AppDelegate.h */,
+				1A05BC471B0D916F00E5BCED /* AppDelegate.m */,
+				1A05BC4D1B0D916F00E5BCED /* MainMenu.xib */,
+				1A05BC441B0D916F00E5BCED /* Supporting Files */,
+			);
+			path = "quark-shell-helper";
+			sourceTree = "<group>";
+		};
+		1A05BC441B0D916F00E5BCED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1A05BC451B0D916F00E5BCED /* Info.plist */,
+				1A05BC491B0D916F00E5BCED /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A05BC401B0D916F00E5BCED /* quark-shell-helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A05BC5E1B0D916F00E5BCED /* Build configuration list for PBXNativeTarget "quark-shell-helper" */;
+			buildPhases = (
+				1A05BC3D1B0D916F00E5BCED /* Sources */,
+				1A05BC3E1B0D916F00E5BCED /* Frameworks */,
+				1A05BC3F1B0D916F00E5BCED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "quark-shell-helper";
+			productName = "quark-shell-helper";
+			productReference = 1A05BC411B0D916F00E5BCED /* quark-shell-helper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A05BC391B0D916F00E5BCED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Hackplan;
+				TargetAttributes = {
+					1A05BC401B0D916F00E5BCED = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+				};
+			};
+			buildConfigurationList = 1A05BC3C1B0D916F00E5BCED /* Build configuration list for PBXProject "quark-shell-helper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A05BC381B0D916F00E5BCED;
+			productRefGroup = 1A05BC421B0D916F00E5BCED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A05BC401B0D916F00E5BCED /* quark-shell-helper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A05BC3F1B0D916F00E5BCED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A05BC4F1B0D916F00E5BCED /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A05BC3D1B0D916F00E5BCED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A05BC4A1B0D916F00E5BCED /* main.m in Sources */,
+				1A05BC481B0D916F00E5BCED /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1A05BC4D1B0D916F00E5BCED /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A05BC4E1B0D916F00E5BCED /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1A05BC5C1B0D916F00E5BCED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1A05BC5D1B0D916F00E5BCED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1A05BC5F1B0D916F00E5BCED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "quark-shell-helper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1A05BC601B0D916F00E5BCED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "quark-shell-helper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A05BC3C1B0D916F00E5BCED /* Build configuration list for PBXProject "quark-shell-helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A05BC5C1B0D916F00E5BCED /* Debug */,
+				1A05BC5D1B0D916F00E5BCED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A05BC5E1B0D916F00E5BCED /* Build configuration list for PBXNativeTarget "quark-shell-helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A05BC5F1B0D916F00E5BCED /* Debug */,
+				1A05BC601B0D916F00E5BCED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A05BC391B0D916F00E5BCED /* Project object */;
+}

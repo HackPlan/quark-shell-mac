@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A42764A19196B6F00815DC6 /* QSHWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A42764919196B6F00815DC6 /* QSHWindow.m */; };
 		1A42D2CA194C2C620091F581 /* QSHWebScriptObjectConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A42D2C9194C2C620091F581 /* QSHWebScriptObjectConverter.m */; };
+		1A5F65141B0D922B00575CAF /* quark-shell-helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A5F65111B0D91FD00575CAF /* quark-shell-helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1A82DE5B1903B095006AB37F /* QSHWindowBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82DE5A1903B095006AB37F /* QSHWindowBorderView.m */; };
 		1A91F9E318E2530B00AA8B7E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91F9E218E2530B00AA8B7E /* Cocoa.framework */; };
 		1A91F9ED18E2530B00AA8B7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A91F9EB18E2530B00AA8B7E /* InfoPlist.strings */; };
@@ -33,6 +34,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1A5F65101B0D91FD00575CAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A05BC641B0D916F00E5BCED /* quark-shell-helper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1A05BC411B0D916F00E5BCED;
+			remoteInfo = "quark-shell-helper";
+		};
 		1A91FA0418E2530C00AA8B7E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1A91F9D718E2530B00AA8B7E /* Project object */;
@@ -42,8 +50,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1A05BC6D1B0D91D400E5BCED /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				1A5F65141B0D922B00575CAF /* quark-shell-helper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1A05BC371B0D8A0B00E5BCED /* quark-shell.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "quark-shell.entitlements"; sourceTree = "<group>"; };
+		1A05BC641B0D916F00E5BCED /* quark-shell-helper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "quark-shell-helper.xcodeproj"; path = "quark-shell-helper/quark-shell-helper.xcodeproj"; sourceTree = "<group>"; };
 		1A42764819196B6F00815DC6 /* QSHWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWindow.h; sourceTree = "<group>"; };
 		1A42764919196B6F00815DC6 /* QSHWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSHWindow.m; sourceTree = "<group>"; };
 		1A42D2C8194C2C620091F581 /* QSHWebScriptObjectConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWebScriptObjectConverter.h; sourceTree = "<group>"; };
@@ -111,9 +133,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A5F650C1B0D91FD00575CAF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A5F65111B0D91FD00575CAF /* quark-shell-helper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1A91F9D618E2530B00AA8B7E = {
 			isa = PBXGroup;
 			children = (
+				1A05BC641B0D916F00E5BCED /* quark-shell-helper.xcodeproj */,
 				1A75781C19B9A261002A9886 /* app */,
 				1A91F9E818E2530B00AA8B7E /* quark-shell */,
 				1A91FA0618E2530C00AA8B7E /* quark-shellTests */,
@@ -245,6 +276,7 @@
 				1A91F9DD18E2530B00AA8B7E /* Resources */,
 				28BFB662D6264E858326F16E /* Copy Pods Resources */,
 				1AB53A9819988EA100A4A15F /* Run Script */,
+				1A05BC6D1B0D91D400E5BCED /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -307,6 +339,12 @@
 			mainGroup = 1A91F9D618E2530B00AA8B7E;
 			productRefGroup = 1A91F9E018E2530B00AA8B7E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1A5F650C1B0D91FD00575CAF /* Products */;
+					ProjectRef = 1A05BC641B0D916F00E5BCED /* quark-shell-helper.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1A91F9DE18E2530B00AA8B7E /* quark-shell */,
@@ -314,6 +352,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1A5F65111B0D91FD00575CAF /* quark-shell-helper.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "quark-shell-helper.app";
+			remoteRef = 1A5F65101B0D91FD00575CAF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1A91F9DD18E2530B00AA8B7E /* Resources */ = {
