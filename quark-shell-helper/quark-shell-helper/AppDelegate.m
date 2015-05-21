@@ -9,14 +9,12 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
-
-@property (weak) IBOutlet NSWindow *window;
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    NSString *appPath = [[[[[[NSBundle mainBundle] bundlePath] stringByDeletingLastPathComponent] stringByDeletingLastPathComponent]  stringByDeletingLastPathComponent] stringByDeletingLastPathComponent];
+    NSString *appPath = [[NSBundle mainBundle] bundlePath].stringByDeletingLastPathComponent.stringByDeletingLastPathComponent.stringByDeletingLastPathComponent.stringByDeletingLastPathComponent;
     // get to the waaay top. Goes through LoginItems, Library, Contents, Applications
     [[NSWorkspace sharedWorkspace] launchApplication:appPath];
     [NSApp terminate:nil];
