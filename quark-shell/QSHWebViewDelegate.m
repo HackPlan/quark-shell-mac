@@ -546,7 +546,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [openPanel beginWithCompletionHandler:^(NSInteger result) {
         if (result == NSFileHandlingPanelOKButton) {
             NSURL *fileURL = openPanel.URL;
-            [resultListener chooseFilename:fileURL.absoluteString];
+            [resultListener chooseFilename:fileURL.relativePath];
         }
     }];
 }
