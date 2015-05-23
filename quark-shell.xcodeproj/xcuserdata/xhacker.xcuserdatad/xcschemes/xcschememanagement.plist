@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>quark-shell-helper.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>quark-shell.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>1A91F9FF18E2530B00AA8B7E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1ADE93511B0F093E00D69828</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1ADE93631B0F093E00D69828</key>
 		<dict>
 			<key>primary</key>
 			<true/>
