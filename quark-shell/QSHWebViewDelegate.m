@@ -66,6 +66,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 {
     if (selector == @selector(openPopup) ||
         selector == @selector(closePopup) ||
+        selector == @selector(togglePopup) ||
         selector == @selector(quit) ||
         selector == @selector(openURL:) ||
         selector == @selector(changeIcon:) ||
@@ -175,6 +176,11 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 - (void)closePopup
 {
     [self.appDelegate hideWindow];
+}
+
+- (void)togglePopup
+{
+    [self.appDelegate toggleWindow];
 }
 
 - (void)quit

@@ -116,6 +116,16 @@
     [self.window fadeOut];
 }
 
+- (void)toggleWindow
+{
+    if (self.window.visible) {
+        [self hideWindow];
+    }
+    else {
+        [self showWindow];
+    }
+}
+
 - (void)statusItemClicked
 {
     const NSUInteger buttonMask = [NSEvent pressedMouseButtons];
@@ -132,12 +142,7 @@
         }
     }
     
-    if (self.window.visible) {
-        [self hideWindow];
-    }
-    else {
-        [self showWindow];
-    }
+    [self toggleWindow];
 }
 
 - (void)refreshStyle

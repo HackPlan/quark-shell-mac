@@ -47,7 +47,7 @@ quark.setupPreferences([
           quark.addKeyboardShortcut({
             keycode: keycode,
             modifierFlags: modifierFlags,
-            callback: function () { quark.openPopup() }
+            callback: function () { quark.togglePopup() }
           })
         }
       }

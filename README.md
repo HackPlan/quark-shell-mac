@@ -36,6 +36,7 @@ quark.debug = true
 // Open/close the popup window
 quark.openPopup()
 quark.closePopup()
+quark.togglePopup()
 
 // Quit application
 quark.quit()
@@ -124,7 +125,7 @@ quark.addKeyboardShortcut({
   modifierFlags: 0, // no modifier key
   callback: function suchCallback() {
     console.log("wow")
-    quark.openPopup()
+    quark.togglePopup()
   }
 })
 

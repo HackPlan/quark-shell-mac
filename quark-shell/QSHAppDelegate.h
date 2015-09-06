@@ -18,5 +18,6 @@
 
 - (void)showWindow;
 - (void)hideWindow;
+- (void)toggleWindow;
 
 @end

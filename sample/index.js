@@ -9,7 +9,7 @@ $(function() {
         modifierFlags: 0, // no modifier key
         callback: function () {
             console.log("wow")
-            quark.openPopup()
+            quark.togglePopup()
         }
     })
 
@@ -40,7 +40,7 @@ $(function() {
                             modifierFlags: modifierFlags,
                             callback: function () {
                                 console.log("wow")
-                                quark.openPopup()
+                                quark.togglePopup()
                             }
                         })
                     }
