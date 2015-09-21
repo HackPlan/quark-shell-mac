@@ -19,7 +19,7 @@
 static NSString * const kWebScriptNamespace = @"quark";
 static const NSInteger kPreferencesDefaultHeight = 192;
 
-@interface QSHWebViewDelegate () <NSUserNotificationCenterDelegate> {
+@interface QSHWebViewDelegate () <NSUserNotificationCenterDelegate, WebPolicyDelegate> {
     NSString *appVersion;
     NSString *appBundleVersion;
     NSString *platform;
@@ -293,7 +293,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 - (void)removeAllScheduledNotifications
 {
     NSUserNotificationCenter *notificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
-    notificationCenter.scheduledNotifications = nil;
+    notificationCenter.scheduledNotifications = @[];
 }
 
 - (void)removeAllDeliveredNotifications

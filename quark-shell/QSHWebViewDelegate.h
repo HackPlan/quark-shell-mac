@@ -10,7 +10,7 @@
 #import "QSHStatusItemView.h"
 #import "QSHAppDelegate.h"
 
-@interface QSHWebViewDelegate : NSObject
+@interface QSHWebViewDelegate : NSObject <WebUIDelegate, WebFrameLoadDelegate>
 
 @property (nonatomic, weak) QSHAppDelegate *appDelegate;
 @property (nonatomic, weak) NSStatusItem *statusItem;
