@@ -55,19 +55,10 @@
         NSImage *statusIcon = [NSImage imageNamed:@"StatusIcon"];
         [statusIcon setTemplate:YES];
         self.statusItem.button.image = statusIcon;
-        
-        // We can't keep the button highlighted by calling `setHighlighted:` or `highlight:`.
-        // So we are adding another invisible button as subview to take over the event handler.
-        // Then we can call `highlight:` in the event handler.
-        // See: http://stackoverflow.com/questions/26004684/nsstatusbarbutton-keep-highlighted
-        NSButton *button = [[NSButton alloc] initWithFrame:self.statusItem.button.frame];
-        button.alphaValue = 0;
-        NSArray *array = @[self.statusItem.button, button];
-        self.statusItem.button.superview.subviews = array;
 
-        [button sendActionOn:(NSLeftMouseDownMask | NSRightMouseDownMask)];
-        button.target = self;
-        button.action = @selector(statusItemClicked);
+        self.statusItem.button.target = self;
+        self.statusItem.button.action = @selector(statusItemClicked);
+        [self.statusItem.button sendActionOn:(NSLeftMouseDownMask | NSRightMouseDownMask)];
     }
 
     self.window.level = NSFloatingWindowLevel;
@@ -147,8 +138,6 @@
 
 - (void)refreshStyle
 {
-    [self.statusItem.button highlight:self.shouldBeVisible];
-    
     NSRect itemFrame;
 
     if (IS_PERIOR_TO_10_9) {
