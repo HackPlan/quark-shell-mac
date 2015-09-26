@@ -52,6 +52,7 @@
   }
   button:active {
     background-color: #e8e8e8;
+    color: black;
   }
   canvas {
     display: none;
@@ -90,6 +91,8 @@
       <button onclick="confirm('Quark Shell rocks!')">Confirm</button>
     </p>
     <p>
+      <button onclick="quark.resizePopup({width: 400, height: 320})">Resize</button>
+      <button style="visibility: hidden;"></button>
       <button onclick="quark.quit()">Quit</button>
     </p>
   </div>

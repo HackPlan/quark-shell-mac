@@ -67,6 +67,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     if (selector == @selector(openPopup) ||
         selector == @selector(closePopup) ||
         selector == @selector(togglePopup) ||
+        selector == @selector(resizePopup:) ||
         selector == @selector(quit) ||
         selector == @selector(openURL:) ||
         selector == @selector(changeIcon:) ||
@@ -103,7 +104,10 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 {
     id result = nil;
 
-    if (selector == @selector(notify:)) {
+    if (selector == @selector(resizePopup:)) {
+        result = @"resizePopup";
+    }
+    else if (selector == @selector(notify:)) {
         result = @"notify";
     }
     else if (selector == @selector(changeIcon:)) {
@@ -181,6 +185,18 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 - (void)togglePopup
 {
     [self.appDelegate toggleWindow];
+}
+
+- (void)resizePopup:(WebScriptObject *)obj
+{
+    QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
+    NSDictionary *options = [converter dictionaryFromWebScriptObject:obj];
+    CGFloat width = [options[@"width"] doubleValue];
+    CGFloat height = [options[@"height"] doubleValue];
+    
+    if (options[@"width"] && options[@"height"]) {
+        [self.appDelegate resizeWindow:CGSizeMake(width, height)];
+    }
 }
 
 - (void)quit

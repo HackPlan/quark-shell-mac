@@ -117,6 +117,13 @@
     }
 }
 
+
+- (void)resizeWindow:(CGSize)size
+{
+    [self.window setFrame:CGRectMake(0, 0, size.width, size.height) display:NO];
+    [self refreshStyle];
+}
+
 - (void)statusItemClicked
 {
     const NSUInteger buttonMask = [NSEvent pressedMouseButtons];

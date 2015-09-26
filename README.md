@@ -33,10 +33,11 @@ quark.appBundleVersion
 // Enable/disable Web Inspector
 quark.debug = true
 
-// Open/close the popup window
+// Manipulate the popup window
 quark.openPopup()
 quark.closePopup()
 quark.togglePopup()
+quark.resizePopup({width: 326, height: 623})
 
 // Quit application
 quark.quit()

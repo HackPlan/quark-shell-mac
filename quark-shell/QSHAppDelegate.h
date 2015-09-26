@@ -19,5 +19,6 @@
 - (void)showWindow;
 - (void)hideWindow;
 - (void)toggleWindow;
+- (void)resizeWindow:(CGSize)size;
 
 @end
