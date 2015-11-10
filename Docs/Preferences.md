@@ -17,6 +17,8 @@ quark.openPreferences()
 quark.closePreferences()
 ```
 
+For a list of built-in icons, see http://hetima.github.io/fucking_nsimage_syntax/. Please use the raw value in the list for Quark Shell.
+
 ## Native Components
 
 Sometimes HTML is not enough for preferences view, Quark Shell for Mac provides some native components.
