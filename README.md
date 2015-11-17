@@ -2,7 +2,7 @@
 
 **Quark Shell** helps you create cross-platform (currently Mac-only, Windows version coming soon) menubar/tray app using HTML and JavaScript without writing any native code. Quark Shell exposes a JavaScript object called ``quark`` to provide system functions. **Quark Shell for Mac** is based on WebKit.
 
-<img alt="Screenshot" width="907" src="Assets/screenshot.png">
+<img alt="Screenshot" width="728" src="Assets/screenshot.png">
 
 ## Integrating Web App
 
