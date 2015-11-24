@@ -15,6 +15,7 @@ To build your app:
 0. [Install CocoaPods](http://guides.cocoapods.org/using/getting-started.html) and run ``pod setup``
 0. ``cd`` into the project folder and run ``pod install``
 0. Open ``quark-shell.xcworkspace`` in Xcode
+0. Change bundle name and bundle identifier (see [Issue #50](https://github.com/HackPlan/quark-shell-mac/issues/50) for details)
 0. Build and have fun!
 
 Remember that Quark Shell is still a WIP. When the project is stable enough, I will definitely simplify the build process.
