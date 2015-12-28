@@ -215,7 +215,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     NSImage *icon = [[NSImage alloc] initWithData:data];
     icon.size = NSMakeSize(20, 20);
 
-    if (IS_PERIOR_TO_10_9) {
+    if (IS_PRIOR_TO_10_9) {
         self.statusItemView.icon = icon;
     }
     else {
@@ -249,7 +249,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)resetMenubarIcon
 {
-    if (IS_PERIOR_TO_10_9) {
+    if (IS_PRIOR_TO_10_9) {
         self.statusItemView.icon = [NSImage imageNamed:@"StatusIcon"];
         self.statusItemView.highlightedIcon = [NSImage imageNamed:@"StatusIconWhite"];
     }
@@ -263,12 +263,15 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 - (void)changeLabel:(NSString *)label
 {
     NSDictionary *barTextAttributes;
-    if (IS_PERIOR_TO_10_9) {
+    if (IS_PRIOR_TO_10_9) {
         self.statusItemView.label = label;
         barTextAttributes = @{NSFontAttributeName: MENUBAR_FONT};
     }
     else {
         self.statusItem.title = label;
+        if (!IS_PRIOR_TO_10_10) {
+            self.statusItem.button.font = MENUBAR_FONT_10_11;
+        }
         barTextAttributes = @{NSFontAttributeName: self.statusItem.button.font};
     }
     // 20 is image width, 10 is extra margin

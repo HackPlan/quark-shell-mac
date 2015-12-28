@@ -43,7 +43,7 @@
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
 
     self.statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
-    if (IS_PERIOR_TO_10_9) {
+    if (IS_PRIOR_TO_10_9) {
         self.statusItemView = [[QSHStatusItemView alloc] initWithFrame:NSMakeRect(0, 0, 20, 20)];
         self.statusItemView.target = self;
         self.statusItemView.action = @selector(statusItemClicked);
@@ -147,7 +147,7 @@
 {
     NSRect itemFrame;
 
-    if (IS_PERIOR_TO_10_9) {
+    if (IS_PRIOR_TO_10_9) {
         self.statusItemView.itemHighlighted = self.shouldBeVisible;
         itemFrame = self.statusItem.view.window.frame;
     }
