@@ -2,14 +2,14 @@ PODS:
   - ISO8601DateFormatter (0.7)
   - MASShortcut (1.2.3)
   - RHPreferences (HEAD based on 1.0.0)
-  - Sparkle (1.8.0)
+  - Sparkle (1.13.0)
   - StartAtLoginController (0.0.1)
 
 DEPENDENCIES:
   - ISO8601DateFormatter (~> 0.7)
   - MASShortcut (from `https://github.com/xhacker/MASShortcut.git`, branch `menubar-webkit`)
   - RHPreferences (HEAD)
-  - Sparkle (~> 1.8.0)
+  - Sparkle (~> 1.13)
   - StartAtLoginController (~> 0.0.1)
 
 EXTERNAL SOURCES:
@@ -26,7 +26,7 @@ SPEC CHECKSUMS:
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   MASShortcut: 48e9edc2ae45df6d4e9f10c3c26a49972eaf92ac
   RHPreferences: 6871f9614347f4b45197c51f7c93c3cde2744ce8
-  Sparkle: 3adb45d38bcdf80caf505f2b4cd693031db70835
+  Sparkle: d04d17a32eaddab19471d0c3d9db15164afdbc6e
   StartAtLoginController: 9ff14295bab38f7cba164a838349f6c0a2d83020
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.39.0

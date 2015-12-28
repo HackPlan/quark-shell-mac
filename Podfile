@@ -4,6 +4,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 pod 'MASShortcut', :git => 'https://github.com/xhacker/MASShortcut.git', :branch => 'menubar-webkit'
 pod 'RHPreferences', :head
-pod 'Sparkle', '~> 1.8.0'
+pod 'Sparkle', '~> 1.13'
 pod 'ISO8601DateFormatter', '~> 0.7'
 pod 'StartAtLoginController', '~> 0.0.1'
