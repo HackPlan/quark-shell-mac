@@ -157,7 +157,7 @@ Quark Shell for Mac also provides some native components for preferences.
 
 More detail: [Preferences.md](Docs/Preferences.md)
 
-### Auto Update
+### Auto Updating
 
 ```js
 // Check for update
@@ -172,11 +172,10 @@ More detail: [AutoUpdate.md](Docs/AutoUpdate.md)
 * Can I use **WebSQL**? Yes.
 * Can I use **IndexedDB**? No, because we are using NSWebView. A future Yosemite-only version using WKWebView will support IndexedDB.
 * Is Quark Shell compatible with Mac App Store? Absolutely yes.
-* Do you guys have a plan for Linux version? Yes, we love Linux.
 
 ## Story
 
-Quark Shell was originally Menubar WebKit, it was created for [Pomotodo for Mac](https://pomotodo.com/apps). Later on, we decided to create a Windows version based on Atom Shell. The project is highly inspired by [Atom Shell](https://github.com/atom/electron), [node-webkit](https://github.com/nwjs/nw.js), and [MacGap](https://github.com/MacGapProject/MacGap1). As a cross-platform project, Menubar WebKit is no longer appropriate, so we started to use Quark Shell.
+Quark Shell was originally Menubar WebKit. It was created for [Pomotodo for Mac](https://pomotodo.com/apps). Later on, we decided to create a Windows version based on Atom Shell. The project was highly inspired by [Atom Shell (now Electron)](https://github.com/atom/electron), [node-webkit (now nw.js)](https://github.com/nwjs/nw.js), and [MacGap](https://github.com/MacGapProject/MacGap1). As a cross-platform project, Menubar WebKit is no longer an appropriate name, so we started to use Quark Shell.
 
 ## Credits
 
