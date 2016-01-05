@@ -44,7 +44,7 @@ quark.resizePopup({width: 326, height: 623})
 quark.quit()
 
 // Open URL in default browser
-quark.openURL("http://pomotodo.com")
+quark.openURL("https://pomotodo.com/")
 
 // Set menubar icon
 quark.setMenubarIcon("data:image/png;base64,iVBORw...SuQmCC")
@@ -176,7 +176,7 @@ More detail: [AutoUpdate.md](Docs/AutoUpdate.md)
 
 ## Story
 
-Quark Shell was originally Menubar WebKit, it was created for [Pomotodo for Mac](https://pomotodo.com/apps). Later on, we decided to create a Windows version based on Atom Shell. The project is highly inspired by [Atom Shell](https://github.com/atom/atom-shell), [node-webkit](https://github.com/rogerwang/node-webkit), and [MacGap](https://github.com/maccman/macgap). As a cross-platform project, Menubar WebKit is no longer appropriate, so we started to use Quark Shell.
+Quark Shell was originally Menubar WebKit, it was created for [Pomotodo for Mac](https://pomotodo.com/apps). Later on, we decided to create a Windows version based on Atom Shell. The project is highly inspired by [Atom Shell](https://github.com/atom/electron), [node-webkit](https://github.com/nwjs/nw.js), and [MacGap](https://github.com/MacGapProject/MacGap1). As a cross-platform project, Menubar WebKit is no longer appropriate, so we started to use Quark Shell.
 
 ## Credits
 
