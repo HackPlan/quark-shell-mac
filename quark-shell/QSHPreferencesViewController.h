@@ -8,10 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import <RHPreferences.h>
+#import "QSHWebView.h"
+#import "QSHWebViewDelegate.h"
 
 @interface QSHPreferencesViewController : NSViewController <RHPreferencesViewControllerProtocol>
 
-@property (weak) IBOutlet WebView *webView;
+@property (nonatomic, strong) QSHWebView *webView;
 
 - (instancetype)initWithIdentifier:(NSString *)identifier
                       toolbarImage:(NSImage *)image

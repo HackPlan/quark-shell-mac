@@ -43,20 +43,29 @@
     return self;
 }
 
+- (void)_createViews {
+    NSView* contentView = self.view;
+    
+    // WKWebView
+    _webView = [[QSHWebView alloc] initWithFrame:contentView.frame];
+    [_webView setAutoresizingMask:(NSViewHeightSizable | NSViewWidthSizable)];
+    _webView.configuration.preferences._developerExtrasEnabled = YES;
+    [contentView addSubview:_webView];
+}
+
 - (void)loadView
 {
     [super loadView];
 
     self.view.frame = NSMakeRect(self.view.frame.origin.x, self.view.frame.origin.y,
                                  self.view.frame.size.width, self.height);
+    
+    [self _createViews];
 
     NSString *url = [[NSURL URLWithString:kPreferencesDirectory relativeToURL:[[NSBundle mainBundle] resourceURL]] absoluteString];
     url = [url stringByAppendingString:[NSString stringWithFormat:@"%@.html", self.identifier]];
-    self.webView.mainFrameURL = url;
-
-    self.webView.frameLoadDelegate = self.delegate;
-    self.webView.UIDelegate = self.delegate;
-    self.webView.policyDelegate = self.delegate;
+    
+    [QSHWebViewDelegate initWebviewWithBridge:_webView url:[NSURL URLWithString:url] webDelegate:_delegate isMain:NO];
 }
 
 - (void)addNativeComponent:(NSDictionary *)component
@@ -76,10 +85,12 @@
         }
         
         shortcutView.shortcutValueChange = ^(MASShortcutView *sender) {
-            QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
-            [converter callFunction:component[@"options"][@"onChange"]
-                           withArgs:@[@([sender.shortcutValue keyCode]),
-                                      @([sender.shortcutValue modifierFlags])]];
+            [self.webView.bridge callHandler:@"testJavascriptHandler" data:@
+            { @"component":component,
+              @"args": @[@([sender.shortcutValue keyCode]),
+                         @([sender.shortcutValue modifierFlags])
+                        ]
+            }];
         };
 
         [self.view addSubview:shortcutView];
