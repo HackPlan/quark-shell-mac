@@ -107,7 +107,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(removeAllDeliveredNotifications) ||
         selector == @selector(addKeyboardShortcut:) ||
         selector == @selector(clearKeyboardShortcut) ||
-        selector == @selector(setupPreferenes:) ||
+        selector == @selector(setupPreferences:) ||
         selector == @selector(openPreferences) ||
         selector == @selector(closePreferences) ||
         selector == @selector(newWindow:) ||
@@ -155,7 +155,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     else if (selector == @selector(addKeyboardShortcut:)) {
         result = @"addKeyboardShortcut";
     }
-    else if (selector == @selector(setupPreferenes:)) {
+    else if (selector == @selector(setupPreferences:)) {
         result = @"setupPreferences";
     }
     else if (selector == @selector(newWindow:)) {
@@ -208,10 +208,9 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [self.appDelegate toggleWindow];
 }
 
-- (void)resizePopup:(WebScriptObject *)obj
+- (void)resizePopup:(NSArray *)args
 {
-    QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
-    NSDictionary *options = [converter dictionaryFromWebScriptObject:obj];
+    NSDictionary *options = args[0];
     CGFloat width = [options[@"width"] doubleValue];
     CGFloat height = [options[@"height"] doubleValue];
     
@@ -256,16 +255,12 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 - (void)changeClickAction:(WebScriptObject *)callback
 {
     self.appDelegate.clickCallback = ^{
-        QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
-        [converter callFunction:callback];
     };
 }
 
 - (void)changeSecondaryClickAction:(WebScriptObject *)callback
 {
     self.appDelegate.secondaryClickCallback = ^{
-        QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
-        [converter callFunction:callback];
     };
 }
 
@@ -380,10 +375,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [MASShortcut clearGlobalHotkeyMonitor];
 }
 
-- (void)setupPreferenes:(WebScriptObject *)scriptObj
+- (void)setupPreferences:(NSArray *)preferencesArray
 {
-    QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
-    NSArray *preferencesArray = [converter arrayFromWebScriptObject:scriptObj];
     NSMutableArray *viewControllers = [NSMutableArray array];
 	for (NSDictionary *preferences in preferencesArray) {
         NSInteger height = preferences[@"height"] ? [preferences[@"height"] integerValue]: kPreferencesDefaultHeight;
@@ -508,10 +501,9 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     }
 }
 
-- (void)showMenu:(WebScriptObject *)scriptObj
+- (void)showMenu:(NSArray *)args
 {
-    QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
-    NSDictionary *options = [converter dictionaryFromWebScriptObject:scriptObj];
+    NSDictionary *options = args[0];
     NSMenu *menu = [[NSMenu alloc] init];
     menu.autoenablesItems = NO;
 	for (NSDictionary *item in options[@"items"]) {
@@ -522,7 +514,6 @@ static const NSInteger kPreferencesDefaultHeight = 192;
             NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:item[@"label"] action:@selector(menuItemClicked:) keyEquivalent:@""];
             menuItem.target = self;
             menuItem.representedObject = ^{
-                [converter callFunction:item[@"click"]];
             };
             [menuItem setEnabled:YES];
             [menu addItem:menuItem];

@@ -38,12 +38,12 @@
     [self setupStatusItemAndWindow];
     [self setupWebView];
     
-//    self.webViewDelegate.appDelegate = self;
-//    self.webViewDelegate.statusItem = self.statusItem;
-//    self.webViewDelegate.statusItemView = self.statusItemView;
-//    self.webViewDelegate.webView = _webView;
+    self.webViewDelegate.appDelegate = self;
+    self.webViewDelegate.statusItem = self.statusItem;
+    self.webViewDelegate.statusItemView = self.statusItemView;
+    self.webViewDelegate.webView = _webView;
 //    _webView.navigationDelegate = self.webViewDelegate;
-//    _webView.UIDelegate = self.webViewDelegate;
+    _webView.UIDelegate = self.webViewDelegate;
 }
 
 - (void)setupStatusItemAndWindow
