@@ -6,19 +6,17 @@
 //  Copyright (c) 2014 Xhacker. All rights reserved.
 //
 
+#import <WebKit/WebKit.h>
 #import "QSHAppDelegate.h"
+#import "QSHWebView.h"
 #import "QSHWebViewDelegate.h"
 #import "QSHStatusItemView.h"
 #import "NSWindow+Fade.h"
 #import "WKWebViewJavascriptBridge.h"
 
-@interface WebPreferences (WebPreferencesPrivate)
-
-- (void)_setLocalStorageDatabasePath:(NSString *)path;
-- (void)setLocalStorageEnabled:(BOOL)localStorageEnabled;
-
+@interface WKPreferences (WKPrivate)
+@property (nonatomic, setter=_setDeveloperExtrasEnabled:) BOOL _developerExtrasEnabled;
 @end
-
 
 @interface QSHAppDelegate () <NSWindowDelegate>
 
@@ -30,8 +28,7 @@
 @end
 
 @implementation QSHAppDelegate {
-    WKWebView *_WKWebView;
-    WKWebViewJavascriptBridge* _WKBridge;
+    QSHWebView *_WKWebView;
     NSView* _WKWebViewWrapper;
 }
 
@@ -44,6 +41,15 @@
     
     [self setupStatusItemAndWindow];
     [self setupWebView];
+    
+    self.webViewDelegate = [[QSHWebViewDelegate alloc] init];
+    
+//    self.webViewDelegate.appDelegate = self;
+//    self.webViewDelegate.statusItem = self.statusItem;
+//    self.webViewDelegate.statusItemView = self.statusItemView;
+//    self.webViewDelegate.webView = _WKWebView;
+//    _WKWebView.navigationDelegate = self.webViewDelegate;
+//    _WKWebView.UIDelegate = self.webViewDelegate;
 }
 
 - (void)setupStatusItemAndWindow
@@ -70,40 +76,17 @@
     NSView* contentView = _window.contentView;
     
     // WKWebView
-    _WKWebView = [[WKWebView alloc] initWithFrame:contentView.frame];
+    _WKWebView = [[QSHWebView alloc] initWithFrame:contentView.frame];
     [_WKWebView setAutoresizingMask:(NSViewHeightSizable | NSViewWidthSizable)];
-    
+    _WKWebView.configuration.preferences._developerExtrasEnabled = YES;
     [contentView addSubview:_WKWebView];
 }
-    
-- (void)_configureWKWebview {
-    // Create Bridge
-    _WKBridge = [WKWebViewJavascriptBridge bridgeForWebView:_WKWebView];
-    
-    [_WKBridge registerHandler:@"testObjcCallback" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"testObjcCallback called: %@", data);
-        responseCallback(@"Response from testObjcCallback");
-    }];
-    
-    [_WKBridge callHandler:@"testJavascriptHandler" data:@{ @"foo":@"before ready" }];
-    
-    // Create Buttons
-    NSButton *callbackButton = [[NSButton alloc] initWithFrame:NSMakeRect(5, 0, 120, 40)];
-    [callbackButton setTitle:@"Call handler"];
-    [callbackButton setBezelStyle:NSRoundedBezelStyle];
-    [callbackButton setTarget:self];
-    [callbackButton setAction:@selector(_WKCallHandler)];
-    [_WKWebView addSubview:callbackButton];
-    
-    // Load Page
-    NSURL *URL = [NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]];
-    [_WKWebView loadRequest:[NSURLRequest requestWithURL:URL]];
-}
-    
+
 - (void)setupWebView
 {
     [self _createViews];
-    [self _configureWKWebview];
+    NSURL *URL = [NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]];
+    [QSHWebViewDelegate initWebviewWithBridge:_WKWebView url:URL webDelegate:self.webViewDelegate];
 }
 
 - (void)windowDidResignKey:(NSNotification *)notification
@@ -169,14 +152,7 @@
 - (void)refreshStyle
 {
     NSRect itemFrame;
-
-    if (IS_PRIOR_TO_10_9) {
-        self.statusItemView.itemHighlighted = self.shouldBeVisible;
-        itemFrame = self.statusItem.view.window.frame;
-    }
-    else {
-        itemFrame = self.statusItem.button.window.frame;
-    }
+    itemFrame = self.statusItem.button.window.frame;
 
     NSRect windowFrame = self.window.frame;
     windowFrame.origin.x = NSMidX(itemFrame) - NSWidth(windowFrame) / 2.0;

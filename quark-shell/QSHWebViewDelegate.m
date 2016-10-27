@@ -15,8 +15,8 @@
 #import <Sparkle/Sparkle.h>
 #import <ISO8601DateFormatter.h>
 #import <StartAtLoginController.h>
+#import "WKWebViewJavascriptBridge.h"
 
-static NSString * const kWebScriptNamespace = @"quark";
 static const NSInteger kPreferencesDefaultHeight = 192;
 
 @interface QSHWebViewDelegate () <NSUserNotificationCenterDelegate, WebPolicyDelegate> {
@@ -55,9 +55,27 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     return self;
 }
 
-- (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowScriptObject forFrame:(WebFrame *)frame
++ (void)initWebviewWithBridge:(QSHWebView*)webview url:(NSURL*)url webDelegate:(QSHWebViewDelegate*)webDelegate
 {
-    [windowScriptObject setValue:self forKey:kWebScriptNamespace];
+    // Create Bridge
+    WKWebViewJavascriptBridge* _WKBridge = [WKWebViewJavascriptBridge bridgeForWebView:webview];
+    webview.bridge = _WKBridge;
+    
+    [_WKBridge registerHandler:@"quark" handler:^(id data, WVJBResponseCallback responseCallback) {
+        if ([data isKindOfClass:[NSDictionary class]]) {
+            NSLog(@"Trigger method: %@ from JS", data[@"method"]);
+            SEL method = NSSelectorFromString(data[@"method"]);
+            NSArray *args = data[@"args"];
+            if (![QSHWebViewDelegate isSelectorExcludedFromWebScript: method]) {
+                [webDelegate performSelector:method withObject: args];
+            }
+        }
+        responseCallback(@"Response from testObjcCallback");
+    }];
+    
+    // Load Page
+    NSURL *URL = [NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]];
+    [webview loadRequest:[NSURLRequest requestWithURL:URL]];
 }
 
 #pragma mark WebScripting Protocol
@@ -209,8 +227,9 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
 }
 
-- (void)changeIcon:(NSString *)base64
+- (void)changeIcon:(NSArray *)args
 {
+    NSString *base64 = args[0];
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:base64]];
     NSImage *icon = [[NSImage alloc] initWithData:data];
     icon.size = NSMakeSize(20, 20);
