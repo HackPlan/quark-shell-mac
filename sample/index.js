@@ -1,3 +1,4 @@
+/*
 $(function() {
     quark.debug = true
 
@@ -78,6 +79,7 @@ $(function() {
         console.log(message)
     })
 })
+ */
 
 function setIcon() {
     var iconCanvas = document.getElementById('icon')
@@ -95,7 +97,19 @@ function setIcon() {
     highlightedIconCtx.fillRect(6, 8, 28, 28)
     highlightedIconCtx.clearRect(12, 14, 16, 16)
     
-    bridge.callHandler('quark', {'method': 'changeIcon:', 'args': [iconCanvas.toDataURL()]})
+    bridge.callHandler('quark', {'method': 'changeIcon', 'args': [iconCanvas.toDataURL()]})
+}
+
+function notify(options){
+    bridge.callHandler('quark', {'method': 'notify', 'args': [options]})
+}
+
+function emit(options){
+    bridge.callHandler('quark', {'method': 'emitMessage', 'args': [options]})
+}
+
+function newWindow(options){
+    bridge.callHandler('quark', {'method': 'newWindow', 'args': [options]})
 }
 
 function setupWebViewJavascriptBridge(callback) {
@@ -110,17 +124,8 @@ function setupWebViewJavascriptBridge(callback) {
 }
 
 setupWebViewJavascriptBridge(function(bridge) {
-    var uniqueId = 1
-    function log(message, data) {
-    var log = document.getElementById('log')
-    var el = document.createElement('div')
-    el.className = 'logLine'
-    el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
-    if (log.children.length) { log.insertBefore(el, log.children[0]) }
-    else { log.appendChild(el) }
-    }
     window.bridge = bridge;
-    bridge.callHandler('testObjcCallback', {'foo': 'bar'}, function(response) {
-        log('JS got response', response)
+    bridge.registerHandler('onQuarkMessages', function(data) {
+        console.error('ObjC called testJavascriptHandler with', data)
     })
 })

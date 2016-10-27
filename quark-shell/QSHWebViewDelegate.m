@@ -27,8 +27,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 }
 
 @property (nonatomic) NSWindowController *preferencesWindowController;
-@property (nonatomic) QSHWebViewWindowController *webViewWindowController;
-@property (nonatomic) NSMutableDictionary *messageSubscribers;
+@property (nonatomic) NSMutableArray *windows;
 
 @end
 
@@ -44,8 +43,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 {
     self = [super init];
     if (self) {
-        _messageSubscribers = [NSMutableDictionary dictionary];
-
+        self.windows = [[NSMutableArray alloc] init];
         NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
         appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
         appBundleVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
@@ -55,17 +53,23 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     return self;
 }
 
-+ (void)initWebviewWithBridge:(QSHWebView*)webview url:(NSURL*)url webDelegate:(QSHWebViewDelegate*)webDelegate
++ (void)initWebviewWithBridge:(QSHWebView*)webview url:(NSURL*)url webDelegate:(QSHWebViewDelegate*)webDelegate isMain:(BOOL)isMain
 {
     // Create Bridge
     WKWebViewJavascriptBridge* _WKBridge = [WKWebViewJavascriptBridge bridgeForWebView:webview];
     webview.bridge = _WKBridge;
+    if (isMain){
+        webDelegate.mainBridge = _WKBridge;
+    }
     
     [_WKBridge registerHandler:@"quark" handler:^(id data, WVJBResponseCallback responseCallback) {
         if ([data isKindOfClass:[NSDictionary class]]) {
             NSLog(@"Trigger method: %@ from JS", data[@"method"]);
-            SEL method = NSSelectorFromString(data[@"method"]);
             NSArray *args = data[@"args"];
+            SEL method = NSSelectorFromString(data[@"method"]);
+            if ([args count] > 0) {
+                method = NSSelectorFromString([data[@"method"] stringByAppendingString:@":"]);
+            }
             if (![QSHWebViewDelegate isSelectorExcludedFromWebScript: method]) {
                 [webDelegate performSelector:method withObject: args];
             }
@@ -74,8 +78,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     }];
     
     // Load Page
-    NSURL *URL = [NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]];
-    [webview loadRequest:[NSURLRequest requestWithURL:URL]];
+    [webview loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 #pragma mark WebScripting Protocol
@@ -104,13 +107,12 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(openPreferences) ||
         selector == @selector(closePreferences) ||
         selector == @selector(newWindow:) ||
-        selector == @selector(closeWindow) ||
+//        selector == @selector(closeWindow) ||
         selector == @selector(pin) ||
         selector == @selector(unpin) ||
         selector == @selector(checkUpdate:) ||
         selector == @selector(checkUpdateInBackground:) ||
-        selector == @selector(emitMessage:withPayload:) ||
-        selector == @selector(subscribeMessage:withCallback:) ||
+        selector == @selector(emitMessage:) ||
         selector == @selector(showMenu:)) {
         return NO;
     }
@@ -161,11 +163,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     else if (selector == @selector(checkUpdateInBackground:)) {
         result = @"checkUpdateInBackground";
     }
-    else if (selector == @selector(emitMessage:withPayload:)) {
+    else if (selector == @selector(emitMessage:)) {
         result = @"emit";
-    }
-    else if (selector == @selector(subscribeMessage:withCallback:)) {
-        result = @"on";
     }
     else if (selector == @selector(showMenu:)) {
         result = @"showMenu";
@@ -303,10 +302,9 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     loginController.startAtLogin = launchAtLogin;
 }
 
-- (void)notify:(WebScriptObject *)obj
+- (void)notify:(NSArray *)args
 {
-    QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
-    NSDictionary *message = [converter dictionaryFromWebScriptObject:obj];
+    NSDictionary *message = args[0];
 
     NSUserNotification *notification = [[NSUserNotification alloc] init];
     notification.title = message[@"title"];
@@ -413,15 +411,21 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [self.preferencesWindowController close];
 }
 
-- (void)newWindow:(WebScriptObject *)scriptObj
+- (void)removeWindowFromWindows:(QSHWebViewWindowController *)windowController
 {
-    QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
-    NSDictionary *options = [converter dictionaryFromWebScriptObject:scriptObj];
+    [self.windows removeObject:windowController];
+}
+
+- (void)newWindow:(NSArray *)args
+{
+    NSDictionary *options = args[0];
     NSString *urlString = options[@"url"];
     CGFloat width = [options[@"width"] doubleValue];
     CGFloat height = [options[@"height"] doubleValue];
-
-    self.webViewWindowController = [[QSHWebViewWindowController alloc] initWithURLString:urlString width:width height:height];
+    
+    QSHWebViewWindowController *webViewWindowController;
+    webViewWindowController = [[QSHWebViewWindowController alloc] initWithURLString:urlString width:width height:height webDelegate:self];
+    [self.windows addObject:webViewWindowController];
 
     if (options[@"x"] && options[@"y"]) {
         CGFloat screenWidth = [[NSScreen mainScreen] frame].size.width;
@@ -436,34 +440,31 @@ static const NSInteger kPreferencesDefaultHeight = 192;
             yFlipped = (screenHeight - height) / 2;
         }
 
-        [self.webViewWindowController.window setFrameOrigin:NSMakePoint(x, yFlipped)];
+        [webViewWindowController.window setFrameOrigin:NSMakePoint(x, yFlipped)];
     }
 
     if (options[@"border"] && [options[@"border"] boolValue] == NO) {
-        self.webViewWindowController.window.styleMask = NSBorderlessWindowMask;
+        webViewWindowController.window.styleMask = NSBorderlessWindowMask;
     }
 
     if (options[@"shadow"] && [options[@"shadow"] boolValue] == NO) {
-        self.webViewWindowController.window.hasShadow = NO;
+        webViewWindowController.window.hasShadow = NO;
     }
 
     if ([options[@"alwaysOnTop"] boolValue]) {
-        self.webViewWindowController.window.level = NSScreenSaverWindowLevel;
+        webViewWindowController.window.level = NSScreenSaverWindowLevel;
     }
 
     if (options[@"alpha"]) {
-        self.webViewWindowController.window.alphaValue = [options[@"alpha"] doubleValue];
+        webViewWindowController.window.alphaValue = [options[@"alpha"] doubleValue];
     }
 
-    self.webViewWindowController.webView.frameLoadDelegate = self;
-    self.webViewWindowController.webView.UIDelegate = self;
-    self.webViewWindowController.webView.policyDelegate = self;
-    [self.webViewWindowController showWindow:nil];
+    [webViewWindowController showWindow:nil];
 }
 
 - (void)closeWindow
 {
-    [self.webViewWindowController close];
+//    [self.webViewWindowController close];
 }
 
 - (void)pin
@@ -490,21 +491,16 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [updater checkForUpdatesInBackground];
 }
 
-- (void)emitMessage:(NSString *)name withPayload:(WebScriptObject *)payload
+- (void)emitMessage:(NSArray *)arg
 {
-    for (WebScriptObject *callback in self.messageSubscribers[name]) {
-        QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
-        [converter callFunction:callback withArgs:@[payload]];
+    NSMutableArray *bridges = [[NSMutableArray alloc] init];
+    for (QSHWebViewWindowController *window in self.windows) {
+        [bridges addObject:window.webView.bridge];
     }
-}
-
-- (void)subscribeMessage:(NSString *)name withCallback:(WebScriptObject *)callback
-{
-    if (self.messageSubscribers[name]) {
-        [self.messageSubscribers[name] addObject:callback];
-    }
-    else {
-        self.messageSubscribers[name] = [NSMutableArray arrayWithObject:callback];
+    [bridges addObject:self.mainBridge];
+    
+    for (WKWebViewJavascriptBridge *b in bridges) {
+        [b callHandler:@"onQuarkMessages" data:arg[0]];
     }
 }
 
@@ -607,13 +603,6 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     #pragma clang diagnostic pop
     else {
         NSLog(@"Could not increase quota for %lld", defaultQuota);
-    }
-}
-
-- (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame
-{
-    if (sender == self.webViewWindowController.webView) {
-        self.webViewWindowController.window.title = title;
     }
 }
 

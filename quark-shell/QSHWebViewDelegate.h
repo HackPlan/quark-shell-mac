@@ -11,6 +11,9 @@
 #import "QSHStatusItemView.h"
 #import "QSHAppDelegate.h"
 #import "QSHWebView.h"
+#import "WKWebViewJavascriptBridge.h"
+
+@class QSHWebViewWindowController;
 
 @interface QSHWebViewDelegate : NSObject <WKNavigationDelegate, WKUIDelegate>
 
@@ -18,11 +21,14 @@
 @property (nonatomic, weak) NSStatusItem *statusItem;
 @property (nonatomic, weak) QSHStatusItemView *statusItemView;
 @property (nonatomic, weak) QSHWebView *webView;
+@property (nonatomic, weak) WKWebViewJavascriptBridge *mainBridge;
 
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)selector;
 
-+ (void)initWebviewWithBridge:(QSHWebView*)webview url:(NSURL*)url webDelegate:(QSHWebViewDelegate*)webDelegate;
++ (void)initWebviewWithBridge:(QSHWebView*)webview url:(NSURL*)url webDelegate:(QSHWebViewDelegate*)webDelegate isMain:(BOOL)isMain;
 
 - (void)changeIcon:(NSArray *)args;
+
+- (void)removeWindowFromWindows:(QSHWebViewWindowController *)windowController;
 
 @end

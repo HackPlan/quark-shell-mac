@@ -71,9 +71,9 @@
 
   <div class="button">
     <p>
-      <button onclick="quark.notify({title: 'Quark Shell', content: 'Hello World', popupOnClick: true})">Notify</button>
-      <button onclick="quark.closePopup()">Close Popup</button>
-      <button onclick="quark.newWindow({url: 'about.html', width: 600, height: 400, x: 'center', y: 'center'})">New Window</button>
+      <button onclick="notify({title: 'Quark Shell', content: 'Hello World', popupOnClick: true})">Notify</button>
+      <button onclick="emit({title: 'close'})">Close Popup</button>
+      <button onclick="newWindow({url: 'about.html', width: 600, height: 400, x: 'center', y: 'center'})">New Window</button>
     </p>
     <p>
       <button onclick="quark.openPreferences()">Preferences</button>

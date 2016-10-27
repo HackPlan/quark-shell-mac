@@ -7,13 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "QSHWebView.h"
+#import "QSHWebViewDelegate.h"
 
 @interface QSHWebViewWindowController : NSWindowController
 
-@property (weak) IBOutlet WebView *webView;
+@property (nonatomic, strong) QSHWebView *webView;
 
 - (id)initWithURLString:(NSString *)URLString
                   width:(CGFloat)width
-                 height:(CGFloat)height;
+                 height:(CGFloat)height
+            webDelegate:(QSHWebViewDelegate *)webDelegate;
 
 @end

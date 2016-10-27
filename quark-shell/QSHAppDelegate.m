@@ -14,22 +14,16 @@
 #import "NSWindow+Fade.h"
 #import "WKWebViewJavascriptBridge.h"
 
-@interface WKPreferences (WKPrivate)
-@property (nonatomic, setter=_setDeveloperExtrasEnabled:) BOOL _developerExtrasEnabled;
-@end
-
 @interface QSHAppDelegate () <NSWindowDelegate>
 
 @property (nonatomic) NSStatusItem *statusItem;
 @property (nonatomic) QSHStatusItemView *statusItemView;
-@property (nonatomic, weak) IBOutlet WebView *webView;
 @property (nonatomic) QSHWebViewDelegate *webViewDelegate;
 
 @end
 
 @implementation QSHAppDelegate {
-    QSHWebView *_WKWebView;
-    NSView* _WKWebViewWrapper;
+    QSHWebView *_webView;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -39,17 +33,17 @@
     NSString *applicationSupportFile = [@"~/Library/Application Support/" stringByExpandingTildeInPath];
     NSString *savePath = [NSString pathWithComponents:@[applicationSupportFile, bundleIdentifier, @"LocalStorage"]];
     
+    self.webViewDelegate = [[QSHWebViewDelegate alloc] init];
+    
     [self setupStatusItemAndWindow];
     [self setupWebView];
-    
-    self.webViewDelegate = [[QSHWebViewDelegate alloc] init];
     
 //    self.webViewDelegate.appDelegate = self;
 //    self.webViewDelegate.statusItem = self.statusItem;
 //    self.webViewDelegate.statusItemView = self.statusItemView;
-//    self.webViewDelegate.webView = _WKWebView;
-//    _WKWebView.navigationDelegate = self.webViewDelegate;
-//    _WKWebView.UIDelegate = self.webViewDelegate;
+//    self.webViewDelegate.webView = _webView;
+//    _webView.navigationDelegate = self.webViewDelegate;
+//    _webView.UIDelegate = self.webViewDelegate;
 }
 
 - (void)setupStatusItemAndWindow
@@ -76,17 +70,17 @@
     NSView* contentView = _window.contentView;
     
     // WKWebView
-    _WKWebView = [[QSHWebView alloc] initWithFrame:contentView.frame];
-    [_WKWebView setAutoresizingMask:(NSViewHeightSizable | NSViewWidthSizable)];
-    _WKWebView.configuration.preferences._developerExtrasEnabled = YES;
-    [contentView addSubview:_WKWebView];
+    _webView = [[QSHWebView alloc] initWithFrame:contentView.frame];
+    [_webView setAutoresizingMask:(NSViewHeightSizable | NSViewWidthSizable)];
+    _webView.configuration.preferences._developerExtrasEnabled = YES;
+    [contentView addSubview:_webView];
 }
 
 - (void)setupWebView
 {
     [self _createViews];
     NSURL *URL = [NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]];
-    [QSHWebViewDelegate initWebviewWithBridge:_WKWebView url:URL webDelegate:self.webViewDelegate];
+    [QSHWebViewDelegate initWebviewWithBridge:_webView url:URL webDelegate:self.webViewDelegate isMain:YES];
 }
 
 - (void)windowDidResignKey:(NSNotification *)notification
