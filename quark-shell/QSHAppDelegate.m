@@ -10,6 +10,7 @@
 #import "QSHWebViewDelegate.h"
 #import "QSHStatusItemView.h"
 #import "NSWindow+Fade.h"
+#import "WKWebViewJavascriptBridge.h"
 
 @interface WebPreferences (WebPreferencesPrivate)
 
@@ -28,59 +29,81 @@
 
 @end
 
-@implementation QSHAppDelegate
+@implementation QSHAppDelegate {
+    WKWebView *_WKWebView;
+    WKWebViewJavascriptBridge* _WKBridge;
+    NSView* _WKWebViewWrapper;
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // TODO: bundle identifier should be generated from manifest.json
-    WebPreferences *webPrefs = [WebPreferences standardPreferences];
     NSString *bundleIdentifier = [[NSBundle mainBundle] infoDictionary][@"CFBundleIdentifier"];
     NSString *applicationSupportFile = [@"~/Library/Application Support/" stringByExpandingTildeInPath];
     NSString *savePath = [NSString pathWithComponents:@[applicationSupportFile, bundleIdentifier, @"LocalStorage"]];
-    [webPrefs _setLocalStorageDatabasePath:savePath];
-    [webPrefs setLocalStorageEnabled:YES];
+    
+    [self setupStatusItemAndWindow];
+    [self setupWebView];
+}
 
+- (void)setupStatusItemAndWindow
+{
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
 
     self.statusItem = [bar statusItemWithLength:NSSquareStatusItemLength];
-    if (IS_PRIOR_TO_10_9) {
-        self.statusItemView = [[QSHStatusItemView alloc] initWithFrame:NSMakeRect(0, 0, 20, 20)];
-        self.statusItemView.target = self;
-        self.statusItemView.action = @selector(statusItemClicked);
-        [self.statusItemView sendActionOn:(NSLeftMouseDownMask | NSRightMouseDownMask)];
-        self.statusItem.view = self.statusItemView;
-        self.statusItemView.statusItem = self.statusItem;
-    }
-    else {
-        NSImage *statusIcon = [NSImage imageNamed:@"StatusIcon"];
-        [statusIcon setTemplate:YES];
-        self.statusItem.button.image = statusIcon;
 
-        self.statusItem.button.target = self;
-        self.statusItem.button.action = @selector(statusItemClicked);
-        [self.statusItem.button sendActionOn:(NSLeftMouseDownMask | NSRightMouseDownMask)];
-    }
+    NSImage *statusIcon = [NSImage imageNamed:@"StatusIcon"];
+    [statusIcon setTemplate:YES];
+    self.statusItem.button.image = statusIcon;
+
+    self.statusItem.button.target = self;
+    self.statusItem.button.action = @selector(statusItemClicked);
+    [self.statusItem.button sendActionOn:(NSLeftMouseDownMask | NSRightMouseDownMask)];
 
     self.window.level = NSFloatingWindowLevel;
     self.window.delegate = self;
     [self.window setOpaque:NO];
     [self.window setBackgroundColor:[NSColor clearColor]];
+}
 
-    self.webView.wantsLayer = YES;
-    self.webView.layer.cornerRadius = 5;
-    self.webView.layer.masksToBounds = YES;
-    [self.webView setDrawsBackground:NO];
-
-    NSString *url = [[NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]] absoluteString];
-    self.webView.mainFrameURL = url;
-
-    self.webViewDelegate = [[QSHWebViewDelegate alloc] init];
-    self.webViewDelegate.appDelegate = self;
-    self.webViewDelegate.statusItem = self.statusItem;
-    self.webViewDelegate.statusItemView = self.statusItemView;
-    self.webViewDelegate.webView = self.webView;
-    self.webView.frameLoadDelegate = self.webViewDelegate;
-    self.webView.UIDelegate = self.webViewDelegate;
+- (void)_createViews {
+    NSView* contentView = _window.contentView;
+    
+    // WKWebView
+    _WKWebView = [[WKWebView alloc] initWithFrame:contentView.frame];
+    [_WKWebView setAutoresizingMask:(NSViewHeightSizable | NSViewWidthSizable)];
+    
+    [contentView addSubview:_WKWebView];
+}
+    
+- (void)_configureWKWebview {
+    // Create Bridge
+    _WKBridge = [WKWebViewJavascriptBridge bridgeForWebView:_WKWebView];
+    
+    [_WKBridge registerHandler:@"testObjcCallback" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"testObjcCallback called: %@", data);
+        responseCallback(@"Response from testObjcCallback");
+    }];
+    
+    [_WKBridge callHandler:@"testJavascriptHandler" data:@{ @"foo":@"before ready" }];
+    
+    // Create Buttons
+    NSButton *callbackButton = [[NSButton alloc] initWithFrame:NSMakeRect(5, 0, 120, 40)];
+    [callbackButton setTitle:@"Call handler"];
+    [callbackButton setBezelStyle:NSRoundedBezelStyle];
+    [callbackButton setTarget:self];
+    [callbackButton setAction:@selector(_WKCallHandler)];
+    [_WKWebView addSubview:callbackButton];
+    
+    // Load Page
+    NSURL *URL = [NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]];
+    [_WKWebView loadRequest:[NSURLRequest requestWithURL:URL]];
+}
+    
+- (void)setupWebView
+{
+    [self _createViews];
+    [self _configureWKWebview];
 }
 
 - (void)windowDidResignKey:(NSNotification *)notification

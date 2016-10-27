@@ -7,133 +7,181 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06DEF87B3F74B3BDD497AA1B58A591E8 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 81763829D910717AC6C1C4B27BE5FF85 /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		0828FDDEF006C1739D0CD2AC0C7747C2 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A508092EF1FCD650B312271B0FE64201 /* ServiceManagement.framework */; };
-		099FF02F91C103E7EB9FEAA95FDA1865 /* MASShortcut.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF8F0E0B72A95751D5A5E911844348F /* MASShortcut.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		157065063012F0E0A64BA53845C1A139 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631B31170A908F1C0E938C32E9D9CA64 /* Cocoa.framework */; };
-		2CB1FC886CB95D82C6790C2A97A82B40 /* StartAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C338A3EB3C575048C52E49AF58F5EC9E /* StartAtLoginController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		307AF494C44C3B03D41BF53A17F90FAC /* MASShortcutView+UserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 18E48513160BBAE6218466E9CB59C7E3 /* MASShortcutView+UserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		392DC00755985E727BBBDF305B22919B /* MASShortcutView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C67E2E69D0B91BC984ADA03DF3236AC /* MASShortcutView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		490170C7B684819125C5D0B3144C48F0 /* MASShortcut+Monitoring.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D4ACD46BBFA45371FABB4942DED1DC9 /* MASShortcut+Monitoring.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4AAD52D1B8AEB040EA2D64FCAE8B06D8 /* RHPreferencesWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BF9D1CF8E576AB6F0000ED6557C0699 /* RHPreferencesWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		516FEF3867EE0EB73955B1FCBB8D70AC /* MASShortcut-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CAADF2651BF6B40695386E4E74C3D1 /* MASShortcut-dummy.m */; };
-		584362F8D341B3165E032729C912A1E7 /* StartAtLoginController.h in Headers */ = {isa = PBXBuildFile; fileRef = F3C1814A7CEE4E8776A9E43C2176BD66 /* StartAtLoginController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		590FD082B06F85831F48053F5279EDA0 /* MASShortcutView+UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 48552A53D69AD5F19590BB93845F1704 /* MASShortcutView+UserDefaults.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		5A1790ABA0E322C6F2DC72D98DED50E4 /* RHPreferences-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7FE7084B45A3627AD8558C1E8BDEE8 /* RHPreferences-dummy.m */; };
-		5AE3DB8D51982845B7E36548D4C84125 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B56E9DE7720071756ABB3843F19979B /* Carbon.framework */; };
-		6AB607BAAEFBD78D8046E0AB769DF50E /* MASShortcut+UserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 21776108F964D06AD7F3680E6489B64C /* MASShortcut+UserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C6B263CD37C6CC737E794A5E779B7BC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631B31170A908F1C0E938C32E9D9CA64 /* Cocoa.framework */; };
-		85E5DBEFB2B361BF802D4F83B0B9951D /* MASShortcut.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0B8C1FF4C495B5761738DA589D00E4 /* MASShortcut.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		93AB4480783967918D2497148D52278E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631B31170A908F1C0E938C32E9D9CA64 /* Cocoa.framework */; };
-		9BE3602C769494DE4DCAD7439F6B965F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631B31170A908F1C0E938C32E9D9CA64 /* Cocoa.framework */; };
-		A4E8732161509BAB60525ED77EEECE71 /* MASShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 808769412E9C963955DC3C13D3909893 /* MASShortcutView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		B826B3ABC5D15B61465398B9D73BC4C1 /* RHPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 4048612D7AB4CB7F4FA7FE05670FAAF9 /* RHPreferences.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BB7FEF0AAD1FF10AC43284902960205E /* StartAtLoginController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C991C17369C4B0F694F6AB735BE96BF4 /* StartAtLoginController-dummy.m */; };
-		C3216A2D96E821D120FCA7B47FF38F22 /* MASShortcut+UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C0DA8347ABAAA330B258F0267B71B1 /* MASShortcut+UserDefaults.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		C6D37B95FB83DC0E58A67508783E7D49 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */; };
-		D740839FCD6361E10AE5462DBEB4E153 /* MASShortcut+Monitoring.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C702966B43F78AD7F3E9B459E0DF209 /* MASShortcut+Monitoring.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		DBF4B241080DB0EFE5F598754D91DA0A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631B31170A908F1C0E938C32E9D9CA64 /* Cocoa.framework */; };
-		E0F6FD1E10963EA7F454D00BD33AF147 /* ISO8601DateFormatter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA41D49F3E6641807477ABBE5DE548D4 /* ISO8601DateFormatter-dummy.m */; };
-		EA5694FC59FA851D166C97256C479095 /* RHPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8E5A461A404A9F8809D196A8268FFB /* RHPreferencesWindowController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		EEC7D7F9F45667B8854AF12F610EE2BE /* ISO8601DateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 6465D463BA66E71150142B7E8EB7825A /* ISO8601DateFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06DEF87B3F74B3BDD497AA1B58A591E8 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2D66B9C708CAA385619799BF1D0253D /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		099FF02F91C103E7EB9FEAA95FDA1865 /* MASShortcut.h in Headers */ = {isa = PBXBuildFile; fileRef = 92FE9B5CECFA9116E0DB46521B837ADB /* MASShortcut.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0AAD3F1A3513E6302638DB21A5C686D6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36418C26F2F6280876C9CCC52A791794 /* Cocoa.framework */; };
+		0B02B78DAEA00B4EFD97A6B5DEB47CFD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36418C26F2F6280876C9CCC52A791794 /* Cocoa.framework */; };
+		0DFEAA39ACF4CD35738E3A6A2EFFE985 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36418C26F2F6280876C9CCC52A791794 /* Cocoa.framework */; };
+		1630DC1951EF4F01F9BF7C92277713E0 /* RHPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 053E5389CD56C7D4DFE66D7FE08ADAD8 /* RHPreferences.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		232A85F5668F85CC863EF7A9C5EB7806 /* RHPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E379D94F1C3836AC97712346A2A8B41 /* RHPreferencesWindowController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		276BE92A73ACEBB6FBDB677C6DB79179 /* StartAtLoginController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91194AD686552CD08FA247646B332F0B /* StartAtLoginController-dummy.m */; };
+		284F97193D8DFC30B5E09A2467AFF859 /* WKWebViewJavascriptBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = E1A39861D356C475975CC7D2C94E3CF2 /* WKWebViewJavascriptBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		307AF494C44C3B03D41BF53A17F90FAC /* MASShortcutView+UserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = D5F2603CBED6E042EA1EEC535C0538CB /* MASShortcutView+UserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		392DC00755985E727BBBDF305B22919B /* MASShortcutView.h in Headers */ = {isa = PBXBuildFile; fileRef = BA78B6E7BFE4D1CFE3849A6CEC37020A /* MASShortcutView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B68CC68BCD794BEB3D9BF1AEC46E491 /* StartAtLoginController.h in Headers */ = {isa = PBXBuildFile; fileRef = 465207E5125E23BDB4A965CD073DB71E /* StartAtLoginController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		490170C7B684819125C5D0B3144C48F0 /* MASShortcut+Monitoring.h in Headers */ = {isa = PBXBuildFile; fileRef = 8260AB09548C7B767D834256728FEF24 /* MASShortcut+Monitoring.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49DB848489A454335772EC4AC3EF19BA /* WebViewJavascriptBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = CE388EFBBA1A1A116DC365B9C06B9BEB /* WebViewJavascriptBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		516FEF3867EE0EB73955B1FCBB8D70AC /* MASShortcut-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4E343E37D6A6B63895A13B3BA3210 /* MASShortcut-dummy.m */; };
+		53DD37407AB7C949F460B353EE4C79E7 /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E0B48091B03BB96540EA68035E02E /* WebViewJavascriptBridge.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		56AEA368E9F13473089B05F5EAE7A825 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526D6C3C02EB4788E4B75847F36C3249 /* Carbon.framework */; };
+		590FD082B06F85831F48053F5279EDA0 /* MASShortcutView+UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 61ABA89766E41A73D7F66D9F8C0E8FD1 /* MASShortcutView+UserDefaults.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		666474F683617399EC47ABAD21C5A5F1 /* WebViewJavascriptBridge_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0A92A23A7D2292D27F92A227CB3DB3 /* WebViewJavascriptBridge_JS.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6AB607BAAEFBD78D8046E0AB769DF50E /* MASShortcut+UserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4910D76599CA33A8E103813C517669 /* MASShortcut+UserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82BE347936BA909D1229180A62C4EBAC /* WebViewJavascriptBridge_JS.h in Headers */ = {isa = PBXBuildFile; fileRef = 62855D7F5FC8A072F20AFE2D31F05B3A /* WebViewJavascriptBridge_JS.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		85E5DBEFB2B361BF802D4F83B0B9951D /* MASShortcut.m in Sources */ = {isa = PBXBuildFile; fileRef = F91491A111610B48448F4AF5177E2669 /* MASShortcut.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A14EE0351FB9DF7954A3A4CC64E39BD9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36418C26F2F6280876C9CCC52A791794 /* Cocoa.framework */; };
+		A45C95308F93724650447321012F58BB /* StartAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = A76E4AF78CF97D0BF8438CACF0C4E1A1 /* StartAtLoginController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A4E8732161509BAB60525ED77EEECE71 /* MASShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A7AF6C657223298378356780081E78 /* MASShortcutView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C0DE2E1FC64474C7900800AF86F5B10D /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = AA868B4DDDA0D8BAB4D5F241CD2DA355 /* WKWebViewJavascriptBridge.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C2BCC6D89C731E05A6FA021E273179EA /* RHPreferences-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 942BF9F667B18BDB43C5A40F98F34B97 /* RHPreferences-dummy.m */; };
+		C3216A2D96E821D120FCA7B47FF38F22 /* MASShortcut+UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = EA924CB679EB72EF9B05B4B02B259D06 /* MASShortcut+UserDefaults.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C38CF90D07859A45CCCA120DBFBCA425 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36418C26F2F6280876C9CCC52A791794 /* Cocoa.framework */; };
+		C460B0181597DE0A1D6F2F498FE043CD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B78F34599DDABD2B763C16DA06F3E96 /* WebKit.framework */; };
+		C4F7D5A7BE0F2CCFA63C83436B40B181 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B0D755CFCC02EA4DE7C773CB29DBFA /* ServiceManagement.framework */; };
+		D7137E57D11E0B725F2A937A90EA74C2 /* Pods-quark-shell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D10FB529AFDCD1205F7331B34E6F2 /* Pods-quark-shell-dummy.m */; };
+		D740839FCD6361E10AE5462DBEB4E153 /* MASShortcut+Monitoring.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EECE0BAC969B523E4B15567C38CD92 /* MASShortcut+Monitoring.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		DD0EEB8EAB4A9A1E023085029415C0A1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36418C26F2F6280876C9CCC52A791794 /* Cocoa.framework */; };
+		E0F6FD1E10963EA7F454D00BD33AF147 /* ISO8601DateFormatter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E71BBC0A8600C493C852274D547695F6 /* ISO8601DateFormatter-dummy.m */; };
+		E72C2B0472108257A1C54E33F0C3EC2B /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 17934FB706FAB46BDC6C2A0D65D6C8A7 /* WebViewJavascriptBridgeBase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		EEC7D7F9F45667B8854AF12F610EE2BE /* ISO8601DateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 59C4C56766505BC4A25FD8CC23C7202A /* ISO8601DateFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F1A4C183D414DAE35772059E4648E791 /* WebViewJavascriptBridgeBase.h in Headers */ = {isa = PBXBuildFile; fileRef = C0EEBF6207B8074541F1C1B2A4164E89 /* WebViewJavascriptBridgeBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F82D2728A0328942861AF97EE663389F /* RHPreferencesWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = EB414E30123D832B73E7D8EEDD3E8837 /* RHPreferencesWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F86A1F1CA9ED89FE6D643CC25DC69E7A /* WebViewJavascriptBridge-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B85BA861E7124BF4B561B7A2397D185 /* WebViewJavascriptBridge-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		36930A6437B7105766EF0FB5180E6269 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C5924C338BFC3FD069C1E8171EA21B28;
-			remoteInfo = StartAtLoginController;
-		};
-		62E9E86516A839D8D92B955909E17331 /* PBXContainerItemProxy */ = {
+		3315DBE637FA220512EC80759AFB781F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B0267AE73E97C7576F08F4911FEFECD5;
 			remoteInfo = ISO8601DateFormatter;
 		};
-		BDD34056CE5DF66182C4FFFA3E9D4EA1 /* PBXContainerItemProxy */ = {
+		39AADAFB0E68C57FD4FE32D74F2C489E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECCCB42E94B9425098451F868F013C54;
+			remoteInfo = StartAtLoginController;
+		};
+		6552E1E9853B96752F3DCB1E4F19E677 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CD3F2A4EA1E4AECB9A7744A7B612941;
+			remoteInfo = WebViewJavascriptBridge;
+		};
+		717016437144947F49EB30A76215EA5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC33E7E7C814AFB79D6412EEA7DA84E7;
+			remoteInfo = RHPreferences;
+		};
+		E5029213AEB8EB44231F50DB086BE4A6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6C863F6C9AB214C752194D5A06B943DB;
 			remoteInfo = MASShortcut;
 		};
-		C7EF06CB20507322A0D4D52B92331B02 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7C6AA09CF9DDE0EB36F3AB6C3B3771A2;
-			remoteInfo = RHPreferences;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09E7CB49A6DB4D3E1AF315A09328B6D9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
-		10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		11FCCB76691F1E4227F165B2A241353E /* RHPreferencesWindow.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = RHPreferencesWindow.xib; path = RHPreferences/RHPreferencesWindow.xib; sourceTree = "<group>"; };
-		12F46E8FCDBAE364149A90D7883AD2EB /* ISO8601DateFormatter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ISO8601DateFormatter.xcconfig; sourceTree = "<group>"; };
-		149C90B5BA7CF3518448B5A9E92F07A2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		18E48513160BBAE6218466E9CB59C7E3 /* MASShortcutView+UserDefaults.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MASShortcutView+UserDefaults.h"; sourceTree = "<group>"; };
-		21776108F964D06AD7F3680E6489B64C /* MASShortcut+UserDefaults.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MASShortcut+UserDefaults.h"; sourceTree = "<group>"; };
-		272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		2AC970237546BDB84A0649CF326E906D /* ISO8601DateFormatter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ISO8601DateFormatter-prefix.pch"; sourceTree = "<group>"; };
-		2C8E5A461A404A9F8809D196A8268FFB /* RHPreferencesWindowController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RHPreferencesWindowController.m; path = RHPreferences/RHPreferencesWindowController.m; sourceTree = "<group>"; };
-		2FF8F0E0B72A95751D5A5E911844348F /* MASShortcut.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MASShortcut.h; sourceTree = "<group>"; };
-		356E1D8DC35DD317DB937F045086EF69 /* RHPreferences.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RHPreferences.xcconfig; sourceTree = "<group>"; };
-		37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3D32B3B5F605A606CC5EE42E78B34032 /* StartAtLoginController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = StartAtLoginController.xcconfig; sourceTree = "<group>"; };
-		4048612D7AB4CB7F4FA7FE05670FAAF9 /* RHPreferences.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RHPreferences.h; path = RHPreferences/RHPreferences.h; sourceTree = "<group>"; };
-		41508B2FEF4574930C8AD8B4233032EC /* libMASShortcut.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMASShortcut.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		48552A53D69AD5F19590BB93845F1704 /* MASShortcutView+UserDefaults.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MASShortcutView+UserDefaults.m"; sourceTree = "<group>"; };
-		4B56E9DE7720071756ABB3843F19979B /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Carbon.framework; sourceTree = DEVELOPER_DIR; };
-		4C7FE7084B45A3627AD8558C1E8BDEE8 /* RHPreferences-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RHPreferences-dummy.m"; sourceTree = "<group>"; };
-		4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		59CAADF2651BF6B40695386E4E74C3D1 /* MASShortcut-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MASShortcut-dummy.m"; sourceTree = "<group>"; };
-		5C67E2E69D0B91BC984ADA03DF3236AC /* MASShortcutView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MASShortcutView.h; sourceTree = "<group>"; };
-		5C702966B43F78AD7F3E9B459E0DF209 /* MASShortcut+Monitoring.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MASShortcut+Monitoring.m"; sourceTree = "<group>"; };
-		631B31170A908F1C0E938C32E9D9CA64 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		6465D463BA66E71150142B7E8EB7825A /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
-		6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
-		72E9C06F109A55C3D07D4650ABBBB9A3 /* libISO8601DateFormatter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libISO8601DateFormatter.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BF9D1CF8E576AB6F0000ED6557C0699 /* RHPreferencesWindowController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RHPreferencesWindowController.h; path = RHPreferences/RHPreferencesWindowController.h; sourceTree = "<group>"; };
-		7DA75B993E7ABD652149639449702962 /* StartAtLoginController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "StartAtLoginController-prefix.pch"; sourceTree = "<group>"; };
-		808769412E9C963955DC3C13D3909893 /* MASShortcutView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MASShortcutView.m; sourceTree = "<group>"; };
-		81763829D910717AC6C1C4B27BE5FF85 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
-		8FE268C5E761638217F12558CB4C7FC2 /* libStartAtLoginController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libStartAtLoginController.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9339CF75BDC524C33A55EA477E9CC7F8 /* RHPreferences-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RHPreferences-prefix.pch"; sourceTree = "<group>"; };
-		97B1767101C5198125838F2A51457478 /* MASShortcut.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MASShortcut.xcconfig; sourceTree = "<group>"; };
-		98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		9D4ACD46BBFA45371FABB4942DED1DC9 /* MASShortcut+Monitoring.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MASShortcut+Monitoring.h"; sourceTree = "<group>"; };
-		A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		A2C0DA8347ABAAA330B258F0267B71B1 /* MASShortcut+UserDefaults.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MASShortcut+UserDefaults.m"; sourceTree = "<group>"; };
-		A508092EF1FCD650B312271B0FE64201 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/ServiceManagement.framework; sourceTree = DEVELOPER_DIR; };
-		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C338A3EB3C575048C52E49AF58F5EC9E /* StartAtLoginController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = StartAtLoginController.m; sourceTree = "<group>"; };
-		C991C17369C4B0F694F6AB735BE96BF4 /* StartAtLoginController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "StartAtLoginController-dummy.m"; sourceTree = "<group>"; };
-		DA41D49F3E6641807477ABBE5DE548D4 /* ISO8601DateFormatter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ISO8601DateFormatter-dummy.m"; sourceTree = "<group>"; };
-		DE8DE352898677D5985B4CC7E7881804 /* MASShortcut-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MASShortcut-prefix.pch"; sourceTree = "<group>"; };
-		F3C1814A7CEE4E8776A9E43C2176BD66 /* StartAtLoginController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = StartAtLoginController.h; sourceTree = "<group>"; };
-		F7A4670EE62343C86CCA25B707B64B96 /* libRHPreferences.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRHPreferences.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD0B8C1FF4C495B5761738DA589D00E4 /* MASShortcut.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MASShortcut.m; sourceTree = "<group>"; };
+		053E5389CD56C7D4DFE66D7FE08ADAD8 /* RHPreferences.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RHPreferences.h; path = RHPreferences/RHPreferences.h; sourceTree = "<group>"; };
+		06655C46DF60D81A607D9C319CB03414 /* MASShortcut.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MASShortcut.xcconfig; sourceTree = "<group>"; };
+		09E02674DBDFC9AA28B038BF782FEB54 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		0C4910D76599CA33A8E103813C517669 /* MASShortcut+UserDefaults.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MASShortcut+UserDefaults.h"; sourceTree = "<group>"; };
+		0C74DDA12621AC8E51DD1FFC47D0E966 /* StartAtLoginController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = StartAtLoginController.xcconfig; sourceTree = "<group>"; };
+		0E379D94F1C3836AC97712346A2A8B41 /* RHPreferencesWindowController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RHPreferencesWindowController.m; path = RHPreferences/RHPreferencesWindowController.m; sourceTree = "<group>"; };
+		0ECC539C94F019D36E29CAAB646D7043 /* StartAtLoginController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "StartAtLoginController-prefix.pch"; sourceTree = "<group>"; };
+		17934FB706FAB46BDC6C2A0D65D6C8A7 /* WebViewJavascriptBridgeBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WebViewJavascriptBridgeBase.m; path = WebViewJavascriptBridge/WebViewJavascriptBridgeBase.m; sourceTree = "<group>"; };
+		27B0D755CFCC02EA4DE7C773CB29DBFA /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/ServiceManagement.framework; sourceTree = DEVELOPER_DIR; };
+		2826BE8CC1C37F0682A11D91B0430AE4 /* MASShortcut-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MASShortcut-prefix.pch"; sourceTree = "<group>"; };
+		2991B0A7300A5A4D98212F121100539E /* Pods-quark-shell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-quark-shell.release.xcconfig"; sourceTree = "<group>"; };
+		2BC4E343E37D6A6B63895A13B3BA3210 /* MASShortcut-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MASShortcut-dummy.m"; sourceTree = "<group>"; };
+		31EECE0BAC969B523E4B15567C38CD92 /* MASShortcut+Monitoring.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MASShortcut+Monitoring.m"; sourceTree = "<group>"; };
+		36418C26F2F6280876C9CCC52A791794 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		3DE993D1FB22DC067F802946DCCCB38E /* ISO8601DateFormatter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ISO8601DateFormatter.xcconfig; sourceTree = "<group>"; };
+		465207E5125E23BDB4A965CD073DB71E /* StartAtLoginController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = StartAtLoginController.h; sourceTree = "<group>"; };
+		4A0A92A23A7D2292D27F92A227CB3DB3 /* WebViewJavascriptBridge_JS.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WebViewJavascriptBridge_JS.m; path = WebViewJavascriptBridge/WebViewJavascriptBridge_JS.m; sourceTree = "<group>"; };
+		4B85BA861E7124BF4B561B7A2397D185 /* WebViewJavascriptBridge-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WebViewJavascriptBridge-dummy.m"; sourceTree = "<group>"; };
+		526D6C3C02EB4788E4B75847F36C3249 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Carbon.framework; sourceTree = DEVELOPER_DIR; };
+		53C34A215B9CAF7E9CBA278272FF3748 /* RHPreferences.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RHPreferences.xcconfig; sourceTree = "<group>"; };
+		59C4C56766505BC4A25FD8CC23C7202A /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
+		61ABA89766E41A73D7F66D9F8C0E8FD1 /* MASShortcutView+UserDefaults.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MASShortcutView+UserDefaults.m"; sourceTree = "<group>"; };
+		62855D7F5FC8A072F20AFE2D31F05B3A /* WebViewJavascriptBridge_JS.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WebViewJavascriptBridge_JS.h; path = WebViewJavascriptBridge/WebViewJavascriptBridge_JS.h; sourceTree = "<group>"; };
+		65E6B1F683E96B063813B6ADB25E5F58 /* libMASShortcut.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMASShortcut.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		70A7AF6C657223298378356780081E78 /* MASShortcutView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MASShortcutView.m; sourceTree = "<group>"; };
+		797E0B48091B03BB96540EA68035E02E /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WebViewJavascriptBridge.m; path = WebViewJavascriptBridge/WebViewJavascriptBridge.m; sourceTree = "<group>"; };
+		7B78F34599DDABD2B763C16DA06F3E96 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
+		7B7DF90B4C9945A116C1EBD16C847868 /* WebViewJavascriptBridge.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WebViewJavascriptBridge.xcconfig; sourceTree = "<group>"; };
+		8260AB09548C7B767D834256728FEF24 /* MASShortcut+Monitoring.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MASShortcut+Monitoring.h"; sourceTree = "<group>"; };
+		8372FB2D7342DA57AF4C9CAC82D0D281 /* Pods-quark-shell-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-quark-shell-resources.sh"; sourceTree = "<group>"; };
+		855B12943ECD6177AAD36396C30528D4 /* libISO8601DateFormatter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libISO8601DateFormatter.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		88C13C090AB0AB273FEB9989262B6888 /* ISO8601DateFormatter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ISO8601DateFormatter-prefix.pch"; sourceTree = "<group>"; };
+		91194AD686552CD08FA247646B332F0B /* StartAtLoginController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "StartAtLoginController-dummy.m"; sourceTree = "<group>"; };
+		92FE9B5CECFA9116E0DB46521B837ADB /* MASShortcut.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MASShortcut.h; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		942BF9F667B18BDB43C5A40F98F34B97 /* RHPreferences-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RHPreferences-dummy.m"; sourceTree = "<group>"; };
+		993B0D66EA64986DFD0D9C00FB336F25 /* Pods-quark-shell-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-quark-shell-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A3CA658717B68A3765D3B5D34E448CB3 /* RHPreferencesWindow.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = RHPreferencesWindow.xib; path = RHPreferences/RHPreferencesWindow.xib; sourceTree = "<group>"; };
+		A4513538D92EB56F1358ADF52369E2FE /* Pods-quark-shell-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-quark-shell-frameworks.sh"; sourceTree = "<group>"; };
+		A76E4AF78CF97D0BF8438CACF0C4E1A1 /* StartAtLoginController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = StartAtLoginController.m; sourceTree = "<group>"; };
+		AA868B4DDDA0D8BAB4D5F241CD2DA355 /* WKWebViewJavascriptBridge.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WKWebViewJavascriptBridge.m; path = WebViewJavascriptBridge/WKWebViewJavascriptBridge.m; sourceTree = "<group>"; };
+		B2DFBF081DFDF0E45DD7520C07ECD2C9 /* libPods-quark-shell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-quark-shell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA78B6E7BFE4D1CFE3849A6CEC37020A /* MASShortcutView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MASShortcutView.h; sourceTree = "<group>"; };
+		C0EEBF6207B8074541F1C1B2A4164E89 /* WebViewJavascriptBridgeBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WebViewJavascriptBridgeBase.h; path = WebViewJavascriptBridge/WebViewJavascriptBridgeBase.h; sourceTree = "<group>"; };
+		CE388EFBBA1A1A116DC365B9C06B9BEB /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WebViewJavascriptBridge.h; path = WebViewJavascriptBridge/WebViewJavascriptBridge.h; sourceTree = "<group>"; };
+		CE3D10FB529AFDCD1205F7331B34E6F2 /* Pods-quark-shell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-quark-shell-dummy.m"; sourceTree = "<group>"; };
+		CF1B8BBF96F6BEC33AF5E9C00AAA9624 /* Pods-quark-shell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-quark-shell.debug.xcconfig"; sourceTree = "<group>"; };
+		CF383F1A79400C257CBFA7A67E41350E /* WebViewJavascriptBridge-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WebViewJavascriptBridge-prefix.pch"; sourceTree = "<group>"; };
+		D5F2603CBED6E042EA1EEC535C0538CB /* MASShortcutView+UserDefaults.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MASShortcutView+UserDefaults.h"; sourceTree = "<group>"; };
+		DCEA2E8AEC343781583BD22506B4B438 /* libStartAtLoginController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libStartAtLoginController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1A39861D356C475975CC7D2C94E3CF2 /* WKWebViewJavascriptBridge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WKWebViewJavascriptBridge.h; path = WebViewJavascriptBridge/WKWebViewJavascriptBridge.h; sourceTree = "<group>"; };
+		E1AB417A0D9ED7F2CD63090377DB9040 /* Pods-quark-shell-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-quark-shell-acknowledgements.plist"; sourceTree = "<group>"; };
+		E71BBC0A8600C493C852274D547695F6 /* ISO8601DateFormatter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ISO8601DateFormatter-dummy.m"; sourceTree = "<group>"; };
+		EA924CB679EB72EF9B05B4B02B259D06 /* MASShortcut+UserDefaults.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MASShortcut+UserDefaults.m"; sourceTree = "<group>"; };
+		EAC3DE54D1B6A835C1B78FBD3DCE4921 /* RHPreferences-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RHPreferences-prefix.pch"; sourceTree = "<group>"; };
+		EB414E30123D832B73E7D8EEDD3E8837 /* RHPreferencesWindowController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RHPreferencesWindowController.h; path = RHPreferences/RHPreferencesWindowController.h; sourceTree = "<group>"; };
+		F2D66B9C708CAA385619799BF1D0253D /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
+		F5E95E6322999FBD6C7FF12EBA7F421C /* libRHPreferences.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRHPreferences.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F80D88A4642E370B65B7348070ED9425 /* libWebViewJavascriptBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWebViewJavascriptBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91491A111610B48448F4AF5177E2669 /* MASShortcut.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MASShortcut.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		021210B0918D9ED86187BC9307CBCBEA /* Frameworks */ = {
+		0529A2EAFF13066EC933C13943C180FD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				157065063012F0E0A64BA53845C1A139 /* Cocoa.framework in Frameworks */,
-				0828FDDEF006C1739D0CD2AC0C7747C2 /* ServiceManagement.framework in Frameworks */,
+				C38CF90D07859A45CCCA120DBFBCA425 /* Cocoa.framework in Frameworks */,
+				C4F7D5A7BE0F2CCFA63C83436B40B181 /* ServiceManagement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		13D03737D33658E921F723C117A39B0D /* Frameworks */ = {
+		32DC1C17E8FFE5DE9CDC1128799AD387 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93AB4480783967918D2497148D52278E /* Cocoa.framework in Frameworks */,
+				A14EE0351FB9DF7954A3A4CC64E39BD9 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D2ECDD8D4B24F7B4821BED3BBCEE1C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DFEAA39ACF4CD35738E3A6A2EFFE985 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D8BB006D1CA179BB186E782687AA0F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B02B78DAEA00B4EFD97A6B5DEB47CFD /* Cocoa.framework in Frameworks */,
+				C460B0181597DE0A1D6F2F498FE043CD /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C6B263CD37C6CC737E794A5E779B7BC /* Cocoa.framework in Frameworks */,
+				0AAD3F1A3513E6302638DB21A5C686D6 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,224 +197,249 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AE3DB8D51982845B7E36548D4C84125 /* Carbon.framework in Frameworks */,
-				9BE3602C769494DE4DCAD7439F6B965F /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8DA9E1F85104D385B5825CB7DA52ABC8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DBF4B241080DB0EFE5F598754D91DA0A /* Cocoa.framework in Frameworks */,
+				56AEA368E9F13473089B05F5EAE7A825 /* Carbon.framework in Frameworks */,
+				DD0EEB8EAB4A9A1E023085029415C0A1 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */ = {
+		08BB01761EC8C516100E7E0A97EDD3DC /* Pods-quark-shell */ = {
 			isa = PBXGroup;
 			children = (
-				B3D1D13E0C6553800746CB8FD61CF946 /* Pods */,
+				993B0D66EA64986DFD0D9C00FB336F25 /* Pods-quark-shell-acknowledgements.markdown */,
+				E1AB417A0D9ED7F2CD63090377DB9040 /* Pods-quark-shell-acknowledgements.plist */,
+				CE3D10FB529AFDCD1205F7331B34E6F2 /* Pods-quark-shell-dummy.m */,
+				A4513538D92EB56F1358ADF52369E2FE /* Pods-quark-shell-frameworks.sh */,
+				8372FB2D7342DA57AF4C9CAC82D0D281 /* Pods-quark-shell-resources.sh */,
+				CF1B8BBF96F6BEC33AF5E9C00AAA9624 /* Pods-quark-shell.debug.xcconfig */,
+				2991B0A7300A5A4D98212F121100539E /* Pods-quark-shell.release.xcconfig */,
 			);
-			name = "Targets Support Files";
+			name = "Pods-quark-shell";
+			path = "Target Support Files/Pods-quark-shell";
 			sourceTree = "<group>";
 		};
-		21866C12C95A877FC20A4CBDEB71A17A /* RHPreferences */ = {
+		14407E388F5CF5B72358DFD27AC8D970 /* Sparkle */ = {
 			isa = PBXGroup;
 			children = (
-				4048612D7AB4CB7F4FA7FE05670FAAF9 /* RHPreferences.h */,
-				7BF9D1CF8E576AB6F0000ED6557C0699 /* RHPreferencesWindowController.h */,
-				2C8E5A461A404A9F8809D196A8268FFB /* RHPreferencesWindowController.m */,
-				6CCC6E0AC86A566C0B1AE986594A0B35 /* Resources */,
-				2E7EA2B6DEF861CEE95B3CC6866BE773 /* Support Files */,
+				CC6A7ED911C6EAC2FBE75BCF5C203AC2 /* Frameworks */,
 			);
-			path = RHPreferences;
+			path = Sparkle;
 			sourceTree = "<group>";
 		};
-		25CD6F7B4477D53A4C200743EF42E10A /* Support Files */ = {
+		329F045FAE67A7F73A6FEE768CB5E209 /* StartAtLoginController */ = {
 			isa = PBXGroup;
 			children = (
-				97B1767101C5198125838F2A51457478 /* MASShortcut.xcconfig */,
-				59CAADF2651BF6B40695386E4E74C3D1 /* MASShortcut-dummy.m */,
-				DE8DE352898677D5985B4CC7E7881804 /* MASShortcut-prefix.pch */,
+				465207E5125E23BDB4A965CD073DB71E /* StartAtLoginController.h */,
+				A76E4AF78CF97D0BF8438CACF0C4E1A1 /* StartAtLoginController.m */,
+				FB8D3CCD4FA92C14BFC348627E7C9C04 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/MASShortcut";
+			path = StartAtLoginController;
 			sourceTree = "<group>";
 		};
-		27D76B3436A80E27B612A04CCB4D614D /* ISO8601DateFormatter */ = {
+		344B6258D5AD934EADD72E7771F640F3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6465D463BA66E71150142B7E8EB7825A /* ISO8601DateFormatter.h */,
-				81763829D910717AC6C1C4B27BE5FF85 /* ISO8601DateFormatter.m */,
-				36E07695209C32660255E5FEBC69D47B /* Support Files */,
-			);
-			path = ISO8601DateFormatter;
-			sourceTree = "<group>";
-		};
-		2E7EA2B6DEF861CEE95B3CC6866BE773 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				356E1D8DC35DD317DB937F045086EF69 /* RHPreferences.xcconfig */,
-				4C7FE7084B45A3627AD8558C1E8BDEE8 /* RHPreferences-dummy.m */,
-				9339CF75BDC524C33A55EA477E9CC7F8 /* RHPreferences-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/RHPreferences";
-			sourceTree = "<group>";
-		};
-		33FBF92172BAD196BA5CBDCEA304B8D1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				27D76B3436A80E27B612A04CCB4D614D /* ISO8601DateFormatter */,
-				6F9D3CEDCCD4E64C18A3CF7356EBF3ED /* MASShortcut */,
-				21866C12C95A877FC20A4CBDEB71A17A /* RHPreferences */,
-				98243E6182B66F483128D5ABDFDC5C2C /* Sparkle */,
-				C3244CC3CBD8148A73791194A7F31728 /* StartAtLoginController */,
+				590C195643EF65A29D8E1FD206BF40F1 /* ISO8601DateFormatter */,
+				4A77AC04034A5504019ECD18BA4B8EA0 /* MASShortcut */,
+				DB3BF09A82C2C615B20149388337F474 /* RHPreferences */,
+				14407E388F5CF5B72358DFD27AC8D970 /* Sparkle */,
+				329F045FAE67A7F73A6FEE768CB5E209 /* StartAtLoginController */,
+				7A99B3504D105AC6B4A58AEB7F17EDBC /* WebViewJavascriptBridge */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		36E07695209C32660255E5FEBC69D47B /* Support Files */ = {
+		4A77AC04034A5504019ECD18BA4B8EA0 /* MASShortcut */ = {
 			isa = PBXGroup;
 			children = (
-				12F46E8FCDBAE364149A90D7883AD2EB /* ISO8601DateFormatter.xcconfig */,
-				DA41D49F3E6641807477ABBE5DE548D4 /* ISO8601DateFormatter-dummy.m */,
-				2AC970237546BDB84A0649CF326E906D /* ISO8601DateFormatter-prefix.pch */,
+				92FE9B5CECFA9116E0DB46521B837ADB /* MASShortcut.h */,
+				F91491A111610B48448F4AF5177E2669 /* MASShortcut.m */,
+				8260AB09548C7B767D834256728FEF24 /* MASShortcut+Monitoring.h */,
+				31EECE0BAC969B523E4B15567C38CD92 /* MASShortcut+Monitoring.m */,
+				0C4910D76599CA33A8E103813C517669 /* MASShortcut+UserDefaults.h */,
+				EA924CB679EB72EF9B05B4B02B259D06 /* MASShortcut+UserDefaults.m */,
+				BA78B6E7BFE4D1CFE3849A6CEC37020A /* MASShortcutView.h */,
+				70A7AF6C657223298378356780081E78 /* MASShortcutView.m */,
+				D5F2603CBED6E042EA1EEC535C0538CB /* MASShortcutView+UserDefaults.h */,
+				61ABA89766E41A73D7F66D9F8C0E8FD1 /* MASShortcutView+UserDefaults.m */,
+				F950E3F86D7FBBA9DF5B2079A7FF5AEE /* Support Files */,
+			);
+			path = MASShortcut;
+			sourceTree = "<group>";
+		};
+		590C195643EF65A29D8E1FD206BF40F1 /* ISO8601DateFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				59C4C56766505BC4A25FD8CC23C7202A /* ISO8601DateFormatter.h */,
+				F2D66B9C708CAA385619799BF1D0253D /* ISO8601DateFormatter.m */,
+				7223518E207BCE09F21BAD97C2FE2561 /* Support Files */,
+			);
+			path = ISO8601DateFormatter;
+			sourceTree = "<group>";
+		};
+		5CB80EE500CF0EDE6374242CE620E981 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				526D6C3C02EB4788E4B75847F36C3249 /* Carbon.framework */,
+				36418C26F2F6280876C9CCC52A791794 /* Cocoa.framework */,
+				27B0D755CFCC02EA4DE7C773CB29DBFA /* ServiceManagement.framework */,
+				7B78F34599DDABD2B763C16DA06F3E96 /* WebKit.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		6F4BFBF5D79E56F1CF94B89FB59CDA25 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				855B12943ECD6177AAD36396C30528D4 /* libISO8601DateFormatter.a */,
+				65E6B1F683E96B063813B6ADB25E5F58 /* libMASShortcut.a */,
+				B2DFBF081DFDF0E45DD7520C07ECD2C9 /* libPods-quark-shell.a */,
+				F5E95E6322999FBD6C7FF12EBA7F421C /* libRHPreferences.a */,
+				DCEA2E8AEC343781583BD22506B4B438 /* libStartAtLoginController.a */,
+				F80D88A4642E370B65B7348070ED9425 /* libWebViewJavascriptBridge.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7223518E207BCE09F21BAD97C2FE2561 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3DE993D1FB22DC067F802946DCCCB38E /* ISO8601DateFormatter.xcconfig */,
+				E71BBC0A8600C493C852274D547695F6 /* ISO8601DateFormatter-dummy.m */,
+				88C13C090AB0AB273FEB9989262B6888 /* ISO8601DateFormatter-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/ISO8601DateFormatter";
 			sourceTree = "<group>";
 		};
-		6C5B6EF157F98E4A2D52AFD31F43D70D /* Support Files */ = {
+		7A99B3504D105AC6B4A58AEB7F17EDBC /* WebViewJavascriptBridge */ = {
 			isa = PBXGroup;
 			children = (
-				3D32B3B5F605A606CC5EE42E78B34032 /* StartAtLoginController.xcconfig */,
-				C991C17369C4B0F694F6AB735BE96BF4 /* StartAtLoginController-dummy.m */,
-				7DA75B993E7ABD652149639449702962 /* StartAtLoginController-prefix.pch */,
+				CE388EFBBA1A1A116DC365B9C06B9BEB /* WebViewJavascriptBridge.h */,
+				797E0B48091B03BB96540EA68035E02E /* WebViewJavascriptBridge.m */,
+				62855D7F5FC8A072F20AFE2D31F05B3A /* WebViewJavascriptBridge_JS.h */,
+				4A0A92A23A7D2292D27F92A227CB3DB3 /* WebViewJavascriptBridge_JS.m */,
+				C0EEBF6207B8074541F1C1B2A4164E89 /* WebViewJavascriptBridgeBase.h */,
+				17934FB706FAB46BDC6C2A0D65D6C8A7 /* WebViewJavascriptBridgeBase.m */,
+				E1A39861D356C475975CC7D2C94E3CF2 /* WKWebViewJavascriptBridge.h */,
+				AA868B4DDDA0D8BAB4D5F241CD2DA355 /* WKWebViewJavascriptBridge.m */,
+				F5BADD0B257928349B9478EECD5FBA25 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/StartAtLoginController";
-			sourceTree = "<group>";
-		};
-		6CCC6E0AC86A566C0B1AE986594A0B35 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				11FCCB76691F1E4227F165B2A241353E /* RHPreferencesWindow.xib */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		6F9D3CEDCCD4E64C18A3CF7356EBF3ED /* MASShortcut */ = {
-			isa = PBXGroup;
-			children = (
-				2FF8F0E0B72A95751D5A5E911844348F /* MASShortcut.h */,
-				FD0B8C1FF4C495B5761738DA589D00E4 /* MASShortcut.m */,
-				9D4ACD46BBFA45371FABB4942DED1DC9 /* MASShortcut+Monitoring.h */,
-				5C702966B43F78AD7F3E9B459E0DF209 /* MASShortcut+Monitoring.m */,
-				21776108F964D06AD7F3680E6489B64C /* MASShortcut+UserDefaults.h */,
-				A2C0DA8347ABAAA330B258F0267B71B1 /* MASShortcut+UserDefaults.m */,
-				5C67E2E69D0B91BC984ADA03DF3236AC /* MASShortcutView.h */,
-				808769412E9C963955DC3C13D3909893 /* MASShortcutView.m */,
-				18E48513160BBAE6218466E9CB59C7E3 /* MASShortcutView+UserDefaults.h */,
-				48552A53D69AD5F19590BB93845F1704 /* MASShortcutView+UserDefaults.m */,
-				25CD6F7B4477D53A4C200743EF42E10A /* Support Files */,
-			);
-			path = MASShortcut;
-			sourceTree = "<group>";
-		};
-		7A00F5A08808FE5035E757B840D65F3E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				09E7CB49A6DB4D3E1AF315A09328B6D9 /* Sparkle.framework */,
-			);
-			name = Frameworks;
+			path = WebViewJavascriptBridge;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
-				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
-				96D996393384F21972E2DD81788EE22C /* Frameworks */,
-				33FBF92172BAD196BA5CBDCEA304B8D1 /* Pods */,
-				98CFD55139BB3CE875D7AA5B7AD48505 /* Products */,
-				037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */,
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				CD75D5B60FCA72FBF7F9C770460B2C26 /* Frameworks */,
+				344B6258D5AD934EADD72E7771F640F3 /* Pods */,
+				6F4BFBF5D79E56F1CF94B89FB59CDA25 /* Products */,
+				F36B0C1FC55104B0B11431840A55DC9C /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8FB4C73A8F54645A7B0B168A9046B0A0 /* OS X */ = {
+		84561B48C7A29789A9DD0046B9C2F59C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4B56E9DE7720071756ABB3843F19979B /* Carbon.framework */,
-				631B31170A908F1C0E938C32E9D9CA64 /* Cocoa.framework */,
-				A508092EF1FCD650B312271B0FE64201 /* ServiceManagement.framework */,
+				53C34A215B9CAF7E9CBA278272FF3748 /* RHPreferences.xcconfig */,
+				942BF9F667B18BDB43C5A40F98F34B97 /* RHPreferences-dummy.m */,
+				EAC3DE54D1B6A835C1B78FBD3DCE4921 /* RHPreferences-prefix.pch */,
 			);
-			name = "OS X";
+			name = "Support Files";
+			path = "../Target Support Files/RHPreferences";
 			sourceTree = "<group>";
 		};
-		96D996393384F21972E2DD81788EE22C /* Frameworks */ = {
+		CC6A7ED911C6EAC2FBE75BCF5C203AC2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8FB4C73A8F54645A7B0B168A9046B0A0 /* OS X */,
+				09E02674DBDFC9AA28B038BF782FEB54 /* Sparkle.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		98243E6182B66F483128D5ABDFDC5C2C /* Sparkle */ = {
+		CD75D5B60FCA72FBF7F9C770460B2C26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7A00F5A08808FE5035E757B840D65F3E /* Frameworks */,
+				5CB80EE500CF0EDE6374242CE620E981 /* OS X */,
 			);
-			path = Sparkle;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		98CFD55139BB3CE875D7AA5B7AD48505 /* Products */ = {
+		D6C4EA75204A53000BFC8993CA08BD2D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				72E9C06F109A55C3D07D4650ABBBB9A3 /* libISO8601DateFormatter.a */,
-				41508B2FEF4574930C8AD8B4233032EC /* libMASShortcut.a */,
-				149C90B5BA7CF3518448B5A9E92F07A2 /* libPods.a */,
-				F7A4670EE62343C86CCA25B707B64B96 /* libRHPreferences.a */,
-				8FE268C5E761638217F12558CB4C7FC2 /* libStartAtLoginController.a */,
+				A3CA658717B68A3765D3B5D34E448CB3 /* RHPreferencesWindow.xib */,
 			);
-			name = Products;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		B3D1D13E0C6553800746CB8FD61CF946 /* Pods */ = {
+		DB3BF09A82C2C615B20149388337F474 /* RHPreferences */ = {
 			isa = PBXGroup;
 			children = (
-				37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */,
-				10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */,
-				272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */,
-				6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */,
-				A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */,
-				4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */,
-				98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */,
+				053E5389CD56C7D4DFE66D7FE08ADAD8 /* RHPreferences.h */,
+				EB414E30123D832B73E7D8EEDD3E8837 /* RHPreferencesWindowController.h */,
+				0E379D94F1C3836AC97712346A2A8B41 /* RHPreferencesWindowController.m */,
+				D6C4EA75204A53000BFC8993CA08BD2D /* Resources */,
+				84561B48C7A29789A9DD0046B9C2F59C /* Support Files */,
 			);
-			name = Pods;
-			path = "Target Support Files/Pods";
+			path = RHPreferences;
 			sourceTree = "<group>";
 		};
-		C3244CC3CBD8148A73791194A7F31728 /* StartAtLoginController */ = {
+		F36B0C1FC55104B0B11431840A55DC9C /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				F3C1814A7CEE4E8776A9E43C2176BD66 /* StartAtLoginController.h */,
-				C338A3EB3C575048C52E49AF58F5EC9E /* StartAtLoginController.m */,
-				6C5B6EF157F98E4A2D52AFD31F43D70D /* Support Files */,
+				08BB01761EC8C516100E7E0A97EDD3DC /* Pods-quark-shell */,
 			);
-			path = StartAtLoginController;
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		F5BADD0B257928349B9478EECD5FBA25 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7B7DF90B4C9945A116C1EBD16C847868 /* WebViewJavascriptBridge.xcconfig */,
+				4B85BA861E7124BF4B561B7A2397D185 /* WebViewJavascriptBridge-dummy.m */,
+				CF383F1A79400C257CBFA7A67E41350E /* WebViewJavascriptBridge-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/WebViewJavascriptBridge";
+			sourceTree = "<group>";
+		};
+		F950E3F86D7FBBA9DF5B2079A7FF5AEE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				06655C46DF60D81A607D9C319CB03414 /* MASShortcut.xcconfig */,
+				2BC4E343E37D6A6B63895A13B3BA3210 /* MASShortcut-dummy.m */,
+				2826BE8CC1C37F0682A11D91B0430AE4 /* MASShortcut-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MASShortcut";
+			sourceTree = "<group>";
+		};
+		FB8D3CCD4FA92C14BFC348627E7C9C04 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0C74DDA12621AC8E51DD1FFC47D0E966 /* StartAtLoginController.xcconfig */,
+				91194AD686552CD08FA247646B332F0B /* StartAtLoginController-dummy.m */,
+				0ECC539C94F019D36E29CAAB646D7043 /* StartAtLoginController-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/StartAtLoginController";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		50A1988656C702905498FE0315C7A0D1 /* Headers */ = {
+		40ED6FADF4979BE4546095303CC0C557 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				584362F8D341B3165E032729C912A1E7 /* StartAtLoginController.h in Headers */,
+				49DB848489A454335772EC4AC3EF19BA /* WebViewJavascriptBridge.h in Headers */,
+				82BE347936BA909D1229180A62C4EBAC /* WebViewJavascriptBridge_JS.h in Headers */,
+				F1A4C183D414DAE35772059E4648E791 /* WebViewJavascriptBridgeBase.h in Headers */,
+				284F97193D8DFC30B5E09A2467AFF859 /* WKWebViewJavascriptBridge.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,18 +463,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FEEDAA1032FB4817C1960D1FD1532142 /* Headers */ = {
+		CCD4AB1E0729E9301411F45B5600A590 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B826B3ABC5D15B61465398B9D73BC4C1 /* RHPreferences.h in Headers */,
-				4AAD52D1B8AEB040EA2D64FCAE8B06D8 /* RHPreferencesWindowController.h in Headers */,
+				1630DC1951EF4F01F9BF7C92277713E0 /* RHPreferences.h in Headers */,
+				F82D2728A0328942861AF97EE663389F /* RHPreferencesWindowController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD3AE719FDE0C490646CA3E416EA720E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B68CC68BCD794BEB3D9BF1AEC46E491 /* StartAtLoginController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		2CD3F2A4EA1E4AECB9A7744A7B612941 /* WebViewJavascriptBridge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9486CFB1B75A4A77405085F9BCC95C09 /* Build configuration list for PBXNativeTarget "WebViewJavascriptBridge" */;
+			buildPhases = (
+				CAABD3BD4EC6F77064E2D595609FCA85 /* Sources */,
+				4D8BB006D1CA179BB186E782687AA0F9 /* Frameworks */,
+				40ED6FADF4979BE4546095303CC0C557 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WebViewJavascriptBridge;
+			productName = WebViewJavascriptBridge;
+			productReference = F80D88A4642E370B65B7348070ED9425 /* libWebViewJavascriptBridge.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		6C863F6C9AB214C752194D5A06B943DB /* MASShortcut */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38809F9F9BB800C6E5FA6E2822BB8F7A /* Build configuration list for PBXNativeTarget "MASShortcut" */;
@@ -416,24 +514,7 @@
 			);
 			name = MASShortcut;
 			productName = MASShortcut;
-			productReference = 41508B2FEF4574930C8AD8B4233032EC /* libMASShortcut.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		7C6AA09CF9DDE0EB36F3AB6C3B3771A2 /* RHPreferences */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 86DB641ACB2A471162143703EB451AFD /* Build configuration list for PBXNativeTarget "RHPreferences" */;
-			buildPhases = (
-				6E1C791F810B165D65FDDD1FC16B0DC1 /* Sources */,
-				13D03737D33658E921F723C117A39B0D /* Frameworks */,
-				FEEDAA1032FB4817C1960D1FD1532142 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = RHPreferences;
-			productName = RHPreferences;
-			productReference = F7A4670EE62343C86CCA25B707B64B96 /* libRHPreferences.a */;
+			productReference = 65E6B1F683E96B063813B6ADB25E5F58 /* libMASShortcut.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		B0267AE73E97C7576F08F4911FEFECD5 /* ISO8601DateFormatter */ = {
@@ -450,16 +531,54 @@
 			);
 			name = ISO8601DateFormatter;
 			productName = ISO8601DateFormatter;
-			productReference = 72E9C06F109A55C3D07D4650ABBBB9A3 /* libISO8601DateFormatter.a */;
+			productReference = 855B12943ECD6177AAD36396C30528D4 /* libISO8601DateFormatter.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		C5924C338BFC3FD069C1E8171EA21B28 /* StartAtLoginController */ = {
+		BA8C63DC1F2001BD8FCF3128DD015C9F /* Pods-quark-shell */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93799AFD06C102354FD495EF73B77FF9 /* Build configuration list for PBXNativeTarget "StartAtLoginController" */;
+			buildConfigurationList = 0B3E5210C2872F358BB1D26E957AABB9 /* Build configuration list for PBXNativeTarget "Pods-quark-shell" */;
 			buildPhases = (
-				67C85C5F6C3C944A1EA725B3CB6C3F90 /* Sources */,
-				021210B0918D9ED86187BC9307CBCBEA /* Frameworks */,
-				50A1988656C702905498FE0315C7A0D1 /* Headers */,
+				D052FC7286ED4290D70B2D99A00F8F6F /* Sources */,
+				32DC1C17E8FFE5DE9CDC1128799AD387 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5D0ECE9F485900871CCE03FAE3DB1C7B /* PBXTargetDependency */,
+				01A187221F343BBEFE49E284B9246A5D /* PBXTargetDependency */,
+				8E63B7398A2E57BA05A31E3D6E2F683B /* PBXTargetDependency */,
+				CE8B0C5DCA326E0E8CB5C02157C0B3DB /* PBXTargetDependency */,
+				88DBD7B98B71B0981EC3AC27C3D6AA8B /* PBXTargetDependency */,
+			);
+			name = "Pods-quark-shell";
+			productName = "Pods-quark-shell";
+			productReference = B2DFBF081DFDF0E45DD7520C07ECD2C9 /* libPods-quark-shell.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BC33E7E7C814AFB79D6412EEA7DA84E7 /* RHPreferences */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 396EAD206E44264AB2C49AADC3BB03E1 /* Build configuration list for PBXNativeTarget "RHPreferences" */;
+			buildPhases = (
+				440068E9D7AB2112EFCB47706FA0BE66 /* Sources */,
+				3D2ECDD8D4B24F7B4821BED3BBCEE1C1 /* Frameworks */,
+				CCD4AB1E0729E9301411F45B5600A590 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RHPreferences;
+			productName = RHPreferences;
+			productReference = F5E95E6322999FBD6C7FF12EBA7F421C /* libRHPreferences.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		ECCCB42E94B9425098451F868F013C54 /* StartAtLoginController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 497F04E1E9A28CD279FD0F9C0BE2234C /* Build configuration list for PBXNativeTarget "StartAtLoginController" */;
+			buildPhases = (
+				A9EB347B62BC2FB5887F32D706C63B1B /* Sources */,
+				0529A2EAFF13066EC933C13943C180FD /* Frameworks */,
+				CD3AE719FDE0C490646CA3E416EA720E /* Headers */,
 			);
 			buildRules = (
 			);
@@ -467,27 +586,7 @@
 			);
 			name = StartAtLoginController;
 			productName = StartAtLoginController;
-			productReference = 8FE268C5E761638217F12558CB4C7FC2 /* libStartAtLoginController.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		F125E6D7BD01854BD293208264F7DBF3 /* Pods */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 537524243F5BBF761176D824FE0A9A90 /* Build configuration list for PBXNativeTarget "Pods" */;
-			buildPhases = (
-				A306725A2B08C492DD48EBB201D1D296 /* Sources */,
-				8DA9E1F85104D385B5825CB7DA52ABC8 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E2E00CBAC5346AFAF0C83C699CABE7D5 /* PBXTargetDependency */,
-				63507F2EBA6E8EFB2E8CCC48117546C8 /* PBXTargetDependency */,
-				0E3781B94A40CFC48F5D6EC9A2419389 /* PBXTargetDependency */,
-				DB0501F9836929C91C4F16813A29076E /* PBXTargetDependency */,
-			);
-			name = Pods;
-			productName = Pods;
-			productReference = 149C90B5BA7CF3518448B5A9E92F07A2 /* libPods.a */;
+			productReference = DCEA2E8AEC343781583BD22506B4B438 /* libStartAtLoginController.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -496,7 +595,7 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -507,15 +606,16 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 98CFD55139BB3CE875D7AA5B7AD48505 /* Products */;
+			productRefGroup = 6F4BFBF5D79E56F1CF94B89FB59CDA25 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				B0267AE73E97C7576F08F4911FEFECD5 /* ISO8601DateFormatter */,
 				6C863F6C9AB214C752194D5A06B943DB /* MASShortcut */,
-				F125E6D7BD01854BD293208264F7DBF3 /* Pods */,
-				7C6AA09CF9DDE0EB36F3AB6C3B3771A2 /* RHPreferences */,
-				C5924C338BFC3FD069C1E8171EA21B28 /* StartAtLoginController */,
+				BA8C63DC1F2001BD8FCF3128DD015C9F /* Pods-quark-shell */,
+				BC33E7E7C814AFB79D6412EEA7DA84E7 /* RHPreferences */,
+				ECCCB42E94B9425098451F868F013C54 /* StartAtLoginController */,
+				2CD3F2A4EA1E4AECB9A7744A7B612941 /* WebViewJavascriptBridge */,
 			);
 		};
 /* End PBXProject section */
@@ -530,12 +630,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		67C85C5F6C3C944A1EA725B3CB6C3F90 /* Sources */ = {
+		440068E9D7AB2112EFCB47706FA0BE66 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB7FEF0AAD1FF10AC43284902960205E /* StartAtLoginController-dummy.m in Sources */,
-				2CB1FC886CB95D82C6790C2A97A82B40 /* StartAtLoginController.m in Sources */,
+				C2BCC6D89C731E05A6FA021E273179EA /* RHPreferences-dummy.m in Sources */,
+				232A85F5668F85CC863EF7A9C5EB7806 /* RHPreferencesWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,116 +652,85 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6E1C791F810B165D65FDDD1FC16B0DC1 /* Sources */ = {
+		A9EB347B62BC2FB5887F32D706C63B1B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A1790ABA0E322C6F2DC72D98DED50E4 /* RHPreferences-dummy.m in Sources */,
-				EA5694FC59FA851D166C97256C479095 /* RHPreferencesWindowController.m in Sources */,
+				276BE92A73ACEBB6FBDB677C6DB79179 /* StartAtLoginController-dummy.m in Sources */,
+				A45C95308F93724650447321012F58BB /* StartAtLoginController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A306725A2B08C492DD48EBB201D1D296 /* Sources */ = {
+		CAABD3BD4EC6F77064E2D595609FCA85 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6D37B95FB83DC0E58A67508783E7D49 /* Pods-dummy.m in Sources */,
+				F86A1F1CA9ED89FE6D643CC25DC69E7A /* WebViewJavascriptBridge-dummy.m in Sources */,
+				53DD37407AB7C949F460B353EE4C79E7 /* WebViewJavascriptBridge.m in Sources */,
+				666474F683617399EC47ABAD21C5A5F1 /* WebViewJavascriptBridge_JS.m in Sources */,
+				E72C2B0472108257A1C54E33F0C3EC2B /* WebViewJavascriptBridgeBase.m in Sources */,
+				C0DE2E1FC64474C7900800AF86F5B10D /* WKWebViewJavascriptBridge.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D052FC7286ED4290D70B2D99A00F8F6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7137E57D11E0B725F2A937A90EA74C2 /* Pods-quark-shell-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0E3781B94A40CFC48F5D6EC9A2419389 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RHPreferences;
-			target = 7C6AA09CF9DDE0EB36F3AB6C3B3771A2 /* RHPreferences */;
-			targetProxy = C7EF06CB20507322A0D4D52B92331B02 /* PBXContainerItemProxy */;
-		};
-		63507F2EBA6E8EFB2E8CCC48117546C8 /* PBXTargetDependency */ = {
+		01A187221F343BBEFE49E284B9246A5D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MASShortcut;
 			target = 6C863F6C9AB214C752194D5A06B943DB /* MASShortcut */;
-			targetProxy = BDD34056CE5DF66182C4FFFA3E9D4EA1 /* PBXContainerItemProxy */;
+			targetProxy = E5029213AEB8EB44231F50DB086BE4A6 /* PBXContainerItemProxy */;
 		};
-		DB0501F9836929C91C4F16813A29076E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = StartAtLoginController;
-			target = C5924C338BFC3FD069C1E8171EA21B28 /* StartAtLoginController */;
-			targetProxy = 36930A6437B7105766EF0FB5180E6269 /* PBXContainerItemProxy */;
-		};
-		E2E00CBAC5346AFAF0C83C699CABE7D5 /* PBXTargetDependency */ = {
+		5D0ECE9F485900871CCE03FAE3DB1C7B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ISO8601DateFormatter;
 			target = B0267AE73E97C7576F08F4911FEFECD5 /* ISO8601DateFormatter */;
-			targetProxy = 62E9E86516A839D8D92B955909E17331 /* PBXContainerItemProxy */;
+			targetProxy = 3315DBE637FA220512EC80759AFB781F /* PBXContainerItemProxy */;
+		};
+		88DBD7B98B71B0981EC3AC27C3D6AA8B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WebViewJavascriptBridge;
+			target = 2CD3F2A4EA1E4AECB9A7744A7B612941 /* WebViewJavascriptBridge */;
+			targetProxy = 6552E1E9853B96752F3DCB1E4F19E677 /* PBXContainerItemProxy */;
+		};
+		8E63B7398A2E57BA05A31E3D6E2F683B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RHPreferences;
+			target = BC33E7E7C814AFB79D6412EEA7DA84E7 /* RHPreferences */;
+			targetProxy = 717016437144947F49EB30A76215EA5C /* PBXContainerItemProxy */;
+		};
+		CE8B0C5DCA326E0E8CB5C02157C0B3DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = StartAtLoginController;
+			target = ECCCB42E94B9425098451F868F013C54 /* StartAtLoginController */;
+			targetProxy = 39AADAFB0E68C57FD4FE32D74F2C489E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		024AF7B02246E705E369D8A835237AFB /* Debug */ = {
+		0D485120B673120F54038788B9D91341 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 06655C46DF60D81A607D9C319CB03414 /* MASShortcut.xcconfig */;
 			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXECUTABLE_PREFIX = lib;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		162DF24AA6CC8193034191B357C59741 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 356E1D8DC35DD317DB937F045086EF69 /* RHPreferences.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_PREFIX_HEADER = "Target Support Files/RHPreferences/RHPreferences-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		1E8D7E2665070FB0E9EAEFD618E03CE8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D32B3B5F605A606CC5EE42E78B34032 /* StartAtLoginController.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_PREFIX_HEADER = "Target Support Files/StartAtLoginController/StartAtLoginController-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		3AE362A82F14FE26FB63AE999DC3841C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12F46E8FCDBAE364149A90D7883AD2EB /* ISO8601DateFormatter.xcconfig */;
-			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREFIX_HEADER = "Target Support Files/ISO8601DateFormatter/ISO8601DateFormatter-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MASShortcut/MASShortcut-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -672,14 +741,20 @@
 			};
 			name = Release;
 		};
-		3F0D4BBFD2F74F621C523DE09336C4E5 /* Debug */ = {
+		0EC07801F64DA50C03421F488457C4FE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12F46E8FCDBAE364149A90D7883AD2EB /* ISO8601DateFormatter.xcconfig */;
+			baseConfigurationReference = 06655C46DF60D81A607D9C319CB03414 /* MASShortcut.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREFIX_HEADER = "Target Support Files/ISO8601DateFormatter/ISO8601DateFormatter-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MASShortcut/MASShortcut-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -690,10 +765,132 @@
 			};
 			name = Debug;
 		};
-		52D4ECB745D1C035F94BD060EE7F6605 /* Debug */ = {
+		12047A998462735DDFBA995939FE9FD6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53C34A215B9CAF7E9CBA278272FF3748 /* RHPreferences.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RHPreferences/RHPreferences-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		16828ADA0E97068F98FE7635747FB7C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DE993D1FB22DC067F802946DCCCB38E /* ISO8601DateFormatter.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ISO8601DateFormatter/ISO8601DateFormatter-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		25E8E116DC81A93C31F970334E477AC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DE993D1FB22DC067F802946DCCCB38E /* ISO8601DateFormatter.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ISO8601DateFormatter/ISO8601DateFormatter-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		26B105CEE0A4139ADD853CCAC28846D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2991B0A7300A5A4D98212F121100539E /* Pods-quark-shell.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3527ACD78F78C1C7EBD99A82A285520F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C74DDA12621AC8E51DD1FFC47D0E966 /* StartAtLoginController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/StartAtLoginController/StartAtLoginController-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4ECF5F3A7DCBE32E59B23B0C7F362504 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -707,11 +904,103 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5DC599EC8FEE1F00CFEC41A607D13085 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF1B8BBF96F6BEC33AF5E9C00AAA9624 /* Pods-quark-shell.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A07B54679CB1271836F6DD61D8B92434 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53C34A215B9CAF7E9CBA278272FF3748 /* RHPreferences.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RHPreferences/RHPreferences-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C269F16C69C874215FB299057455A930 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
@@ -724,39 +1013,26 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		6997306A09F1B49BD073D2141650D5B3 /* Release */ = {
+		C5DE1599F06F07CDAE96F08D5054107A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */;
+			baseConfigurationReference = 7B7DF90B4C9945A116C1EBD16C847868 /* WebViewJavascriptBridge.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				EXECUTABLE_PREFIX = lib;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		7A68B01BF4A981707E70EB7C17D68F04 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 97B1767101C5198125838F2A51457478 /* MASShortcut.xcconfig */;
-			buildSettings = {
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_PREFIX_HEADER = "Target Support Files/MASShortcut/MASShortcut-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/WebViewJavascriptBridge/WebViewJavascriptBridge-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -767,15 +1043,20 @@
 			};
 			name = Release;
 		};
-		83F73C6840A91108DFD9F209C46F9CD4 /* Release */ = {
+		E03FE4273D4C4D1542A355B2CDC3A5A4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D32B3B5F605A606CC5EE42E78B34032 /* StartAtLoginController.xcconfig */;
+			baseConfigurationReference = 0C74DDA12621AC8E51DD1FFC47D0E966 /* StartAtLoginController.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/StartAtLoginController/StartAtLoginController-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -786,48 +1067,20 @@
 			};
 			name = Release;
 		};
-		A070F153A04DD66F4E492261894B37FF /* Release */ = {
+		F273CF5E4C5DA08522DE9668C2B0CA7A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B7DF90B4C9945A116C1EBD16C847868 /* WebViewJavascriptBridge.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		D927B1A663C555DE69FA754649B84C20 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 97B1767101C5198125838F2A51457478 /* MASShortcut.xcconfig */;
-			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREFIX_HEADER = "Target Support Files/MASShortcut/MASShortcut-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/WebViewJavascriptBridge/WebViewJavascriptBridge-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -838,33 +1091,23 @@
 			};
 			name = Debug;
 		};
-		DCB11008F8C04217FB02F1735D8EFCF8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 356E1D8DC35DD317DB937F045086EF69 /* RHPreferences.xcconfig */;
-			buildSettings = {
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_PREFIX_HEADER = "Target Support Files/RHPreferences/RHPreferences-prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0B3E5210C2872F358BB1D26E957AABB9 /* Build configuration list for PBXNativeTarget "Pods-quark-shell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DC599EC8FEE1F00CFEC41A607D13085 /* Debug */,
+				26B105CEE0A4139ADD853CCAC28846D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				52D4ECB745D1C035F94BD060EE7F6605 /* Debug */,
-				A070F153A04DD66F4E492261894B37FF /* Release */,
+				C269F16C69C874215FB299057455A930 /* Debug */,
+				4ECF5F3A7DCBE32E59B23B0C7F362504 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -872,17 +1115,26 @@
 		38809F9F9BB800C6E5FA6E2822BB8F7A /* Build configuration list for PBXNativeTarget "MASShortcut" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D927B1A663C555DE69FA754649B84C20 /* Debug */,
-				7A68B01BF4A981707E70EB7C17D68F04 /* Release */,
+				0EC07801F64DA50C03421F488457C4FE /* Debug */,
+				0D485120B673120F54038788B9D91341 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		537524243F5BBF761176D824FE0A9A90 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		396EAD206E44264AB2C49AADC3BB03E1 /* Build configuration list for PBXNativeTarget "RHPreferences" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				024AF7B02246E705E369D8A835237AFB /* Debug */,
-				6997306A09F1B49BD073D2141650D5B3 /* Release */,
+				12047A998462735DDFBA995939FE9FD6 /* Debug */,
+				A07B54679CB1271836F6DD61D8B92434 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		497F04E1E9A28CD279FD0F9C0BE2234C /* Build configuration list for PBXNativeTarget "StartAtLoginController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3527ACD78F78C1C7EBD99A82A285520F /* Debug */,
+				E03FE4273D4C4D1542A355B2CDC3A5A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -890,26 +1142,17 @@
 		6BE723EBBD599DAAC6F54AE696E7C154 /* Build configuration list for PBXNativeTarget "ISO8601DateFormatter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3F0D4BBFD2F74F621C523DE09336C4E5 /* Debug */,
-				3AE362A82F14FE26FB63AE999DC3841C /* Release */,
+				25E8E116DC81A93C31F970334E477AC7 /* Debug */,
+				16828ADA0E97068F98FE7635747FB7C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		86DB641ACB2A471162143703EB451AFD /* Build configuration list for PBXNativeTarget "RHPreferences" */ = {
+		9486CFB1B75A4A77405085F9BCC95C09 /* Build configuration list for PBXNativeTarget "WebViewJavascriptBridge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				162DF24AA6CC8193034191B357C59741 /* Debug */,
-				DCB11008F8C04217FB02F1735D8EFCF8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		93799AFD06C102354FD495EF73B77FF9 /* Build configuration list for PBXNativeTarget "StartAtLoginController" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1E8D7E2665070FB0E9EAEFD618E03CE8 /* Debug */,
-				83F73C6840A91108DFD9F209C46F9CD4 /* Release */,
+				F273CF5E4C5DA08522DE9668C2B0CA7A /* Debug */,
+				C5DE1599F06F07CDAE96F08D5054107A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

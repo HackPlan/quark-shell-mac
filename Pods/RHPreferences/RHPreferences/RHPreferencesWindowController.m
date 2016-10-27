@@ -31,7 +31,7 @@
 #import "RHPreferencesWindowController.h"
 
 static NSString * const RHPreferencesWindowControllerSelectedItemIdentifier = @"RHPreferencesWindowControllerSelectedItemIdentifier";
-static const CGFloat RHPreferencesWindowControllerResizeAnimationDurationPer100Pixels = 0.05f;
+static const CGFloat RHPreferencesWindowControllerResizeAnimationDurationPer100Pixels = 0.13f;
 
 #pragma mark - Custom Item Placeholder Controller
 @interface RHPreferencesCustomPlaceholderController : NSObject <RHPreferencesViewControllerProtocol> {
