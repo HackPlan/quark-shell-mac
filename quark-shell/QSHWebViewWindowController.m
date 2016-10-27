@@ -24,6 +24,8 @@
     [_webView setAutoresizingMask:(NSViewHeightSizable | NSViewWidthSizable)];
     _webView.configuration.preferences._developerExtrasEnabled = YES;
     [contentView addSubview:_webView];
+    
+    _webView.parentWindow = self.window.windowController;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

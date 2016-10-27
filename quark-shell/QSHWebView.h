@@ -9,6 +9,8 @@
 #import <WebKit/WebKit.h>
 #import "WKWebViewJavascriptBridge.h"
 
+@class QSHWebViewWindowController;
+
 @interface WKPreferences (WKPrivate)
 @property (nonatomic, setter=_setDeveloperExtrasEnabled:) BOOL _developerExtrasEnabled;
 @end
@@ -16,5 +18,6 @@
 @interface QSHWebView : WKWebView
 
 @property (nonatomic, strong) WKWebViewJavascriptBridge *bridge;
+@property (nonatomic) QSHWebViewWindowController *parentWindow;
 
 @end

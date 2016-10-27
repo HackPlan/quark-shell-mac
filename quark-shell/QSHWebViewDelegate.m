@@ -61,7 +61,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     if (isMain){
         webDelegate.mainBridge = _WKBridge;
     }
-    
+
     [_WKBridge registerHandler:@"quark" handler:^(id data, WVJBResponseCallback responseCallback) {
         if ([data isKindOfClass:[NSDictionary class]]) {
             NSLog(@"Trigger method: %@ from JS", data[@"method"]);
@@ -71,7 +71,11 @@ static const NSInteger kPreferencesDefaultHeight = 192;
                 method = NSSelectorFromString([data[@"method"] stringByAppendingString:@":"]);
             }
             if (![QSHWebViewDelegate isSelectorExcludedFromWebScript: method]) {
-                [webDelegate performSelector:method withObject: args];
+                if (method == NSSelectorFromString(@"closeWindow:") ){
+                    [webDelegate performSelector:method withObject: webview.parentWindow];
+                } else {
+                    [webDelegate performSelector:method withObject: args];
+                }
             }
         }
         responseCallback(@"Response from testObjcCallback");
@@ -107,7 +111,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(openPreferences) ||
         selector == @selector(closePreferences) ||
         selector == @selector(newWindow:) ||
-//        selector == @selector(closeWindow) ||
+        selector == @selector(closeWindow:) ||
         selector == @selector(pin) ||
         selector == @selector(unpin) ||
         selector == @selector(checkUpdate:) ||
@@ -462,9 +466,9 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [webViewWindowController showWindow:nil];
 }
 
-- (void)closeWindow
+- (void)closeWindow:(NSWindowController *)window
 {
-//    [self.webViewWindowController close];
+    [window close];
 }
 
 - (void)pin

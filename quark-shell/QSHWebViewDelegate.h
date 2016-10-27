@@ -10,9 +10,9 @@
 #import <WebKit/WebKit.h>
 #import "QSHStatusItemView.h"
 #import "QSHAppDelegate.h"
-#import "QSHWebView.h"
 #import "WKWebViewJavascriptBridge.h"
 
+@class QSHWebView;
 @class QSHWebViewWindowController;
 
 @interface QSHWebViewDelegate : NSObject <WKNavigationDelegate, WKUIDelegate>

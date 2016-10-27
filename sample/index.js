@@ -104,6 +104,10 @@ function notify(options){
     bridge.callHandler('quark', {'method': 'notify', 'args': [options]})
 }
 
+function closeWindow(options){
+    bridge.callHandler('quark', {'method': 'closeWindow', 'args': [0]})
+}
+
 function emit(options){
     bridge.callHandler('quark', {'method': 'emitMessage', 'args': [options]})
 }
