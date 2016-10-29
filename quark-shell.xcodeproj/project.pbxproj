@@ -34,6 +34,7 @@
 		1AFBA8BA19483E4900BEDA0A /* QSHPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFBA8B819483E4900BEDA0A /* QSHPreferencesViewController.m */; };
 		1AFBA8BB19483E4900BEDA0A /* QSHPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFBA8B919483E4900BEDA0A /* QSHPreferencesViewController.xib */; };
 		8AA4F6FC1DC1D68600F9C793 /* QSHWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4F6FB1DC1D68600F9C793 /* QSHWebView.m */; };
+		8AC4ABDE1DC48AAD0026D522 /* Quark.js in Resources */ = {isa = PBXBuildFile; fileRef = 8AC4ABDD1DC48AAD0026D522 /* Quark.js */; };
 		9118E5937926C55B468AC86C /* libPods-quark-shell.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92906357BD95D526FFB4245E /* libPods-quark-shell.a */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +121,7 @@
 		6A4D4DE7AE621F1D463C1846 /* Pods-quark-shell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quark-shell.debug.xcconfig"; path = "Pods/Target Support Files/Pods-quark-shell/Pods-quark-shell.debug.xcconfig"; sourceTree = "<group>"; };
 		8AA4F6FA1DC1D68600F9C793 /* QSHWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWebView.h; sourceTree = "<group>"; };
 		8AA4F6FB1DC1D68600F9C793 /* QSHWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSHWebView.m; sourceTree = "<group>"; };
+		8AC4ABDD1DC48AAD0026D522 /* Quark.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Quark.js; sourceTree = "<group>"; tabWidth = 4; };
 		92906357BD95D526FFB4245E /* libPods-quark-shell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-quark-shell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -222,10 +224,11 @@
 				1AA896721964FB1800E4FDAC /* QSHWebViewWindowController.xib */,
 				1A9A456C1A1C93C600C98589 /* NSWindow+Fade.h */,
 				1A9A456D1A1C93C600C98589 /* NSWindow+Fade.m */,
+				8AC4ABDD1DC48AAD0026D522 /* Quark.js */,
 				1A91F9FA18E2530B00AA8B7E /* Images.xcassets */,
-				1A91F9E918E2530B00AA8B7E /* Supporting Files */,
 				8AA4F6FA1DC1D68600F9C793 /* QSHWebView.h */,
 				8AA4F6FB1DC1D68600F9C793 /* QSHWebView.m */,
+				1A91F9E918E2530B00AA8B7E /* Supporting Files */,
 			);
 			path = "quark-shell";
 			sourceTree = "<group>";
@@ -368,7 +371,7 @@
 			attributes = {
 				CLASSPREFIX = QSH;
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = Hackplan;
+				ORGANIZATIONNAME = HackPlan;
 				TargetAttributes = {
 					1A91F9DE18E2530B00AA8B7E = {
 						DevelopmentTeam = 7676B49VAW;
@@ -422,6 +425,7 @@
 				1A91F9F318E2530B00AA8B7E /* Credits.rtf in Resources */,
 				1AA896741964FB1800E4FDAC /* QSHWebViewWindowController.xib in Resources */,
 				1AFBA8BB19483E4900BEDA0A /* QSHPreferencesViewController.xib in Resources */,
+				8AC4ABDE1DC48AAD0026D522 /* Quark.js in Resources */,
 				1A91F9F918E2530B00AA8B7E /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

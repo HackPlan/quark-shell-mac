@@ -2,8 +2,8 @@
 //  QSHWebView.h
 //  quark-shell
 //
-//  Created by 孙亮 on 27/10/2016.
-//  Copyright © 2016 Hackplan. All rights reserved.
+//  Created by Sun Liang on 27/10/2016.
+//  Copyright © 2016 HackPlan. All rights reserved.
 //
 
 #import <WebKit/WebKit.h>
@@ -19,5 +19,7 @@
 
 @property (nonatomic, strong) WKWebViewJavascriptBridge *bridge;
 @property (nonatomic) QSHWebViewWindowController *parentWindow;
+
++ (WKWebViewConfiguration *)webViewConfiguration;
 
 @end
