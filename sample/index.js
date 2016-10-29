@@ -138,6 +138,21 @@ onQuarkLoaded = function () {
     quark.notify({title: 'Quark Shell', content: 'Hello World', popupOnClick: true});
 }
 
+function showConfirm() {
+  var content;
+  if (confirm('Quark Shell rocks!')){
+    content = "YES"
+  } else {
+    content = "NO"
+  }
+  quark.notify({title: 'Quark Shell', content: content, popupOnClick: true})
+}
+
+function showPrompt() {
+  var content = prompt('What do you say:');
+  quark.notify({title: 'Quark Shell', content: content, popupOnClick: true})
+}
+
 function setIcon() {
     var iconCanvas = document.getElementById('icon')
     iconCanvas.width = 40

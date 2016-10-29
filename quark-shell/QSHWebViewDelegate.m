@@ -471,7 +471,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 #pragma mark - Delegate methods
 
-- (void)webView:(WebView *)webView addMessageToConsole:(NSDictionary *)message
+- (void)webView:(WKWebView *)webView addMessageToConsole:(NSDictionary *)message
 {
 	if (![message isKindOfClass:[NSDictionary class]]) {
 		return;
@@ -483,17 +483,19 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 		  message[@"message"]);
 }
 
-- (void)webView:(WebView *)sender runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame
+- (void)webView:(QSHWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler
 {
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"OK"];
     alert.messageText = message;
     alert.alertStyle = NSWarningAlertStyle;
-
+    
     [alert runModal];
+    completionHandler();
 }
 
-- (BOOL)webView:(WebView *)sender runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame
+- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL result))completionHandler;
+
 {
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"Yes"];
@@ -502,11 +504,48 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     alert.alertStyle = NSWarningAlertStyle;
 
     if ([alert runModal] == NSAlertFirstButtonReturn) {
-        return YES;
+        completionHandler(YES);
     }
     else {
-        return NO;
+        completionHandler(NO);
     }
+}
+
+- (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)message defaultText:(nullable NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString * __nullable result))completionHandler
+{
+    NSArray *components = [message componentsSeparatedByString: @"::"];
+    message = (NSString*) [components objectAtIndex:0];
+    NSString *okText = nil;
+    NSString *cancelText = nil;
+    if ([components count] > 1) {
+        okText = (NSString*) [components objectAtIndex:1];
+        @try{
+            cancelText = (NSString*) [components objectAtIndex:2];
+        } @catch (NSException * e) {
+            NSLog(@"Exception: %@", e);
+        }
+    }
+    if (okText.length < 1) {
+        okText = NSLocalizedString(@"OK", @"");
+    }
+    
+    NSAlert *alert = [[NSAlert alloc] init];
+    
+    [alert addButtonWithTitle: okText];
+    [alert addButtonWithTitle: cancelText];
+    [alert setMessageText:message];
+    NSTextField* input = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 300, 24)];
+    [input setStringValue:defaultText];
+    [alert setAccessoryView:input];
+    
+    NSInteger button = [alert runModal];
+    if (button == NSAlertFirstButtonReturn) {
+        [input validateEditing];
+        return completionHandler([input stringValue]);
+    }
+    
+    completionHandler(nil);
+
 }
 
 // Enable <input type="file">
@@ -522,21 +561,6 @@ static const NSInteger kPreferencesDefaultHeight = 192;
             [resultListener chooseFilename:fileURL.relativePath];
         }
     }];
-}
-
-// Enable WebSQL: http://stackoverflow.com/questions/353808/implementing-a-webview-database-quota-delegate
-- (void)webView:(WebView *)sender frame:(WebFrame *)frame exceededDatabaseQuotaForSecurityOrigin:(id)origin database:(NSString *)databaseIdentifier
-{
-    static const unsigned long long defaultQuota = 5 * 1024 * 1024;
-    #pragma clang diagnostic push
-    #pragma clang diagnostic ignored "-Wundeclared-selector"
-    if ([origin respondsToSelector:@selector(setQuota:)]) {
-        [origin performSelector:@selector(setQuota:) withObject:@(defaultQuota)];
-    }
-    #pragma clang diagnostic pop
-    else {
-        NSLog(@"Could not increase quota for %lld", defaultQuota);
-    }
 }
 
 #pragma mark WebPolicyDelegate
