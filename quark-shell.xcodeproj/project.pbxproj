@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1A42764A19196B6F00815DC6 /* QSHWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A42764919196B6F00815DC6 /* QSHWindow.m */; };
-		1A42D2CA194C2C620091F581 /* QSHWebScriptObjectConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A42D2C9194C2C620091F581 /* QSHWebScriptObjectConverter.m */; };
 		1A82DE5B1903B095006AB37F /* QSHWindowBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A82DE5A1903B095006AB37F /* QSHWindowBorderView.m */; };
 		1A91F9E318E2530B00AA8B7E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91F9E218E2530B00AA8B7E /* Cocoa.framework */; };
 		1A91F9ED18E2530B00AA8B7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A91F9EB18E2530B00AA8B7E /* InfoPlist.strings */; };
@@ -74,8 +73,6 @@
 		1A05BC371B0D8A0B00E5BCED /* quark-shell.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "quark-shell.entitlements"; sourceTree = "<group>"; };
 		1A42764819196B6F00815DC6 /* QSHWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWindow.h; sourceTree = "<group>"; };
 		1A42764919196B6F00815DC6 /* QSHWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSHWindow.m; sourceTree = "<group>"; };
-		1A42D2C8194C2C620091F581 /* QSHWebScriptObjectConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWebScriptObjectConverter.h; sourceTree = "<group>"; };
-		1A42D2C9194C2C620091F581 /* QSHWebScriptObjectConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = QSHWebScriptObjectConverter.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1A75781C19B9A261002A9886 /* app */ = {isa = PBXFileReference; lastKnownFileType = folder; path = app; sourceTree = "<group>"; };
 		1A82DE591903B095006AB37F /* QSHWindowBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWindowBorderView.h; sourceTree = "<group>"; };
 		1A82DE5A1903B095006AB37F /* QSHWindowBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSHWindowBorderView.m; sourceTree = "<group>"; };
@@ -121,7 +118,7 @@
 		6A4D4DE7AE621F1D463C1846 /* Pods-quark-shell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quark-shell.debug.xcconfig"; path = "Pods/Target Support Files/Pods-quark-shell/Pods-quark-shell.debug.xcconfig"; sourceTree = "<group>"; };
 		8AA4F6FA1DC1D68600F9C793 /* QSHWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWebView.h; sourceTree = "<group>"; };
 		8AA4F6FB1DC1D68600F9C793 /* QSHWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSHWebView.m; sourceTree = "<group>"; };
-		8AC4ABDD1DC48AAD0026D522 /* Quark.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Quark.js; sourceTree = "<group>"; tabWidth = 4; };
+		8AC4ABDD1DC48AAD0026D522 /* Quark.js */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.javascript; path = Quark.js; sourceTree = "<group>"; tabWidth = 4; };
 		92906357BD95D526FFB4245E /* libPods-quark-shell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-quark-shell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -204,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				1A05BC371B0D8A0B00E5BCED /* quark-shell.entitlements */,
-				1AA896751965089700E4FDAC /* Utils */,
 				1A91F9F418E2530B00AA8B7E /* QSHAppDelegate.h */,
 				1A91F9F518E2530B00AA8B7E /* QSHAppDelegate.m */,
 				1A91F9F718E2530B00AA8B7E /* MainMenu.xib */,
@@ -261,15 +257,6 @@
 				1A91FA0918E2530C00AA8B7E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1AA896751965089700E4FDAC /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				1A42D2C8194C2C620091F581 /* QSHWebScriptObjectConverter.h */,
-				1A42D2C9194C2C620091F581 /* QSHWebScriptObjectConverter.m */,
-			);
-			name = Utils;
 			sourceTree = "<group>";
 		};
 		1ADE93531B0F093E00D69828 /* quark-shell-helper */ = {
@@ -520,7 +507,6 @@
 				1AFBA8BA19483E4900BEDA0A /* QSHPreferencesViewController.m in Sources */,
 				1A91F9F618E2530B00AA8B7E /* QSHAppDelegate.m in Sources */,
 				1AA896731964FB1800E4FDAC /* QSHWebViewWindowController.m in Sources */,
-				1A42D2CA194C2C620091F581 /* QSHWebScriptObjectConverter.m in Sources */,
 				1A91F9EF18E2530B00AA8B7E /* main.m in Sources */,
 				1A82DE5B1903B095006AB37F /* QSHWindowBorderView.m in Sources */,
 				1AF6371E18E9FF430099B508 /* QSHWebViewDelegate.m in Sources */,

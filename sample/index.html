@@ -71,18 +71,18 @@
 
   <div class="button">
     <p>
-      <button onclick="notify({title: 'Quark Shell', content: 'Hello World', popupOnClick: true})">Notify</button>
-      <button onclick="emit({title: 'close'})">Close Popup</button>
-      <button onclick="newWindow({url: 'about.html', width: 600, height: 400, x: 'center', y: 'center'})">New Window</button>
+      <button onclick="quark.notify({title: 'Quark Shell', content: 'Hello World', popupOnClick: true})">Notify</button>
+      <button onclick="quark.closePopup()">Close Popup</button>
+      <button onclick="quark.newWindow({url: 'about.html', width: 600, height: 400, x: 'center', y: 'center'})">New Window</button>
     </p>
     <p>
-      <button onclick="openPreferences()">Preferences</button>
-      <button onclick="quark.openURL('https://github.com/xhacker')">Open URL</button>
+      <button onclick="quark.openPreferences()">Preferences</button>
+      <button onclick="quark.openURL('https://github.com/hackplan')">Open URL</button>
       <button onclick="quark.checkUpdate('https://rawgit.com/HackPlan/quark-shell-mac/master/updater/SampleAppcast.xml')">Check Update</button>
     </p>
     <p>
       <button onclick="setIcon()">Set Icon</button>
-      <button onclick="quark.setLabel('03:14 AM 喵')">Set Label</button>
+      <button onclick="quark.changeLabel('03:14 AM 喵')">Set Label</button>
       <button id="show-menu">Show Menu</button>
     </p>
     <p>

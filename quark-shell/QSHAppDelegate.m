@@ -28,11 +28,6 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // TODO: bundle identifier should be generated from manifest.json
-    NSString *bundleIdentifier = [[NSBundle mainBundle] infoDictionary][@"CFBundleIdentifier"];
-    NSString *applicationSupportFile = [@"~/Library/Application Support/" stringByExpandingTildeInPath];
-    NSString *savePath = [NSString pathWithComponents:@[applicationSupportFile, bundleIdentifier, @"LocalStorage"]];
-    
     self.webViewDelegate = [[QSHWebViewDelegate alloc] init];
     
     [self setupStatusItemAndWindow];

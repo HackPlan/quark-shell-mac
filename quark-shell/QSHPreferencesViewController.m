@@ -7,7 +7,6 @@
 //
 
 #import "QSHPreferencesViewController.h"
-#import "QSHWebScriptObjectConverter.h"
 #import <MASShortcutView.h>
 #import <MASShortcut.h>
 

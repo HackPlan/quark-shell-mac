@@ -8,7 +8,6 @@
 
 #import "QSHWebViewDelegate.h"
 #import "QSHPreferencesViewController.h"
-#import "QSHWebScriptObjectConverter.h"
 #import "QSHWebViewWindowController.h"
 #import <MASShortcut+Monitoring.h>
 #import <RHPreferences.h>
@@ -124,62 +123,6 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     return YES;
 }
 
-+ (NSString *)webScriptNameForSelector:(SEL)selector
-{
-    id result = nil;
-
-    if (selector == @selector(resizePopup:)) {
-        result = @"resizePopup";
-    }
-    else if (selector == @selector(notify:)) {
-        result = @"notify";
-    }
-    else if (selector == @selector(changeIcon:)) {
-        result = @"setMenubarIcon";
-    }
-    else if (selector == @selector(changeHighlightedIcon:)) {
-        result = @"setMenubarHighlightedIcon";
-    }
-    else if (selector == @selector(changeClickAction:)) {
-        result = @"setClickAction";
-    }
-    else if (selector == @selector(changeSecondaryClickAction:)) {
-        result = @"setSecondaryClickAction";
-    }
-    else if (selector == @selector(changeLabel:)) {
-        result = @"setLabel";
-    }
-    else if (selector == @selector(openURL:)) {
-        result = @"openURL";
-    }
-    else if (selector == @selector(addKeyboardShortcut:)) {
-        result = @"addKeyboardShortcut";
-    }
-    else if (selector == @selector(setupPreferences:)) {
-        result = @"setupPreferences";
-    }
-    else if (selector == @selector(newWindow:)) {
-        result = @"newWindow";
-    }
-    else if (selector == @selector(checkUpdate:)) {
-        result = @"checkUpdate";
-    }
-    else if (selector == @selector(checkUpdateInBackground:)) {
-        result = @"checkUpdateInBackground";
-    }
-    else if (selector == @selector(emitMessage:)) {
-        result = @"emit";
-    }
-    else if (selector == @selector(showMenu:)) {
-        result = @"showMenu";
-    }
-    else if (selector == @selector(setLaunchAtLogin:)) {
-        result = @"setLaunchAtLogin";
-    }
-
-    return result;
-}
-
 + (BOOL)isKeyExcludedFromWebScript:(const char *)name
 {
     if (strncmp(name, "appVersion", 10) == 0 ||
@@ -224,8 +167,9 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [NSApp terminate:nil];
 }
 
-- (void)openURL:(NSString *)url
+- (void)openURL:(NSArray *)args
 {
+    NSString *url = args[0];
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
 }
 
@@ -236,29 +180,25 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     NSImage *icon = [[NSImage alloc] initWithData:data];
     icon.size = NSMakeSize(20, 20);
 
-    if (IS_PRIOR_TO_10_9) {
-        self.statusItemView.icon = icon;
-    }
-    else {
-        [icon setTemplate:YES];
-        self.statusItem.button.image = icon;
-    }
+    [icon setTemplate:YES];
+    self.statusItem.button.image = icon;
 }
 
-- (void)changeHighlightedIcon:(NSString *)base64
+- (void)changeHighlightedIcon:(NSArray *)args
 {
+    NSString *base64 = args[0];
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:base64]];
     NSImage *icon = [[NSImage alloc] initWithData:data];
     self.statusItemView.highlightedIcon = icon;
 }
 
-- (void)changeClickAction:(WebScriptObject *)callback
+- (void)changeClickAction:(NSArray *)args
 {
     self.appDelegate.clickCallback = ^{
     };
 }
 
-- (void)changeSecondaryClickAction:(WebScriptObject *)callback
+- (void)changeSecondaryClickAction:(NSArray *)args
 {
     self.appDelegate.secondaryClickCallback = ^{
     };
@@ -277,26 +217,24 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     }
 }
 
-- (void)changeLabel:(NSString *)label
+- (void)changeLabel:(NSArray *)args
 {
+    NSString *label = args[0];
     NSDictionary *barTextAttributes;
-    if (IS_PRIOR_TO_10_9) {
-        self.statusItemView.label = label;
-        barTextAttributes = @{NSFontAttributeName: MENUBAR_FONT};
+    self.statusItem.title = label;
+    if (!IS_PRIOR_TO_10_10) {
+        self.statusItem.button.font = MENUBAR_FONT_10_11;
     }
-    else {
-        self.statusItem.title = label;
-        if (!IS_PRIOR_TO_10_10) {
-            self.statusItem.button.font = MENUBAR_FONT_10_11;
-        }
-        barTextAttributes = @{NSFontAttributeName: self.statusItem.button.font};
-    }
+    barTextAttributes = @{NSFontAttributeName: self.statusItem.button.font};
+
     // 20 is image width, 10 is extra margin
     self.statusItem.length = 20 + [label sizeWithAttributes:barTextAttributes].width + 10;
 }
 
-- (void)setLaunchAtLogin:(BOOL)launchAtLogin
+- (void)setLaunchAtLogin:(NSArray *)args
 {
+    BOOL launchAtLogin = args[0];
+    
     StartAtLoginController *loginController = [[StartAtLoginController alloc] initWithIdentifier:@"com.hackplan.quark-shell-helper"];
     loginController.startAtLogin = launchAtLogin;
 }
@@ -350,8 +288,9 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [[NSUserNotificationCenter defaultUserNotificationCenter] removeDeliveredNotification:notification];
 }
 
-- (void)addKeyboardShortcut:(WebScriptObject *)shortcutObj
+- (void)addKeyboardShortcut:(NSArray *)args
 {
+    NSDictionary* shortcutObj = args[0];
     NSUInteger keycode = [[shortcutObj valueForKey:@"keycode"] integerValue];
     NSUInteger flags = [[shortcutObj valueForKey:@"modifierFlags"] integerValue];
 
@@ -361,12 +300,11 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         return;
     }
 
-    WebScriptObject *callback = [shortcutObj valueForKey:@"callback"];
+    NSString *callbackId = [shortcutObj valueForKey:@"callback"];
     MASShortcut *shortcut = [MASShortcut shortcutWithKeyCode:keycode modifierFlags:flags];
     [MASShortcut removeGlobalHotkeyMonitor:shortcut.description];
     [MASShortcut addGlobalHotkeyMonitorWithShortcut:shortcut handler:^{
-        QSHWebScriptObjectConverter *converter = [[QSHWebScriptObjectConverter alloc] initWithWebView:self.webView];
-        [converter callFunction:callback];
+        [self.mainBridge callHandler:@"onQuarkShortcut" data:callbackId];
     }];
 }
 
@@ -497,7 +435,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [bridges addObject:self.mainBridge];
     
     for (WKWebViewJavascriptBridge *b in bridges) {
-        [b callHandler:@"onQuarkMessages" data:arg[0]];
+        [b callHandler:@"onQuarkMessage" data:arg[0]];
     }
 }
 

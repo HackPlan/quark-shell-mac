@@ -84,26 +84,24 @@
 $(function() {
   $("#toggle-pin").click(function() {
                          if ($(this).html() == "Pin") {
-                         pin()
+                         quark.pin()
                          $(this).html("Unpin")
                          }
                          else {
-                         unpin()
+                         quark.unpin()
                          $(this).html("Pin")
                          }
                          });
   $("#show-menu").click(function(event) {
-                        bridge.callHandler('quark', {
-                            'method': 'showMenu',
-                            'args': [{
-                                items: [
-                                        {label: "Test", click: function() { console.log("I am completely operational") } },
-                                        {type: "separator"},
-                                        {label: "Exit", click: function() { console.log("LIFE FUNCTION TERMINATED") } }
-                                        ],
-                                x: event.clientX,
-                                y: event.clientY
-                                }]});
+                        quark.showMenu({
+                                       items: [
+                                               {label: "Test", click: function() { console.log("I am completely operational") } },
+                                               {type: "separator"},
+                                               {label: "Exit", click: function() { console.log("LIFE FUNCTION TERMINATED") } }
+                                               ],
+                                       x: event.clientX,
+                                       y: event.clientY
+                                       });
                         });
   });
 
@@ -138,4 +136,24 @@ function setupPref(){
 
 onQuarkLoaded = function () {
     quark.notify({title: 'Quark Shell', content: 'Hello World', popupOnClick: true});
+}
+
+function setIcon() {
+    var iconCanvas = document.getElementById('icon')
+    iconCanvas.width = 40
+    iconCanvas.height = 40
+    var iconCtx = iconCanvas.getContext('2d')
+    iconCtx.fillRect(6, 8, 28, 28)
+    iconCtx.clearRect(12, 14, 16, 16)
+
+    var highlightedIconCanvas = document.getElementById('highlighted-icon')
+    highlightedIconCanvas.width = 40
+    highlightedIconCanvas.height = 40
+    var highlightedIconCtx = highlightedIconCanvas.getContext('2d')
+    highlightedIconCtx.fillStyle = "white"
+    highlightedIconCtx.fillRect(6, 8, 28, 28)
+    highlightedIconCtx.clearRect(12, 14, 16, 16)
+
+    quark.changeIcon(iconCanvas.toDataURL())
+    quark.changeHighlightedIcon(highlightedIconCanvas.toDataURL())
 }
