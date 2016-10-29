@@ -9,5 +9,8 @@
 #import <Cocoa/Cocoa.h>
 
 @interface QSHWindowBorderView : NSView
+@property (nonatomic, assign) CGFloat arrowMidX;
+
+- (NSRect)innerFrame;
 
 @end

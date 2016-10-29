@@ -20,7 +20,6 @@
 		1A91FA0318E2530B00AA8B7E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91F9E218E2530B00AA8B7E /* Cocoa.framework */; };
 		1A91FA0B18E2530C00AA8B7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A91FA0918E2530C00AA8B7E /* InfoPlist.strings */; };
 		1A91FA0D18E2530C00AA8B7E /* quark_shellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A91FA0C18E2530C00AA8B7E /* quark_shellTests.m */; };
-		1A91FA5A18E25F3C00AA8B7E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91FA5918E25F3C00AA8B7E /* WebKit.framework */; };
 		1A9A456E1A1C93C600C98589 /* NSWindow+Fade.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A456D1A1C93C600C98589 /* NSWindow+Fade.m */; };
 		1AA896731964FB1800E4FDAC /* QSHWebViewWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA896711964FB1800E4FDAC /* QSHWebViewWindowController.m */; };
 		1AA896741964FB1800E4FDAC /* QSHWebViewWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AA896721964FB1800E4FDAC /* QSHWebViewWindowController.xib */; };
@@ -34,6 +33,7 @@
 		1AFBA8BB19483E4900BEDA0A /* QSHPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFBA8B919483E4900BEDA0A /* QSHPreferencesViewController.xib */; };
 		8AA4F6FC1DC1D68600F9C793 /* QSHWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4F6FB1DC1D68600F9C793 /* QSHWebView.m */; };
 		8AC4ABDE1DC48AAD0026D522 /* Quark.js in Resources */ = {isa = PBXBuildFile; fileRef = 8AC4ABDD1DC48AAD0026D522 /* Quark.js */; };
+		8AC4ABDF1DC4D5810026D522 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A91FA5918E25F3C00AA8B7E /* WebKit.framework */; };
 		9118E5937926C55B468AC86C /* libPods-quark-shell.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92906357BD95D526FFB4245E /* libPods-quark-shell.a */; };
 /* End PBXBuildFile section */
 
@@ -127,7 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A91FA5A18E25F3C00AA8B7E /* WebKit.framework in Frameworks */,
+				8AC4ABDF1DC4D5810026D522 /* WebKit.framework in Frameworks */,
 				1A91F9E318E2530B00AA8B7E /* Cocoa.framework in Frameworks */,
 				9118E5937926C55B468AC86C /* libPods-quark-shell.a in Frameworks */,
 			);

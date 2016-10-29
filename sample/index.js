@@ -136,6 +136,7 @@ function setupPref(){
 
 onQuarkLoaded = function () {
     quark.notify({title: 'Quark Shell', content: 'Hello World', popupOnClick: true});
+    quark.pin();
 }
 
 function showConfirm() {

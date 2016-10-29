@@ -7,12 +7,16 @@
 //
 
 #import <WebKit/WebKit.h>
+#import <AppKit/AppKit.h>
 #import "QSHAppDelegate.h"
+#import "QSHWindowBorderView.h"
 #import "QSHWebView.h"
 #import "QSHWebViewDelegate.h"
 #import "QSHStatusItemView.h"
 #import "NSWindow+Fade.h"
 #import "WKWebViewJavascriptBridge.h"
+
+static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
 
 @interface QSHAppDelegate () <NSWindowDelegate>
 
@@ -61,19 +65,17 @@
     [self.window setBackgroundColor:[NSColor clearColor]];
 }
 
-- (void)_createViews {
-    NSView* contentView = _window.contentView;
-    
-    // WKWebView
-    _webView = [[QSHWebView alloc] initWithFrame:contentView.frame];
-    [_webView setAutoresizingMask:(NSViewHeightSizable | NSViewWidthSizable)];
-    _webView.configuration.preferences._developerExtrasEnabled = YES;
-    [contentView addSubview:_webView];
-}
-
 - (void)setupWebView
 {
-    [self _createViews];
+    QSHWindowBorderView *contentView = _window.contentView;
+    _webView = [[QSHWebView alloc] initWithFrame:contentView.innerFrame];
+    [_webView setAutoresizingMask:(NSViewHeightSizable | NSViewWidthSizable)];
+    _webView.configuration.preferences._developerExtrasEnabled = YES;
+    
+    [contentView addSubview:_webView];
+    // TODO: remove this, this is for debug
+    self.pinned = YES;
+    
     NSURL *URL = [NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]];
     [QSHWebViewDelegate initWebviewWithBridge:_webView url:URL webDelegate:self.webViewDelegate isMain:YES];
 }
@@ -140,12 +142,42 @@
 
 - (void)refreshStyle
 {
-    NSRect itemFrame;
-    itemFrame = self.statusItem.button.window.frame;
-
+    NSRect itemFrame, screenFrame;
+    
+    if (IS_PRIOR_TO_10_9) {
+        self.statusItemView.itemHighlighted = self.shouldBeVisible;
+        itemFrame = self.statusItem.view.window.frame;
+    }
+    else {
+        itemFrame = self.statusItem.button.window.frame;
+    }
+    
     NSRect windowFrame = self.window.frame;
-    windowFrame.origin.x = NSMidX(itemFrame) - NSWidth(windowFrame) / 2.0;
-    windowFrame.origin.y = NSMinY(itemFrame) - NSHeight(windowFrame);
+    
+    screenFrame = [[NSScreen mainScreen] frame];
+    
+    // Calculate window's top left point.
+    // First, center window under status item.
+    CGFloat w = NSWidth(windowFrame);
+    CGFloat x = NSMidX(itemFrame) - NSWidth(windowFrame) / 2.0;
+    CGFloat y = NSMinY(itemFrame) - NSHeight(windowFrame);
+    
+    windowFrame.origin.y = y;
+    
+    // If the calculated x position puts the window too
+    // far to the right, shift the window left.
+    CGFloat screenMaxX = NSMaxX(screenFrame);
+    if (x + w + kMinimumSpaceBetweenWindowAndScreenEdge > screenMaxX) {
+        x = screenMaxX - w - kMinimumSpaceBetweenWindowAndScreenEdge;
+    }
+    
+    windowFrame.origin.x = x;
+    
+    QSHWindowBorderView *contentView = [[self window] contentView];
+    
+    contentView.arrowMidX = NSMidX(itemFrame) - x;
+    [contentView setNeedsDisplay:YES];
+    
     [self.window setFrame:windowFrame display:NO];
 }
 

@@ -8,6 +8,10 @@
 
 #import "QSHWindowBorderView.h"
 
+static const CGFloat roundedRectangleCornerRadius = 5;
+static const CGFloat arrowHeight = 10;
+static const CGFloat arrowWidth = 20;
+
 @implementation QSHWindowBorderView
 
 - (id)initWithFrame:(NSRect)frame
@@ -18,28 +22,32 @@
     return self;
 }
 
-// courtesy of https://github.com/jesseXu/Bang
+- (NSRect)innerFrame
+{
+    return NSMakeRect(0, 0, NSWidth(self.bounds), NSHeight(self.bounds) - arrowHeight);
+}
+
 - (void)drawRect:(NSRect)dirtyRect
 {
     [super drawRect:dirtyRect];
-    
-    CGFloat roundedRectangleCornerRadius = 5;
-    CGFloat arrowHeight = 10;
-    CGFloat arrowWidth = 20;
+
     NSRect roundedRectangleRect = NSMakeRect(0, 0, NSWidth(self.bounds), NSHeight(self.bounds) - arrowHeight);
     NSRect roundedRectangleInnerRect = NSInsetRect(roundedRectangleRect, roundedRectangleCornerRadius, roundedRectangleCornerRadius);
     NSBezierPath *roundedRectanglePath = [NSBezierPath bezierPath];
     [roundedRectanglePath appendBezierPathWithArcWithCenter:NSMakePoint(NSMinX(roundedRectangleInnerRect), NSMinY(roundedRectangleInnerRect)) radius: roundedRectangleCornerRadius startAngle:180 endAngle:270];
     [roundedRectanglePath appendBezierPathWithArcWithCenter:NSMakePoint(NSMaxX(roundedRectangleInnerRect), NSMinY(roundedRectangleInnerRect)) radius: roundedRectangleCornerRadius startAngle:270 endAngle:360];
     [roundedRectanglePath appendBezierPathWithArcWithCenter:NSMakePoint(NSMaxX(roundedRectangleInnerRect), NSMaxY(roundedRectangleInnerRect)) radius: roundedRectangleCornerRadius startAngle:0 endAngle:90];
-
-    [roundedRectanglePath lineToPoint:NSMakePoint(NSMidX(roundedRectangleRect) - arrowWidth / 2, NSMaxY(roundedRectangleRect))];
-    [roundedRectanglePath lineToPoint:NSMakePoint(NSMidX(roundedRectangleRect), NSMaxY(roundedRectangleRect) + arrowHeight)];
-    [roundedRectanglePath lineToPoint:NSMakePoint(NSMidX(roundedRectangleRect) + arrowWidth / 2, NSMaxY(roundedRectangleRect))];
-
+    
+    // draw arrow
+    CGFloat arrowMidX = (_arrowMidX == 0) ? NSMidX(roundedRectangleRect) : _arrowMidX;
+    
+    [roundedRectanglePath lineToPoint:NSMakePoint(arrowMidX - arrowWidth / 2, NSMaxY(roundedRectangleRect))];
+    [roundedRectanglePath lineToPoint:NSMakePoint(arrowMidX, NSMaxY(roundedRectangleRect) + arrowHeight)];
+    [roundedRectanglePath lineToPoint:NSMakePoint(arrowMidX + arrowWidth / 2, NSMaxY(roundedRectangleRect))];
+    
     [roundedRectanglePath appendBezierPathWithArcWithCenter: NSMakePoint(NSMinX(roundedRectangleInnerRect), NSMaxY(roundedRectangleInnerRect)) radius:roundedRectangleCornerRadius startAngle:90 endAngle:180];
     [roundedRectanglePath closePath];
-
+    
     [[NSColor controlColor] setFill];
     [roundedRectanglePath fill];
 }
