@@ -8,6 +8,7 @@
 
 #import "QSHWindowBorderView.h"
 
+static const CGFloat marginTop = -5;
 static const CGFloat roundedRectangleCornerRadius = 5;
 static const CGFloat arrowHeight = 10;
 static const CGFloat arrowWidth = 20;
@@ -24,14 +25,14 @@ static const CGFloat arrowWidth = 20;
 
 - (NSRect)innerFrame
 {
-    return NSMakeRect(0, 0, NSWidth(self.bounds), NSHeight(self.bounds) - arrowHeight);
+    return NSMakeRect(0, marginTop, NSWidth(self.bounds), NSHeight(self.bounds) - arrowHeight);
 }
 
 - (void)drawRect:(NSRect)dirtyRect
 {
     [super drawRect:dirtyRect];
 
-    NSRect roundedRectangleRect = NSMakeRect(0, 0, NSWidth(self.bounds), NSHeight(self.bounds) - arrowHeight);
+    NSRect roundedRectangleRect = NSMakeRect(0, marginTop, NSWidth(self.bounds), NSHeight(self.bounds) - arrowHeight);
     NSRect roundedRectangleInnerRect = NSInsetRect(roundedRectangleRect, roundedRectangleCornerRadius, roundedRectangleCornerRadius);
     NSBezierPath *roundedRectanglePath = [NSBezierPath bezierPath];
     [roundedRectanglePath appendBezierPathWithArcWithCenter:NSMakePoint(NSMinX(roundedRectangleInnerRect), NSMinY(roundedRectangleInnerRect)) radius: roundedRectangleCornerRadius startAngle:180 endAngle:270];

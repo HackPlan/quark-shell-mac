@@ -73,8 +73,14 @@ static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
     _webView.configuration.preferences._developerExtrasEnabled = YES;
     
     [contentView addSubview:_webView];
-    // TODO: remove this, this is for debug
-    self.pinned = YES;
+    
+    contentView.wantsLayer = YES;
+    contentView.layer.cornerRadius = 5.0;
+    contentView.layer.masksToBounds = YES;
+    
+    _webView.wantsLayer = YES;
+    _webView.layer.cornerRadius = 5.0;
+    _webView.layer.masksToBounds = YES;
     
     NSURL *URL = [NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]];
     [QSHWebViewDelegate initWebviewWithBridge:_webView url:URL webDelegate:self.webViewDelegate isMain:YES];
