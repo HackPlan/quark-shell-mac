@@ -106,37 +106,33 @@ $(function() {
   });
 
 function setupPref(){
-    quark.setupPref([
+  quark.setupPreferences([
     {"label": "General", "identifier": "general", "icon": "NSPreferencesGeneral", "height": 192},
     {"label": "Account", "identifier": "account", "icon": "NSUserAccounts", "height": 102},
-    {"label": "Shortcut", "identifier": "shortcut", "icon": "NSAdvanced", "height": 80,
-    "nativeComponents": [{
-                         type: "ShortcutRecorder",
-                         options: {
-                         x: 140,
-                         y: 28,
-                         keycode: 0x7A, // F1 key
-                         modifierFlags: 0, // no modifier key
-                         onChange: function (keycode, modifierFlags) {
-                         console.log("New shortcut:", keycode, modifierFlags)
-                         quark.clearKeyboardShortcut()
-                         quark.addKeyboardShortcut({
-                                                   keycode: keycode,
-                                                   modifierFlags: modifierFlags,
-                                                   callback: function () {
-                                                   console.log("wow")
-                                                   quark.togglePopup()
-                                                   }
-                                                   })
-                         }
-                         }
-                         }]
-    }]);
+    {
+      "label": "Shortcut",
+      "identifier": "shortcut",
+      "icon": "NSAdvanced",
+      "height": 80,
+      "nativeComponents": [{
+                        type: "ShortcutRecorder",
+                        options: {
+                          x: 140,
+                          y: 28,
+                          id: "start_pomo"
+                        }
+                        }]
+    }]
+  );
+
 }
 
 onQuarkLoaded = function () {
     quark.notify({title: 'Quark Shell', content: 'Hello World', popupOnClick: true});
     quark.pin();
+    quark.onShortcut('start_pomo', function(data) {
+      quark.notify({title: 'onQuarkShortcut', content: "start_pomo", popupOnClick: true});
+    })
 }
 
 function showConfirm() {

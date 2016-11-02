@@ -9,7 +9,6 @@
 #import "QSHWebViewDelegate.h"
 #import "QSHPreferencesViewController.h"
 #import "QSHWebViewWindowController.h"
-#import <MASShortcut+Monitoring.h>
 #import <RHPreferences.h>
 #import <Sparkle/Sparkle.h>
 #import <ISO8601DateFormatter.h>
@@ -300,21 +299,22 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         return;
     }
 
-    NSString *callbackId = [shortcutObj valueForKey:@"callback"];
+    NSString *callbackId = [shortcutObj valueForKey:@"id"];
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     MASShortcut *shortcut = [MASShortcut shortcutWithKeyCode:keycode modifierFlags:flags];
-    [MASShortcut removeGlobalHotkeyMonitor:shortcut.description];
-    [MASShortcut addGlobalHotkeyMonitorWithShortcut:shortcut handler:^{
-        [self.mainBridge callHandler:@"onQuarkShortcut" data:callbackId];
-    }];
+    // FIXME: value my not be the shortcut object
+    [userPreferences setObject:shortcut forKey:[@"values.shortcut_" stringByAppendingString:callbackId]];
+    [userPreferences synchronize];
 }
 
 - (void)clearKeyboardShortcut
 {
-    [MASShortcut clearGlobalHotkeyMonitor];
+    [[MASShortcutMonitor sharedMonitor] unregisterAllShortcuts];
 }
 
-- (void)setupPreferences:(NSArray *)preferencesArray
+- (void)setupPreferences:(NSArray *)args
 {
+    NSArray *preferencesArray = args[0];
     NSMutableArray *viewControllers = [NSMutableArray array];
 	for (NSDictionary *preferences in preferencesArray) {
         NSInteger height = preferences[@"height"] ? [preferences[@"height"] integerValue]: kPreferencesDefaultHeight;

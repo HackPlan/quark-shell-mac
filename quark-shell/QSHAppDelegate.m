@@ -82,8 +82,15 @@ static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
     _webView.layer.cornerRadius = 5.0;
     _webView.layer.masksToBounds = YES;
     
+    [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
+    
     NSURL *URL = [NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]];
     [QSHWebViewDelegate initWebviewWithBridge:_webView url:URL webDelegate:self.webViewDelegate isMain:YES];
+}
+
+- (void)applicationWillBecomeActive:(NSNotification *)notification
+{
+    [self showWindow];
 }
 
 - (void)windowDidResignKey:(NSNotification *)notification

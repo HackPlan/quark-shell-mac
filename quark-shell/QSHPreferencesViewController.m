@@ -7,8 +7,6 @@
 //
 
 #import "QSHPreferencesViewController.h"
-#import <MASShortcutView.h>
-#import <MASShortcut.h>
 
 @interface QSHPreferencesViewController ()
 
@@ -16,7 +14,7 @@
 @property (nonatomic) NSImage *toolbarItemImage;
 @property (nonatomic) NSString *toolbarItemLabel;
 @property (nonatomic) NSInteger height;
-@property (nonatomic, weak) id delegate;
+@property (nonatomic, weak) QSHWebViewDelegate* delegate;
 
 @end
 
@@ -76,21 +74,14 @@
         CGFloat yFlipped = self.view.frame.size.height - [component[@"options"][@"y"] doubleValue] - height;
 
         MASShortcutView *shortcutView = [[MASShortcutView alloc] initWithFrame:NSMakeRect(x, yFlipped, width, height)];
-        if (component[@"options"][@"keycode"]) {
-            NSUInteger keycode = [component[@"options"][@"keycode"] unsignedIntegerValue];
-            NSUInteger flags = [component[@"options"][@"modifierFlags"] unsignedIntegerValue];
-            MASShortcut *shortcut = [MASShortcut shortcutWithKeyCode:keycode modifierFlags:flags];
-            shortcutView.shortcutValue = shortcut;
-        }
         
-        shortcutView.shortcutValueChange = ^(MASShortcutView *sender) {
-            [self.webView.bridge callHandler:@"testJavascriptHandler" data:@
-            { @"component":component,
-              @"args": @[@([sender.shortcutValue keyCode]),
-                         @([sender.shortcutValue modifierFlags])
-                        ]
-            }];
-        };
+        NSString *shortcutDefaultsKey = [@"shortcut_" stringByAppendingString:component[@"options"][@"id"]];
+        
+        shortcutView.associatedUserDefaultsKey = shortcutDefaultsKey;
+        
+        [[MASShortcutBinder sharedBinder] bindShortcutWithDefaultsKey:shortcutDefaultsKey toAction:^{
+            [self.delegate.mainBridge callHandler:@"onQuarkShortcut" data:component[@"options"][@"id"] ];
+        }];
 
         [self.view addSubview:shortcutView];
     }

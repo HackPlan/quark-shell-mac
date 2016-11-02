@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <RHPreferences.h>
+#import <MASShortcut/Shortcut.h>
 #import "QSHWebView.h"
 #import "QSHWebViewDelegate.h"
 

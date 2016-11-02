@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <WebKit/WebKit.h>
+#import <MASShortcut/Shortcut.h>
 #import "QSHStatusItemView.h"
 #import "QSHAppDelegate.h"
 #import "WKWebViewJavascriptBridge.h"

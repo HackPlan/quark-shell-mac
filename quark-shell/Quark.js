@@ -66,14 +66,30 @@ setupWebViewJavascriptBridge(function(bridge) {
   window.bridge = bridge;
 
   setupQuarkWithBridge(bridge);
-  // TODO: implement quark.onMessage('name', function(data) {})
+
+  // Message
+  window.quark.msgSubscribers = [];
+  window.quark.onMessage = function(fn) {
+    window.quark.shortcutSubscribers.push(fn)
+  };
   bridge.registerHandler('onQuarkMessage', function(data) {
-    console.error('quark emitted', data)
+    quark.msgSubscribers.forEach(function(fn){
+      fn(data);
+    })
   });
-                             
-  // TODO: implement quark.onShortcut('id', function() {})
-  bridge.registerHandler('onQuarkShortcut', function(id) {
-    console.error('shortcut triggered', id)
+  
+  // Shortcut
+  window.quark.shortcutSubscribers = [];
+  window.quark.onShortcut = function(id, fn) {
+    window.quark.shortcutSubscribers.push({id, callback: fn})
+  };
+  bridge.registerHandler('onQuarkShortcut', function(data) {
+    console.log('onQuarkShortcut', data);
+    quark.shortcutSubscribers.forEach(function(subscriber){
+      if(subscriber['id'] == data){
+        subscriber['callback']();
+      }
+    })
   });
 
   if (window.onQuarkLoaded){

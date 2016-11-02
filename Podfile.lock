@@ -1,37 +1,27 @@
 PODS:
-  - ISO8601DateFormatter (0.7)
-  - MASShortcut (1.2.3)
+  - ISO8601DateFormatter (0.8)
+  - MASShortcut (2.3.6)
   - RHPreferences (1.0.0)
-  - Sparkle (1.13.1)
+  - Sparkle (1.14.0)
   - StartAtLoginController (0.0.1)
   - WebViewJavascriptBridge (5.0.5)
 
 DEPENDENCIES:
   - ISO8601DateFormatter (~> 0.7)
-  - MASShortcut (from `https://github.com/xhacker/MASShortcut.git`, branch `menubar-webkit`)
+  - MASShortcut (~> 2.3.6)
   - RHPreferences (~> 1.0)
   - Sparkle (~> 1.13)
   - StartAtLoginController (~> 0.0.1)
   - WebViewJavascriptBridge (~> 5.0)
 
-EXTERNAL SOURCES:
-  MASShortcut:
-    :branch: menubar-webkit
-    :git: https://github.com/xhacker/MASShortcut.git
-
-CHECKOUT OPTIONS:
-  MASShortcut:
-    :commit: e54886366d753c75d8bbe07d1a7dd42af69f70fd
-    :git: https://github.com/xhacker/MASShortcut.git
-
 SPEC CHECKSUMS:
-  ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
-  MASShortcut: 534bf89dfd1fb013580accdc3b5d2341f0749dc0
+  ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
+  MASShortcut: 9c215e8a8a78f3d01ce56da48e2730ab66b538fa
   RHPreferences: 6871f9614347f4b45197c51f7c93c3cde2744ce8
-  Sparkle: 2fbd47b869621d1e679c7554e3e19dda02104818
+  Sparkle: ccd95233b12a3e3d4eeb55ff01dd4c8bb8188b07
   StartAtLoginController: 9ff14295bab38f7cba164a838349f6c0a2d83020
   WebViewJavascriptBridge: a4d502315f1b8d9a51cd6a9174147ed567ec3bc5
 
-PODFILE CHECKSUM: e0eb9f4d6740610df4a8ad44e676343009803cc4
+PODFILE CHECKSUM: 699cfe5aa1afb8c30201f5e2e256967a66c3435b
 
 COCOAPODS: 1.1.1
