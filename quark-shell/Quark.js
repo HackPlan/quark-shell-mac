@@ -53,7 +53,7 @@ function setupQuarkWithBridge(bridge) {
 
   window.quark.setLaunchAtLogin = function (shouldLaunchAtLogin) {
     shouldLaunchAtLogin = !!shouldLaunchAtLogin
-    bridge.callHandler('quark', {'method': 'setLaunchAtLogin', 'args': [shouldLaunchAtLogin]})
+    bridge.callHandler('quark', {'method': 'setLaunchAtLogin', 'args': [shouldLaunchAtLogin.toString()]})
   }
 
   window.quark.emit = function (options) {

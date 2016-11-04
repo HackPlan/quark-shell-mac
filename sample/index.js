@@ -150,6 +150,10 @@ function showPrompt() {
   quark.notify({title: 'Quark Shell', content: content, popupOnClick: true})
 }
 
+function setAutoStart(){
+  quark.setLaunchAtLogin(true)
+}
+
 function setIcon() {
     var iconCanvas = document.getElementById('icon')
     iconCanvas.width = 40

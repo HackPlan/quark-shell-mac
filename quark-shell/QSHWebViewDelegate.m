@@ -232,7 +232,12 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)setLaunchAtLogin:(NSArray *)args
 {
-    BOOL launchAtLogin = args[0];
+    BOOL launchAtLogin;
+    if ([args[0]  isEqual: @"true"]){
+        launchAtLogin = true;
+    }else{
+        launchAtLogin = false;
+    }
     
     StartAtLoginController *loginController = [[StartAtLoginController alloc] initWithIdentifier:@"com.hackplan.quark-shell-helper"];
     loginController.startAtLogin = launchAtLogin;
