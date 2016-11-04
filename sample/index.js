@@ -127,13 +127,13 @@ function setupPref(){
 
 }
 
-onQuarkLoaded = function () {
-    quark.notify({title: 'Quark Shell', content: 'Hello World', popupOnClick: true});
-    quark.pin();
-    quark.onShortcut('start_pomo', function(data) {
-      quark.notify({title: 'onQuarkShortcut', content: "start_pomo", popupOnClick: true});
-    })
-}
+quark.ready(function () {
+  quark.notify({title: 'Quark Shell', content: 'Hello World', popupOnClick: true});
+  quark.pin();
+  quark.onShortcut('start_pomo', function(data) {
+    quark.notify({title: 'onQuarkShortcut', content: "start_pomo", popupOnClick: true});
+  })
+})
 
 function showConfirm() {
   var content;

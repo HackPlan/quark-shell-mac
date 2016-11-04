@@ -15,6 +15,11 @@
     return [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Quark" ofType:@"js"] encoding:NSUTF8StringEncoding error:nil];
 }
 
++ (NSString *)quarkHeaderScript
+{
+    return [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"QuarkHeader" ofType:@"js"] encoding:NSUTF8StringEncoding error:nil];
+}
+
 + (WKWebViewConfiguration *)webViewConfiguration
 {
     static WKWebViewConfiguration *configuration = nil;
@@ -22,9 +27,11 @@
     if (configuration == nil) {
         configuration = [[WKWebViewConfiguration alloc] init];
         
-        WKUserScript *script = [[WKUserScript alloc] initWithSource:[self quarkSourceScript] injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+        WKUserScript *headerScript = [[WKUserScript alloc] initWithSource:[self quarkHeaderScript] injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
+        WKUserScript *footerScript = [[WKUserScript alloc] initWithSource:[self quarkSourceScript] injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
         
-        [configuration.userContentController addUserScript:script];
+        [configuration.userContentController addUserScript:headerScript];
+        [configuration.userContentController addUserScript:footerScript];
     }
     
     return configuration;

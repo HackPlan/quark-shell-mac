@@ -10,8 +10,6 @@ function setupWebViewJavascriptBridge(callback) {
 }
 
 function setupQuarkWithBridge(bridge) {
-  window.quark = {};
-
   var setMethods = function (methods, needOptions) {
     function makeMethod(method, needOptions) {
       if (needOptions){
@@ -27,7 +25,7 @@ function setupQuarkWithBridge(bridge) {
 
     var i;
     for (i = 0; i < methods.length; i++) {
-      window.quark[methods[i]] = makeMethod(methods[i], needOptions);
+      quark[methods[i]] = makeMethod(methods[i], needOptions);
     }
   }
 
@@ -47,16 +45,16 @@ function setupQuarkWithBridge(bridge) {
     'resizePopup'
   ], true);
 
-  window.quark.closeWindow = function (options) {
+  quark.closeWindow = function (options) {
     bridge.callHandler('quark', {'method': 'closeWindow', 'args': [0]})
   }
 
-  window.quark.setLaunchAtLogin = function (shouldLaunchAtLogin) {
+  quark.setLaunchAtLogin = function (shouldLaunchAtLogin) {
     shouldLaunchAtLogin = !!shouldLaunchAtLogin
     bridge.callHandler('quark', {'method': 'setLaunchAtLogin', 'args': [shouldLaunchAtLogin.toString()]})
   }
 
-  window.quark.emit = function (options) {
+  quark.emit = function (options) {
     bridge.callHandler('quark', {'method': 'emitMessage', 'args': [options]})
   }
   
@@ -68,9 +66,9 @@ setupWebViewJavascriptBridge(function(bridge) {
   setupQuarkWithBridge(bridge);
 
   // Message
-  window.quark.msgSubscribers = [];
-  window.quark.onMessage = function(fn) {
-    window.quark.shortcutSubscribers.push(fn)
+  quark.msgSubscribers = [];
+  quark.onMessage = function(fn) {
+    quark.shortcutSubscribers.push(fn)
   };
   bridge.registerHandler('onQuarkMessage', function(data) {
     quark.msgSubscribers.forEach(function(fn){
@@ -79,9 +77,9 @@ setupWebViewJavascriptBridge(function(bridge) {
   });
   
   // Shortcut
-  window.quark.shortcutSubscribers = [];
-  window.quark.onShortcut = function(id, fn) {
-    window.quark.shortcutSubscribers.push({id, callback: fn})
+  quark.shortcutSubscribers = [];
+  quark.onShortcut = function(id, fn) {
+    quark.shortcutSubscribers.push({id, callback: fn})
   };
   bridge.registerHandler('onQuarkShortcut', function(data) {
     console.log('onQuarkShortcut', data);
@@ -92,7 +90,13 @@ setupWebViewJavascriptBridge(function(bridge) {
     })
   });
 
-  if (window.onQuarkLoaded){
-    window.onQuarkLoaded()
+  if (quark.readyList.length > 0){
+    quark.readyList.forEach(function(fn){
+      fn()
+    })
+    quark.readyList = []
   }
+
+  quark.isReady = true
+
 })
