@@ -8,7 +8,7 @@ PODS:
 
 DEPENDENCIES:
   - ISO8601DateFormatter (~> 0.7)
-  - MASPreferences (from `git@github.com:shpakovski/MASPreferences.git`)
+  - MASPreferences (from `git@github.com:HackPlan/MASPreferences.git`)
   - MASShortcut (~> 2.3.6)
   - Sparkle (~> 1.13)
   - StartAtLoginController (~> 0.0.1)
@@ -16,12 +16,12 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   MASPreferences:
-    :git: git@github.com:shpakovski/MASPreferences.git
+    :git: git@github.com:HackPlan/MASPreferences.git
 
 CHECKOUT OPTIONS:
   MASPreferences:
-    :commit: d0c45f3848d1d9bade4cb513312ee9aad0cfe32f
-    :git: git@github.com:shpakovski/MASPreferences.git
+    :commit: 9105849b1b53ba1be7bfb90f26294811bc50a77c
+    :git: git@github.com:HackPlan/MASPreferences.git
 
 SPEC CHECKSUMS:
   ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
@@ -31,6 +31,6 @@ SPEC CHECKSUMS:
   StartAtLoginController: 9ff14295bab38f7cba164a838349f6c0a2d83020
   WebViewJavascriptBridge: a4d502315f1b8d9a51cd6a9174147ed567ec3bc5
 
-PODFILE CHECKSUM: b1b3ad8690c78de1975a40c5d75d0a8ba2bc9eed
+PODFILE CHECKSUM: e07affa7fa239d12faf94712038684d35c8b781c
 
 COCOAPODS: 1.1.1
