@@ -339,6 +339,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
     NSString *title = NSLocalizedString(@"Preferences", @"Common title for Preferences window");
     self.preferencesWindowController = [[MASPreferencesWindowController alloc] initWithViewControllers:viewControllers title:title];
+    [self.preferencesWindowController selectControllerAtIndex:0];
 }
 
 - (void)openPreferences
