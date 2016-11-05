@@ -7,12 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <RHPreferences.h>
+#import <MASPreferences/MASPreferences.h>
 #import <MASShortcut/Shortcut.h>
 #import "QSHWebView.h"
 #import "QSHWebViewDelegate.h"
 
-@interface QSHPreferencesViewController : NSViewController <RHPreferencesViewControllerProtocol>
+@interface QSHPreferencesViewController : NSViewController <MASPreferencesViewController>
 
 @property (nonatomic, strong) QSHWebView *webView;
 

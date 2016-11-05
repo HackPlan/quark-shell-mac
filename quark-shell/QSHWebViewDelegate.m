@@ -9,7 +9,7 @@
 #import "QSHWebViewDelegate.h"
 #import "QSHPreferencesViewController.h"
 #import "QSHWebViewWindowController.h"
-#import <RHPreferences.h>
+#import <MASPreferences/MASPreferences.h>
 #import <Sparkle/Sparkle.h>
 #import <ISO8601DateFormatter.h>
 #import <StartAtLoginController.h>
@@ -24,7 +24,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     BOOL debug;
 }
 
-@property (nonatomic) NSWindowController *preferencesWindowController;
+@property (nonatomic) MASPreferencesWindowController *preferencesWindowController;
 @property (nonatomic) NSMutableArray *windows;
 
 @end
@@ -337,8 +337,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         [viewControllers addObject:vc];
 	}
 
-    NSString *title = @"Preferences";
-    self.preferencesWindowController = [[RHPreferencesWindowController alloc] initWithViewControllers:viewControllers andTitle:title];
+    NSString *title = NSLocalizedString(@"Preferences", @"Common title for Preferences window");
+    self.preferencesWindowController = [[MASPreferencesWindowController alloc] initWithViewControllers:viewControllers title:title];
 }
 
 - (void)openPreferences

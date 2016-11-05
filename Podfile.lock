@@ -1,27 +1,36 @@
 PODS:
   - ISO8601DateFormatter (0.8)
+  - MASPreferences (1.2)
   - MASShortcut (2.3.6)
-  - RHPreferences (1.0.0)
   - Sparkle (1.14.0)
   - StartAtLoginController (0.0.1)
   - WebViewJavascriptBridge (5.0.5)
 
 DEPENDENCIES:
   - ISO8601DateFormatter (~> 0.7)
+  - MASPreferences (from `git@github.com:shpakovski/MASPreferences.git`)
   - MASShortcut (~> 2.3.6)
-  - RHPreferences (~> 1.0)
   - Sparkle (~> 1.13)
   - StartAtLoginController (~> 0.0.1)
   - WebViewJavascriptBridge (~> 5.0)
 
+EXTERNAL SOURCES:
+  MASPreferences:
+    :git: git@github.com:shpakovski/MASPreferences.git
+
+CHECKOUT OPTIONS:
+  MASPreferences:
+    :commit: d0c45f3848d1d9bade4cb513312ee9aad0cfe32f
+    :git: git@github.com:shpakovski/MASPreferences.git
+
 SPEC CHECKSUMS:
   ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
+  MASPreferences: 4ff5ced14f2ae0aada927579816c07fa6840f2e8
   MASShortcut: 9c215e8a8a78f3d01ce56da48e2730ab66b538fa
-  RHPreferences: 6871f9614347f4b45197c51f7c93c3cde2744ce8
   Sparkle: ccd95233b12a3e3d4eeb55ff01dd4c8bb8188b07
   StartAtLoginController: 9ff14295bab38f7cba164a838349f6c0a2d83020
   WebViewJavascriptBridge: a4d502315f1b8d9a51cd6a9174147ed567ec3bc5
 
-PODFILE CHECKSUM: 699cfe5aa1afb8c30201f5e2e256967a66c3435b
+PODFILE CHECKSUM: b1b3ad8690c78de1975a40c5d75d0a8ba2bc9eed
 
 COCOAPODS: 1.1.1
