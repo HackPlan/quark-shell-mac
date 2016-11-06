@@ -361,11 +361,31 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 {
     NSDictionary *options = args[0];
     NSString *urlString = options[@"url"];
+    NSString *windowId = options[@"id"];
     CGFloat width = [options[@"width"] doubleValue];
     CGFloat height = [options[@"height"] doubleValue];
+    bool bringWindowToFrontInsteadOfCloseIt = options[@"toFront"];
     
     QSHWebViewWindowController *webViewWindowController;
-    webViewWindowController = [[QSHWebViewWindowController alloc] initWithURLString:urlString width:width height:height webDelegate:self];
+    webViewWindowController = [[QSHWebViewWindowController alloc] initWithURLString:urlString width:width height:height webDelegate:self windowId:windowId];
+    
+    // if window with same key exist, close it before open a new one
+    if (windowId){
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"windowId == %@", windowId];
+        NSArray *existedWindows = [self.windows filteredArrayUsingPredicate:predicate];
+        
+        if ([existedWindows count] > 0){
+            for (QSHWebViewWindowController *window in existedWindows) {
+                if (bringWindowToFrontInsteadOfCloseIt){
+                    return [window.window makeKeyAndOrderFront:nil];
+                } else{
+                    [window close];
+                }
+            }
+        }
+    }
+    
     [self.windows addObject:webViewWindowController];
 
     if (options[@"x"] && options[@"y"]) {

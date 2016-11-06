@@ -13,10 +13,12 @@
 @interface QSHWebViewWindowController : NSWindowController
 
 @property (nonatomic, strong) QSHWebView *webView;
+@property (nonatomic) NSString *windowId;
 
 - (id)initWithURLString:(NSString *)URLString
                   width:(CGFloat)width
                  height:(CGFloat)height
-            webDelegate:(QSHWebViewDelegate *)webDelegate;
+            webDelegate:(QSHWebViewDelegate *)webDelegate
+               windowId:(NSString *)windowId;
 
 @end

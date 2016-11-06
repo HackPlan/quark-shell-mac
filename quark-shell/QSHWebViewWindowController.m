@@ -49,7 +49,9 @@
                   width:(CGFloat)width
                  height:(CGFloat)height
             webDelegate:(QSHWebViewDelegate *)webDelegate
+               windowId:(NSString *)windowId
 {
+    self.windowId = windowId;
     self = [super initWithWindowNibName:@"QSHWebViewWindowController"];
     if (self) {
         [self.window setFrame:NSMakeRect(self.window.frame.origin.x, self.window.frame.origin.y, width, height) display:YES];
