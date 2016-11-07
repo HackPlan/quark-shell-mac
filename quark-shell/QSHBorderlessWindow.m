@@ -53,6 +53,10 @@
     NSRect  screenFrame = [[NSScreen mainScreen] frame];
     NSRect  windowFrame = [self frame];
     
+    if (self.initialLocation.y < (windowFrame.size.height - 30)){
+        return;
+    }
+    
     currentLocation = [NSEvent mouseLocation];
     newOrigin.x = currentLocation.x - self.initialLocation.x;
     newOrigin.y = currentLocation.y - self.initialLocation.y;

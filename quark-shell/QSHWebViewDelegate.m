@@ -110,6 +110,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(closePreferences) ||
         selector == @selector(newWindow:) ||
         selector == @selector(closeWindow:) ||
+        selector == @selector(closeWindowById:) ||
         selector == @selector(pin) ||
         selector == @selector(unpin) ||
         selector == @selector(checkUpdate:) ||
@@ -421,6 +422,21 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     }
 
     [webViewWindowController showWindow:nil];
+}
+
+- (void)closeWindowById:(NSArray *)args
+{
+    NSDictionary *options = args[0];
+    NSString *windowId = options[@"id"];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"windowId == %@", windowId];
+    NSArray *existedWindows = [self.windows filteredArrayUsingPredicate:predicate];
+    
+    if ([existedWindows count] > 0){
+        for (QSHWebViewWindowController *window in existedWindows) {
+            [window close];
+        }
+    }
 }
 
 - (void)closeWindow:(NSWindowController *)window

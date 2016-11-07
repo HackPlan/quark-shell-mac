@@ -40,7 +40,7 @@ function setupQuarkWithBridge(bridge) {
   setMethods([
     'setupPreferences', 'notify',
     'newWindow', 'changeIcon', 'changeHighlightedIcon', 'showMenu',
-    'openURL', 'changeLabel', 'addKeyboardShortcut', 'closeWindow',
+    'openURL', 'changeLabel', 'addKeyboardShortcut', 'closeWindow', 'closeWindowById',
     'checkUpdate', 'checkUpdateInBackground',
     'resizePopup'
   ], true);
