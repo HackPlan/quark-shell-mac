@@ -37,7 +37,7 @@ function setupQuarkWithBridge(bridge) {
   ], false);
 
   setMethods([
-    'setupPreferences', 'notify', 'setPin',
+    'setupPreferences', 'notify', 'setPin', 'setLaunchAtLogin',
     'newWindow', 'changeIcon', 'changeHighlightedIcon', 'showMenu',
     'openURL', 'changeLabel', 'addKeyboardShortcut', 'closeWindow', 'closeWindowById',
     'checkUpdate', 'checkUpdateInBackground', 'setShowDockIcon',
@@ -46,11 +46,6 @@ function setupQuarkWithBridge(bridge) {
 
   quark.closeWindow = function (options) {
     bridge.callHandler('quark', {'method': 'closeWindow', 'args': [0]})
-  }
-
-  quark.setLaunchAtLogin = function (shouldLaunchAtLogin) {
-    shouldLaunchAtLogin = !!shouldLaunchAtLogin
-    bridge.callHandler('quark', {'method': 'setLaunchAtLogin', 'args': [shouldLaunchAtLogin.toString()]})
   }
 
   quark.emit = function (options) {
