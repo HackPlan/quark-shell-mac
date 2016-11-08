@@ -100,6 +100,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(changeLabel:) ||
         selector == @selector(resetMenubarIcon) ||
         selector == @selector(setLaunchAtLogin:) ||
+        selector == @selector(setShowDockIcon:) ||
         selector == @selector(notify:) ||
         selector == @selector(removeAllScheduledNotifications) ||
         selector == @selector(removeAllDeliveredNotifications) ||
@@ -229,6 +230,12 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
     // 20 is image width, 10 is extra margin
     self.statusItem.length = 20 + [label sizeWithAttributes:barTextAttributes].width + 10;
+}
+
+- (void)setShowDockIcon:(NSArray *)args
+{
+    bool showDockIcon = [args[0] boolValue];
+    [self.appDelegate showDockIcon:showDockIcon];
 }
 
 - (void)setLaunchAtLogin:(NSArray *)args

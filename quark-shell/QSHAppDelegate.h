@@ -20,5 +20,6 @@
 - (void)hideWindow;
 - (void)toggleWindow;
 - (void)resizeWindow:(CGSize)size;
+- (void)showDockIcon:(bool)showDockIcon;
 
 @end

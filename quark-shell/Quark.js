@@ -41,7 +41,7 @@ function setupQuarkWithBridge(bridge) {
     'setupPreferences', 'notify',
     'newWindow', 'changeIcon', 'changeHighlightedIcon', 'showMenu',
     'openURL', 'changeLabel', 'addKeyboardShortcut', 'closeWindow', 'closeWindowById',
-    'checkUpdate', 'checkUpdateInBackground',
+    'checkUpdate', 'checkUpdateInBackground', 'setShowDockIcon',
     'resizePopup'
   ], true);
 

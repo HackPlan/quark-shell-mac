@@ -82,10 +82,25 @@ static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
     _webView.layer.cornerRadius = 5.0;
     _webView.layer.masksToBounds = YES;
     
-    [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
+    bool showDockIcon = [[NSUserDefaults standardUserDefaults] boolForKey:@"showDockIcon"];
+    if (showDockIcon != NO){
+        [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
+    }
     
     NSURL *URL = [NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]];
     [QSHWebViewDelegate initWebviewWithBridge:_webView url:URL webDelegate:self.webViewDelegate isMain:YES];
+}
+
+- (void)showDockIcon:(bool)showDockIcon {
+    NSWindow *currentWindow = [NSApp keyWindow];
+    [[NSUserDefaults standardUserDefaults] setBool:showDockIcon forKey:@"showDockIcon"];
+    if (showDockIcon){
+        [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
+    } else {
+        [NSApp setActivationPolicy:NSApplicationActivationPolicyAccessory];
+        [currentWindow performSelector:NSSelectorFromString(@"makeKeyAndOrderFront:") withObject:nil afterDelay:0.1];
+    }
+    
 }
 
 - (void)applicationWillBecomeActive:(NSNotification *)notification
