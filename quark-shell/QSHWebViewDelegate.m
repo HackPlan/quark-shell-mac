@@ -355,6 +355,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)removeWindowFromWindows:(QSHWebViewWindowController *)windowController
 {
+    [self.webView.bridge callHandler:@"onQuarkWindowClose" data:windowController.windowId];
     [self.windows removeObject:windowController];
 }
 
@@ -403,6 +404,22 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         }
 
         [webViewWindowController.window setFrameOrigin:NSMakePoint(x, yFlipped)];
+    }
+    
+    if (options[@"minWidth"] && options[@"minHeight"]){
+        NSSize minSize = NSMakeSize([options[@"minWidth"] doubleValue], [options[@"minHeight"] doubleValue]);
+        [webViewWindowController.window setMinSize:minSize];
+    }
+    
+    
+    if (options[@"resizable"] && [options[@"resizable"] boolValue] == NO) {
+        [webViewWindowController.window setStyleMask:[webViewWindowController.window styleMask] & ~NSResizableWindowMask];
+    }
+    
+    if (options[@"transparentTitle"] && [options[@"transparentTitle"] boolValue] == YES) {
+        webViewWindowController.window.styleMask = webViewWindowController.window.styleMask | NSWindowStyleMaskFullSizeContentView;
+        webViewWindowController.window.titleVisibility = NSWindowTitleHidden;
+            webViewWindowController.window.titlebarAppearsTransparent = YES;
     }
 
     if (options[@"border"] && [options[@"border"] boolValue] == NO) {

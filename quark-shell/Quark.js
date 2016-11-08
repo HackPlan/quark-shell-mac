@@ -68,13 +68,24 @@ setupWebViewJavascriptBridge(function(bridge) {
   // Message
   quark.msgSubscribers = [];
   quark.onMessage = function(fn) {
-    quark.shortcutSubscribers.push(fn)
+    quark.msgSubscribers.push(fn)
   };
   bridge.registerHandler('onQuarkMessage', function(data) {
     quark.msgSubscribers.forEach(function(fn){
       fn(data);
     })
   });
+                             
+  // windowClose
+  quark.closeSubscribers = [];
+  quark.onWindowClose = function(fn) {
+  quark.closeSubscribers.push(fn)
+  };
+  bridge.registerHandler('onQuarkWindowClose', function(data) {
+                        quark.closeSubscribers.forEach(function(fn){
+                                                     fn(data);
+                                                     })
+                        });
   
   // Shortcut
   quark.shortcutSubscribers = [];
