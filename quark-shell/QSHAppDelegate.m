@@ -108,6 +108,14 @@ static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
     [self showWindow];
 }
 
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
+{
+    if (!flag) {
+        [self showWindow];
+    }
+    return true;
+}
+
 - (void)windowDidResignKey:(NSNotification *)notification
 {
     self.pinned = [[NSUserDefaults standardUserDefaults] boolForKey:@"pinned"];
