@@ -110,6 +110,7 @@ static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
 
 - (void)windowDidResignKey:(NSNotification *)notification
 {
+    self.pinned = [[NSUserDefaults standardUserDefaults] boolForKey:@"pinned"];
     if (!self.pinned) {
         [self hideWindow];
     }

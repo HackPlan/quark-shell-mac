@@ -112,8 +112,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(newWindow:) ||
         selector == @selector(closeWindow:) ||
         selector == @selector(closeWindowById:) ||
-        selector == @selector(pin) ||
-        selector == @selector(unpin) ||
+        selector == @selector(setPin:) ||
         selector == @selector(checkUpdate:) ||
         selector == @selector(checkUpdateInBackground:) ||
         selector == @selector(emitMessage:) ||
@@ -468,14 +467,11 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [window close];
 }
 
-- (void)pin
+- (void)setPin:(NSArray *)args
 {
-    self.appDelegate.pinned = YES;
-}
-
-- (void)unpin
-{
-    self.appDelegate.pinned = NO;
+    bool pinned = [args[0] boolValue];
+    [[NSUserDefaults standardUserDefaults] setBool:pinned forKey:@"pinned"];
+    self.appDelegate.pinned = pinned;
 }
 
 - (void)checkUpdate:(NSString *)url

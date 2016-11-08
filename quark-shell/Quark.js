@@ -33,12 +33,11 @@ function setupQuarkWithBridge(bridge) {
     'openPopup', 'closePopup', 'togglePopup',
     'resetMenubarIcon', 'removeAllScheduledNotifications', 'removeAllDeliveredNotifications',
     'clearKeyboardShortcut', 'openPreferences', 'closePreferences',
-    'pin', 'unpin',
     'quit'
   ], false);
 
   setMethods([
-    'setupPreferences', 'notify',
+    'setupPreferences', 'notify', 'setPin',
     'newWindow', 'changeIcon', 'changeHighlightedIcon', 'showMenu',
     'openURL', 'changeLabel', 'addKeyboardShortcut', 'closeWindow', 'closeWindowById',
     'checkUpdate', 'checkUpdateInBackground', 'setShowDockIcon',
