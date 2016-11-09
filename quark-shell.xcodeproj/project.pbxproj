@@ -32,6 +32,14 @@
 		1AFBA8BA19483E4900BEDA0A /* QSHPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFBA8B819483E4900BEDA0A /* QSHPreferencesViewController.m */; };
 		1AFBA8BB19483E4900BEDA0A /* QSHPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFBA8B919483E4900BEDA0A /* QSHPreferencesViewController.xib */; };
 		8A2C271F1DCCC1E500E00C7D /* QuarkHeader.js in Resources */ = {isa = PBXBuildFile; fileRef = 8A2C271E1DCCC1E500E00C7D /* QuarkHeader.js */; };
+		8A5DB6131DD33F9B004AAA30 /* QSCConfigure.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A5DB6121DD33F9B004AAA30 /* QSCConfigure.xib */; };
+		8A5DB6161DD33FF6004AAA30 /* QSCConfigureWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DB6151DD33FF6004AAA30 /* QSCConfigureWindow.m */; };
+		8A5DB61C1DD34266004AAA30 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A5DB6191DD34266004AAA30 /* index.html */; };
+		8A5DB61D1DD34266004AAA30 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 8A5DB61A1DD34266004AAA30 /* index.js */; };
+		8A5DB61E1DD34266004AAA30 /* jquery-2.1.0.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 8A5DB61B1DD34266004AAA30 /* jquery-2.1.0.min.js */; };
+		8A5DB6271DD37BC9004AAA30 /* AppSandboxFileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DB6221DD37BC9004AAA30 /* AppSandboxFileAccess.m */; };
+		8A5DB6281DD37BC9004AAA30 /* AppSandboxFileAccessOpenSavePanelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DB6241DD37BC9004AAA30 /* AppSandboxFileAccessOpenSavePanelDelegate.m */; };
+		8A5DB6291DD37BC9004AAA30 /* AppSandboxFileAccessPersist.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DB6261DD37BC9004AAA30 /* AppSandboxFileAccessPersist.m */; };
 		8A8D99B71DCE595C00AD735E /* QSHBorderlessWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D99B61DCE595C00AD735E /* QSHBorderlessWindow.m */; };
 		8AA4F6FC1DC1D68600F9C793 /* QSHWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4F6FB1DC1D68600F9C793 /* QSHWebView.m */; };
 		8AC4ABDE1DC48AAD0026D522 /* Quark.js in Resources */ = {isa = PBXBuildFile; fileRef = 8AC4ABDD1DC48AAD0026D522 /* Quark.js */; };
@@ -72,10 +80,8 @@
 
 /* Begin PBXFileReference section */
 		02F1A3336EF3226FC19C4B96 /* Pods-quark-shell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quark-shell.release.xcconfig"; path = "Pods/Target Support Files/Pods-quark-shell/Pods-quark-shell.release.xcconfig"; sourceTree = "<group>"; };
-		1A05BC371B0D8A0B00E5BCED /* quark-shell.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "quark-shell.entitlements"; sourceTree = "<group>"; };
 		1A42764819196B6F00815DC6 /* QSHWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWindow.h; sourceTree = "<group>"; };
 		1A42764919196B6F00815DC6 /* QSHWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSHWindow.m; sourceTree = "<group>"; };
-		1A75781C19B9A261002A9886 /* app */ = {isa = PBXFileReference; lastKnownFileType = folder; path = app; sourceTree = "<group>"; };
 		1A82DE591903B095006AB37F /* QSHWindowBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWindowBorderView.h; sourceTree = "<group>"; };
 		1A82DE5A1903B095006AB37F /* QSHWindowBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSHWindowBorderView.m; sourceTree = "<group>"; };
 		1A91F9DF18E2530B00AA8B7E /* quark-shell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "quark-shell.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +125,19 @@
 		1AFBA8B919483E4900BEDA0A /* QSHPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSHPreferencesViewController.xib; sourceTree = "<group>"; };
 		6A4D4DE7AE621F1D463C1846 /* Pods-quark-shell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quark-shell.debug.xcconfig"; path = "Pods/Target Support Files/Pods-quark-shell/Pods-quark-shell.debug.xcconfig"; sourceTree = "<group>"; };
 		8A2C271E1DCCC1E500E00C7D /* QuarkHeader.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = QuarkHeader.js; sourceTree = "<group>"; };
+		8A5DB6121DD33F9B004AAA30 /* QSCConfigure.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSCConfigure.xib; sourceTree = "<group>"; };
+		8A5DB6141DD33FF6004AAA30 /* QSCConfigureWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSCConfigureWindow.h; sourceTree = "<group>"; };
+		8A5DB6151DD33FF6004AAA30 /* QSCConfigureWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSCConfigureWindow.m; sourceTree = "<group>"; };
+		8A5DB6191DD34266004AAA30 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		8A5DB61A1DD34266004AAA30 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		8A5DB61B1DD34266004AAA30 /* jquery-2.1.0.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-2.1.0.min.js"; sourceTree = "<group>"; };
+		8A5DB6211DD37BC9004AAA30 /* AppSandboxFileAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSandboxFileAccess.h; sourceTree = "<group>"; };
+		8A5DB6221DD37BC9004AAA30 /* AppSandboxFileAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSandboxFileAccess.m; sourceTree = "<group>"; };
+		8A5DB6231DD37BC9004AAA30 /* AppSandboxFileAccessOpenSavePanelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSandboxFileAccessOpenSavePanelDelegate.h; sourceTree = "<group>"; };
+		8A5DB6241DD37BC9004AAA30 /* AppSandboxFileAccessOpenSavePanelDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSandboxFileAccessOpenSavePanelDelegate.m; sourceTree = "<group>"; };
+		8A5DB6251DD37BC9004AAA30 /* AppSandboxFileAccessPersist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSandboxFileAccessPersist.h; sourceTree = "<group>"; };
+		8A5DB6261DD37BC9004AAA30 /* AppSandboxFileAccessPersist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSandboxFileAccessPersist.m; sourceTree = "<group>"; };
+		8A5DB62A1DD38B19004AAA30 /* quark-shell.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "quark-shell.entitlements"; sourceTree = "<group>"; };
 		8A8D99B51DCE591F00AD735E /* QSHBorderlessWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSHBorderlessWindow.h; sourceTree = "<group>"; };
 		8A8D99B61DCE595C00AD735E /* QSHBorderlessWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSHBorderlessWindow.m; sourceTree = "<group>"; };
 		8AA4F6FA1DC1D68600F9C793 /* QSHWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWebView.h; sourceTree = "<group>"; };
@@ -160,7 +179,6 @@
 		1A91F9D618E2530B00AA8B7E = {
 			isa = PBXGroup;
 			children = (
-				1A75781C19B9A261002A9886 /* app */,
 				1A91F9E818E2530B00AA8B7E /* quark-shell */,
 				1A91FA0618E2530C00AA8B7E /* quark-shellTests */,
 				1ADE93531B0F093E00D69828 /* quark-shell-helper */,
@@ -205,9 +223,11 @@
 		1A91F9E818E2530B00AA8B7E /* quark-shell */ = {
 			isa = PBXGroup;
 			children = (
-				1A05BC371B0D8A0B00E5BCED /* quark-shell.entitlements */,
+				8A5DB62A1DD38B19004AAA30 /* quark-shell.entitlements */,
+				8A5DB6181DD34266004AAA30 /* app */,
 				1A91F9F418E2530B00AA8B7E /* QSHAppDelegate.h */,
 				1A91F9F518E2530B00AA8B7E /* QSHAppDelegate.m */,
+				8A5DB6121DD33F9B004AAA30 /* QSCConfigure.xib */,
 				1A91F9F718E2530B00AA8B7E /* MainMenu.xib */,
 				1A42764819196B6F00815DC6 /* QSHWindow.h */,
 				1A42764919196B6F00815DC6 /* QSHWindow.m */,
@@ -222,6 +242,8 @@
 				1AFBA8B919483E4900BEDA0A /* QSHPreferencesViewController.xib */,
 				1AA896701964FB1800E4FDAC /* QSHWebViewWindowController.h */,
 				1AA896711964FB1800E4FDAC /* QSHWebViewWindowController.m */,
+				8A5DB6141DD33FF6004AAA30 /* QSCConfigureWindow.h */,
+				8A5DB6151DD33FF6004AAA30 /* QSCConfigureWindow.m */,
 				8A8D99B51DCE591F00AD735E /* QSHBorderlessWindow.h */,
 				8A8D99B61DCE595C00AD735E /* QSHBorderlessWindow.m */,
 				1AA896721964FB1800E4FDAC /* QSHWebViewWindowController.xib */,
@@ -229,6 +251,7 @@
 				1A9A456D1A1C93C600C98589 /* NSWindow+Fade.m */,
 				8A2C271E1DCCC1E500E00C7D /* QuarkHeader.js */,
 				8AC4ABDD1DC48AAD0026D522 /* Quark.js */,
+				8A5DB6201DD37BC9004AAA30 /* AppSandboxFileAccess */,
 				1A91F9FA18E2530B00AA8B7E /* Images.xcassets */,
 				8AA4F6FA1DC1D68600F9C793 /* QSHWebView.h */,
 				8AA4F6FB1DC1D68600F9C793 /* QSHWebView.m */,
@@ -295,6 +318,29 @@
 				02F1A3336EF3226FC19C4B96 /* Pods-quark-shell.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8A5DB6181DD34266004AAA30 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				8A5DB6191DD34266004AAA30 /* index.html */,
+				8A5DB61A1DD34266004AAA30 /* index.js */,
+				8A5DB61B1DD34266004AAA30 /* jquery-2.1.0.min.js */,
+			);
+			path = app;
+			sourceTree = SOURCE_ROOT;
+		};
+		8A5DB6201DD37BC9004AAA30 /* AppSandboxFileAccess */ = {
+			isa = PBXGroup;
+			children = (
+				8A5DB6211DD37BC9004AAA30 /* AppSandboxFileAccess.h */,
+				8A5DB6221DD37BC9004AAA30 /* AppSandboxFileAccess.m */,
+				8A5DB6231DD37BC9004AAA30 /* AppSandboxFileAccessOpenSavePanelDelegate.h */,
+				8A5DB6241DD37BC9004AAA30 /* AppSandboxFileAccessOpenSavePanelDelegate.m */,
+				8A5DB6251DD37BC9004AAA30 /* AppSandboxFileAccessPersist.h */,
+				8A5DB6261DD37BC9004AAA30 /* AppSandboxFileAccessPersist.m */,
+			);
+			path = AppSandboxFileAccess;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,8 +464,12 @@
 				1A91F9ED18E2530B00AA8B7E /* InfoPlist.strings in Resources */,
 				1A91F9FB18E2530B00AA8B7E /* Images.xcassets in Resources */,
 				1A91F9F318E2530B00AA8B7E /* Credits.rtf in Resources */,
+				8A5DB6131DD33F9B004AAA30 /* QSCConfigure.xib in Resources */,
 				1AA896741964FB1800E4FDAC /* QSHWebViewWindowController.xib in Resources */,
+				8A5DB61C1DD34266004AAA30 /* index.html in Resources */,
+				8A5DB61D1DD34266004AAA30 /* index.js in Resources */,
 				1AFBA8BB19483E4900BEDA0A /* QSHPreferencesViewController.xib in Resources */,
+				8A5DB61E1DD34266004AAA30 /* jquery-2.1.0.min.js in Resources */,
 				8AC4ABDE1DC48AAD0026D522 /* Quark.js in Resources */,
 				8A2C271F1DCCC1E500E00C7D /* QuarkHeader.js in Resources */,
 				1A91F9F918E2530B00AA8B7E /* MainMenu.xib in Resources */,
@@ -514,13 +564,17 @@
 				8AA4F6FC1DC1D68600F9C793 /* QSHWebView.m in Sources */,
 				1A9A456E1A1C93C600C98589 /* NSWindow+Fade.m in Sources */,
 				1AFBA8BA19483E4900BEDA0A /* QSHPreferencesViewController.m in Sources */,
+				8A5DB6161DD33FF6004AAA30 /* QSCConfigureWindow.m in Sources */,
 				8A8D99B71DCE595C00AD735E /* QSHBorderlessWindow.m in Sources */,
 				1A91F9F618E2530B00AA8B7E /* QSHAppDelegate.m in Sources */,
 				1AA896731964FB1800E4FDAC /* QSHWebViewWindowController.m in Sources */,
+				8A5DB6271DD37BC9004AAA30 /* AppSandboxFileAccess.m in Sources */,
 				1A91F9EF18E2530B00AA8B7E /* main.m in Sources */,
 				1A82DE5B1903B095006AB37F /* QSHWindowBorderView.m in Sources */,
 				1AF6371E18E9FF430099B508 /* QSHWebViewDelegate.m in Sources */,
 				1ABD40311912E3AB002A53FB /* QSHStatusItemView.m in Sources */,
+				8A5DB6281DD37BC9004AAA30 /* AppSandboxFileAccessOpenSavePanelDelegate.m in Sources */,
+				8A5DB6291DD37BC9004AAA30 /* AppSandboxFileAccessPersist.m in Sources */,
 				1A42764A19196B6F00815DC6 /* QSHWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

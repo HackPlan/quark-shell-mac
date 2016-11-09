@@ -9,4 +9,5 @@ target 'quark-shell' do
   pod 'ISO8601DateFormatter', '~> 0.7'
   pod 'StartAtLoginController', '~> 0.0.1'
   pod 'WebViewJavascriptBridge', '~> 5.0'
+  pod "GCDWebServer", "~> 3.0"
 end

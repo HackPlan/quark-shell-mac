@@ -14,6 +14,7 @@
 #import <ISO8601DateFormatter.h>
 #import <StartAtLoginController.h>
 #import "WKWebViewJavascriptBridge.h"
+#import <GCDWebServer/GCDWebServer.h>
 
 static const NSInteger kPreferencesDefaultHeight = 192;
 
@@ -21,6 +22,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     NSString *appVersion;
     NSString *appBundleVersion;
     NSString *platform;
+
     BOOL debug;
 }
 
@@ -35,6 +37,15 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"WebKitDeveloperExtras"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (NSURL *)getRootURL
+{
+    NSURL *folderURL = [[NSUserDefaults standardUserDefaults] URLForKey:@"folder"];
+    if (folderURL){
+        return [folderURL absoluteURL];
+    }
+    return [[NSBundle mainBundle] resourceURL];
 }
 
 - (instancetype)init
@@ -81,6 +92,11 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     
     // Load Page
     [webview loadRequest:[NSURLRequest requestWithURL:url]];
+    
+//    NSURL *top = [NSURL URLWithString:[[url absoluteString] stringByDeletingLastPathComponent]];
+//    NSURL *newUrl = [NSURL URLWithString:[url absoluteString]];
+//    NSLog(@"toload: %@", newUrl);
+//    [webview loadFileURL:newUrl allowingReadAccessToURL:top];
 }
 
 #pragma mark WebScripting Protocol

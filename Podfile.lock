@@ -1,4 +1,7 @@
 PODS:
+  - GCDWebServer (3.3.3):
+    - GCDWebServer/Core (= 3.3.3)
+  - GCDWebServer/Core (3.3.3)
   - ISO8601DateFormatter (0.8)
   - MASPreferences (1.2)
   - MASShortcut (2.3.6)
@@ -7,6 +10,7 @@ PODS:
   - WebViewJavascriptBridge (5.0.5)
 
 DEPENDENCIES:
+  - GCDWebServer (~> 3.0)
   - ISO8601DateFormatter (~> 0.7)
   - MASPreferences (from `git@github.com:HackPlan/MASPreferences.git`)
   - MASShortcut (~> 2.3.6)
@@ -24,6 +28,7 @@ CHECKOUT OPTIONS:
     :git: git@github.com:HackPlan/MASPreferences.git
 
 SPEC CHECKSUMS:
+  GCDWebServer: 1c39a1f0763e4eb492bee021e4270fce097d3555
   ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
   MASPreferences: 4ff5ced14f2ae0aada927579816c07fa6840f2e8
   MASShortcut: 9c215e8a8a78f3d01ce56da48e2730ab66b538fa
@@ -31,6 +36,6 @@ SPEC CHECKSUMS:
   StartAtLoginController: 9ff14295bab38f7cba164a838349f6c0a2d83020
   WebViewJavascriptBridge: a4d502315f1b8d9a51cd6a9174147ed567ec3bc5
 
-PODFILE CHECKSUM: e07affa7fa239d12faf94712038684d35c8b781c
+PODFILE CHECKSUM: 6c0b029a17ad4a28f625ac9edb86a0334456bf48
 
 COCOAPODS: 1.1.1

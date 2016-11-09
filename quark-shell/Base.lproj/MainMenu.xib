@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -28,11 +29,11 @@
         </window>
         <menu title="Main Menu" systemMenu="main" id="tdM-1d-aZL">
             <items>
-                <menuItem title="Menubar WebKit" id="BQ6-OV-amQ">
+                <menuItem title="Quark Container" id="BQ6-OV-amQ">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Menubar WebKit" systemMenu="apple" id="nhy-Sa-7z1">
+                    <menu key="submenu" title="Quark Container" systemMenu="apple" id="nhy-Sa-7z1">
                         <items>
-                            <menuItem title="About Menubar WebKit" id="U4e-aq-VaD">
+                            <menuItem title="Configure" id="U4e-aq-VaD">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="20d-gj-dDZ"/>
@@ -43,7 +44,7 @@
                                 <menu key="submenu" title="Services" systemMenu="services" id="NLl-pI-e6c"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="5sr-ed-yEb"/>
-                            <menuItem title="Hide Menubar WebKit" keyEquivalent="h" id="HGc-Jt-lN6">
+                            <menuItem title="Hide Quark Contatiner" keyEquivalent="h" id="HGc-Jt-lN6">
                                 <connections>
                                     <action selector="hide:" target="-1" id="VmP-I0-sBV"/>
                                 </connections>
@@ -55,7 +56,7 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="a0D-7j-vEC"/>
-                            <menuItem title="Quit Menubar WebKit" keyEquivalent="q" id="Iza-Zo-7D6">
+                            <menuItem title="Quit" keyEquivalent="q" id="Iza-Zo-7D6">
                                 <connections>
                                     <action selector="terminate:" target="-1" id="HgD-QZ-hES"/>
                                 </connections>
@@ -423,7 +424,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="afv-7J-sB2">
                         <items>
-                            <menuItem title="quark-shell Help" keyEquivalent="?" id="iUl-3c-6aB"/>
+                            <menuItem title="Help" keyEquivalent="?" id="iUl-3c-6aB"/>
                         </items>
                     </menu>
                 </menuItem>

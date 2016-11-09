@@ -11,10 +11,12 @@
 #import "QSHAppDelegate.h"
 #import "QSHWindowBorderView.h"
 #import "QSHWebView.h"
+#import "QSCConfigureWindow.h"
 #import "QSHWebViewDelegate.h"
 #import "QSHStatusItemView.h"
 #import "NSWindow+Fade.h"
 #import "WKWebViewJavascriptBridge.h"
+#import <GCDWebServer/GCDWebServer.h>
 
 static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
 
@@ -23,11 +25,14 @@ static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
 @property (nonatomic) NSStatusItem *statusItem;
 @property (nonatomic) QSHStatusItemView *statusItemView;
 @property (nonatomic) QSHWebViewDelegate *webViewDelegate;
+@property (nonatomic) QSCConfigureWindow *configureWindow;
 
 @end
 
 @implementation QSHAppDelegate {
     QSHWebView *_webView;
+    GCDWebServer* _webServer;
+    NSMutableDictionary* _webServerOptions;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -41,8 +46,22 @@ static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
     self.webViewDelegate.statusItem = self.statusItem;
     self.webViewDelegate.statusItemView = self.statusItemView;
     self.webViewDelegate.webView = _webView;
-//    _webView.navigationDelegate = self.webViewDelegate;
+
     _webView.UIDelegate = self.webViewDelegate;
+    
+    NSMenu *menu = [[[[NSApplication sharedApplication] mainMenu] itemAtIndex:0] submenu];
+    NSMenuItem *configureMenuItem = [menu itemAtIndex:0];
+    if (configureMenuItem)
+    {
+        [configureMenuItem setTarget:self];
+        [configureMenuItem setAction:@selector(openConfigure:)];
+    }
+}
+
+- (void)openConfigure:(id)sender {
+    _configureWindow = [[QSCConfigureWindow alloc] init];
+    _configureWindow.appDelegate = self;
+    [_configureWindow showWindow:nil];
 }
 
 - (void)setupStatusItemAndWindow
@@ -65,6 +84,51 @@ static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
     [self.window setBackgroundColor:[NSColor clearColor]];
 }
 
+- (void)setupWebserver
+{
+    _webServer = [[GCDWebServer alloc] init];
+    _webServerOptions = [NSMutableDictionary dictionary];
+    
+    NSString *directoryPath = [[QSHWebViewDelegate getRootURL] path];
+    NSLog(@"Start webserver at: %@", directoryPath);
+    // Add GET handler for local "www/" directory
+    [_webServer addGETHandlerForBasePath:@"/"
+                           directoryPath:directoryPath
+                           indexFilename:nil
+                                cacheAge:30
+                      allowRangeRequests:YES];
+    
+    // Initialize Server startup
+    [self startServer];
+    NSLog(@"Visit %@ in your web browser", _webServer.serverURL);
+}
+
+- (void)startServer
+{
+    NSError *error = nil;
+    
+    // Enable this option to force the Server also to run when suspended
+    //[_webServerOptions setObject:[NSNumber numberWithBool:NO] forKey:GCDWebServerOption_AutomaticallySuspendInBackground];
+    
+    [_webServerOptions setObject:[NSNumber numberWithBool:YES]
+                          forKey:GCDWebServerOption_BindToLocalhost];
+    
+    // Initialize Server listening port, initially trying 12344 for backwards compatibility
+    int httpPort = 12311;
+    
+    // Start Server
+    do {
+        [_webServerOptions setObject:[NSNumber numberWithInteger:httpPort++]
+                              forKey:GCDWebServerOption_Port];
+    } while(![_webServer startWithOptions:_webServerOptions error:&error]);
+    
+    if (error) {
+        NSLog(@"Error starting http daemon: %@", error);
+    } else {
+        NSLog(@"Started http daemon: %@ ", _webServer.serverURL);
+    }
+}
+
 - (void)setupWebView
 {
     QSHWindowBorderView *contentView = _window.contentView;
@@ -83,12 +147,19 @@ static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
     _webView.layer.masksToBounds = YES;
     
     bool showDockIcon = [[NSUserDefaults standardUserDefaults] boolForKey:@"showDockIcon"];
-    if (showDockIcon != NO){
-        [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
-    }
-    
-    NSURL *URL = [NSURL URLWithString:kIndexPath relativeToURL:[[NSBundle mainBundle] resourceURL]];
+//    if (showDockIcon != NO){
+    [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
+//    }
+    [self setupWebserver];
+    NSURL *rootUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:%lu", (unsigned long)_webServer.port]];
+    NSURL *URL = [NSURL URLWithString:kIndexPath relativeToURL:rootUrl];
     [QSHWebViewDelegate initWebviewWithBridge:_webView url:URL webDelegate:self.webViewDelegate isMain:YES];
+}
+
+- (void)reloadWebview
+{
+    [self hideWindow];
+    [self setupWebView];
 }
 
 - (void)showDockIcon:(bool)showDockIcon {

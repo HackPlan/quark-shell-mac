@@ -16,6 +16,7 @@
 @property (nonatomic, copy) void (^clickCallback)();
 @property (nonatomic, copy) void (^secondaryClickCallback)();
 
+- (void)reloadWebview;
 - (void)showWindow;
 - (void)hideWindow;
 - (void)toggleWindow;

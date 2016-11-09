@@ -25,6 +25,7 @@
 @property (nonatomic, weak) WKWebViewJavascriptBridge *mainBridge;
 
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)selector;
++ (NSURL *)getRootURL;
 
 + (void)initWebviewWithBridge:(QSHWebView*)webview url:(NSURL*)url webDelegate:(QSHWebViewDelegate*)webDelegate isMain:(BOOL)isMain;
 
