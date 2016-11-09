@@ -445,6 +445,14 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     }
 
     [webViewWindowController showWindow:nil];
+    
+    if ([options[@"titleBarStyle"] isEqual: @"hidden-inset"]){
+        [webViewWindowController.window setTitleVisibility:NSWindowTitleHidden];
+        NSToolbar *toolbar = [[NSToolbar alloc] initWithIdentifier:@"titlebarStylingToolbar"];
+        toolbar.showsBaselineSeparator = NO;
+        [webViewWindowController.window setToolbar:toolbar];
+    }
+
 }
 
 - (void)closeWindowById:(NSArray *)args
