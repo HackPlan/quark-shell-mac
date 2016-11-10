@@ -90,12 +90,13 @@ static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
     _webServerOptions = [NSMutableDictionary dictionary];
     
     NSString *directoryPath = [[QSHWebViewDelegate getRootURL] path];
+    
     NSLog(@"Start webserver at: %@", directoryPath);
     // Add GET handler for local "www/" directory
     [_webServer addGETHandlerForBasePath:@"/"
                            directoryPath:directoryPath
                            indexFilename:nil
-                                cacheAge:30
+                                cacheAge:0
                       allowRangeRequests:YES];
     
     // Initialize Server startup
@@ -131,6 +132,32 @@ static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
 
 - (void)setupWebView
 {
+    [self setupWebserver];
+    NSURL *rootUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:%lu", (unsigned long)_webServer.port]];
+    NSURL *URL = [NSURL URLWithString:kIndexPath relativeToURL:rootUrl];
+    
+    // parse manifest
+    NSURL *manifestFilePath = [NSURL URLWithString:@"quark-manifest.json" relativeToURL:[QSHWebViewDelegate getRootURL]];
+    NSString *manifestContents = [NSString stringWithContentsOfFile:[manifestFilePath path] encoding:NSUTF8StringEncoding error:nil];
+    if (manifestContents == nil) {
+        NSLog(@"Error reading manifest file");
+    }
+    NSDictionary *manifest = [NSJSONSerialization JSONObjectWithData:[manifestContents dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+    
+    if (manifest.count > 0){
+        if (manifest[@"popup"]){
+            CGRect frameRect = self.window.frame;
+            frameRect.size.width = [manifest[@"popup"][@"width"] doubleValue];
+            frameRect.size.height = [manifest[@"popup"][@"height"] doubleValue];
+            [self.window setFrame:frameRect display:NO];
+        }
+        if (manifest[@"status_icon"] != nil){
+            NSURL *iconFilePath = [NSURL URLWithString:manifest[@"status_icon"] relativeToURL:[QSHWebViewDelegate getRootURL]];
+            NSImage *iconImage = [[NSImage alloc] initWithContentsOfFile:[iconFilePath path]];
+            self.statusItem.button.image = iconImage;
+        }
+    }
+
     QSHWindowBorderView *contentView = _window.contentView;
     _webView = [[QSHWebView alloc] initWithFrame:contentView.innerFrame];
     [_webView setAutoresizingMask:(NSViewHeightSizable | NSViewWidthSizable)];
@@ -150,9 +177,8 @@ static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
 //    if (showDockIcon != NO){
     [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
 //    }
-    [self setupWebserver];
-    NSURL *rootUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:%lu", (unsigned long)_webServer.port]];
-    NSURL *URL = [NSURL URLWithString:kIndexPath relativeToURL:rootUrl];
+    
+    
     [QSHWebViewDelegate initWebviewWithBridge:_webView url:URL webDelegate:self.webViewDelegate isMain:YES];
 }
 

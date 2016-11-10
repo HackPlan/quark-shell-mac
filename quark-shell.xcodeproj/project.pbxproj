@@ -37,9 +37,6 @@
 		8A5DB61C1DD34266004AAA30 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A5DB6191DD34266004AAA30 /* index.html */; };
 		8A5DB61D1DD34266004AAA30 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 8A5DB61A1DD34266004AAA30 /* index.js */; };
 		8A5DB61E1DD34266004AAA30 /* jquery-2.1.0.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 8A5DB61B1DD34266004AAA30 /* jquery-2.1.0.min.js */; };
-		8A5DB6271DD37BC9004AAA30 /* AppSandboxFileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DB6221DD37BC9004AAA30 /* AppSandboxFileAccess.m */; };
-		8A5DB6281DD37BC9004AAA30 /* AppSandboxFileAccessOpenSavePanelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DB6241DD37BC9004AAA30 /* AppSandboxFileAccessOpenSavePanelDelegate.m */; };
-		8A5DB6291DD37BC9004AAA30 /* AppSandboxFileAccessPersist.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DB6261DD37BC9004AAA30 /* AppSandboxFileAccessPersist.m */; };
 		8A8D99B71DCE595C00AD735E /* QSHBorderlessWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D99B61DCE595C00AD735E /* QSHBorderlessWindow.m */; };
 		8AA4F6FC1DC1D68600F9C793 /* QSHWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4F6FB1DC1D68600F9C793 /* QSHWebView.m */; };
 		8AC4ABDE1DC48AAD0026D522 /* Quark.js in Resources */ = {isa = PBXBuildFile; fileRef = 8AC4ABDD1DC48AAD0026D522 /* Quark.js */; };
@@ -131,13 +128,6 @@
 		8A5DB6191DD34266004AAA30 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		8A5DB61A1DD34266004AAA30 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
 		8A5DB61B1DD34266004AAA30 /* jquery-2.1.0.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-2.1.0.min.js"; sourceTree = "<group>"; };
-		8A5DB6211DD37BC9004AAA30 /* AppSandboxFileAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSandboxFileAccess.h; sourceTree = "<group>"; };
-		8A5DB6221DD37BC9004AAA30 /* AppSandboxFileAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSandboxFileAccess.m; sourceTree = "<group>"; };
-		8A5DB6231DD37BC9004AAA30 /* AppSandboxFileAccessOpenSavePanelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSandboxFileAccessOpenSavePanelDelegate.h; sourceTree = "<group>"; };
-		8A5DB6241DD37BC9004AAA30 /* AppSandboxFileAccessOpenSavePanelDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSandboxFileAccessOpenSavePanelDelegate.m; sourceTree = "<group>"; };
-		8A5DB6251DD37BC9004AAA30 /* AppSandboxFileAccessPersist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSandboxFileAccessPersist.h; sourceTree = "<group>"; };
-		8A5DB6261DD37BC9004AAA30 /* AppSandboxFileAccessPersist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSandboxFileAccessPersist.m; sourceTree = "<group>"; };
-		8A5DB62A1DD38B19004AAA30 /* quark-shell.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "quark-shell.entitlements"; sourceTree = "<group>"; };
 		8A8D99B51DCE591F00AD735E /* QSHBorderlessWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSHBorderlessWindow.h; sourceTree = "<group>"; };
 		8A8D99B61DCE595C00AD735E /* QSHBorderlessWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSHBorderlessWindow.m; sourceTree = "<group>"; };
 		8AA4F6FA1DC1D68600F9C793 /* QSHWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSHWebView.h; sourceTree = "<group>"; };
@@ -223,7 +213,6 @@
 		1A91F9E818E2530B00AA8B7E /* quark-shell */ = {
 			isa = PBXGroup;
 			children = (
-				8A5DB62A1DD38B19004AAA30 /* quark-shell.entitlements */,
 				8A5DB6181DD34266004AAA30 /* app */,
 				1A91F9F418E2530B00AA8B7E /* QSHAppDelegate.h */,
 				1A91F9F518E2530B00AA8B7E /* QSHAppDelegate.m */,
@@ -251,7 +240,6 @@
 				1A9A456D1A1C93C600C98589 /* NSWindow+Fade.m */,
 				8A2C271E1DCCC1E500E00C7D /* QuarkHeader.js */,
 				8AC4ABDD1DC48AAD0026D522 /* Quark.js */,
-				8A5DB6201DD37BC9004AAA30 /* AppSandboxFileAccess */,
 				1A91F9FA18E2530B00AA8B7E /* Images.xcassets */,
 				8AA4F6FA1DC1D68600F9C793 /* QSHWebView.h */,
 				8AA4F6FB1DC1D68600F9C793 /* QSHWebView.m */,
@@ -330,19 +318,6 @@
 			path = app;
 			sourceTree = SOURCE_ROOT;
 		};
-		8A5DB6201DD37BC9004AAA30 /* AppSandboxFileAccess */ = {
-			isa = PBXGroup;
-			children = (
-				8A5DB6211DD37BC9004AAA30 /* AppSandboxFileAccess.h */,
-				8A5DB6221DD37BC9004AAA30 /* AppSandboxFileAccess.m */,
-				8A5DB6231DD37BC9004AAA30 /* AppSandboxFileAccessOpenSavePanelDelegate.h */,
-				8A5DB6241DD37BC9004AAA30 /* AppSandboxFileAccessOpenSavePanelDelegate.m */,
-				8A5DB6251DD37BC9004AAA30 /* AppSandboxFileAccessPersist.h */,
-				8A5DB6261DD37BC9004AAA30 /* AppSandboxFileAccessPersist.m */,
-			);
-			path = AppSandboxFileAccess;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -418,7 +393,7 @@
 						DevelopmentTeam = 7676B49VAW;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -568,13 +543,10 @@
 				8A8D99B71DCE595C00AD735E /* QSHBorderlessWindow.m in Sources */,
 				1A91F9F618E2530B00AA8B7E /* QSHAppDelegate.m in Sources */,
 				1AA896731964FB1800E4FDAC /* QSHWebViewWindowController.m in Sources */,
-				8A5DB6271DD37BC9004AAA30 /* AppSandboxFileAccess.m in Sources */,
 				1A91F9EF18E2530B00AA8B7E /* main.m in Sources */,
 				1A82DE5B1903B095006AB37F /* QSHWindowBorderView.m in Sources */,
 				1AF6371E18E9FF430099B508 /* QSHWebViewDelegate.m in Sources */,
 				1ABD40311912E3AB002A53FB /* QSHStatusItemView.m in Sources */,
-				8A5DB6281DD37BC9004AAA30 /* AppSandboxFileAccessOpenSavePanelDelegate.m in Sources */,
-				8A5DB6291DD37BC9004AAA30 /* AppSandboxFileAccessPersist.m in Sources */,
 				1A42764A19196B6F00815DC6 /* QSHWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -731,7 +703,6 @@
 			baseConfigurationReference = 6A4D4DE7AE621F1D463C1846 /* Pods-quark-shell.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "quark-shell/quark-shell.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -750,7 +721,6 @@
 			baseConfigurationReference = 02F1A3336EF3226FC19C4B96 /* Pods-quark-shell.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "quark-shell/quark-shell.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

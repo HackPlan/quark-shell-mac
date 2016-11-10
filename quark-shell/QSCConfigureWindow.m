@@ -57,8 +57,6 @@
 }
 
 - (void)choseFolder {
-    AppSandboxFileAccess *fileAccess = [AppSandboxFileAccess fileAccess];
-    
     NSOpenPanel* panel = [NSOpenPanel openPanel];
     [panel setCanChooseDirectories:YES];
     [panel setCanCreateDirectories:YES];
@@ -75,16 +73,7 @@
                         && isDir) {
                         
                         _folderURL = url;
-                        [fileAccess persistPermissionPath:[_folderURL absoluteString]];
-                        
-                        BOOL accessAllowed = [fileAccess accessFilePath:[_folderURL absoluteString] persistPermission:YES withBlock:^{
-                            [_pathInput setStringValue:[_folderURL absoluteString]];
-                            
-                        }];
-                        
-                        if (!accessAllowed) {
-                            NSLog(@"Sad Wookie");
-                        }
+                        [_pathInput setStringValue:[_folderURL absoluteString]];
                     }
                 }
             }

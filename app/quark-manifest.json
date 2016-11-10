@@ -1,0 +1,9 @@
+{
+  "name": "QuarkContainer",
+  "popup": {
+    "width": 400,
+    "height": 600
+  },
+  "index": "index.html",
+  "status_icon": "icon.png"
+}
