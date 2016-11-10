@@ -57,8 +57,7 @@
         [self.window setFrame:NSMakeRect(self.window.frame.origin.x, self.window.frame.origin.y, width, height) display:YES];
         self.window.animationBehavior = NSWindowAnimationBehaviorDocumentWindow;
 
-        NSString *fullURLString = [kRootPath stringByAppendingString:urlString];
-        NSURL *url = [NSURL URLWithString:fullURLString relativeToURL:[[NSBundle mainBundle] resourceURL]];
+        NSURL *url = [NSURL URLWithString:urlString relativeToURL:[QSHWebViewDelegate getRootURL]];
         
         [self _createViews];
         

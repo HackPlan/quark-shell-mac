@@ -39,8 +39,21 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
++ (NSURL *)getFolderURL
+{
+    NSURL *folderURL = [[NSUserDefaults standardUserDefaults] URLForKey:@"folder"];
+    if (folderURL){
+        return [folderURL absoluteURL];
+    }
+    return [[NSBundle mainBundle] resourceURL];
+}
+
 + (NSURL *)getRootURL
 {
+    NSURL *indexURL = [[NSUserDefaults standardUserDefaults] URLForKey:@"indexPath"];
+    if ( indexURL != nil && [[indexURL absoluteString] containsString:@"http"] ){
+        return indexURL;
+    }
     NSURL *folderURL = [[NSUserDefaults standardUserDefaults] URLForKey:@"folder"];
     if (folderURL){
         return [folderURL absoluteURL];
@@ -52,16 +65,16 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 {
     NSURL *folderURL = [[NSUserDefaults standardUserDefaults] URLForKey:@"folder"];
     NSURL *indexURL = [[NSUserDefaults standardUserDefaults] URLForKey:@"indexPath"];
-    if (indexURL && folderURL){
-        if ( [[indexURL absoluteString] containsString:@"http"] ){
-            return indexURL;
-        }
-        return [[folderURL absoluteURL] URLByAppendingPathComponent:[indexURL absoluteString] ];
+    if (folderURL == nil){
+        folderURL = [[NSBundle mainBundle] resourceURL];
     }
-    if (folderURL){
-        return [folderURL absoluteURL];
+    if (indexURL == nil){
+        indexURL = [NSURL URLWithString:@"index.html"];
     }
-    return [[NSBundle mainBundle] resourceURL];
+    if ( [[indexURL absoluteString] containsString:@"http"] ){
+        return indexURL;
+    }
+    return [[folderURL absoluteURL] URLByAppendingPathComponent:[indexURL absoluteString] ];
 }
 
 - (instancetype)init

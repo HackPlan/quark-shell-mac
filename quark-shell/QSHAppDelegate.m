@@ -136,7 +136,7 @@ static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
     NSURL *rootUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:%lu", (unsigned long)_webServer.port]];
     
     // parse manifest
-    NSURL *manifestFilePath = [NSURL URLWithString:@"quark-manifest.json" relativeToURL:[QSHWebViewDelegate getRootURL]];
+    NSURL *manifestFilePath = [NSURL URLWithString:@"quark-manifest.json" relativeToURL:[QSHWebViewDelegate getFolderURL]];
     NSString *manifestContents = [NSString stringWithContentsOfFile:[manifestFilePath path] encoding:NSUTF8StringEncoding error:nil];
     if (manifestContents == nil) {
         NSLog(@"Error reading manifest file");

@@ -32,6 +32,8 @@
 		1AFBA8BA19483E4900BEDA0A /* QSHPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFBA8B819483E4900BEDA0A /* QSHPreferencesViewController.m */; };
 		1AFBA8BB19483E4900BEDA0A /* QSHPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFBA8B919483E4900BEDA0A /* QSHPreferencesViewController.xib */; };
 		8A2C271F1DCCC1E500E00C7D /* QuarkHeader.js in Resources */ = {isa = PBXBuildFile; fileRef = 8A2C271E1DCCC1E500E00C7D /* QuarkHeader.js */; };
+		8A31376F1DD45C710008CB51 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A31376D1DD45C710008CB51 /* icon.png */; };
+		8A3137701DD45C710008CB51 /* quark-manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A31376E1DD45C710008CB51 /* quark-manifest.json */; };
 		8A5DB6131DD33F9B004AAA30 /* QSCConfigure.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A5DB6121DD33F9B004AAA30 /* QSCConfigure.xib */; };
 		8A5DB6161DD33FF6004AAA30 /* QSCConfigureWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DB6151DD33FF6004AAA30 /* QSCConfigureWindow.m */; };
 		8A5DB61C1DD34266004AAA30 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A5DB6191DD34266004AAA30 /* index.html */; };
@@ -122,6 +124,8 @@
 		1AFBA8B919483E4900BEDA0A /* QSHPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSHPreferencesViewController.xib; sourceTree = "<group>"; };
 		6A4D4DE7AE621F1D463C1846 /* Pods-quark-shell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quark-shell.debug.xcconfig"; path = "Pods/Target Support Files/Pods-quark-shell/Pods-quark-shell.debug.xcconfig"; sourceTree = "<group>"; };
 		8A2C271E1DCCC1E500E00C7D /* QuarkHeader.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = QuarkHeader.js; sourceTree = "<group>"; };
+		8A31376D1DD45C710008CB51 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		8A31376E1DD45C710008CB51 /* quark-manifest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "quark-manifest.json"; sourceTree = "<group>"; };
 		8A5DB6121DD33F9B004AAA30 /* QSCConfigure.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSCConfigure.xib; sourceTree = "<group>"; };
 		8A5DB6141DD33FF6004AAA30 /* QSCConfigureWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSCConfigureWindow.h; sourceTree = "<group>"; };
 		8A5DB6151DD33FF6004AAA30 /* QSCConfigureWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSCConfigureWindow.m; sourceTree = "<group>"; };
@@ -314,6 +318,8 @@
 				8A5DB6191DD34266004AAA30 /* index.html */,
 				8A5DB61A1DD34266004AAA30 /* index.js */,
 				8A5DB61B1DD34266004AAA30 /* jquery-2.1.0.min.js */,
+				8A31376D1DD45C710008CB51 /* icon.png */,
+				8A31376E1DD45C710008CB51 /* quark-manifest.json */,
 			);
 			path = app;
 			sourceTree = SOURCE_ROOT;
@@ -436,6 +442,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A31376F1DD45C710008CB51 /* icon.png in Resources */,
+				8A3137701DD45C710008CB51 /* quark-manifest.json in Resources */,
 				1A91F9ED18E2530B00AA8B7E /* InfoPlist.strings in Resources */,
 				1A91F9FB18E2530B00AA8B7E /* Images.xcassets in Resources */,
 				1A91F9F318E2530B00AA8B7E /* Credits.rtf in Resources */,
@@ -710,7 +718,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/quark-shell/quark-shell-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hackplan.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hackplan.quark-container";
 				PRODUCT_NAME = "quark-shell";
 				WRAPPER_EXTENSION = app;
 			};
@@ -728,7 +736,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/quark-shell/quark-shell-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hackplan.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hackplan.quark-container";
 				PRODUCT_NAME = "quark-shell";
 				WRAPPER_EXTENSION = app;
 			};
