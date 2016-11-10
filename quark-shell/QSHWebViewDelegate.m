@@ -48,6 +48,22 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     return [[NSBundle mainBundle] resourceURL];
 }
 
++ (NSURL *)getIndexURL
+{
+    NSURL *folderURL = [[NSUserDefaults standardUserDefaults] URLForKey:@"folder"];
+    NSURL *indexURL = [[NSUserDefaults standardUserDefaults] URLForKey:@"indexPath"];
+    if (indexURL && folderURL){
+        if ( [[indexURL absoluteString] containsString:@"http"] ){
+            return indexURL;
+        }
+        return [[folderURL absoluteURL] URLByAppendingPathComponent:[indexURL absoluteString] ];
+    }
+    if (folderURL){
+        return [folderURL absoluteURL];
+    }
+    return [[NSBundle mainBundle] resourceURL];
+}
+
 - (instancetype)init
 {
     self = [super init];

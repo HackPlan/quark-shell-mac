@@ -26,6 +26,7 @@
 
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)selector;
 + (NSURL *)getRootURL;
++ (NSURL *)getIndexURL;
 
 + (void)initWebviewWithBridge:(QSHWebView*)webview url:(NSURL*)url webDelegate:(QSHWebViewDelegate*)webDelegate isMain:(BOOL)isMain;
 

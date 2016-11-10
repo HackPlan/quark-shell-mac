@@ -134,7 +134,6 @@ static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
 {
     [self setupWebserver];
     NSURL *rootUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:%lu", (unsigned long)_webServer.port]];
-    NSURL *URL = [NSURL URLWithString:kIndexPath relativeToURL:rootUrl];
     
     // parse manifest
     NSURL *manifestFilePath = [NSURL URLWithString:@"quark-manifest.json" relativeToURL:[QSHWebViewDelegate getRootURL]];
@@ -155,6 +154,9 @@ static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
             NSURL *iconFilePath = [NSURL URLWithString:manifest[@"status_icon"] relativeToURL:[QSHWebViewDelegate getRootURL]];
             NSImage *iconImage = [[NSImage alloc] initWithContentsOfFile:[iconFilePath path]];
             self.statusItem.button.image = iconImage;
+        }
+        if (manifest[@"index"] != nil){
+            [[NSUserDefaults standardUserDefaults] setURL:[NSURL URLWithString:manifest[@"index"]] forKey:@"indexPath"];
         }
     }
 
@@ -178,7 +180,7 @@ static const CGFloat kMinimumSpaceBetweenWindowAndScreenEdge = 10;
     [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
 //    }
     
-    
+    NSURL *URL = [QSHWebViewDelegate getIndexURL];
     [QSHWebViewDelegate initWebviewWithBridge:_webView url:URL webDelegate:self.webViewDelegate isMain:YES];
 }
 
