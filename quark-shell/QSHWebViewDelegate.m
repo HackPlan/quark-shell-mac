@@ -28,6 +28,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 @property (nonatomic) MASPreferencesWindowController *preferencesWindowController;
 @property (nonatomic) NSMutableArray *windows;
+@property (nonatomic) NSMutableArray *prefWindows;
 
 @end
 
@@ -82,6 +83,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     self = [super init];
     if (self) {
         self.windows = [[NSMutableArray alloc] init];
+        self.prefWindows = [[NSMutableArray alloc] init];
         NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
         appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
         appBundleVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
@@ -403,6 +405,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 {
     NSArray *preferencesArray = args[0];
     NSMutableArray *viewControllers = [NSMutableArray array];
+    
 	for (NSDictionary *preferences in preferencesArray) {
         NSInteger height = preferences[@"height"] ? [preferences[@"height"] integerValue]: kPreferencesDefaultHeight;
         QSHPreferencesViewController *vc = [[QSHPreferencesViewController alloc]
@@ -419,6 +422,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
         [viewControllers addObject:vc];
 	}
+    self.prefWindows = viewControllers;
 
     NSString *title = NSLocalizedString(@"Preferences", @"Common title for Preferences window");
     self.preferencesWindowController = [[MASPreferencesWindowController alloc] initWithViewControllers:viewControllers title:title];
@@ -577,6 +581,9 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     NSMutableArray *bridges = [[NSMutableArray alloc] init];
     for (QSHWebViewWindowController *window in self.windows) {
         [bridges addObject:window.webView.bridge];
+    }
+    for (QSHPreferencesViewController *pvc in self.prefWindows) {
+        [bridges addObject:pvc.webView.bridge];
     }
     [bridges addObject:self.mainBridge];
     

@@ -62,10 +62,9 @@
     
     [self _createViews];
 
-    NSString *url = [[NSURL URLWithString:kRootPath relativeToURL:[[NSBundle mainBundle] resourceURL]] absoluteString];
-    url = [url stringByAppendingString:_url];
+    NSURL *url = [NSURL URLWithString:_url relativeToURL:[QSHWebViewDelegate getRootURL]];
     
-    [QSHWebViewDelegate initWebviewWithBridge:_webView url:[NSURL URLWithString:url] webDelegate:_delegate isMain:NO];
+    [QSHWebViewDelegate initWebviewWithBridge:_webView url:url webDelegate:_delegate isMain:NO];
 }
 
 - (void)addNativeComponent:(NSDictionary *)component
