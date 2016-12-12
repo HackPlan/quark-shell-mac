@@ -17,6 +17,7 @@
 @property (nonatomic, strong) QSHWebView *webView;
 
 - (instancetype)initWithIdentifier:(NSString *)identifier
+                               url:(NSString *)url
                       toolbarImage:(NSImage *)image
                       toolbarLabel:(NSString *)label
                             height:(NSInteger)height

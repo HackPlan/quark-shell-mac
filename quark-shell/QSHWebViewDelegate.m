@@ -407,6 +407,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         NSInteger height = preferences[@"height"] ? [preferences[@"height"] integerValue]: kPreferencesDefaultHeight;
         QSHPreferencesViewController *vc = [[QSHPreferencesViewController alloc]
                                             initWithIdentifier:preferences[@"identifier"]
+                                            url:preferences[@"url"]
                                             toolbarImage:[NSImage imageNamed:preferences[@"icon"]]
                                             toolbarLabel:preferences[@"label"]
                                             height:height

@@ -11,6 +11,7 @@
 @interface QSHPreferencesViewController ()
 
 @property (nonatomic) NSString *identifier;
+@property (nonatomic) NSString *url;
 @property (nonatomic) NSImage *toolbarItemImage;
 @property (nonatomic) NSString *toolbarItemLabel;
 @property (nonatomic) NSInteger height;
@@ -24,6 +25,7 @@
 @synthesize identifier = _identifier;
 
 - (instancetype)initWithIdentifier:(NSString *)identifier
+                               url:(NSString *)url
                       toolbarImage:(NSImage *)image
                       toolbarLabel:(NSString *)label
                             height:(NSInteger)height
@@ -32,6 +34,7 @@
     self = [super initWithNibName:@"QSHPreferencesViewController" bundle:nil];
     if (self) {
         _identifier = identifier;
+        _url = url;
         _toolbarItemImage = image;
         _toolbarItemLabel = label;
         _height = height;
@@ -59,8 +62,8 @@
     
     [self _createViews];
 
-    NSString *url = [[NSURL URLWithString:kPreferencesDirectory relativeToURL:[[NSBundle mainBundle] resourceURL]] absoluteString];
-    url = [url stringByAppendingString:[NSString stringWithFormat:@"%@.html", self.identifier]];
+    NSString *url = [[NSURL URLWithString:kRootPath relativeToURL:[[NSBundle mainBundle] resourceURL]] absoluteString];
+    url = [url stringByAppendingString:_url];
     
     [QSHWebViewDelegate initWebviewWithBridge:_webView url:[NSURL URLWithString:url] webDelegate:_delegate isMain:NO];
 }
