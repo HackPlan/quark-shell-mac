@@ -111,12 +111,17 @@ static const NSInteger kPreferencesDefaultHeight = 192;
             if (![QSHWebViewDelegate isSelectorExcludedFromWebScript: method]) {
                 if (method == NSSelectorFromString(@"closeWindow:") ){
                     [webDelegate performSelector:method withObject: webview.parentWindow];
+                } else if (method == NSSelectorFromString(@"getPref:") ){
+                    NSArray *argsWithCallback = [args arrayByAddingObject:responseCallback];
+                    [webDelegate performSelector:method withObject: argsWithCallback];
+                } else if (method == NSSelectorFromString(@"setPref:") ){
+                    NSArray *argsWithCallback = [args arrayByAddingObject:responseCallback];
+                    [webDelegate performSelector:method withObject: argsWithCallback];
                 } else {
                     [webDelegate performSelector:method withObject: args];
                 }
             }
         }
-        responseCallback(@"Response from testObjcCallback");
     }];
     
     // Load Page
@@ -158,6 +163,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(closeWindow:) ||
         selector == @selector(closeWindowById:) ||
         selector == @selector(setPin:) ||
+        selector == @selector(getPref:) ||
+        selector == @selector(setPref:) ||
         selector == @selector(checkUpdate:) ||
         selector == @selector(checkUpdateInBackground:) ||
         selector == @selector(emitMessage:) ||
@@ -280,6 +287,29 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 {
     bool showDockIcon = [args[0] boolValue];
     [self.appDelegate showDockIcon:showDockIcon];
+}
+
+- (void)getPref:(NSArray *)args
+{
+    NSString *key = args[0];
+    WVJBResponseCallback responseCallback = args[1];
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    NSString *value = [userPreferences stringForKey:key];
+    responseCallback(value);
+}
+
+- (void)setPref:(NSArray *)args
+{
+    NSString *key = args[0];
+    NSString *value = args[1];
+    if (!([value length] > 0)) {
+        value = @"";
+    }
+    WVJBResponseCallback responseCallback = args[2];
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    [userPreferences setObject:value forKey:key];
+    [userPreferences synchronize];
+    responseCallback(value);
 }
 
 - (void)setLaunchAtLogin:(NSArray *)args

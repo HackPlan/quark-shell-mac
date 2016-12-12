@@ -52,6 +52,14 @@ function setupQuarkWithBridge(bridge) {
     bridge.callHandler('quark', {'method': 'emitMessage', 'args': [options]})
   }
   
+  quark.getPref = function (key, callback) {
+    bridge.callHandler('quark', {'method': 'getPref', 'args': [key]}, callback);
+  }
+  
+  quark.setPref = function (key, value, callback) {
+    bridge.callHandler('quark', {'method': 'setPref', 'args': [key, value]}, callback);
+  }
+  
 }
 
 setupWebViewJavascriptBridge(function(bridge) {
