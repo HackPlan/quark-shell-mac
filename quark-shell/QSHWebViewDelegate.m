@@ -641,25 +641,43 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     }
 }
 
-- (void)showMenu:(NSArray *)args
+- (void)setMainMenu:(NSArray *)args
 {
     NSDictionary *options = args[0];
-    NSMenu *menu = [[NSMenu alloc] init];
+    NSMenu *menu = [[NSApplication sharedApplication] mainMenu];
     menu.autoenablesItems = NO;
-	for (NSDictionary *item in options[@"items"]) {
+    for (NSDictionary *item in options[@"items"]) {
         if ([item[@"type"] isEqualToString:@"separator"]) {
             [menu addItem:[NSMenuItem separatorItem]];
         }
         else {
             NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:item[@"label"] action:@selector(menuItemClicked:) keyEquivalent:@""];
             menuItem.target = self;
-            menuItem.representedObject = ^{
-            };
+            menuItem.representedObject = item[@"message"];
             [menuItem setEnabled:YES];
             [menu addItem:menuItem];
         }
-	}
+    }
+}
 
+- (void)showMenu:(NSArray *)args
+{
+    NSDictionary *options = args[0];
+    NSMenu *menu = [[NSMenu alloc] init];
+    menu.autoenablesItems = NO;
+    for (NSDictionary *item in options[@"items"]) {
+        if ([item[@"type"] isEqualToString:@"separator"]) {
+            [menu addItem:[NSMenuItem separatorItem]];
+        }
+        else {
+            NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:item[@"label"] action:@selector(menuItemClicked:) keyEquivalent:@""];
+            menuItem.target = self;
+            menuItem.representedObject = item[@"message"];
+            [menuItem setEnabled:YES];
+            [menu addItem:menuItem];
+        }
+    }
+    
     CGFloat x = [options[@"x"] doubleValue];
     CGFloat yFlipped = self.webView.frame.size.height - [options[@"y"] doubleValue];
     [menu popUpMenuPositioningItem:nil atLocation:NSMakePoint(x, yFlipped) inView:self.webView];
@@ -667,8 +685,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)menuItemClicked:(NSMenuItem *)sender
 {
-    void(^clickHandler)(void) = sender.representedObject;
-    clickHandler();
+    NSArray *args = [NSArray arrayWithObject:sender.representedObject];
+    [self emitMessage:args];
 }
 
 #pragma mark - Delegate methods
