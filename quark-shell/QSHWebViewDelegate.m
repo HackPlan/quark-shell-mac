@@ -15,6 +15,7 @@
 #import <StartAtLoginController.h>
 #import "WKWebViewJavascriptBridge.h"
 #import <GCDWebServer/GCDWebServer.h>
+#import <AVFoundation/AVFoundation.h>
 
 static const NSInteger kPreferencesDefaultHeight = 192;
 
@@ -22,6 +23,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     NSString *appVersion;
     NSString *appBundleVersion;
     NSString *platform;
+    AVAudioPlayer *_audioPlayer;
 
     BOOL debug;
 }
@@ -145,6 +147,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(resizePopup:) ||
         selector == @selector(quit) ||
         selector == @selector(openURL:) ||
+        selector == @selector(playSound:) ||
+        selector == @selector(stopSound) ||
         selector == @selector(changeIcon:) ||
         selector == @selector(changeHighlightedIcon:) ||
         selector == @selector(changeClickAction:) ||
@@ -555,6 +559,25 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [window close];
 }
 
+- (void)playSound:(NSArray *)args
+{
+    NSDictionary *options = args[0];
+    NSString *urlString = options[@"path"];
+    NSInteger loop = [options[@"loop"] integerValue];
+    
+    NSURL *soundUrl = [NSURL URLWithString:urlString relativeToURL:[QSHWebViewDelegate getRootURL]];
+
+    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
+    [_audioPlayer setNumberOfLoops:loop];
+    [_audioPlayer prepareToPlay];
+    [_audioPlayer play];
+}
+
+- (void)stopSound
+{
+    [_audioPlayer stop];
+}
+
 - (void)setPin:(NSArray *)args
 {
     bool pinned = [args[0] boolValue];
@@ -583,7 +606,9 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         [bridges addObject:window.webView.bridge];
     }
     for (QSHPreferencesViewController *pvc in self.prefWindows) {
-        [bridges addObject:pvc.webView.bridge];
+        if (pvc.webView.bridge != nil) {
+            [bridges addObject:pvc.webView.bridge];
+        }
     }
     [bridges addObject:self.mainBridge];
     
