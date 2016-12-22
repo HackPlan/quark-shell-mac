@@ -295,6 +295,14 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [self.appDelegate showDockIcon:showDockIcon];
 }
 
+- (void)getShowDockIcon:(NSArray *)args
+{
+    WVJBResponseCallback responseCallback = args[1];
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    NSString *value = [userPreferences stringForKey:@"showDockIcon"];
+    responseCallback(value);
+}
+
 - (void)getPref:(NSArray *)args
 {
     NSString *key = args[0];
@@ -329,6 +337,14 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     
     StartAtLoginController *loginController = [[StartAtLoginController alloc] initWithIdentifier:@"com.hackplan.quark-shell-helper"];
     loginController.startAtLogin = launchAtLogin;
+}
+
+- (void)getLaunchAtLogin:(NSArray *)args
+{
+    WVJBResponseCallback responseCallback = args[0];
+    StartAtLoginController *loginController = [[StartAtLoginController alloc] initWithIdentifier:@"com.hackplan.quark-shell-helper"];
+    NSString *value = @([loginController startAtLogin]).stringValue;
+    responseCallback(value);
 }
 
 - (void)notify:(NSArray *)args
@@ -578,11 +594,19 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [_audioPlayer stop];
 }
 
-- (void)setPin:(NSArray *)args
+- (void)setPinPopup:(NSArray *)args
 {
     bool pinned = [args[0] boolValue];
     [[NSUserDefaults standardUserDefaults] setBool:pinned forKey:@"pinned"];
     self.appDelegate.pinned = pinned;
+}
+
+- (void)getPinPopup:(NSArray *)args
+{
+    WVJBResponseCallback responseCallback = args[0];
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    NSString *value = [userPreferences stringForKey:@"pinned"];
+    responseCallback(value);
 }
 
 - (void)checkUpdate:(NSString *)url
