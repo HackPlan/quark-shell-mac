@@ -543,7 +543,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     }
 
     if ([options[@"alwaysOnTop"] boolValue]) {
-        webViewWindowController.window.level = NSScreenSaverWindowLevel;
+        webViewWindowController.window.level = NSModalPanelWindowLevel;
     }
 
     if (options[@"alpha"]) {
