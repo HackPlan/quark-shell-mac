@@ -16,6 +16,7 @@
 #import "WKWebViewJavascriptBridge.h"
 #import <GCDWebServer/GCDWebServer.h>
 #import <AVFoundation/AVFoundation.h>
+#import "QSH_GCDTimer.h"
 
 static const NSInteger kPreferencesDefaultHeight = 192;
 
@@ -24,6 +25,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     NSString *appBundleVersion;
     NSString *platform;
     AVAudioPlayer *_audioPlayer;
+    NSMutableDictionary *_intervalTimers;
+    long _intervalTimersUniqueId;
 
     BOOL debug;
 }
@@ -175,6 +178,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(checkUpdateInBackground:) ||
         selector == @selector(emitMessage:) ||
         selector == @selector(setMainMenu:) ||
+        selector == @selector(setInterval:) ||
+        selector == @selector(clearInterval:) ||
         selector == @selector(showMenu:)) {
         return NO;
     }
@@ -688,6 +693,35 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 {
     NSArray *args = [NSArray arrayWithObject:sender.representedObject];
     [self emitMessage:args];
+}
+
+- (void)setInterval:(NSArray *)args
+{
+    NSNumber *callbackId = args[0];
+    NSNumber *interval = args[1];
+    bool isRepeat = args.count > 2 ? [args[2] boolValue] : true;
+    
+    [self clearInterval:@[callbackId]];
+    _intervalTimers[callbackId] = [QSH_GCDTimer
+                                   timerWithTimeInterval:interval
+                                   inQueue:dispatch_get_main_queue()
+                                   repeats:isRepeat
+                                   block:^(QSH_GCDTimer *timer) {
+                                       [self.webView.bridge
+                                        callHandler:@"intervalCallback"
+                                        data:@{@"callbackId": callbackId}
+                                        ];
+                                   }];
+}
+
+- (void)clearInterval:(NSArray *)args
+{
+    NSNumber *timerId = args[0];
+    QSH_GCDTimer *timer = _intervalTimers[timerId];
+    if (timer != nil) {
+        [_intervalTimers removeObjectForKey:timerId];
+        [timer invalidate];
+    }
 }
 
 #pragma mark - Delegate methods

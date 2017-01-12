@@ -59,7 +59,29 @@ function setupQuarkWithBridge(bridge) {
   quark.setPref = function (key, value, callback) {
     bridge.callHandler('quark', {'method': 'setPref', 'args': [key, value]}, callback);
   }
-  
+
+  ;(function() {
+    var intervalCallbacks = {}
+    var intervalTimerUniqueId = 1
+    bridge.registerHandler('intervalCallback', function(data) {
+      var fn = intervalCallbacks[data.callbackId]
+      typeof fn === 'function' ? fn() : quark.clearInterval(data.callbackId)
+    })
+    quark.setInterval = function(fn, interval, _oneTime) {
+      var currId = intervalTimerUniqueId
+      intervalTimerUniqueId += 1
+      bridge.callHandler('quark', {'method': 'setInterval', 'args': [currId, interval, _oneTime ? false : true]})
+      intervalCallbacks[currId] = fn
+      return currId
+    }
+    quark.setTimeout = function(fn, interval) {
+      return quark.setInterval(fn, interval, true)
+    }
+    quark.clearTimeout = quark.clearInterval = function(timerId) {
+      bridge.callHandler('quark', {'method': 'clearInterval', 'args': [timerId]})
+      delete intervalCallbacks[timerId]
+    }
+  })();
 }
 
 setupWebViewJavascriptBridge(function(bridge) {
@@ -77,18 +99,18 @@ setupWebViewJavascriptBridge(function(bridge) {
       fn(data);
     })
   });
-                             
+
   // windowClose
   quark.closeSubscribers = [];
   quark.onWindowClose = function(fn) {
-  quark.closeSubscribers.push(fn)
+    quark.closeSubscribers.push(fn)
   };
   bridge.registerHandler('onQuarkWindowClose', function(data) {
-                        quark.closeSubscribers.forEach(function(fn){
-                                                     fn(data);
-                                                     })
-                        });
-  
+    quark.closeSubscribers.forEach(function(fn) {
+      fn(data);
+    })
+  });
+
   // Shortcut
   quark.shortcutSubscribers = [];
   quark.onShortcut = function(id, fn) {
