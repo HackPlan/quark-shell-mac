@@ -174,6 +174,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         selector == @selector(checkUpdate:) ||
         selector == @selector(checkUpdateInBackground:) ||
         selector == @selector(emitMessage:) ||
+        selector == @selector(setMainMenu:) ||
         selector == @selector(showMenu:)) {
         return NO;
     }

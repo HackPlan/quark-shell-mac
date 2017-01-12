@@ -37,11 +37,11 @@ function setupQuarkWithBridge(bridge) {
   ], false);
 
   setMethods([
-    'setupPreferences', 'notify', 'setPin', 'setLaunchAtLogin',
+    'setupPreferences', 'notify', 'setPinPopup', 'setLaunchAtLogin',
     'newWindow', 'changeIcon', 'changeHighlightedIcon', 'showMenu',
     'openURL', 'changeLabel', 'addKeyboardShortcut', 'closeWindow', 'closeWindowById',
     'checkUpdate', 'checkUpdateInBackground', 'setShowDockIcon',
-    'resizePopup'
+    'resizePopup', 'setMainMenu'
   ], true);
 
   quark.closeWindow = function (options) {
