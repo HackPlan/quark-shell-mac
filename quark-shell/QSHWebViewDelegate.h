@@ -24,7 +24,6 @@
 @property (nonatomic, weak) QSHWebView *webView;
 @property (nonatomic, weak) WKWebViewJavascriptBridge *mainBridge;
 
-+ (BOOL)isSelectorExcludedFromWebScript:(SEL)selector;
 + (NSURL *)getRootURL;
 + (NSURL *)getIndexURL;
 + (NSURL *)getFolderURL;

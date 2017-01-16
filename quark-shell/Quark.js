@@ -45,7 +45,7 @@ function setupQuarkWithBridge(bridge) {
   ], true);
 
   quark.closeWindow = function (options) {
-    bridge.callHandler('quark', {'method': 'closeWindow', 'args': [0]})
+    bridge.callHandler('quark', {'method': 'closeWindow', 'args': []})
   }
 
   quark.emit = function (options) {

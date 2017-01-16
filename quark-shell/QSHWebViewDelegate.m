@@ -17,6 +17,7 @@
 #import <GCDWebServer/GCDWebServer.h>
 #import <AVFoundation/AVFoundation.h>
 #import "QSH_GCDTimer.h"
+#import "NSArray+isIncludeString.h"
 
 static const NSInteger kPreferencesDefaultHeight = 192;
 
@@ -110,24 +111,19 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [_WKBridge registerHandler:@"quark" handler:^(id data, WVJBResponseCallback responseCallback) {
         if ([data isKindOfClass:[NSDictionary class]]) {
             NSLog(@"Trigger method: %@ from JS", data[@"method"]);
+            NSString *method = data[@"method"];
+            if (![QSHWebViewDelegate isMethodExcludedFromWebScript:method]) return;
+            
             NSArray *args = data[@"args"];
-            SEL method = NSSelectorFromString(data[@"method"]);
-            if ([args count] > 0) {
-                method = NSSelectorFromString([data[@"method"] stringByAppendingString:@":"]);
+            if (args == nil) args = @[];
+            if ([QSHWebViewDelegate isMethodReceiveParentWindow:method]){
+                args = [args arrayByAddingObject:webview.parentWindow];
+            } else if ([QSHWebViewDelegate isMethodResponseToJS:method]) {
+                args = [args arrayByAddingObject:responseCallback];
             }
-            if (![QSHWebViewDelegate isSelectorExcludedFromWebScript: method]) {
-                if (method == NSSelectorFromString(@"closeWindow:") ){
-                    [webDelegate performSelector:method withObject: webview.parentWindow];
-                } else if (method == NSSelectorFromString(@"getPref:") ){
-                    NSArray *argsWithCallback = [args arrayByAddingObject:responseCallback];
-                    [webDelegate performSelector:method withObject: argsWithCallback];
-                } else if (method == NSSelectorFromString(@"setPref:") ){
-                    NSArray *argsWithCallback = [args arrayByAddingObject:responseCallback];
-                    [webDelegate performSelector:method withObject: argsWithCallback];
-                } else {
-                    [webDelegate performSelector:method withObject: args];
-                }
-            }
+            
+            SEL methodSEL = NSSelectorFromString([data[@"method"] stringByAppendingString:@":"]);
+            [webDelegate performSelector:methodSEL withObject:args];
         }
     }];
     
@@ -142,49 +138,69 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 #pragma mark WebScripting Protocol
 
-+ (BOOL)isSelectorExcludedFromWebScript:(SEL)selector
++ (BOOL)isMethodReceiveParentWindow:(NSString *)method
 {
-    if (selector == @selector(openPopup) ||
-        selector == @selector(closePopup) ||
-        selector == @selector(togglePopup) ||
-        selector == @selector(resizePopup:) ||
-        selector == @selector(quit) ||
-        selector == @selector(openURL:) ||
-        selector == @selector(playSound:) ||
-        selector == @selector(stopSound) ||
-        selector == @selector(changeIcon:) ||
-        selector == @selector(changeHighlightedIcon:) ||
-        selector == @selector(changeClickAction:) ||
-        selector == @selector(changeSecondaryClickAction:) ||
-        selector == @selector(changeLabel:) ||
-        selector == @selector(resetMenubarIcon) ||
-        selector == @selector(setLaunchAtLogin:) ||
-        selector == @selector(setShowDockIcon:) ||
-        selector == @selector(notify:) ||
-        selector == @selector(removeAllScheduledNotifications) ||
-        selector == @selector(removeAllDeliveredNotifications) ||
-        selector == @selector(addKeyboardShortcut:) ||
-        selector == @selector(clearKeyboardShortcut) ||
-        selector == @selector(setupPreferences:) ||
-        selector == @selector(openPreferences) ||
-        selector == @selector(closePreferences) ||
-        selector == @selector(newWindow:) ||
-        selector == @selector(closeWindow:) ||
-        selector == @selector(closeWindowById:) ||
-        selector == @selector(setPin:) ||
-        selector == @selector(getPref:) ||
-        selector == @selector(setPref:) ||
-        selector == @selector(checkUpdate:) ||
-        selector == @selector(checkUpdateInBackground:) ||
-        selector == @selector(emitMessage:) ||
-        selector == @selector(setMainMenu:) ||
-        selector == @selector(setInterval:) ||
-        selector == @selector(clearInterval:) ||
-        selector == @selector(showMenu:)) {
-        return NO;
-    }
+    return [@[
+              @"closeWindow"
+    ] isIncludeString:method];
+}
 
-    return YES;
++ (BOOL)isMethodResponseToJS:(NSString *)method
+{
+    return [@[
+              @"getPref",
+              @"getPinPopup",
+              @"getShowDockIcon",
+              @"getLaunchAtLogin",
+              @"setPref"
+    ] isIncludeString:method];
+}
+
++ (BOOL)isMethodExcludedFromWebScript:(NSString *)method
+{
+    return [@[
+              @"openPopup",
+              @"closePopup",
+              @"togglePopup",
+              @"resizePopup",
+              @"quit",
+              @"openURL",
+              @"playSound",
+              @"stopSound",
+              @"changeIcon",
+              @"changeHighlightedIcon",
+              @"changeClickAction",
+              @"changeSecondaryClickAction",
+              @"changeLabel",
+              @"resetMenubarIcon",
+              @"setLaunchAtLogin",
+              @"getLaunchAtLogin",
+              @"setShowDockIcon",
+              @"getShowDockIcon",
+              @"notify",
+              @"removeAllScheduledNotifications",
+              @"removeAllDeliveredNotifications",
+              @"addKeyboardShortcut",
+              @"clearKeyboardShortcut",
+              @"setupPreferences",
+              @"openPreferences",
+              @"closePreferences",
+              @"newWindow",
+              @"closeWindow",
+              @"closeWindowById",
+              @"getPinPopup",
+              @"setPinPopup",
+              @"getPref",
+              @"setPref",
+              @"checkUpdate",
+              @"checkUpdateInBackground",
+              @"emitMessage",
+              @"setMainMenu",
+              @"setInterval",
+              @"clearInterval",
+              @"setMainMenu",
+              @"showMenu",
+    ] isIncludeString:method];
 }
 
 + (BOOL)isKeyExcludedFromWebScript:(const char *)name
@@ -200,17 +216,17 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 #pragma mark - Methods for JavaScript
 
-- (void)openPopup
+- (void)openPopup:(NSArray *)args
 {
     [self.appDelegate showWindow];
 }
 
-- (void)closePopup
+- (void)closePopup:(NSArray *)args
 {
     [self.appDelegate hideWindow];
 }
 
-- (void)togglePopup
+- (void)togglePopup:(NSArray *)args
 {
     [self.appDelegate toggleWindow];
 }
@@ -226,7 +242,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     }
 }
 
-- (void)quit
+- (void)quit:(NSArray *)args
 {
     [NSApp terminate:nil];
 }
@@ -268,7 +284,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     };
 }
 
-- (void)resetMenubarIcon
+- (void)resetMenubarIcon:(NSArray *)args
 {
     if (IS_PRIOR_TO_10_9) {
         self.statusItemView.icon = [NSImage imageNamed:@"StatusIcon"];
@@ -303,7 +319,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)getShowDockIcon:(NSArray *)args
 {
-    WVJBResponseCallback responseCallback = args[1];
+    WVJBResponseCallback responseCallback = args[0];
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     NSString *value = [userPreferences stringForKey:@"showDockIcon"];
     responseCallback(value);
@@ -377,29 +393,16 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [notificationCenter scheduleNotification:notification];
 }
 
-- (void)removeAllScheduledNotifications
+- (void)removeAllScheduledNotifications:(NSArray *)args
 {
     NSUserNotificationCenter *notificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
     notificationCenter.scheduledNotifications = @[];
 }
 
-- (void)removeAllDeliveredNotifications
+- (void)removeAllDeliveredNotifications:(NSArray *)args
 {
     NSUserNotificationCenter *notificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
     [notificationCenter removeAllDeliveredNotifications];
-}
-
-- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification
-{
-    return YES;
-}
-
-- (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification
-{
-    if (notification.userInfo[@"popupOnClick"]) {
-        [self.appDelegate showWindow];
-    }
-    [[NSUserNotificationCenter defaultUserNotificationCenter] removeDeliveredNotification:notification];
 }
 
 - (void)addKeyboardShortcut:(NSArray *)args
@@ -422,7 +425,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [userPreferences synchronize];
 }
 
-- (void)clearKeyboardShortcut
+- (void)clearKeyboardShortcut:(NSArray *)args
 {
     [[MASShortcutMonitor sharedMonitor] unregisterAllShortcuts];
 }
@@ -455,12 +458,12 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [self.preferencesWindowController selectControllerAtIndex:0];
 }
 
-- (void)openPreferences
+- (void)openPreferences:(NSArray *)args
 {
     [self.preferencesWindowController showWindow:nil];
 }
 
-- (void)closePreferences
+- (void)closePreferences:(NSArray *)args
 {
     [self.preferencesWindowController close];
 }
@@ -576,8 +579,9 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     }
 }
 
-- (void)closeWindow:(NSWindowController *)window
+- (void)closeWindow:(NSArray *)args
 {
+    NSWindowController *window = args[0];
     [window close];
 }
 
@@ -595,7 +599,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [_audioPlayer play];
 }
 
-- (void)stopSound
+- (void)stopSound:(NSArray *)args
 {
     [_audioPlayer stop];
 }
@@ -615,15 +619,17 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     responseCallback(value);
 }
 
-- (void)checkUpdate:(NSString *)url
+- (void)checkUpdate:(NSArray *)args
 {
+    NSString *url = args[0];
     SUUpdater *updater = [[SUUpdater alloc] init];
     updater.feedURL = [NSURL URLWithString:url];
     [updater checkForUpdates:nil];
 }
 
-- (void)checkUpdateInBackground:(NSString *)url
+- (void)checkUpdateInBackground:(NSArray *)args
 {
+    NSString *url = args[0];
     SUUpdater *updater = [[SUUpdater alloc] init];
     updater.feedURL = [NSURL URLWithString:url];
     [updater checkForUpdatesInBackground];
@@ -689,12 +695,6 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     [menu popUpMenuPositioningItem:nil atLocation:NSMakePoint(x, yFlipped) inView:self.webView];
 }
 
-- (void)menuItemClicked:(NSMenuItem *)sender
-{
-    NSArray *args = [NSArray arrayWithObject:sender.representedObject];
-    [self emitMessage:args];
-}
-
 - (void)setInterval:(NSArray *)args
 {
     NSNumber *callbackId = args[0];
@@ -722,6 +722,14 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         [_intervalTimers removeObjectForKey:timerId];
         [timer invalidate];
     }
+}
+
+#pragma mark - Private methods
+
+- (void)menuItemClicked:(NSMenuItem *)sender
+{
+    NSArray *args = [NSArray arrayWithObject:sender.representedObject];
+    [self emitMessage:args];
 }
 
 #pragma mark - Delegate methods
@@ -840,6 +848,21 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         return defaultMenuItems;
     }
     return nil;
+}
+
+#pragma mark - NSUserNotificationCenterDelegate
+
+- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification
+{
+    return YES;
+}
+
+- (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification
+{
+    if (notification.userInfo[@"popupOnClick"]) {
+        [self.appDelegate showWindow];
+    }
+    [[NSUserNotificationCenter defaultUserNotificationCenter] removeDeliveredNotification:notification];
 }
 
 @end
