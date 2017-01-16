@@ -114,8 +114,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
             NSString *method = data[@"method"];
             if (![QSHWebViewDelegate isMethodExcludedFromWebScript:method]) return;
             
-            NSArray *args = data[@"args"];
-            if (args == nil) args = @[];
+            NSArray *args = @[];
             if ([QSHWebViewDelegate isMethodReceiveParentWindow:method]){
                 args = [args arrayByAddingObject:webview.parentWindow];
             } else if ([QSHWebViewDelegate isMethodResponseToJS:method]) {
@@ -123,7 +122,7 @@ static const NSInteger kPreferencesDefaultHeight = 192;
             }
             
             SEL methodSEL = NSSelectorFromString([data[@"method"] stringByAppendingString:@":"]);
-            [webDelegate performSelector:methodSEL withObject:args];
+            [webDelegate performSelector:methodSEL withObject:[args arrayByAddingObjectsFromArray:data[@"args"]]];
         }
     }];
     
@@ -327,8 +326,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)getPref:(NSArray *)args
 {
-    NSString *key = args[0];
-    WVJBResponseCallback responseCallback = args[1];
+    WVJBResponseCallback responseCallback = args[0];
+    NSString *key = args[1];
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     NSString *value = [userPreferences stringForKey:key];
     responseCallback(value);
@@ -336,12 +335,13 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)setPref:(NSArray *)args
 {
-    NSString *key = args[0];
-    NSString *value = args[1];
+    WVJBResponseCallback responseCallback = args[0];
+    NSString *key = args[1];
+    NSString *value = args[2];
     if (!([value length] > 0)) {
         value = @"";
     }
-    WVJBResponseCallback responseCallback = args[2];
+    
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     [userPreferences setObject:value forKey:key];
     [userPreferences synchronize];
