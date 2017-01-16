@@ -20,6 +20,8 @@
 @property (nonatomic, strong) WKWebViewJavascriptBridge *bridge;
 @property (nonatomic) QSHWebViewWindowController *parentWindow;
 
-+ (WKWebViewConfiguration *)webViewConfiguration;
+- (void)setInterval:(NSNumber *)callbackId interval:(NSNumber *)interval isRepeat:(BOOL)isRepeat;
+- (void)clearInterval:(NSNumber *)callbackId;
+- (void)clearAllIntervalTimer;
 
 @end

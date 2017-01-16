@@ -16,7 +16,6 @@
 #import "WKWebViewJavascriptBridge.h"
 #import <GCDWebServer/GCDWebServer.h>
 #import <AVFoundation/AVFoundation.h>
-#import "QSH_GCDTimer.h"
 #import "NSArray+isIncludeString.h"
 
 static const NSInteger kPreferencesDefaultHeight = 192;
@@ -26,8 +25,6 @@ static const NSInteger kPreferencesDefaultHeight = 192;
     NSString *appBundleVersion;
     NSString *platform;
     AVAudioPlayer *_audioPlayer;
-    NSMutableDictionary *_intervalTimers;
-    long _intervalTimersUniqueId;
 
     BOOL debug;
 }
@@ -115,8 +112,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
             if (![QSHWebViewDelegate isMethodExcludedFromWebScript:method]) return;
             
             NSArray *args = @[];
-            if ([QSHWebViewDelegate isMethodReceiveParentWindow:method]){
-                args = [args arrayByAddingObject:webview.parentWindow];
+            if ([QSHWebViewDelegate isMethodReceiveWebView:method]){
+                args = [args arrayByAddingObject:webview];
             } else if ([QSHWebViewDelegate isMethodResponseToJS:method]) {
                 args = [args arrayByAddingObject:responseCallback];
             }
@@ -137,10 +134,12 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 #pragma mark WebScripting Protocol
 
-+ (BOOL)isMethodReceiveParentWindow:(NSString *)method
++ (BOOL)isMethodReceiveWebView:(NSString *)method
 {
     return [@[
-              @"closeWindow"
+              @"closeWindow",
+              @"setInterval",
+              @"clearInterval"
     ] isIncludeString:method];
 }
 
@@ -581,8 +580,8 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)closeWindow:(NSArray *)args
 {
-    NSWindowController *window = args[0];
-    [window close];
+    QSHWebView *webview = args[0];
+    [webview.parentWindow close];
 }
 
 - (void)playSound:(NSArray *)args
@@ -697,31 +696,18 @@ static const NSInteger kPreferencesDefaultHeight = 192;
 
 - (void)setInterval:(NSArray *)args
 {
-    NSNumber *callbackId = args[0];
-    NSNumber *interval = args[1];
+    QSHWebView *webview = args[0];
+    NSNumber *timerId = args[1];
+    NSNumber *interval = args[2];
     bool isRepeat = args.count > 2 ? [args[2] boolValue] : true;
-    
-    [self clearInterval:@[callbackId]];
-    _intervalTimers[callbackId] = [QSH_GCDTimer
-                                   timerWithTimeInterval:interval
-                                   inQueue:dispatch_get_main_queue()
-                                   repeats:isRepeat
-                                   block:^(QSH_GCDTimer *timer) {
-                                       [self.webView.bridge
-                                        callHandler:@"intervalCallback"
-                                        data:@{@"callbackId": callbackId}
-                                        ];
-                                   }];
+    [webview setInterval:timerId interval:interval isRepeat:isRepeat];
 }
 
 - (void)clearInterval:(NSArray *)args
 {
-    NSNumber *timerId = args[0];
-    QSH_GCDTimer *timer = _intervalTimers[timerId];
-    if (timer != nil) {
-        [_intervalTimers removeObjectForKey:timerId];
-        [timer invalidate];
-    }
+    QSHWebView *webview = args[0];
+    NSNumber *timerId = args[1];
+    [webview clearInterval:timerId];
 }
 
 #pragma mark - Private methods
@@ -863,6 +849,14 @@ static const NSInteger kPreferencesDefaultHeight = 192;
         [self.appDelegate showWindow];
     }
     [[NSUserNotificationCenter defaultUserNotificationCenter] removeDeliveredNotification:notification];
+}
+
+#pragma mark - WKNavigationDelegate
+
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation
+{
+    QSHWebView *qshWebView = (QSHWebView *)webView;
+    [qshWebView clearAllIntervalTimer];
 }
 
 @end
